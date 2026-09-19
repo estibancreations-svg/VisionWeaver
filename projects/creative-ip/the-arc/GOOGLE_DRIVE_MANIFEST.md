@@ -22,10 +22,19 @@ https://drive.google.com/drive/folders/1XAYVK8XNhFG8V-5YTbhbiLgDRqyAwp_7
 - Artwork / Reference Images: https://drive.google.com/drive/folders/11aJD9Ln6kwA93IJse00XjakIInqeKFWI
 - Archive / Duplicates: https://drive.google.com/drive/folders/1fQAniEa4x58BKCm2J0xCdzk2bXjVjEP0
 
+## Current governance
+
+- Canonical project/index repository: `estibancreations-svg/The-Arc`.
+- Full creative masters/binaries: Drive.
+- Enterprise backup/provenance: `estibancreations-svg/Master-System-Buildout`.
+- VisionWeaver: production consumer/integration layer.
+- Integration specification: [REALITY-BUILD-INTEGRATION-HANDOFF.md](REALITY-BUILD-INTEGRATION-HANDOFF.md).
+
 ## Organization rules
 - ARC-01 holds the canonical production-base prompt and ARC-01-specific zone map/hierarchy/registry.
 - The other four class folders hold their respective 125-page master prompt bibles.
 - Cross-class registries, entity catalog, Digital Twin stage files, calculation framework and linkage data live under `06_Digital_Twin`.
 - Commercial materials are separated from canon/worldbuilding materials so pitch changes do not silently redefine the vessel/world.
-- Generic image files are not moved into the property until visually verified; unrelated September image uploads were inspected and deliberately excluded.
-- Exact duplicate commercial-package text was isolated under Archive.
+- Generic image files are not moved into the property until visually verified.
+- Exact duplicate commercial-package text is isolated under Archive.
+- Stage-2 Arc integration must consume entity/zone/state IDs and reality-build fields rather than relying on freeform prompt memory.
