@@ -1,6 +1,6 @@
 # Episode 1 — "The News" (Marcus's Perspective) — Characters
 
-Source: Book 1, Chapter 1, plus `Character_Histories_Crossroads_of_Identity.md` for canon backstory. Status legend: **LOCKED** = name + look confirmed by Sire, safe to use in production. **NEW BOARD** = generated this session, pending Sire's review. **UNASSIGNED** = art exists but no character confirmed yet. **WORKING LABEL** = confirmed to a role, but no in-story proper name yet.
+Source: Book 1, Chapter 1, plus `Character_Histories_Crossroads_of_Identity.md` for canon backstory. Status legend: **LOCKED** = name + look confirmed by Sire, safe to use in production. **NEW BOARD** = generated this session, pending Sire's review. **UNASSIGNED** = art exists but no character confirmed yet. **WORKING LABEL** = confirmed to a role, but no in-story proper name yet. **INVENTED** = no physical description exists anywhere in the source material; the design is original casting with nothing to verify it against.
 
 ## LOCKED — repurposed from an existing character-board set (physical features unchanged, only renamed)
 
@@ -30,7 +30,7 @@ Source: Book 1, Chapter 1, plus `Character_Histories_Crossroads_of_Identity.md` 
 - **Canon note:** the Character Histories doc describes Jordan as nonbinary (they/them), with a deliberately gender-nonconforming, "geisha-inspired" living-art aesthetic blending Chinese opera and drag. The supplied photo reads as more conventionally polished/feminine than that description. Locked under Jordan's name as instructed with no changes — flagging the gap for Sire to weigh in on.
 - Runway task ID: 8356f95c-76c6-4ed2-90b4-880bee6c3150 (nano-banana-pro, 16:9, 2K).
 
-### Elijah Johnson (created from scratch, no reference supplied)
+### Elijah Johnson (created from scratch, no photo supplied)
 - Built entirely from `Character_Histories_Crossroads_of_Identity.md`: born 1945 in Tampa, Black, Vietnam veteran (1967–1969), founded the Ybor City safe house/bookstore in 1972, died 2023 at age 77–78. Appears only in flashback/memory in Episode 1.
 - Design: elderly Black man, late 70s, silver-grey natural hair, trimmed grey beard, reading glasses on a neck chain, small wooden pendant, sage-green button-up shirt, dignified and warm.
 - Runway task ID: 3a35d926-8225-43a9-94ce-94ef575038a1 (nano-banana-pro, 16:9, 2K).
@@ -45,8 +45,33 @@ Source: Book 1, Chapter 1, plus `Character_Histories_Crossroads_of_Identity.md` 
 - Not yet tied to a specific named character in the series bible — Desiree Washington already carries "The Ancestral Artist" epithet in the Character Histories doc, so this is presumed to be a separate, still-unnamed character. Flagged for Sire to confirm who this is in-story.
 - Runway task ID: fea6812e-45d2-4a25-b33c-d68d7966c01b (nano-banana-pro, 16:9, 2K).
 
-## Still needed (minor/background, not yet built)
-Jayden King, Jayden King's manager, Mr. Alvarez, Marcus's mother and father — none named in the chapter text. Also outstanding from the wider cast: **Amara Okafor**, the fifth protagonist per the Character Histories doc, not yet cast or mentioned by Sire.
+### Jayden King — INVENTED (no source description)
+- The chapter names him and gives one adjective ("young") plus a mannerism ("skeptical expression"). No hair, build, skin tone, or clothing is described anywhere in the text.
+- Design invented for production: Black man, early 20s, rising rapper, low taper fade with sharp line-up, faint chin strap beard, guarded/skeptical expression, black bomber jacket over white tee, gold Cuban-link chain, diamond-face watch.
+- Runway task ID: 702a017c-087d-421d-96bf-d983a1bd4782 (nano-banana-pro, 16:9, 2K).
+
+### Jayden's Manager — INVENTED (no source description, no name given)
+- The chapter never names him and gives only a mannerism ("furrowed brows," "looking at him expectantly"). No physical description at all.
+- Design invented for production: Black man, late 30s, short groomed hair, light beard, wire-frame glasses, navy blazer over open-collar grey shirt.
+- Runway task ID: 7d7fd9ee-2818-416f-a7fb-6976b9ffc73b (nano-banana-pro, 16:9, 2K).
+
+### Mr. Alvarez — INVENTED (no source description)
+- The chapter refers to him once as "the music producer seated beside him" — no other detail anywhere in the text.
+- Design invented for production: Latino man, mid-40s, short black hair with grey at the temples, trimmed full beard, charcoal blazer over black crewneck, thin gold chain, studio earbuds around neck. (Ethnicity inferred from the surname only — not stated in the text; flag if this reads wrong.)
+- Runway task ID: 6453033b-b665-4d6c-9472-82d73d9a529c (nano-banana-pro, 16:9, 2K).
+
+### Marcus's Mother — INVENTED (no source description, no name given)
+- The chapter identifies her only by occupation ("Christian school teacher") and a text message signature. No physical description.
+- Design invented for production, consistent with Marcus's established Black heritage: Black woman, early 60s, silver-streaked hair in a neat bob, wire-rimmed glasses, cream cardigan over a floral blouse, pearl necklace and earrings — warm but composed and slightly stern, matching her canon role of having given Marcus an ultimatum at 15.
+- Runway task ID: a93dd76c-3d7b-4bc0-9c4f-42a123e6847e (nano-banana-pro, 16:9, 2K).
+
+### Marcus's Father — INVENTED (no source description, no name given)
+- The chapter identifies him only by role ("deacon father") plus one archival detail: a photo of him in matching T-shirts with a 10-year-old Marcus at a father-son church retreat. No current physical description.
+- Design invented for production, consistent with Marcus's established Black heritage: Black man, mid-60s, closely cropped greying hair, trimmed grey mustache, stern/composed expression, charcoal three-piece suit with a deacon's lapel pin, maroon tie.
+- Runway task ID: c3440f98-0715-44ff-ab0a-4bd2d6f29881 (nano-banana-pro, 16:9, 2K).
+
+## Still needed
+**Amara Okafor** — the fifth protagonist per the Character Histories doc — not yet cast, referenced, or requested by Sire for this episode. No action taken pending confirmation she belongs in this book/episode.
 
 ## Image storage note
-As with the Episode 1 location, the same network restriction that blocked downloading the conference room PNG applies here — these images live in Runway's asset library under the task IDs above, not yet copied into this repo or Drive as binary files. The recipe (prompts, sources, reasoning) is committed; the pixels are not, until the storage bot is built.
+The same network restriction that blocked downloading the conference room PNG applies to every board above — direct binary download into this sandbox (and upload of reference photos into Runway) is blocked by an organization-level egress policy. The recipe (prompts, sources, reasoning) is committed here as text; the pixels live in Runway's asset library under the task IDs above. Sire is being given the direct Runway asset links in-conversation so the images can be viewed/saved from his own device, which sits outside this sandbox's network restriction. Those links carry a signed, time-limited token (expires roughly 1–3 days from generation) — they are not a permanent storage solution. The pixels are not yet copied into this repo or Drive as binary files, pending the storage-automation bot Sire wants to build later.
