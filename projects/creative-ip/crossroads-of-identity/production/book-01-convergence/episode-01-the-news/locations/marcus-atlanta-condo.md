@@ -1,6 +1,6 @@
 # Location — Marcus's Atlanta Condo
 
-Marcus's home, a downtown/Buckhead-Midtown-tier luxury high-rise condominium, consistent with his relocation to Atlanta and his standing as a successful entertainment lawyer in his early 30s.
+Marcus's home, a downtown/Buckhead-Midtown-tier luxury high-rise condominium, consistent with his relocation to Atlanta and his standing as a successful entertainment lawyer in his early 30s. Three rooms built: living room, bedroom, kitchen — covers every beat of the script's PART 4 ("The Box").
 
 ## Research process
 Researched real Atlanta luxury high-rise towers and their documented interior finishes, at the tier a successful young entertainment lawyer would plausibly own:
@@ -13,11 +13,17 @@ Researched real Atlanta luxury high-rise towers and their documented interior fi
 **No real building, unit, or specific interior is depicted or copied — this is original art inspired by the documented material/design language above.**
 
 ## Design synthesis used for the art
-Floor-to-ceiling glass wall with an Atlanta Buckhead/Midtown skyline view at dusk, dark rosewood-toned millwork, wide-plank hardwood flooring, charcoal-and-camel leather sectional, travertine coffee table, a Venetian-plaster accent wall, high ceilings with a sculptural chandelier, quartzite fireplace surround. Masculine, moneyed, materials-driven rather than trend-driven — not ostentatious.
+Consistent across all three rooms: dark rosewood-toned millwork, wide-plank hardwood flooring, quiet moneyed material palette. Masculine, materials-driven rather than trend-driven — not ostentatious.
+- **Living room:** floor-to-ceiling glass wall with an Atlanta Buckhead/Midtown skyline view at dusk, charcoal-and-camel leather sectional, travertine coffee table, a Venetian-plaster accent wall, high ceilings with a sculptural chandelier, quartzite fireplace surround.
+- **Bedroom:** platform bed with dark upholstered headboard, floor-to-ceiling skyline windows, a walk-in closet with a valet rod of tailored suits and a high shelf — the exact spot where the shoebox lives in PART 4.
+- **Kitchen:** dark matte-charcoal cabinetry with brushed-brass hardware, quartzite waterfall island, integrated stainless appliances — where the burnt-eggs beat plays out.
 
 ## Generation
-- Runway task ID: 28d75b77-ecae-40e2-bc90-5fea7f3a58a8 (nano-banana-pro, 16:9, 2K).
-- Same image-storage limitation as the rest of this project: the binary PNG lives in Runway's asset library under this task ID, not yet copied into this repo. Sire has the direct asset link to save from his own device.
+- Living room — Runway task ID: 28d75b77-ecae-40e2-bc90-5fea7f3a58a8
+- Bedroom — Runway task ID: 9e0173b8-98a0-45f4-b163-9ef4f9c09460
+- Kitchen — Runway task ID: f5da915e-8626-4fde-a10b-9a1d8de7cacf
+(all nano-banana-pro, 16:9, 2K)
+- Same image-storage limitation as the rest of this project: the binary PNGs live in Runway's asset library under these task IDs, not yet copied into this repo. Sire has the direct asset links to save from his own device.
 
 Sources:
 - [Residences at Mandarin Oriental Atlanta — Contemporary Living Room, Robert Brown Interior Design (Houzz)](https://www.houzz.com/photos/mandarin-oriental-residences-contemporary-living-room-atlanta-phvw-vp~45360136)
