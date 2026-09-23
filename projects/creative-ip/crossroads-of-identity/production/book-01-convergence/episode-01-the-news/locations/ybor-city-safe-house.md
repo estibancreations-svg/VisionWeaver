@@ -1,25 +1,40 @@
-# Location — Ybor City Safe House / Bookstore (Flashback)
+# Location — The Ybor City Safe House (Full House)
 
-Elijah Johnson's Ybor City (Tampa) bookstore/safe house, founded in 1972 per `Character_Histories_Crossroads_of_Identity.md`. Appears in Chapter 1 only in flashback/memory. This is the same house depicted (from a distance, under dramatic sky) on the Book 1 cover art.
+Elijah Johnson's Ybor City (Tampa) bookstore/safe house. Full canon reference (history, room-by-room detail, and locked lighting logic) lives in Drive as the Location Bible, alongside the Character Histories doc: [`Location Bible - Ybor City Safe House.md`](https://drive.google.com/file/d/1M63JlW5OxKk01zUJT1bAi0Sv24ILv5CK/view?usp=drivesdk) (Drive fileId `1M63JlW5OxKk01zUJT1bAi0Sv24ILv5CK`). This file is the production/sourcing record; the Drive doc is the canon reference.
 
-## Research process — and an important correction surfaced along the way
-Real Ybor City residential architecture was researched via the National Register of Historic Places nomination for the Ybor City Historic District. The finding: the neighborhood's actual historic housing stock is dominated by modest one-story wood-frame **shotgun houses** and **cigar-workers' cottages** — not grand Victorian mansions. Some folk-Victorian trim (jigsaw-cut wood ornament, stick-style porch posts) appears as accent on these smaller homes, and one identified NRHP structure is genuinely Queen Anne/Eastern Stick style, but a full turreted Victorian "painted lady" of the scale in the book cover is **not** representative of Ybor's real cigar-worker residential fabric.
+## The history correction (important — read before writing any scene set here)
+The house's founding legend, as first described, doesn't hold up against real history: Ybor City wasn't developed until 1885 (undeveloped scrubland/swamp before that), and Florida's actual "underground railroad" pattern ran *south* — toward Spanish Florida, Black Seminole/Maroon communities, and boat escapes to the Bahamas (the "Saltwater Railroad") — not the Ohio Valley hidden-room network the term usually evokes.
 
-**This was flagged to Sire directly.** His decision: keep the house as a full Queen Anne Victorian, matching the book's existing cover art, for visual continuity across the published series — historical neighborhood-accuracy was consciously set aside in favor of matching Sire's own established IP. That decision is recorded here for the record.
+**Locked resolution (Sire's decision):** the house itself was built in Ybor City's real boom era (**late 1890s–early 1900s**, Queen Anne style). Its deeper legacy is tied to the *real* regional history — the Black Seminole/Maroon communities of Tampa Bay (see: Angola, destroyed 1821) and the Saltwater Railroad — rather than the imported Ohio Valley trope, and the hidden room's exact origin and purpose is left **deliberately ambiguous** in-story (fact, family legend, or genuinely unknown — all three stay possible). It comes up again later in the book for reasons beyond this one piece of history. What's certain: the house has been a place of refuge, shelter, and community gathering across generations, continuous through to Elijah's 1972 bookstore/safe house and beyond — that continuity, not one verified origin date, is what makes its preservation matter.
 
-## Matching the cover art
-The book cover (`book_one_cover_updated.PNG`) was re-examined closely to pull precise architectural detail so this backdrop matches it rather than inventing a new house: a dominant polygonal central turret with a steep conical spire and finial, tall arched-top paired turret windows, multiple stepped front-facing gables with ornamental trusswork/bargeboard and finials, a brick chimney, a wraparound porch on slender turned columns with a spindle railing, pale cream/ivory clapboard siding on the lower walls with textured shingle siding on the gable ends, dark contrasting trim and roofing, 2.5–3 stories, well-maintained condition. The cover itself is under a heavy stormy gold color grade that obscures true color — this backdrop renders the same structure in clear, neutral daylight so it's usable as a working blocking/lighting reference plate rather than a moody poster image.
+## Locked orientation & lighting logic
+Front/grand entrance faces **due EAST**. Full breakdown (per room) is in the Drive Location Bible; summary: entrance hall/porch = soft morning light (East); meeting room/parlor = consistent bright daylight (South-facing); kitchen/back yard = warm golden evening light (West-facing); basement = minimal light, small high East windows only; hidden room = no exterior windows at all, lamp-lit only; staircase = rises along the west wall toward a south-facing stained-glass landing window.
 
-**No real building is depicted or copied — this is original art matching Sire's own previously-created cover art, informed by real Ybor City / Queen Anne architectural vocabulary.**
+## Research process
+- **Ybor City founding timeline**: confirmed via Wikipedia (History of Ybor City), Library of Congress Research Guides, and the Historical Marker Database — founded October 1885 by Vicente Martínez Ybor on land purchased from John T. Lesley, previously undeveloped scrubland/swamp.
+- **Real Florida escape/refuge history**: Florida Memory ("Florida's Underground Railroad: The Black Seminoles"), VISIT FLORIDA, BlackPast.org ("The Saltwater Railroad, 1821–1861"), and Wikipedia (Angola, Florida; Negro Fort) — establishing the real Black Seminole/Maroon settlement pattern and maritime escape routes as the historically grounded alternative to the original Ohio Valley-style premise.
+- **Real UGRR safe house architecture** (for the hidden room's design logic, not its claimed history): Indiana Landmarks (Levi Coffin House — disguised wall compartment, spring-fed basement well), Milton House Museum (cellar-to-cellar tunnel), Black Enterprise (2026 Merchant's House Museum discovery of a hidden passage behind bedrooms, undiscovered for years) — real documented concealment patterns (false walls/disguised doors, unremarkable access points, no exterior windows) used to design an original, non-copied hidden room.
+- **Queen Anne interior convention**: ArchitectureCourses.org and Architectural Observer — grand stair halls as architectural showpieces, box newels with round columns, stained-glass landing windows, open archways tying ground-floor rooms together.
 
-## Generation
-- Runway task ID: 2aa055ef-f86c-4aa3-9fd3-c759d86e8956 (nano-banana-pro, 16:9, 2K).
-- Same image-storage limitation as the rest of this project: the binary PNG lives in Runway's asset library under this task ID, not yet copied into this repo. Sire has the direct asset link to save from his own device.
+**No real building, family, or documented historic site is depicted, copied, or named — this is original art and original fiction, informed by real regional history and real architectural convention.**
 
-Sources:
-- [Ybor City Historic District — National Register of Historic Places Nomination Form (NPS/NHL)](https://npgallery.nps.gov/NRHP/GetAsset/NHLS/74000641_text)
-- [Ybor City Historic District — Wikipedia](https://en.wikipedia.org/wiki/Ybor_City_Historic_District) — used for orientation only, not as a citable source; flagged to Sire per his standing instruction that Wikipedia is direction, not proof.
-- [Ybor City Historic District — U.S. National Park Service](https://www.nps.gov/places/ybor-city-historic-district-tampa-fl.htm)
-- [Restored Ybor City Cigar Maker's House, South Facade — USF Digital Commons](https://digitalcommons.usf.edu/zylstra/2/)
-- [Barrio Latino Commission / Ybor Design Guidelines — City of Tampa](https://www.tampa.gov/historic-preservation/info/barrio-latino-commission/ybor-design-guidelines)
-- Book 1 cover art (`book_one_cover_updated.PNG`, Sire's own IP, Google Drive fileId `1O0DyUsyWZOqbclTM0fIkeJLALUC85vOJ`) — primary visual reference for matching the house design.
+## Rooms built (all original art, nano-banana-pro, 16:9, 2K)
+
+| Room | Runway task ID | Notes |
+|---|---|---|
+| Grand entrance hall | `47b958b7-7c97-40bb-a59b-8686ee1d722d` | East light through stained-glass sidelights/transom |
+| Staircase — locked "looking down into the first floor" shot | `65584fba-7a10-43a6-977f-972d8448363a` | The specific locked camera position Sire requested |
+| Upstairs hallway / landing (2nd floor) | `d795f796-f436-4dfd-b8fa-bb898180417b` | Stained-glass landing window, south light |
+| Young Marcus's room (3rd floor) | `66cbab09-6b9a-4109-8abd-2296d8e62b47` | Matches original chapter text: "a small room on the third floor" |
+| The attic | `09c4c5c5-0d53-4c56-ba05-6642dfb9327e` | Houses the hidden room's access point |
+| The hidden room | `3e55d138-51e0-4e9a-87d3-266b704db23c` | No exterior windows, disguised panel access, lantern-lit only |
+| The basement / cellar | `ca2b3994-cfbe-4417-920f-eebafa3bc9b1` | Minimal light, small high East windows only |
+| The kitchen | `134c2a41-1d02-4ce4-90fd-90aa6355c945` | West light, generations-of-use character |
+| The meeting room / front parlor | `893f4a11-d335-4eaa-91a1-e5638462b312` | South light; doubles as Elijah's later bookstore room |
+| Front yard | `24760749-a1e7-49b8-ac80-6b504b818abd` | East-facing, public street side |
+| Back yard | `431cd28a-17db-4998-b636-ede538e30400` | West-facing, private, gardened |
+
+(Exterior establishing shot from the earlier session — matches the book cover art — remains the master reference: task `2aa055ef-f86c-4aa3-9fd3-c759d86e8956`.)
+
+## Image storage note
+Same limitation as every other asset in this project: the binaries live in Runway's asset library under the task IDs above, not yet copied into this repo (sandbox network restriction blocks direct downloads). Sire has direct asset links to save from his own device.
