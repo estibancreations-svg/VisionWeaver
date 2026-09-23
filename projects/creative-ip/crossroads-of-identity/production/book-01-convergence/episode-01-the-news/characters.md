@@ -1,6 +1,6 @@
 # Episode 1 — "The News" (Marcus's Perspective) — Characters
 
-Source: Book 1, Chapter 1, plus `Character_Histories_Crossroads_of_Identity.md` for canon backstory. Status legend: **LOCKED** = name + look confirmed by Sire, safe to use in production. **NEW BOARD** = generated this session, pending Sire's review. **UNASSIGNED** = art exists but no character confirmed yet.
+Source: Book 1, Chapter 1, plus `Character_Histories_Crossroads_of_Identity.md` for canon backstory. Status legend: **LOCKED** = name + look confirmed by Sire, safe to use in production. **NEW BOARD** = generated this session, pending Sire's review. **UNASSIGNED** = art exists but no character confirmed yet. **WORKING LABEL** = confirmed to a role, but no in-story proper name yet.
 
 ## LOCKED — repurposed from an existing character-board set (physical features unchanged, only renamed)
 
@@ -35,12 +35,18 @@ Source: Book 1, Chapter 1, plus `Character_Histories_Crossroads_of_Identity.md` 
 - Design: elderly Black man, late 70s, silver-grey natural hair, trimmed grey beard, reading glasses on a neck chain, small wooden pendant, sage-green button-up shirt, dignified and warm.
 - Runway task ID: 3a35d926-8225-43a9-94ce-94ef575038a1 (nano-banana-pro, 16:9, 2K).
 
-## UNASSIGNED — need Sire's confirmation
-- A second board from the same repurposed set, labeled "Rahul Sharma (Heavyweight Modification)" — South Asian man, heavier/heavily-muscled build, jade pendant. Not yet tied to a Crossroads character.
-- A plain reference photo (Black man, beard, industrial/warehouse background) — not yet tied to a Crossroads character.
+### Marcus's Senior Partner — WORKING LABEL, no proper name yet
+- Source: the previously-unassigned "Rahul Sharma (Heavyweight Modification)" board — South Asian man, heavyset/heavily muscular build, jade pendant, box chain, medium coiled hair, full beard. Sire assigned this build to Marcus's senior partner (the unnamed colleague who congratulates him after the Jayden King deal closes in Chapter 1).
+- New board dresses the same physical build in a tailored suit appropriate to a senior entertainment-law partner.
+- Runway task ID: 280493a2-581d-4ea9-98ba-79ac95929d73 (nano-banana-pro, 16:9, 2K).
+
+### The Artist — WORKING LABEL, no proper name yet
+- Source: the previously-unassigned industrial-background reference photo (Black man, full beard, olive-green top, black smartwatch). Sire assigned this to a character referred to as "The Artist."
+- Not yet tied to a specific named character in the series bible — Desiree Washington already carries "The Ancestral Artist" epithet in the Character Histories doc, so this is presumed to be a separate, still-unnamed character. Flagged for Sire to confirm who this is in-story.
+- Runway task ID: fea6812e-45d2-4a25-b33c-d68d7966c01b (nano-banana-pro, 16:9, 2K).
 
 ## Still needed (minor/background, not yet built)
-Jayden King, Jayden King's manager, Mr. Alvarez, Marcus's senior partner, Marcus's mother and father — none named in the chapter text. Also outstanding from the wider cast: **Amara Okafor**, the fifth protagonist per the Character Histories doc, not yet cast or mentioned by Sire.
+Jayden King, Jayden King's manager, Mr. Alvarez, Marcus's mother and father — none named in the chapter text. Also outstanding from the wider cast: **Amara Okafor**, the fifth protagonist per the Character Histories doc, not yet cast or mentioned by Sire.
 
 ## Image storage note
 As with the Episode 1 location, the same network restriction that blocked downloading the conference room PNG applies here — these images live in Runway's asset library under the task IDs above, not yet copied into this repo or Drive as binary files. The recipe (prompts, sources, reasoning) is committed; the pixels are not, until the storage bot is built.
