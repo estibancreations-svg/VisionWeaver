@@ -30,10 +30,11 @@ Source: Book 1, Chapter 1, plus `Character_Histories_Crossroads_of_Identity.md` 
 - **Canon note:** the Character Histories doc describes Jordan as nonbinary (they/them), with a deliberately gender-nonconforming, "geisha-inspired" living-art aesthetic blending Chinese opera and drag. The supplied photo reads as more conventionally polished/feminine than that description. Locked under Jordan's name as instructed with no changes — flagging the gap for Sire to weigh in on.
 - Runway task ID: 8356f95c-76c6-4ed2-90b4-880bee6c3150 (nano-banana-pro, 16:9, 2K).
 
-### Elijah Johnson (created from scratch, no photo supplied)
+### Elijah Johnson (created from scratch, no photo supplied) — REBUILT
 - Built entirely from `Character_Histories_Crossroads_of_Identity.md`: born 1945 in Tampa, Black, Vietnam veteran (1967–1969), founded the Ybor City safe house/bookstore in 1972, died 2023 at age 77–78. Appears only in flashback/memory in Episode 1.
-- Design: elderly Black man, late 70s, silver-grey natural hair, trimmed grey beard, reading glasses on a neck chain, small wooden pendant, sage-green button-up shirt, dignified and warm.
-- Runway task ID: 3a35d926-8225-43a9-94ce-94ef575038a1 (nano-banana-pro, 16:9, 2K).
+- **Correction:** the original board (task 3a35d926-8225-43a9-94ce-94ef575038a1) read too close to a known actor's likeness — Sire flagged it and it has been rebuilt from scratch with deliberately different, more distinctive features to keep the design original, consistent with the no-copying standard used for the locations.
+- Current design: elderly Black man, late 70s, broad round face, deep-set close-set eyes, wide flat nose, small mole on the left cheek, full salt-and-pepper afro (not receding), thick bushy white eyebrows, full close-cropped white beard covering the jaw, a slight natural gap between the front teeth, square black wire-rim glasses worn on the face, cream cable-knit cardigan over a light blue collared shirt, thin leather bracelet.
+- Current Runway task ID: 02ba912e-2a28-4cd1-b470-f91213b44b61 (nano-banana-pro, 16:9, 2K). Prior task ID (superseded, do not use): 3a35d926-8225-43a9-94ce-94ef575038a1.
 
 ### Marcus's Senior Partner — WORKING LABEL, no proper name yet
 - Source: the previously-unassigned "Rahul Sharma (Heavyweight Modification)" board — South Asian man, heavyset/heavily muscular build, jade pendant, box chain, medium coiled hair, full beard. Sire assigned this build to Marcus's senior partner (the unnamed colleague who congratulates him after the Jayden King deal closes in Chapter 1).
