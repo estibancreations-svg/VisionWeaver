@@ -1,23 +1,46 @@
 # Episode 1 — "The News" (Marcus's Perspective) — Characters
 
-Source: Book 1, Chapter 1. Chapter is Marcus's POV only, so most names here are referenced in dialogue/text/memory rather than shown on-page.
+Source: Book 1, Chapter 1, plus `Character_Histories_Crossroads_of_Identity.md` for canon backstory. Status legend: **LOCKED** = name + look confirmed by Sire, safe to use in production. **NEW BOARD** = generated this session, pending Sire's review. **UNASSIGNED** = art exists but no character confirmed yet.
 
-## Appears on-page
-- **Marcus Reynolds** — 32, Black gay man, entertainment lawyer, Atlanta. Identified on the Book 1 cover (dark suit, short fade).
+## LOCKED — repurposed from an existing character-board set (physical features unchanged, only renamed)
 
-## Referenced / appears only in memory, text messages, or phone calls
-- **Elijah Johnson** — deceased mentor; ran the Ybor City safe house; appears in flashback only.
-- **Victor Mendoza** — texts Marcus the news of Elijah's death.
-- **Carlos Vega** — Marcus's boyfriend, architectural engineer; texts him about lunch.
-- **Jayden King** — rapper client, present in the opening negotiation scene.
-- **Jayden King's manager** — unnamed, present in the same scene.
-- **Mr. Alvarez** — music producer/label side of the deal Marcus is negotiating; referenced, not confirmed on-page.
-- **Marcus's senior partner** — unnamed, congratulates him after the meeting.
-- **Marcus's mother** — unnamed, calls and texts him.
-- **Marcus's father** — unnamed, a deacon; referenced only.
+### Victor Mendoza
+- Board: originally labeled "Liam O'Connor (Obese Male Modification)" but its own specs panel was headed "Rahul Sharma" — the source board carried two different name labels internally; the physical description used going forward is: red hair and beard, visible freckles, red undertones, amber pendant necklace, heavyset build.
+- **Canon note:** the Character Histories doc has Victor Mendoza born 1965 in San Juan, Puerto Rico (Latino heritage), age 58 in 2023. The board's coloring (red hair/freckles) reads more Northern-European than the bio suggests. Flagging this for Sire's awareness — the board is locked under Victor's name as instructed, feature-for-feature, no changes made.
 
-## Also identified from the Book 1 cover (not yet confirmed against this chapter's text)
-- **Jordan Chen** — matches the center figure on the cover (short dark bob, leather jacket).
-- **Desiree Washington** — matches the right-hand figure on the cover (long braids, gold jewelry). Name locked 2026-09-23.
+### Marcus Reynolds
+- Board: originally labeled "Jason Reed." Black man, natural coiled hair in short dense coils, deep brown skin, defined muscular build, heavy steel box chain, ~6'2" / 215 lbs.
+- Matches canon: Black, born 1991, entertainment lawyer, athletic/professional presentation.
 
-Status: pending reference images/descriptions from Sire before character boards (360 views) are generated.
+### Desiree Washington
+- Board: originally labeled "Sarah Miller." Black woman, natural coiled hair in a polished crew cut, double-link gold chain, minimalist wood pendant, gold hoop earrings, ~5'7" / 140 lbs.
+- Matches canon: Black, born 1988 in New Orleans, visual artist.
+- Name conflict from the wider catalog (Washington vs. a "Martinez" used once in Book 7 text) is resolved — **Washington is canon.**
+
+## NEW BOARDS — generated this session, pending review
+
+### Carlos Vega (Marcus's boyfriend)
+- Source: photo Sire supplied (South Asian man, wavy dark hair, short beard, single ear stud, soft lavender eyeliner accent, orange snap jacket over green tee, silver chain).
+- **Limitation:** a network restriction in this session blocked passing the actual photo into the image model as a reference, so this board was built from a precise written description of the photo rather than the photo itself. Likeness should be close but may need correction — flag anything off and it'll be redone.
+- Runway task ID: fec7d97e-fe0e-4baf-9ca2-181973158e00 (nano-banana-pro, 16:9, 2K).
+
+### Jordan Chen
+- Source: photo Sire supplied (East Asian woman, black chin-length bob, gold hoops, marigold kimono-style coat with rust sash over a rust turtleneck).
+- Same reference-passing limitation as Carlos Vega above — built from written description.
+- **Canon note:** the Character Histories doc describes Jordan as nonbinary (they/them), with a deliberately gender-nonconforming, "geisha-inspired" living-art aesthetic blending Chinese opera and drag. The supplied photo reads as more conventionally polished/feminine than that description. Locked under Jordan's name as instructed with no changes — flagging the gap for Sire to weigh in on.
+- Runway task ID: 8356f95c-76c6-4ed2-90b4-880bee6c3150 (nano-banana-pro, 16:9, 2K).
+
+### Elijah Johnson (created from scratch, no reference supplied)
+- Built entirely from `Character_Histories_Crossroads_of_Identity.md`: born 1945 in Tampa, Black, Vietnam veteran (1967–1969), founded the Ybor City safe house/bookstore in 1972, died 2023 at age 77–78. Appears only in flashback/memory in Episode 1.
+- Design: elderly Black man, late 70s, silver-grey natural hair, trimmed grey beard, reading glasses on a neck chain, small wooden pendant, sage-green button-up shirt, dignified and warm.
+- Runway task ID: 3a35d926-8225-43a9-94ce-94ef575038a1 (nano-banana-pro, 16:9, 2K).
+
+## UNASSIGNED — need Sire's confirmation
+- A second board from the same repurposed set, labeled "Rahul Sharma (Heavyweight Modification)" — South Asian man, heavier/heavily-muscled build, jade pendant. Not yet tied to a Crossroads character.
+- A plain reference photo (Black man, beard, industrial/warehouse background) — not yet tied to a Crossroads character.
+
+## Still needed (minor/background, not yet built)
+Jayden King, Jayden King's manager, Mr. Alvarez, Marcus's senior partner, Marcus's mother and father — none named in the chapter text. Also outstanding from the wider cast: **Amara Okafor**, the fifth protagonist per the Character Histories doc, not yet cast or mentioned by Sire.
+
+## Image storage note
+As with the Episode 1 location, the same network restriction that blocked downloading the conference room PNG applies here — these images live in Runway's asset library under the task IDs above, not yet copied into this repo or Drive as binary files. The recipe (prompts, sources, reasoning) is committed; the pixels are not, until the storage bot is built.
