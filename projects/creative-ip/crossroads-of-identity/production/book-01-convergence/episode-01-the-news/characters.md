@@ -36,6 +36,11 @@ Source: Book 1, Chapter 1, plus `Character_Histories_Crossroads_of_Identity.md` 
 - Current design: elderly Black man, late 70s, broad round face, deep-set close-set eyes, wide flat nose, small mole on the left cheek, full salt-and-pepper afro (not receding), thick bushy white eyebrows, full close-cropped white beard covering the jaw, a slight natural gap between the front teeth, square black wire-rim glasses worn on the face, cream cable-knit cardigan over a light blue collared shirt, thin leather bracelet.
 - Current Runway task ID: 02ba912e-2a28-4cd1-b470-f91213b44b61 (nano-banana-pro, 16:9, 2K). Prior task ID (superseded, do not use): 3a35d926-8225-43a9-94ce-94ef575038a1.
 
+### Young Marcus (age 15)
+- New casting need surfaced while drafting the Episode 1 script: young Marcus appears in two flashback beats (arriving at the safe house; referenced again in the porch memory) and had no board.
+- Designed as the same bloodline as adult Marcus Reynolds (deep brown skin, bone structure that reads as the same person younger) but slighter, thinner, more vulnerable — natural short coiled hair, wide wary/frightened eyes, oversized grey hoodie, worn jeans, clutching a well-worn backpack.
+- Runway task ID: 5578ac57-c4e6-4b07-9f2d-9ccc6dc939d3 (nano-banana-pro, 16:9, 2K).
+
 ### Marcus's Senior Partner — WORKING LABEL, no proper name yet
 - Source: the previously-unassigned "Rahul Sharma (Heavyweight Modification)" board — South Asian man, heavyset/heavily muscular build, jade pendant, box chain, medium coiled hair, full beard. Sire assigned this build to Marcus's senior partner (the unnamed colleague who congratulates him after the Jayden King deal closes in Chapter 1).
 - New board dresses the same physical build in a tailored suit appropriate to a senior entertainment-law partner.
@@ -77,7 +82,7 @@ Source: Book 1, Chapter 1, plus `Character_Histories_Crossroads_of_Identity.md` 
 - Runway task ID: a5a13198-86cc-40c2-8420-96ef053602e5 (nano-banana-pro, 16:9, 2K).
 
 ## Still needed
-Nothing outstanding — every character named or referenced in Episode 1 (including Amara Okafor, the fifth protagonist) now has a board.
+Nothing outstanding — every character named or referenced in Episode 1, including flashback-only Young Marcus and the fifth protagonist Amara Okafor, now has a board.
 
 ## Image storage note
 The same network restriction that blocked downloading the conference room PNG applies to every board above — direct binary download into this sandbox (and upload of reference photos into Runway) is blocked by an organization-level egress policy. The recipe (prompts, sources, reasoning) is committed here as text; the pixels live in Runway's asset library under the task IDs above. Sire is being given the direct Runway asset links in-conversation so the images can be viewed/saved from his own device, which sits outside this sandbox's network restriction. Those links carry a signed, time-limited token (expires roughly 1–3 days from generation) — they are not a permanent storage solution. The pixels are not yet copied into this repo or Drive as binary files, pending the storage-automation bot Sire wants to build later.
