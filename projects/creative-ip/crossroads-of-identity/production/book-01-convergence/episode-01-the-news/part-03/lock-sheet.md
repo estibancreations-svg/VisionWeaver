@@ -1,9 +1,10 @@
-# Episode 1 · "The News" · PART 3 "The Bathroom": Rewrite and Lock Sheet (v2, LOCKED)
+# Episode 1 · "The News" · PART 3 "The Bathroom": Rewrite and Lock Sheet (v2.1, LOCKED)
 
 **Book 1: Convergence · Chapter 1 (Marcus's Perspective)**
 **Status:** LOCKED by Sire on 2026-09-24. All six decisions in Section 9 were approved as proposed.
 **Script of record:** `Episode 1 - The News - Shooting Script v2 (PART 3 LOCKED).md` (Drive `1zP9l2YnFpVp-fA2mjBuu07Y2Je9SNPmp`). It supersedes the v1 draft `1rNIQHvXnwxoNa_b5Ef5TNBAUjL9faenW`.
 **Companion file:** `camera-maps.svg` in this folder (the top-down maps with every camera pin).
+**v2.1 (2026-09-24):** the outside of the house is now matched to **Sire's set house image**. There's no fence or gate (Marcus stands at the foot of the front walk), the entry is north of the turret with brick-walled steps and stone urns, and S09 uses the rebuilt late-afternoon front yard `bc5ee687…`. The current script, chapter and Bible IDs are listed in `script.md`.
 
 ---
 
@@ -131,10 +132,10 @@ The door from Marcus's office is on the east wall. The vanity and mirror are on 
 - **B3:** behind Marcus's right shoulder, off-axis. Over-the-shoulder into the mirror (the camera stays out of the reflection).
 - **B4:** tucked at the west end of the mirror, looking back east. Near-frontal on his face as he leans on the vanity.
 
-**Map 2: Safe house site (locked exterior `2aa055ef…`, front yard `24760749…`)**
+**Map 2: Safe house site (set house / locked exterior `2aa055ef…`, front yard `bc5ee687…`)**
 - **X1:** sidewalk at the southeast corner, looking northwest. The locked 3/4 view of the house (east front and south porch side).
 - **X2:** on the east porch, facing west toward the front door.
-- **X3:** tracking path from the wrought-iron gate up the worn walkway to the porch steps.
+- **X3:** tracking path from the sidewalk up the worn front walk to the brick-walled entry steps (north of the turret). There's no fence or gate.
 
 **Map 3: Entrance hall and staircase (plates `47b958b7…` and `65584fba…`)**
 The front door is centered on the east wall. **Flight 1** rises along the west wall from the newel post (north end) to the **half-landing** (southwest corner) and its **south stained-glass window**. **Flight 2** turns back and rises north to the **second-floor gallery**, which overlooks the hall. The parlor opens through the archway on the southeast. The kitchen is behind the west wall.
@@ -181,9 +182,9 @@ The door from the hall is on the east wall. The dormer window is on the west wal
 >
 > `[S07]` The same eyes, the same size in frame, but younger: YOUNG MARCUS (15). The gold edge of the sky is reflected in them.
 >
-> `[S08]` THE HOUSE. The locked view from the corner of the street: the turret catching the last of the sun, gables stacked against each other, the wraparound porch. Small at the wrought-iron gate stands Young Marcus, backpack clutched to his chest. He doesn't move for a long moment.
+> `[S08]` THE HOUSE. The locked view from the corner of the street: the turret catching the last of the sun, gables stacked against each other, the wraparound porch. Small at the foot of the front walk stands Young Marcus, backpack clutched to his chest. He doesn't move for a long moment.
 >
-> `[S09]` We follow behind him up the walkway, worn smooth by feet he'll never meet. At the porch steps the first board **CREAKS**. He freezes, then climbs. A second **CREAK**.
+> `[S09]` We follow behind him up the walkway, worn smooth by feet he'll never meet, to the brick steps with their stone urns. The bottom step **CREAKS**. He freezes, then climbs. A second **CREAK** at the top.
 >
 > `[S10]` At the door he lifts a hand to knock, and **the door opens before he can.** ELIJAH JOHNSON (61) stands there as if he'd been watching the street the whole time. Behind him, the house glows warmer than the afternoon outside. Elijah doesn't say anything. He just steps aside.
 >
@@ -266,8 +267,8 @@ INSERT, THE SCREEN: *Can't today. Work emergency. Raincheck?*
 | S05 | `aa5d7dae…` | B3 | 50mm · 5.5 ft · eye | Slow push-in toward the mirror | OTS into the mirror | FL-MR32, immaculate on the outside | Downlights shadow his brow | Room tone fading |
 | S06 | `aa5d7dae…` | B3 (long) | 100mm · 5.5 ft · eye | Locked | ECU eyes in the mirror | FL-MR32, "fifteen-year-old eyes" | Catch-light from the window | Silence, then a faint porch creak (pre-lap) |
 | S07 | `2aa055ef…` (sky reflection) | X3 start | 100mm · 4.5 ft · eye | Locked | ECU eyes, **same size as S06** | FL-MR15, wary | LK-2006-PM, gold sky in the eyes | Birds, distant street |
-| S08 | **`2aa055ef…` LOCKED** | X1 | 35mm · 5.5 ft · eye | Locked, long hold | WS, 3/4 view | FL-MR15, frozen at the gate | LK-2006-PM, east front in shade, south porch and spire gold | Wind in the oaks, distant traffic |
-| S09 | `24760749…` | X3 path | 35mm · 4.5 ft · eye | Tracking behind him | MS from behind | FL-MR15 | LK-2006-PM | Porch creaks 1 and 2 |
+| S08 | **`2aa055ef…` / set house LOCKED** | X1 | 35mm · 5.5 ft · eye | Locked, long hold | WS, 3/4 view | FL-MR15, frozen at the foot of the walk | LK-2006-PM, east front in shade, south porch and spire gold | Wind in the oaks, distant traffic |
+| S09 | `bc5ee687…` front yard (PM) | X3 path | 35mm · 4.5 ft · eye | Tracking behind him | MS from behind | FL-MR15 | LK-2006-PM | Porch creaks 1 and 2 |
 | S10 | `2aa055ef…` porch detail | X2 | 50mm · 5 ft · eye | Locked | MS two-shot | FL-MR15 hand raised · FL-EJ61 calm, watchful | Interior glows warmer than the porch shade | Door opening, no knock |
 | S11 | `de0ea4fa…` (PM relight) | A | 24mm · 4.5 ft · eye | Slow push-in (his step) | WS, Marcus's view | FL-MR15 (back of head at the frame edge) | Stair "into shadow," southern light pool, dust | House hush |
 | S12 | `de0ea4fa…` (PM relight) | B | 24mm · 3 ft · slightly low | Locked | WS reverse | FL-MR15 small in the frame · FL-EJ61 | Sidelights glow cool behind them | Door closes, street noise cut |
