@@ -1,63 +1,79 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1280" viewBox="0 0 1000 1280" font-family="Helvetica, Arial, sans-serif">
 <defs><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#8a7a66" stroke-width="2"/></pattern></defs>
 <rect x="0" y="0" width="1000" height="1280" fill="#f4efe6" stroke="none" stroke-width="0" />
-<text x="500.0" y="38" font-size="26" font-weight="bold" fill="#2a241e" text-anchor="middle">E01 · PART 5 · CAMERA MAPS v1 (LOCKED)</text>
+<text x="500.0" y="38" font-size="26" font-weight="bold" fill="#2a241e" text-anchor="middle">E01 · PART 5 · CAMERA MAPS v2 (porch matched to the set house)</text>
 <text x="500.0" y="62" font-size="13" font-weight="normal" fill="#5a4f44" text-anchor="middle">Top-down. Blue = camera pin + view cone. Purple = Marcus. Green = Elijah.</text>
-<text x="40" y="100" font-size="22" font-weight="bold" fill="#2a241e" text-anchor="start">MAP 5 · Front porch (east-facing), late March 2022</text>
-<text x="40" y="122" font-size="13" font-weight="normal" fill="#5a4f44" text-anchor="start" font-style="italic">Porch plate 3dc4e6e1… (ref: exterior 2aa055ef…) · front yard 24760749… · Light LK-2022-AM (9:30–10:00 AM)</text>
+<text x="40" y="100" font-size="22" font-weight="bold" fill="#2a241e" text-anchor="start">MAP 5 · Front porch (east-facing), late March 2022 — matched to the SET house</text>
+<text x="40" y="122" font-size="13" font-weight="normal" fill="#5a4f44" text-anchor="start" font-style="italic">Porch plate c58d9eab… (matched to the set house) · Light LK-2022-AM (9:30–10:00 AM)</text>
 <polygon points="930,104 921,130 939,130" fill="#2a241e"/>
 <text x="930" y="98" font-size="15" font-weight="bold" fill="#2a241e" text-anchor="middle">N</text>
-<rect x="60" y="150" width="880" height="520" fill="#e6ecd9" stroke="#7d8c5a" stroke-width="2" />
-<rect x="100" y="170" width="200" height="480" fill="#fbf7ef" stroke="#3a2f25" stroke-width="3" />
-<text x="200" y="390" font-size="18" font-weight="bold" fill="#2a241e" text-anchor="middle">HOUSE</text>
-<text x="200" y="412" font-size="11" font-weight="normal" fill="#2a241e" text-anchor="middle">(entrance hall behind wall)</text>
-<rect x="300" y="170" width="170" height="480" fill="#e3d3b5" stroke="#3a2f25" stroke-width="2" />
-<text x="385" y="164" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="middle">EAST PORCH (roof overhead)</text>
-<line x1="470" y1="170" x2="470" y2="650" stroke="#6b5a44" stroke-width="3" stroke-dasharray="2,4"/>
-<text x="480" y="190" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="start">spindle rail +</text>
-<text x="480" y="203" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="start">roof edge</text>
-<line x1="300" y1="390" x2="300" y2="450" stroke="#8b3a1a" stroke-width="9"/>
-<text x="290" y="425" font-size="11" font-weight="bold" fill="#8b3a1a" text-anchor="end">DOOR</text>
-<rect x="470" y="390" width="50" height="60" fill="#cdb894" stroke="#3a2f25" stroke-width="2" />
-<text x="495" y="470" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="middle">steps</text>
-<line x1="520" y1="420" x2="790" y2="420" stroke="#a17a4a" stroke-width="16"/>
-<line x1="790" y1="155" x2="790" y2="665" stroke="#333" stroke-width="3" stroke-dasharray="3,5"/>
-<line x1="790" y1="403" x2="790" y2="437" stroke="#e6ecd9" stroke-width="6"/>
-<text x="790" y="390" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="middle">GATE</text>
-<rect x="820" y="150" width="120" height="520" fill="#d6d2cb" stroke="none" stroke-width="0" />
-<text x="880" y="690" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="middle">SIDEWALK / STREET</text>
-<circle cx="650" cy="260" r="40" fill="#9db27a" opacity="0.8"/>
-<text x="650" y="264" font-size="11" font-weight="normal" fill="#2a241e" text-anchor="middle">live oak</text>
-<rect x="370" y="295" width="30" height="30" fill="#7a5230" stroke="#3a2f25" stroke-width="2" rx="4"/>
-<text x="290" y="280" font-size="10" font-weight="bold" fill="#5b3a1e" text-anchor="end">rocker → faces street</text>
-<rect x="374" y="258" width="22" height="22" fill="#b89a6a" stroke="#3a2f25" stroke-width="1.5"/>
-<text x="290" y="266" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="end">side table + mug</text>
-<circle cx="385" cy="310" r="9" fill="#2e7d32" stroke="#222" stroke-width="1.5"/>
-<text x="290" y="312" font-size="12" font-weight="bold" fill="#2e7d32" text-anchor="end">ELIJAH 77 →</text>
-<circle cx="455" cy="362" r="9" fill="#6b3fa0" stroke="#222" stroke-width="1.5"/>
-<text x="530" y="352" font-size="11" font-weight="bold" fill="#6b3fa0" text-anchor="start">MARCUS 31 (at rail,</text>
-<text x="530" y="367" font-size="11" font-weight="bold" fill="#6b3fa0" text-anchor="start">back to the street)</text>
-<line x1="745" y1="335" x2="480" y2="285" stroke="#f2b233" stroke-width="3" stroke-dasharray="8,6"/>
-<line x1="745" y1="380" x2="480" y2="330" stroke="#f2b233" stroke-width="3" stroke-dasharray="8,6"/>
-<line x1="745" y1="425" x2="480" y2="375" stroke="#f2b233" stroke-width="3" stroke-dasharray="8,6"/>
-<circle cx="760" cy="382" r="14" fill="#f2b233" stroke="#c7861a" stroke-width="2"/>
-<text x="640" y="560" font-size="12" font-weight="bold" fill="#a86b0c" text-anchor="middle">SUN ESE ~101°–106°, 27°–33° high (light travels right → left)</text>
-<text x="640" y="576" font-size="11" font-weight="normal" fill="#a86b0c" text-anchor="middle" font-style="italic">low enough to reach under the porch roof to Elijah's face</text>
-<path d="M730,420 L607.8,464.5 L607.8,375.5 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
-<circle cx="730" cy="420" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
-<text x="730" y="425" font-size="13" font-weight="bold" fill="white" text-anchor="middle">P1</text>
-<path d="M385,620 L332.5,458.3 L437.5,458.3 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
-<circle cx="385" cy="620" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
-<text x="385" y="625" font-size="13" font-weight="bold" fill="white" text-anchor="middle">P2</text>
-<path d="M325,320 L475.4,265.3 L475.4,374.7 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
-<circle cx="325" cy="320" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
-<text x="325" y="325" font-size="13" font-weight="bold" fill="white" text-anchor="middle">P3</text>
-<path d="M450,285 L386.6,314.6 L380.3,278.9 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
-<circle cx="450" cy="285" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
-<text x="450" y="290" font-size="13" font-weight="bold" fill="white" text-anchor="middle">P4</text>
-<path d="M325,390 L449.7,326.4 L464.8,397.3 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
-<circle cx="325" cy="390" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
-<text x="325" y="395" font-size="13" font-weight="bold" fill="white" text-anchor="middle">P5</text>
+<rect x="60" y="150" width="880" height="540" fill="#e6ecd9" stroke="#7d8c5a" stroke-width="2" />
+<text x="190" y="170" font-size="12" font-weight="bold" fill="#4f5e2e" text-anchor="middle">BACK YARD (west)</text>
+<rect x="110" y="185" width="190" height="450" fill="#fbf7ef" stroke="#3a2f25" stroke-width="3" />
+<text x="205" y="420" font-size="18" font-weight="bold" fill="#2a241e" text-anchor="middle">HOUSE</text>
+<text x="205" y="380" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="middle">entrance hall (north half)</text>
+<text x="205" y="490" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="middle">parlor + turret (south half)</text>
+<rect x="185" y="635" width="34" height="18" fill="#9c4a33" stroke="#3a2f25" stroke-width="2"/>
+<text x="202" y="670" font-size="10" font-weight="bold" fill="#7a3522" text-anchor="middle">chimney (south wall)</text>
+<rect x="120" y="635" width="50" height="30" fill="#e3d3b5" stroke="#3a2f25" stroke-width="2" />
+<text x="145" y="682" font-size="9" font-weight="normal" fill="#2a241e" text-anchor="middle">side portico</text>
+<rect x="300" y="185" width="160" height="450" fill="#e3d3b5" stroke="#3a2f25" stroke-width="2" />
+<text x="380" y="179" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="middle">FRONT PORCH (roof overhead)</text>
+<path d="M460,420 C540,435 540,555 460,570 Z" fill="#e3d3b5" stroke="#3a2f25" stroke-width="2"/>
+<text x="515" y="590" font-size="10" font-weight="bold" fill="#5b3a1e" text-anchor="middle">rounded bay (under turret)</text>
+<line x1="460" y1="185" x2="460" y2="420" stroke="#6b5a44" stroke-width="3" stroke-dasharray="2,4"/>
+<line x1="460" y1="570" x2="460" y2="635" stroke="#6b5a44" stroke-width="3" stroke-dasharray="2,4"/>
+<text x="470" y="202" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="start">vase-baluster rail,</text>
+<text x="470" y="215" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="start">Tuscan columns</text>
+<line x1="300" y1="305" x2="300" y2="345" stroke="#8b3a1a" stroke-width="9"/>
+<text x="292" y="318" font-size="10" font-weight="bold" fill="#8b3a1a" text-anchor="end">FRONT DOOR</text>
+<text x="292" y="331" font-size="9" font-weight="normal" fill="#8b3a1a" text-anchor="end">(sidelights, lantern)</text>
+<line x1="460" y1="300" x2="460" y2="350" stroke="#e3d3b5" stroke-width="6"/>
+<rect x="460" y="302" width="55" height="46" fill="#cfcfcf" stroke="#3a2f25" stroke-width="2"/>
+<rect x="460" y="294" width="55" height="8" fill="#9c4a33"/>
+<rect x="460" y="348" width="55" height="8" fill="#9c4a33"/>
+<text x="545" y="290" font-size="10" font-weight="bold" fill="#2a241e" text-anchor="start">ENTRY: pediment above,</text>
+<text x="545" y="303" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="start">grey steps, brick cheek</text>
+<text x="545" y="316" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="start">walls + stone urns</text>
+<line x1="515" y1="325" x2="820" y2="325" stroke="#a17a4a" stroke-width="14"/>
+<rect x="820" y="150" width="120" height="540" fill="#d6d2cb" stroke="none" stroke-width="0" />
+<text x="880" y="710" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="middle">SIDEWALK / STREET</text>
+<text x="760" y="360" font-size="10" font-weight="normal" fill="#b3261e" text-anchor="middle" font-style="italic">no fence in the set image</text>
+<text x="760" y="373" font-size="10" font-weight="normal" fill="#b3261e" text-anchor="middle" font-style="italic">(gate question open)</text>
+<circle cx="560" cy="490" r="16" fill="#7ea35a" opacity="0.9"/>
+<circle cx="580" cy="510" r="14" fill="#7ea35a" opacity="0.9"/>
+<text x="600" y="485" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="start">2 small palms</text>
+<circle cx="650" cy="560" r="38" fill="#9db27a" opacity="0.8"/>
+<text x="650" y="564" font-size="11" font-weight="normal" fill="#2a241e" text-anchor="middle">live oak</text>
+<rect x="370" y="248" width="30" height="30" fill="#8a6a44" stroke="#3a2f25" stroke-width="2" rx="6"/>
+<text x="292" y="258" font-size="10" font-weight="bold" fill="#5b3a1e" text-anchor="end">wicker rocker → faces street</text>
+<rect x="374" y="214" width="22" height="22" fill="#b89a6a" stroke="#3a2f25" stroke-width="1.5"/>
+<text x="292" y="230" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="end">side table + mug</text>
+<circle cx="385" cy="263" r="9" fill="#2e7d32" stroke="#222" stroke-width="1.5"/>
+<text x="292" y="280" font-size="12" font-weight="bold" fill="#2e7d32" text-anchor="end">ELIJAH 77 →</text>
+<circle cx="448" cy="290" r="9" fill="#6b3fa0" stroke="#222" stroke-width="1.5"/>
+<text x="545" y="250" font-size="11" font-weight="bold" fill="#6b3fa0" text-anchor="start">MARCUS 31 (at rail,</text>
+<text x="545" y="265" font-size="11" font-weight="bold" fill="#6b3fa0" text-anchor="start">back to the street)</text>
+<line x1="760" y1="250" x2="470" y2="200" stroke="#f2b233" stroke-width="3" stroke-dasharray="8,6"/>
+<line x1="760" y1="290" x2="470" y2="240" stroke="#f2b233" stroke-width="3" stroke-dasharray="8,6"/>
+<line x1="760" y1="330" x2="470" y2="280" stroke="#f2b233" stroke-width="3" stroke-dasharray="8,6"/>
+<circle cx="775" cy="295" r="14" fill="#f2b233" stroke="#c7861a" stroke-width="2"/>
+<text x="640" y="650" font-size="12" font-weight="bold" fill="#a86b0c" text-anchor="middle">SUN ESE ~101°–106°, 27°–33° high (light travels right → left)</text>
+<path d="M730,325 L598.4,372.9 L598.4,277.1 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="730" cy="325" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="730" y="330" font-size="13" font-weight="bold" fill="white" text-anchor="middle">P1</text>
+<path d="M430,500 L352.7,326.4 L476.0,315.6 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="430" cy="500" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="430" y="505" font-size="13" font-weight="bold" fill="white" text-anchor="middle">P2</text>
+<path d="M325,268 L467.7,221.6 L464.1,324.2 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="325" cy="268" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="325" y="273" font-size="13" font-weight="bold" fill="white" text-anchor="middle">P3</text>
+<path d="M445,225 L388.7,257.5 L380.0,225.0 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="445" cy="225" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="445" y="230" font-size="13" font-weight="bold" fill="white" text-anchor="middle">P4</text>
+<path d="M330,375 L418.1,266.2 L456.9,315.8 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="330" cy="375" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="330" y="380" font-size="13" font-weight="bold" fill="white" text-anchor="middle">P5</text>
 <text x="500" y="730" font-size="12" font-weight="normal" fill="#5a4f44" text-anchor="middle" font-style="italic">Creak map (LOCKED): 1 = bottom step, 2 = top step (PART 3) · 3 = board at the door (PART 5) · 4 = saved for later</text>
 <text x="40" y="780" font-size="22" font-weight="bold" fill="#2a241e" text-anchor="start">MAP 6 · Condo kitchen, Atlanta, January 2023, ~10:30 PM</text>
 <text x="40" y="802" font-size="13" font-weight="normal" fill="#5a4f44" text-anchor="start" font-style="italic">Night plate 8735e56d… (from dusk f5da915e…) · Light LK-ATL-NIGHT</text>
