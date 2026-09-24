@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1940" viewBox="0 0 1000 1940" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="1000" height="1940" fill="#f4efe6" stroke="none" stroke-width="0" />
+<text x="500.0" y="38" font-size="26" font-weight="bold" fill="#2a241e" text-anchor="middle">E01 · PART 3 · CAMERA MAPS v2 (LOCKED)</text>
+<text x="500.0" y="62" font-size="13" font-weight="normal" fill="#5a4f44" text-anchor="middle">Top-down. North is up. East (street side) is right. Blue = camera pin + view cone. Red ★ = locked camera.</text>
+<text x="40" y="100" font-size="22" font-weight="bold" fill="#2a241e" text-anchor="start">MAP 1 · Executive bathroom, Atlanta</text>
+<text x="40" y="122" font-size="13" font-weight="normal" fill="#5a4f44" text-anchor="start" font-style="italic">Plate aa5d7dae… · Light LK-ATL-DAY (midday, cool window + warm downlights)</text>
+<polygon points="930,104 921,130 939,130" fill="#2a241e"/>
+<text x="930" y="98" font-size="15" font-weight="bold" fill="#2a241e" text-anchor="middle">N</text>
+<rect x="250" y="150" width="500" height="290" fill="#fbf7ef" stroke="#3a2f25" stroke-width="3" />
+<line x1="250" y1="150" x2="250" y2="440" stroke="#5aa9e6" stroke-width="9"/>
+<text x="215" y="295" font-size="12" font-weight="bold" fill="#2d7fbf" text-anchor="middle">GLASS WALL</text>
+<text x="215" y="312" font-size="12" font-weight="normal" fill="#2d7fbf" text-anchor="middle">skyline</text>
+<rect x="380" y="154" width="300" height="42" fill="#d9c6a5" stroke="#3a2f25" stroke-width="3" />
+<text x="530" y="180" font-size="12" font-weight="bold" fill="#2a241e" text-anchor="middle">VANITY + vessel sink</text>
+<line x1="400" y1="152" x2="660" y2="152" stroke="#c9a24a" stroke-width="6"/>
+<text x="530" y="146" font-size="11" font-weight="bold" fill="#8a6a1f" text-anchor="middle">MIRROR (brushed brass)</text>
+<rect x="256" y="345" width="115" height="90" fill="#e8eef2" stroke="#3a2f25" stroke-width="2" stroke-dasharray="6,4" />
+<text x="313" y="395" font-size="11" font-weight="normal" fill="#2a241e" text-anchor="middle">SHOWER</text>
+<line x1="750" y1="360" x2="750" y2="420" stroke="#f4efe6" stroke-width="8"/>
+<text x="800" y="386" font-size="13" font-weight="bold" fill="#2a241e" text-anchor="middle">DOOR →</text>
+<text x="815" y="404" font-size="11" font-weight="normal" fill="#2a241e" text-anchor="middle">to Marcus's office</text>
+<text x="815" y="422" font-size="11" font-weight="normal" fill="#5a4f44" text-anchor="middle">(office plate 0166e281…)</text>
+<circle cx="530" cy="220" r="9" fill="#6b3fa0" stroke="#222" stroke-width="1.5"/>
+<text x="530" y="246" font-size="12" font-weight="bold" fill="#6b3fa0" text-anchor="middle">MARCUS</text>
+<path d="M300,315 L403.4,277.4 L395.3,370.0 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="300" cy="315" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="300" y="320" font-size="13" font-weight="bold" fill="white" text-anchor="middle">B1</text>
+<path d="M705,225 L624.6,252.7 L624.6,197.3 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="705" cy="225" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="705" y="230" font-size="13" font-weight="bold" fill="white" text-anchor="middle">B2</text>
+<path d="M585,305 L541.4,237.9 L580.8,225.1 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="585" cy="305" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="585" y="310" font-size="13" font-weight="bold" fill="white" text-anchor="middle">B3</text>
+<path d="M415,230 L494.4,220.3 L486.3,266.3 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="415" cy="230" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="415" y="235" font-size="13" font-weight="bold" fill="white" text-anchor="middle">B4</text>
+<text x="500" y="465" font-size="12" font-weight="normal" fill="#5a4f44" text-anchor="middle" font-style="italic">Walls are placed from the written prompt. If the saved picture differs, flip this map, not the picture.</text>
+<text x="40" y="500" font-size="22" font-weight="bold" fill="#2a241e" text-anchor="start">MAP 2 · Safe house site (exterior)</text>
+<text x="40" y="522" font-size="13" font-weight="normal" fill="#5a4f44" text-anchor="start" font-style="italic">Locked exterior 2aa055ef… · front yard 24760749… · Light LK-2006-PM</text>
+<polygon points="930,514 921,540 939,540" fill="#2a241e"/>
+<text x="930" y="508" font-size="15" font-weight="bold" fill="#2a241e" text-anchor="middle">N</text>
+<rect x="80" y="540" width="800" height="410" fill="#e6ecd9" stroke="#7d8c5a" stroke-width="2" />
+<text x="190" y="570" font-size="13" font-weight="bold" fill="#4f5e2e" text-anchor="middle">BACK YARD (west)</text>
+<rect x="300" y="610" width="330" height="230" fill="#fbf7ef" stroke="#3a2f25" stroke-width="3" />
+<text x="465" y="705" font-size="18" font-weight="bold" fill="#2a241e" text-anchor="middle">HOUSE</text>
+<text x="465" y="726" font-size="12" font-weight="normal" fill="#2a241e" text-anchor="middle">turret + gables face EAST</text>
+<rect x="630" y="595" width="48" height="285" fill="#e3d3b5" stroke="#3a2f25" stroke-width="2" />
+<text x="654" y="585" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="middle">PORCH</text>
+<rect x="440" y="840" width="238" height="40" fill="#e3d3b5" stroke="#3a2f25" stroke-width="2" />
+<text x="560" y="866" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="middle">south wraparound porch</text>
+<line x1="630" y1="705" x2="630" y2="745" stroke="#8b3a1a" stroke-width="8"/>
+<text x="600" y="730" font-size="11" font-weight="bold" fill="#8b3a1a" text-anchor="end">DOOR</text>
+<rect x="820" y="540" width="60" height="410" fill="#d6d2cb" stroke="none" stroke-width="0" />
+<text x="850" y="970" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="middle">SIDEWALK / STREET</text>
+<line x1="790" y1="545" x2="790" y2="945" stroke="#333" stroke-width="3" stroke-dasharray="3,5"/>
+<text x="770" y="560" font-size="11" font-weight="normal" fill="#2a241e" text-anchor="end">wrought-iron fence</text>
+<line x1="790" y1="708" x2="790" y2="742" stroke="#e6ecd9" stroke-width="6"/>
+<text x="760" y="700" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="middle">GATE</text>
+<line x1="785" y1="725" x2="685" y2="725" stroke="#a17a4a" stroke-width="16"/>
+<line x1="775" y1="725" x2="695" y2="725" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="6,5"/>
+<polygon points="695,719 683,725 695,731" fill="#1f5fa8"/>
+<text x="740" y="755" font-size="11" font-weight="bold" fill="#1f5fa8" text-anchor="middle">X3 track path</text>
+<circle cx="740" cy="600" r="28" fill="#9db27a" opacity="0.8"/>
+<circle cx="720" cy="900" r="28" fill="#9db27a" opacity="0.8"/>
+<circle cx="200" cy="800" r="28" fill="#9db27a" opacity="0.8"/>
+<text x="740" y="604" font-size="11" font-weight="normal" fill="#2a241e" text-anchor="middle">oak</text>
+<path d="M850,930 L747.1,868.2 L799.3,821.2 Z" fill="#b3261e" fill-opacity="0.18" stroke="#b3261e" stroke-width="1.5"/>
+<circle cx="850" cy="930" r="17" fill="#b3261e" stroke="white" stroke-width="2"/>
+<text x="850" y="935" font-size="13" font-weight="bold" fill="white" text-anchor="middle">X1</text>
+<text x="850" y="908" font-size="12" font-weight="bold" fill="#b3261e" text-anchor="middle">★ LOCKED</text>
+<path d="M665,790 L635.4,726.6 L671.1,720.3 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="665" cy="790" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="665" y="795" font-size="13" font-weight="bold" fill="white" text-anchor="middle">X2</text>
+<text x="300" y="945" font-size="11" font-weight="normal" fill="#5a4f44" text-anchor="start" font-style="italic">X2 stands on the porch just south of the door and turns to face it.</text>
+<circle cx="120" cy="900" r="14" fill="#f2b233" stroke="#c7861a" stroke-width="2"/>
+<text x="142" y="930" font-size="12" font-weight="bold" fill="#a86b0c" text-anchor="start">SUN ~235° SW, low (fall/winter, 4–5 PM)</text>
+<text x="465" y="785" font-size="12" font-weight="bold" fill="#a86b0c" text-anchor="middle">east front: OPEN SHADE</text>
+<text x="465" y="803" font-size="12" font-weight="bold" fill="#a86b0c" text-anchor="middle">south porch + spire: GOLD SUN</text>
+<text x="40" y="1000" font-size="22" font-weight="bold" fill="#2a241e" text-anchor="start">MAP 3 · Entrance hall + staircase (ground floor)</text>
+<text x="40" y="1022" font-size="13" font-weight="normal" fill="#5a4f44" text-anchor="start" font-style="italic">Hall PM relight de0ea4fa… (AM: 47b958b7…) · Stair 65584fba… · Light LK-2006-PM</text>
+<polygon points="930,1014 921,1040 939,1040" fill="#2a241e"/>
+<text x="930" y="1008" font-size="15" font-weight="bold" fill="#2a241e" text-anchor="middle">N</text>
+<rect x="150" y="1060" width="230" height="300" fill="#f3ead8" stroke="#3a2f25" stroke-width="3" />
+<text x="265" y="1200" font-size="14" font-weight="bold" fill="#2a241e" text-anchor="middle">KITCHEN</text>
+<text x="265" y="1218" font-size="11" font-weight="normal" fill="#2a241e" text-anchor="middle">(west windows)</text>
+<line x1="150" y1="1120" x2="150" y2="1300" stroke="#5aa9e6" stroke-width="7"/>
+<rect x="380" y="1060" width="340" height="300" fill="#fbf7ef" stroke="#3a2f25" stroke-width="3" />
+<text x="620" y="1290" font-size="16" font-weight="bold" fill="#2a241e" text-anchor="middle">ENTRANCE HALL</text>
+<rect x="720" y="1060" width="55" height="300" fill="#e3d3b5" stroke="#3a2f25" stroke-width="2" />
+<text x="747" y="1050" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="middle">PORCH</text>
+<line x1="720" y1="1185" x2="720" y2="1235" stroke="#8b3a1a" stroke-width="9"/>
+<line x1="720" y1="1170" x2="720" y2="1185" stroke="#8f6fc4" stroke-width="9"/>
+<line x1="720" y1="1235" x2="720" y2="1250" stroke="#8f6fc4" stroke-width="9"/>
+<text x="785" y="1195" font-size="12" font-weight="bold" fill="#8b3a1a" text-anchor="start">FRONT DOOR (east)</text>
+<text x="785" y="1212" font-size="11" font-weight="normal" fill="#2a241e" text-anchor="start">sidelights + transom</text>
+<text x="785" y="1228" font-size="11" font-weight="normal" fill="#5a4f44" text-anchor="start" font-style="italic">cool glow, no sunbeams</text>
+<rect x="382" y="1085" width="48" height="215" fill="#e0cfb0" stroke="#3a2f25" stroke-width="2" />
+<line x1="382" y1="1095" x2="430" y2="1095" stroke="#3a2f25" stroke-width="1"/>
+<line x1="382" y1="1114" x2="430" y2="1114" stroke="#3a2f25" stroke-width="1"/>
+<line x1="382" y1="1133" x2="430" y2="1133" stroke="#3a2f25" stroke-width="1"/>
+<line x1="382" y1="1152" x2="430" y2="1152" stroke="#3a2f25" stroke-width="1"/>
+<line x1="382" y1="1171" x2="430" y2="1171" stroke="#3a2f25" stroke-width="1"/>
+<line x1="382" y1="1190" x2="430" y2="1190" stroke="#3a2f25" stroke-width="1"/>
+<line x1="382" y1="1209" x2="430" y2="1209" stroke="#3a2f25" stroke-width="1"/>
+<line x1="382" y1="1228" x2="430" y2="1228" stroke="#3a2f25" stroke-width="1"/>
+<line x1="382" y1="1247" x2="430" y2="1247" stroke="#3a2f25" stroke-width="1"/>
+<line x1="382" y1="1266" x2="430" y2="1266" stroke="#3a2f25" stroke-width="1"/>
+<line x1="382" y1="1285" x2="430" y2="1285" stroke="#3a2f25" stroke-width="1"/>
+<polygon points="400,1280 406,1292 412,1280" fill="#3a2f25"/>
+<text x="372" y="1200" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="end">FLIGHT 1 →</text>
+<text x="372" y="1215" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="end">rises N to S</text>
+<rect x="420" y="1082" width="18" height="18" fill="#5b3a1e"/>
+<text x="372" y="1096" font-size="11" font-weight="bold" fill="#5b3a1e" text-anchor="end">NEWEL POST →</text>
+<rect x="440" y="1110" width="48" height="190" fill="none" stroke="#3a2f25" stroke-width="2" stroke-dasharray="6,4" />
+<text x="464" y="1200" font-size="10" font-weight="bold" fill="#2a241e" text-anchor="middle">FLIGHT 2</text>
+<text x="464" y="1213" font-size="10" font-weight="bold" fill="#2a241e" text-anchor="middle">↑ S→N</text>
+<text x="464" y="1226" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="middle">(above)</text>
+<rect x="382" y="1300" width="110" height="58" fill="#e0cfb0" stroke="#3a2f25" stroke-width="2" />
+<text x="372" y="1333" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="end">HALF-LANDING →</text>
+<line x1="392" y1="1360" x2="482" y2="1360" stroke="#4f9a5a" stroke-width="5"/>
+<line x1="392" y1="1366" x2="482" y2="1366" stroke="#d9922e" stroke-width="5"/>
+<text x="437" y="1385" font-size="11" font-weight="bold" fill="#6b5a1e" text-anchor="middle">SOUTH STAINED-GLASS WINDOW</text>
+<text x="437" y="1400" font-size="11" font-weight="normal" fill="#6b5a1e" text-anchor="middle">(green + amber)</text>
+<rect x="380" y="1062" width="200" height="22" fill="none" stroke="#3a2f25" stroke-width="1.5" stroke-dasharray="3,4" />
+<line x1="560" y1="1360" x2="700" y2="1360" stroke="#fbf7ef" stroke-width="6"/>
+<text x="630" y="1352" font-size="10" font-style="italic" fill="#2a241e" text-anchor="middle">archway</text>
+<rect x="540" y="1360" width="180" height="110" fill="#f7efd9" stroke="#3a2f25" stroke-width="3" />
+<text x="630" y="1410" font-size="14" font-weight="bold" fill="#2a241e" text-anchor="middle">PARLOR</text>
+<text x="630" y="1428" font-size="11" font-weight="normal" fill="#2a241e" text-anchor="middle">(south windows)</text>
+<line x1="560" y1="1470" x2="700" y2="1470" stroke="#5aa9e6" stroke-width="7"/>
+<line x1="300" y1="1500" x2="395" y2="1372" stroke="#f2b233" stroke-width="3" stroke-dasharray="8,6"/>
+<line x1="335" y1="1500" x2="430" y2="1372" stroke="#f2b233" stroke-width="3" stroke-dasharray="8,6"/>
+<line x1="370" y1="1500" x2="465" y2="1372" stroke="#f2b233" stroke-width="3" stroke-dasharray="8,6"/>
+<circle cx="290" cy="1510" r="14" fill="#f2b233" stroke="#c7861a" stroke-width="2"/>
+<text x="315" y="1540" font-size="11" font-weight="bold" fill="#a86b0c" text-anchor="start">SUN SW, low → beams through the south landing window (and parlor)</text>
+<path d="M705,1215 L470,1215 L440,1115 L406,1120 L406,1305 L464,1318 L464,1125" fill="none" stroke="#6b3fa0" stroke-width="3" stroke-dasharray="2,7" stroke-linecap="round"/>
+<text x="560" y="1320" font-size="11" font-weight="bold" fill="#6b3fa0" text-anchor="start">purple dots = Marcus's path</text>
+<path d="M690,1160 L596.0,1194.2 L596.0,1125.8 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="690" cy="1160" r="15" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="690" y="1165" font-size="13" font-weight="bold" fill="white" text-anchor="middle">A</text>
+<path d="M560,1120 L660.0,1120.0 L636.6,1184.3 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="560" cy="1120" r="15" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="560" y="1125" font-size="13" font-weight="bold" fill="white" text-anchor="middle">B</text>
+<path d="M406,1125 L426.2,1212.7 L385.8,1212.7 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="406" cy="1125" r="15" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="406" y="1130" font-size="13" font-weight="bold" fill="white" text-anchor="middle">C</text>
+<path d="M425,1330 L404.8,1242.3 L445.2,1242.3 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="425" cy="1330" r="15" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="425" y="1335" font-size="13" font-weight="bold" fill="white" text-anchor="middle">D</text>
+<path d="M500,1073 L595.1,1161.7 L441.0,1188.8 Z" fill="#b3261e" fill-opacity="0.18" stroke="#b3261e" stroke-width="1.5"/>
+<circle cx="500" cy="1073" r="15" fill="#b3261e" stroke="white" stroke-width="2"/>
+<text x="500" y="1078" font-size="13" font-weight="bold" fill="white" text-anchor="middle">E</text>
+<text x="500" y="1051" font-size="12" font-weight="bold" fill="#b3261e" text-anchor="middle">★ LOCKED</text>
+<text x="40" y="1575" font-size="12" font-weight="normal" fill="#2a241e" text-anchor="start">E = 2nd-floor gallery rail, ~14 ft up, steep tilt DOWN, facing south: flight 2 → landing + window → flight 1 → newel → hall floor; front door at the left edge of frame.</text>
+<text x="40" y="1595" font-size="12" font-weight="normal" fill="#5a4f44" text-anchor="start" font-style="italic">Dashed strip along the north wall = 2nd-floor gallery (above). Dashed box = flight 2 (above).</text>
+<text x="40" y="1640" font-size="22" font-weight="bold" fill="#2a241e" text-anchor="start">MAP 4 · Third-floor room (Young Marcus)</text>
+<text x="40" y="1662" font-size="13" font-weight="normal" fill="#5a4f44" text-anchor="start" font-style="italic">Plate 66cbab09… · Dormer faces WEST (LOCKED) · Light LK-2006-PM</text>
+<polygon points="930,1654 921,1680 939,1680" fill="#2a241e"/>
+<text x="930" y="1648" font-size="15" font-weight="bold" fill="#2a241e" text-anchor="middle">N</text>
+<defs><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#8a7a66" stroke-width="2"/></pattern></defs>
+<rect x="330" y="1690" width="360" height="210" fill="#fbf7ef" stroke="#3a2f25" stroke-width="3" />
+<rect x="330" y="1690" width="360" height="40" fill="url(#hatch)" opacity="0.5"/>
+<text x="510" y="1712" font-size="10" font-style="italic" fill="#2a241e" text-anchor="middle">sloped ceiling (north)</text>
+<rect x="420" y="1732" width="200" height="60" fill="#e7d9c2" stroke="#3a2f25" stroke-width="2" />
+<text x="520" y="1767" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="middle">BED (quilt)</text>
+<rect x="336" y="1780" width="48" height="90" fill="#d9c6a5" stroke="#3a2f25" stroke-width="2" />
+<text x="360" y="1890" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="middle">desk</text>
+<line x1="330" y1="1790" x2="330" y2="1860" stroke="#f2b233" stroke-width="9"/>
+<text x="300" y="1810" font-size="11" font-weight="bold" fill="#a86b0c" text-anchor="end">DORMER</text>
+<text x="300" y="1826" font-size="10" font-weight="normal" fill="#a86b0c" text-anchor="end">(west, gold sun)</text>
+<line x1="690" y1="1820" x2="690" y2="1875" stroke="#fbf7ef" stroke-width="7"/>
+<text x="740" y="1810" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="middle">DOOR</text>
+<rect x="690" y="1800" width="150" height="95" fill="#efe7d6" stroke="#3a2f25" stroke-width="2" stroke-dasharray="5,4" />
+<text x="765" y="1890" font-size="10" font-style="italic" fill="#2a241e" text-anchor="middle">hallway</text>
+<circle cx="675" cy="1848" r="9" fill="#6b3fa0" stroke="#222" stroke-width="1.5"/>
+<text x="675" y="1874" font-size="12" font-weight="bold" fill="#6b3fa0" text-anchor="middle">MARCUS 15</text>
+<circle cx="590" cy="1848" r="9" fill="#2e7d32" stroke="#222" stroke-width="1.5"/>
+<text x="590" y="1874" font-size="12" font-weight="bold" fill="#2e7d32" text-anchor="middle">ELIJAH 61</text>
+<path d="M395,1835 L500.2,1802.8 L500.2,1867.2 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="395" cy="1835" r="15" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="395" y="1840" font-size="13" font-weight="bold" fill="white" text-anchor="middle">F</text>
+<path d="M470,1810 L619.8,1817.9 L603.7,1878.1 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="470" cy="1810" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="470" y="1815" font-size="13" font-weight="bold" fill="white" text-anchor="middle">F2</text>
+<path d="M800,1848 L693.7,1876.5 L693.7,1819.5 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="800" cy="1848" r="15" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="800" y="1853" font-size="13" font-weight="bold" fill="white" text-anchor="middle">G</text>
+</svg>
