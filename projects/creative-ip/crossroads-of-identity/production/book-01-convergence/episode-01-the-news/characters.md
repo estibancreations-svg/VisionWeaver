@@ -10,8 +10,12 @@ Full rules are in [`part-03/lock-sheet.md`](part-03/lock-sheet.md), Section 3. T
 | FL-MR32 | Marcus Reynolds, 32 (Jan 2023, present) | adult Marcus board ("Jason Reed" source) |
 | FL-MR31 | Marcus Reynolds, 31 (spring 2022, PART 5 porch) | same as FL-MR32 |
 | FL-MR15 | Young Marcus, 15 (fall/winter 2006) | `5578ac57-c4e6-4b07-9f2d-9ccc6dc939d3` |
+| FL-MR10 | Marcus Reynolds, 10 (summer 2001; **in the PART 4 photograph only**) | photo prop `10523301-c6cb-457b-81ee-33fef5eaee58` (built from `5578ac57…` and the father board) |
 | FL-EJ61 | Elijah Johnson, 61 (fall/winter 2006) | `bfa76923-88c0-46e7-b049-da3a60602b6d` |
-| FL-EJ77 | Elijah Johnson, 76–77 (spring 2022) | `02ba912e-2a28-4cd1-b470-f91213b44b61` |
+| FL-EJ77 | Elijah Johnson, 76–77 (late March 2022) | `02ba912e-2a28-4cd1-b470-f91213b44b61` |
+| — | Marcus's father, about 43 (summer 2001; photo only) | same photo prop `10523301…`, from board `c3440f98-0715-44ff-ab0a-4bd2d6f29881` |
+
+Full PART 4 face rules: [`part-04/lock-sheet.md`](part-04/lock-sheet.md), Section 2.
 
 ## LOCKED — repurposed from an existing character-board set (physical features unchanged, only renamed)
 
@@ -24,6 +28,9 @@ Full rules are in [`part-03/lock-sheet.md`](part-03/lock-sheet.md), Section 3. T
 - Matches canon: Black, born 1991, entertainment lawyer, athletic/professional presentation.
 - **Hair lock (Sire, 2026-09-24):** short dense coils on top with a close-cropped fade on the sides. This joins the board with the chapter's "close-cropped fade."
 - **Work wardrobe lock (PART 3):** charcoal suit, crisp white shirt, burgundy "power tie." The steel box chain is tucked under the shirt and not visible at work.
+- **Work lock (Sire, 2026-09-25):** the firm is headquartered in **Atlanta**, where Marcus works now, and his condo is in Midtown Atlanta. He started at the firm's **Tampa satellite office** in 2016 and moved up to the head office. The satellite still sends him hometown clients (like Jayden King).
+- **Birthday lock (Sire, 2026-09-25):** born **Wednesday, January 9, 1991**. It's written inside his grandmother's Bible (PART 4). He turns 32 eight days before the story's present day (Tuesday, January 17, 2023).
+- **Home wardrobe lock (PART 4):** suit pants and a white dress shirt, collar open and sleeves loosened; the tie and jacket are draped over the sofa.
 
 ### Desiree Washington
 - Board: originally labeled "Sarah Miller." Black woman, natural coiled hair in a polished crew cut, double-link gold chain, minimalist wood pendant, gold hoop earrings, ~5'7" / 140 lbs.
@@ -48,6 +55,7 @@ Full rules are in [`part-03/lock-sheet.md`](part-03/lock-sheet.md), Section 3. T
 - **Correction:** the original board (task 3a35d926-8225-43a9-94ce-94ef575038a1) read too close to a known actor's likeness — Sire flagged it and it has been rebuilt from scratch with deliberately different, more distinctive features to keep the design original, consistent with the no-copying standard used for the locations.
 - Current design: elderly Black man, late 70s, broad round face, deep-set close-set eyes, wide flat nose, small mole on the left cheek, full salt-and-pepper afro (not receding), thick bushy white eyebrows, full close-cropped white beard covering the jaw, a slight natural gap between the front teeth, square black wire-rim glasses worn on the face, cream cable-knit cardigan over a light blue collared shirt, thin leather bracelet.
 - Current Runway task ID: 02ba912e-2a28-4cd1-b470-f91213b44b61 (nano-banana-pro, 16:9, 2K). Prior task ID (superseded, do not use): 3a35d926-8225-43a9-94ce-94ef575038a1. This is face lock **FL-EJ77**.
+- **Birthday window (continuity audit, 2026-09-25):** for Elijah to be **61 in fall 2006** and **77 in late March 2022**, his birthday must fall between **January 1 and about March 20, 1945**. This is just math from the ages already locked. Sire can pick an exact date later if it's ever needed on screen.
 
 ### Elijah Johnson, age 61 (FL-EJ61) — NEW BOARD (2026-09-24), pending Sire's visual check
 - Needed for the 2006 arrival flashback (Episode 1, PART 3). The late-70s board is right for 2022, but too old for 2006 (2006 − 1945 = 61).
@@ -57,7 +65,7 @@ Full rules are in [`part-03/lock-sheet.md`](part-03/lock-sheet.md), Section 3. T
   > A character design reference sheet on a light warm-grey background with faint graph-paper grid lines, matching the exact layout of @elijah. Bold sans-serif header text at top-left reads "CHARACTER VARIATION STUDY: ELIJAH JOHNSON (AGE 61)". Top-right smaller header reads "ROTATION STUDY". Far-right column header reads "CLOSE. DETAILS" with three numbered circular close-up crops. Main content: a photorealistic Black man, 61 years old, the exact same individual as @elijah but sixteen years younger — keep the same broad round face, deep-set close-set eyes, wide flat nose, the small mole on his left cheek, the slight natural gap between his front teeth, and the square black wire-rim glasses. A full afro, mostly black with grey threading at the temples (about one-third grey). Thick dark eyebrows with grey flecks. A full close-cropped beard, mostly dark with grey at the chin. Firmer skin with light crow's feet and soft smile lines, upright steady posture with a quiet military bearing, solid build. Warm, unhurried, watchful expression. He wears a cream cable-knit cardigan over a light blue collared shirt and a thin leather bracelet on his right wrist. An entirely original invented face, not based on or resembling any real actor, celebrity, or public figure. Show him in three photographic studio poses arranged left to right against a solid muted slate-blue backdrop, labeled underneath as "FRONT VIEW", "3/4 VIEW", and "SIDE PROFILE": a front-facing portrait from the chest up, a three-quarter turn portrait, and a side profile portrait. To the right, three small numbered circular close-up detail crops: (1) close on the face showing the glasses, the mole, and the gap-toothed warm smile, (2) close on the leather bracelet on his wrist, (3) close on the cable-knit cardigan texture. Below the portraits, a labeled specs panel titled "ELIJAH JOHNSON (AGE 61) — CHARACTER SPECS" with bullet-style rows of small caption text describing: Salt-and-Pepper Afro (Mostly Dark), Dark Brows with Grey Flecks, Close-Cropped Beard Greying at Chin, Square Black Wire-Rim Glasses, Mole on Left Cheek, Cream Cardigan and Light Blue Shirt, Thin Leather Bracelet. Bottom right corner shows the same height and weight scale marking as @elijah. Clean infographic typography, consistent lighting across all views, ultra-detailed photoreal skin and fabric texture.
 
 ### Young Marcus (age 15)
-- New casting need surfaced while drafting the Episode 1 script: young Marcus appears in two flashback beats (arriving at the safe house; referenced again in the porch memory) and had no board.
+- New casting need surfaced while drafting the Episode 1 script: young Marcus appears in the 2006 arrival flashback (PART 3) and had no board. *(Corrected 2026-09-25: the PART 5 porch memory shows adult Marcus at 31, not the boy.)* His face at 10 appears once, in the PART 4 photograph (FL-MR10).
 - Designed as the same bloodline as adult Marcus Reynolds (deep brown skin, bone structure that reads as the same person younger) but slighter, thinner, more vulnerable — natural short coiled hair, wide wary/frightened eyes, oversized grey hoodie, worn jeans, clutching a well-worn backpack.
 - **Locks (2026-09-24):** no fade at 15 (a plain home haircut); backpack strap over his LEFT shoulder, clutched at his chest with both hands; no jewelry; his grandmother's journal is inside the backpack (not shown in PART 3).
 - Runway task ID: 5578ac57-c4e6-4b07-9f2d-9ccc6dc939d3 (nano-banana-pro, 16:9, 2K).
@@ -93,11 +101,13 @@ Full rules are in [`part-03/lock-sheet.md`](part-03/lock-sheet.md), Section 3. T
 - The chapter identifies her only by occupation ("Christian school teacher") and a text message signature. No physical description.
 - Design invented for production, consistent with Marcus's established Black heritage: Black woman, early 60s, silver-streaked hair in a neat bob, wire-rimmed glasses, cream cardigan over a floral blouse, pearl necklace and earrings — warm but composed and slightly stern, matching her canon role of having given Marcus an ultimatum at 15.
 - Runway task ID: a93dd76c-3d7b-4bc0-9c4f-42a123e6847e (nano-banana-pro, 16:9, 2K).
+- **PART 4 lock:** voice and text only in Episode 1. Her contact label on Marcus's phone is **"Mother"**. She calls three times a year (Christmas, his birthday and Mother's Day), so her call on January 17, eight days after his birthday, is unusual.
 
 ### Marcus's Father — INVENTED (no source description, no name given)
 - The chapter identifies him only by role ("deacon father") plus one archival detail: a photo of him in matching T-shirts with a 10-year-old Marcus at a father-son church retreat. No current physical description.
 - Design invented for production, consistent with Marcus's established Black heritage: Black man, mid-60s, closely cropped greying hair, trimmed grey mustache, stern/composed expression, charcoal three-piece suit with a deacon's lapel pin, maroon tie.
 - Runway task ID: c3440f98-0715-44ff-ab0a-4bd2d6f29881 (nano-banana-pro, 16:9, 2K).
+- **PART 4:** appears only in the summer 2001 photograph, about 43, smiling, arm around ten-year-old Marcus (prop `10523301…`).
 
 ### Amara Okafor — INVENTED (no physical description, rich canon backstory)
 - Source: `Character_Histories_Crossroads_of_Identity.md`, the fifth protagonist. The doc gives zero physical description (true of all five protagonists' entries) but a full backstory: born 2001 in Lagos, Nigeria; Yoruba heritage; immigrated to Temple Terrace (Tampa) in 2006 at age 5; **male** — referred to throughout as "he/his" (note this clearly, since the name Amara reads female in some Western contexts, but the source text is consistent and explicit); bisexual, out to close friends but not family; by 2023 (age 22) a digital content creator for a local arts organization and a writer (fiction, poetry, journalism, founder of a digital literary magazine). His central relationship in the doc is with Elijah Johnson, who became a grandfather figure discovered through Amara's teenage research into his own Nigerian heritage at Elijah's bookstore. No documented connection to Marcus, Jordan, Desiree, or Victor.

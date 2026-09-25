@@ -1,6 +1,6 @@
 # Location — The Ybor City Safe House (Full House)
 
-Elijah Johnson's Ybor City (Tampa) bookstore/safe house. Full canon reference (history, room-by-room detail, and locked lighting logic) lives in Drive as the Location Bible, alongside the Character Histories doc: [`Location Bible - Ybor City Safe House v2 (LOCKED).md`](https://drive.google.com/file/d/1_AcBgNi10p6gmyhUoDHK_oUBF0O3HRZC/view?usp=drivesdk) (Drive fileId `1_AcBgNi10p6gmyhUoDHK_oUBF0O3HRZC`; supersedes v1 `1M63JlW5OxKk01zUJT1bAi0Sv24ILv5CK`). This file is the production/sourcing record; the Drive doc is the canon reference.
+Elijah Johnson's Ybor City (Tampa) bookstore/safe house. Full canon reference (history, room-by-room detail, and locked lighting logic) lives in Drive as the Location Bible, alongside the Character Histories doc: [`Location Bible - Ybor City Safe House v5 (LOCKED).md`](https://drive.google.com/file/d/1K4k1kJt5GrgLUhatqw9AwggXk7o-eOJs/view?usp=drivesdk) (Drive fileId `1K4k1kJt5GrgLUhatqw9AwggXk7o-eOJs`; supersedes v4 `1vmjZIxORlYy9ay05jmVZHuIRXRFbgt7E`, v3 `1ad8Pf8BWlvbBIdF9YGBXowzdse4ljQ5c`, v2 `1_AcBgNi10p6gmyhUoDHK_oUBF0O3HRZC`, v1 `1M63JlW5OxKk01zUJT1bAi0Sv24ILv5CK`). The current version is always listed in `../script.md`. The porch and front yard have their own record: [`ybor-city-safe-house-porch.md`](ybor-city-safe-house-porch.md). This file is the production/sourcing record; the Drive doc is the canon reference.
 
 ## The history correction (important — read before writing any scene set here)
 The house's founding legend, as first described, doesn't hold up against real history: Ybor City wasn't developed until 1885 (undeveloped scrubland/swamp before that), and Florida's actual "underground railroad" pattern ran *south* — toward Spanish Florida, Black Seminole/Maroon communities, and boat escapes to the Bahamas (the "Saltwater Railroad") — not the Ohio Valley hidden-room network the term usually evokes.
@@ -9,6 +9,9 @@ The house's founding legend, as first described, doesn't hold up against real hi
 
 ## Locked orientation & lighting logic
 Front/grand entrance faces **due EAST**. Full breakdown (per room) is in the Drive Location Bible; summary: entrance hall/porch = soft morning light (East); meeting room/parlor = consistent bright daylight (South-facing); kitchen/back yard = warm golden evening light (West-facing); basement = minimal light, small high East windows only; hidden room = no exterior windows at all, lamp-lit only; staircase = rises along the west wall toward a south-facing stained-glass landing window.
+
+### Floor plan lock (Sire, 2026-09-25)
+Ground floor: the entrance hall and stair; **Heritage Pages** in the south front parlor (the meeting room after hours; the shop door is the south side portico); Elijah's office behind the shop; the **kitchen** at the back on the west. Second floor: youth bedrooms and the living room. Third floor: more bedrooms (including Young Marcus's), a small library, and the room that later becomes Desiree's studio. Attic: storage and the hidden room's access. Cellar: storage only. Full detail is in Location Bible v5.
 
 ### New locks (Sire, 2026-09-24)
 - **Afternoons:** the east front sits in open shade. No afternoon sun comes through the front door's sidelights; they glow soft and cool. The hall's warm afternoon light comes from the south, through the parlor archway and from the landing window.
@@ -37,11 +40,14 @@ Front/grand entrance faces **due EAST**. Full breakdown (per room) is in the Dri
 | Young Marcus's room (3rd floor) | `66cbab09-6b9a-4109-8abd-2296d8e62b47` | Matches original chapter text: "a small room on the third floor". Dormer faces west (locked). |
 | The attic | `09c4c5c5-0d53-4c56-ba05-6642dfb9327e` | Houses the hidden room's access point |
 | The hidden room | `3e55d138-51e0-4e9a-87d3-266b704db23c` | No exterior windows, disguised panel access, lantern-lit only |
-| The basement / cellar | `ca2b3994-cfbe-4417-920f-eebafa3bc9b1` | Minimal light, small high East windows only |
+| The basement / cellar | `ca2b3994-cfbe-4417-920f-eebafa3bc9b1` | Minimal light, small high East windows only. **Storage only, never living space** (Bible v5). |
 | The kitchen | `134c2a41-1d02-4ce4-90fd-90aa6355c945` | West light, generations-of-use character |
-| The meeting room / front parlor | `893f4a11-d335-4eaa-91a1-e5638462b312` | South light; doubles as Elijah's later bookstore room |
-| Front yard | `24760749-a1e7-49b8-ac80-6b504b818abd` | East-facing, public street side |
-| Back yard | `431cd28a-17db-4998-b636-ede538e30400` | West-facing, private, gardened |
+| Heritage Pages bookstore / front parlor | `893f4a11-d335-4eaa-91a1-e5638462b312` | South light. **Locked (Sire, 2026-09-25, Bible v5):** this room has been Elijah's bookstore, Heritage Pages, since 1972, and it doubles as the meeting room after hours. The LGBTQ+ section is behind a beaded curtain. Customers use the south side portico. |
+| ~~Front yard~~ | ~~`24760749-a1e7-49b8-ac80-6b504b818abd`~~ | **SUPERSEDED, do not use** (it had a fence; the set house has none). |
+| Front yard, late afternoon (set house) | `bc5ee687-9b38-4a0c-805b-0c82584dc32e` | Rebuilt to Sire's set house. Prompt in the porch record. |
+| Front yard, mid-morning (set house) | `bc58559c-25de-4abd-8670-1d5e8b2bd128` | Rebuilt to Sire's set house. Prompt in the porch record. |
+| Front porch, porch level (set house) | `c58d9eab-95f5-4b3c-bf1c-80c8e4873164` (alt `cbe627a6-76ef-4587-9ffa-bee118164dbd`) | Prompt in the porch record. |
+| Back yard | `431cd28a-17db-4998-b636-ede538e30400` | West-facing, private, gardened. This is the Histories' "courtyard garden hidden from street view." |
 
 (Exterior establishing shot from the earlier session — matches the book cover art — remains the master reference: task `2aa055ef-f86c-4aa3-9fd3-c759d86e8956`. Locked per Sire's instruction: this is the canonical exterior — the pointed-turret, two-distinct-levels version — and it is not to be redesigned or regenerated.)
 
@@ -81,14 +87,14 @@ Recorded here in full so every image can be exactly reproduced later, independen
 **The meeting room / front parlor (task `893f4a11-d335-4eaa-91a1-e5638462b312`):**
 > A cinematic wide establishing shot of an original front parlor / community meeting room inside a Queen Anne Victorian house in Ybor City, Tampa — a photorealistic film backdrop plate, empty of people, architectural interior photography style. South-facing windows let in consistent bright daylight throughout the room. An open archway connects to the entrance hall, visible at one edge of frame. The room is arranged for gathering rather than formal display — a mix of mismatched but comfortable armchairs and a worn sofa arranged in a loose circle, floor-to-ceiling bookshelves lining one full wall (a nod to the space later becoming a bookstore), a fireplace with a simple wood mantel, layers of decades of use: family photographs, community event flyers pinned to a corkboard, a well-loved rug. Warm, welcoming, lived-in — a room that has hosted generations of conversation. Ultra-detailed architectural rendering, photoreal wood, fabric, and paper textures, bright consistent daylight, no text, no logos, no people.
 
-**Front yard (task `24760749-a1e7-49b8-ac80-6b504b818abd`):**
+**Front yard (task `24760749-a1e7-49b8-ac80-6b504b818abd`) — SUPERSEDED, kept for history only. Do not use:**
 > A cinematic wide establishing shot of the original front yard of a Queen Anne Victorian house in Ybor City, Tampa, Florida — a photorealistic film backdrop plate, empty of people, architectural exterior photography style. Shot from the street looking toward the house's east-facing front porch and wraparound porch with turned wood columns, catching soft warm morning light. A modest, slightly overgrown-but-tended front lawn, a mature live oak tree draped with a little Spanish moss, palmettos, a simple picket or low wrought-iron fence along the sidewalk, a worn brick or paver front walkway leading to the porch steps. The setting feels like a real, lived-in historic residential street in Ybor City — modest, warm, welcoming, not a showpiece estate. Soft golden morning light, ultra-detailed photoreal foliage and architectural textures, no text, no logos, no people.
 
 **Back yard (task `431cd28a-17db-4998-b636-ede538e30400`):**
 > A cinematic wide establishing shot of the original private back yard of a Queen Anne Victorian house in Ybor City, Tampa, Florida — a photorealistic film backdrop plate, empty of people, architectural exterior photography style. Shot facing the west side of the house, catching warm golden late-afternoon light. A small, enclosed, gardened space — a modest vegetable and herb garden bed, a mature fruit tree, a simple wooden bench, a weathered wood fence or hedge enclosing the space for privacy, a small back porch or stoop off the kitchen with a couple of well-worn rocking chairs. The yard feels private, nurtured, and personal in contrast to the more public front yard — a space for quiet conversation and community gathering out of view of the street. Ultra-detailed photoreal foliage and architectural textures, warm golden-hour directional light, no text, no logos, no people.
 
 ## Image storage note
-Same limitation as every other asset in this project: the binaries live in Runway's asset library under the task IDs above, not yet copied into this repo (sandbox network restriction blocks direct downloads). Sire has direct asset links to save from his own device. The verbatim prompts above are the reproducibility fallback if a task's signed link expires before the image is saved.
+Same limitation as every other asset in this project: the binaries live in Runway's asset library under the task IDs above, not yet copied into this repo (sandbox network restriction blocks direct downloads). Sire has direct asset links to save from his own device. The verbatim prompts above are the reproducibility fallback if a task's signed link expires.
 
 ## References
 NOAA Global Monitoring Laboratory. (n.d.). *General solar position calculations* [Technical note]. National Oceanic and Atmospheric Administration. https://gml.noaa.gov/grad/solcalc/solareqns.PDF
