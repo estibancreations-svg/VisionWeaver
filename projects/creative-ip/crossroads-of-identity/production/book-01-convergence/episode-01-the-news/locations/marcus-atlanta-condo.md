@@ -1,6 +1,6 @@
 # Location — Marcus's Atlanta Condo
 
-Marcus's home, a downtown/Buckhead-Midtown-tier luxury high-rise condominium, consistent with his relocation to Atlanta and his standing as a successful entertainment lawyer in his early 30s. Three rooms built: living room, bedroom, kitchen — covers every beat of the script's PART 4 ("The Box"). The kitchen also has a **night version** (NEW 2026-09-24) for PART 4's kitchen beat and PART 5's closing scene.
+Marcus's home, a downtown/Buckhead-Midtown-tier luxury high-rise condominium, consistent with his relocation to Atlanta and his standing as a successful entertainment lawyer in his early 30s. Three rooms built: living room, bedroom, kitchen — covers every beat of the script's PART 4 ("The Box"). The kitchen also has a **night version** (NEW 2026-09-24) for PART 4's kitchen beat and PART 5's closing scene. The living room and bedroom got **night versions** too (NEW 2026-09-25) for PART 4.
 
 ## Research process
 Researched real Atlanta luxury high-rise towers and their documented interior finishes, at the tier a successful young entertainment lawyer would plausibly own:
@@ -22,13 +22,16 @@ Consistent across all three rooms: dark rosewood-toned millwork, wide-plank hard
 - **The kitchen scenes happen at night** (January 2023, about 10:30 PM, after the client dinner). Use the night plate `8735e56d…`, not the dusk plate, for PART 4's kitchen beat and PART 5.
 - **Light lock LK-ATL-NIGHT:** the pendant over the island (2700K) and low under-cabinet LEDs (3000K) are the only lights on. The window shows the city at night with a cool blue glow. A faint smoke haze from the burned eggs catches the pendant light. Low-key, neutral-cool grade.
 - **Camera pins K1–K4:** see `../part-05/camera-maps.svg` (Map 6) and `../part-05/lock-sheet.md`.
-- **Open item:** the living room and bedroom plates are lit at dusk/evening too. They'll be checked against PART 4's night timing when PART 4 gets its lock sheet.
+- **Closed (2026-09-25):** PART 4 is locked at night (about 10:00–10:30 PM), so the living room and bedroom were relit for night. Use the night plates `0af9b95d…` and `0c1c4085…` for PART 4. The closet's warm light strip is the only warm light in PART 4. Full rules: `../part-04/lock-sheet.md`.
+- **Camera pins L1–L3 (living room) and R1–R3 (bedroom/closet):** see `../part-04/camera-maps.svg`.
 
 ## Generation
 - Living room — Runway task ID: 28d75b77-ecae-40e2-bc90-5fea7f3a58a8
 - Bedroom — Runway task ID: 9e0173b8-98a0-45f4-b163-9ef4f9c09460
 - Kitchen (dusk) — Runway task ID: f5da915e-8626-4fde-a10b-9a1d8de7cacf
 - **Kitchen (night relight, NEW 2026-09-24)** — Runway task ID: `8735e56d-c49f-47d2-b135-7c01080f3718` (reference image `f5da915e…` tagged `@kitchen`). **Pending Sire's visual check.**
+- **Living room (night relight, NEW 2026-09-25)** — Runway task ID: `0af9b95d-ef52-4424-88fd-60dd310b011f` (reference image `28d75b77…` tagged `@living`). **Pending Sire's visual check.**
+- **Bedroom (night relight, NEW 2026-09-25)** — Runway task ID: `0c1c4085-7a97-40c3-9c14-304f2f949919` (reference image `9e0173b8…` tagged `@bedroom`). **Pending Sire's visual check.**
 (all nano-banana-pro, 16:9, 2K)
 - Same image-storage limitation as the rest of this project: the binary PNGs live in Runway's asset library under these task IDs, not yet copied into this repo. Sire has the direct asset links to save from his own device.
 
@@ -46,6 +49,12 @@ Recorded here in full so every image can be exactly reproduced later, independen
 
 **Kitchen, night relight (task `8735e56d-c49f-47d2-b135-7c01080f3718`; reference image `f5da915e-8626-4fde-a10b-9a1d8de7cacf` tagged `@kitchen`):**
 > @kitchen relit for late night — keep the exact same camera position, framing, cabinetry, island, appliances, pendant, window, and materials, changing only the light. A photorealistic film backdrop plate, empty of people. The sky outside the window is fully dark: the Atlanta skyline at night, cool blue ambient glow with warm specks of city light, no dusk color left. Inside, the single pendant light over the island casts a warm 2700K pool of light onto the quartzite, low under-cabinet LED strips glow softly, and every other light is off, leaving the edges of the room in deep shadow. A faint thin haze hangs in the air, catching the cone of the pendant light. Quiet, lonely, low-key. Ultra-detailed, photoreal materials, no text, no logos, no people.
+
+**Living room, night relight (task `0af9b95d-ef52-4424-88fd-60dd310b011f`; reference image `28d75b77-ecae-40e2-bc90-5fea7f3a58a8` tagged `@living`):**
+> @living relit for late night — keep the exact same camera position, framing, furniture, materials, and window wall, changing only the light. A photorealistic film backdrop plate, empty of people. Outside the floor-to-ceiling glass, the Atlanta skyline at night: deep blue-black sky, glittering city lights, no dusk color left. Inside, the room is dark and cool, lit mostly by the city glow through the glass, with one warm table lamp on low across the room and the chandelier off. A man's suit jacket and a loosened tie are draped over the back of the sofa. Quiet, lonely, low-key. Ultra-detailed, photoreal materials, no text, no logos, no people.
+
+**Bedroom, night relight (task `0c1c4085-7a97-40c3-9c14-304f2f949919`; reference image `9e0173b8-98a0-45f4-b163-9ef4f9c09460` tagged `@bedroom`):**
+> @bedroom relit for late night — keep the exact same camera position, framing, furniture, closet, and materials, changing only the light. A photorealistic film backdrop plate, empty of people. The bedroom is dark and cool, lit only by the blue city glow through the floor-to-ceiling windows, except for the open walk-in closet, whose warm interior light strip above the rod glows golden across the rows of tailored suits and the high shelf above them, spilling a warm wedge of light onto the floor. The bedside sconce is off. Ultra-detailed, photoreal materials, no text, no logos, no people.
 
 Sources:
 - [Residences at Mandarin Oriental Atlanta — Contemporary Living Room, Robert Brown Interior Design (Houzz)](https://www.houzz.com/photos/mandarin-oriental-residences-contemporary-living-room-atlanta-phvw-vp~45360136)
