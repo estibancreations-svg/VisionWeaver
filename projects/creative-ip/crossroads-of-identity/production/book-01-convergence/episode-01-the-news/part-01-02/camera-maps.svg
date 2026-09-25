@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1330" viewBox="0 0 1000 1330" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="1000" height="1330" fill="#f4efe6" stroke="none" stroke-width="0" />
+<text x="500.0" y="38" font-size="26" font-weight="bold" fill="#2a241e" text-anchor="middle">E01 · PARTS 1–2 · CAMERA MAPS v1 (LOCKED)</text>
+<text x="500.0" y="62" font-size="13" font-weight="normal" fill="#5a4f44" text-anchor="middle">Top-down, north up. Blue = camera pin + view cone. Purple = Marcus. Other colors = guests.</text>
+<text x="40" y="100" font-size="22" font-weight="bold" fill="#2a241e" text-anchor="start">MAP 7 · Glass conference room, Atlanta head office</text>
+<text x="40" y="122" font-size="13" font-weight="normal" fill="#5a4f44" text-anchor="start" font-style="italic">Tue Jan 17, 2023, ~10:00–11:10 AM · relit plate a60f82fb… (from 40faad4e…) · Light LK-ATL-AM</text>
+<polygon points="930,104 921,130 939,130" fill="#2a241e"/>
+<text x="930" y="98" font-size="15" font-weight="bold" fill="#2a241e" text-anchor="middle">N</text>
+<rect x="90" y="140" width="700" height="40" fill="#dbe6f2" stroke="none" stroke-width="0" />
+<text x="440" y="166" font-size="11" font-weight="bold" fill="#2d4f7c" text-anchor="middle">SKYLINE (north) · the distant fin-topped tower · front-lit, gleaming</text>
+<rect x="90" y="180" width="60" height="480" fill="#dbe6f2" stroke="none" stroke-width="0" />
+<text x="120" y="420" font-size="11" font-weight="bold" fill="#2d4f7c" text-anchor="middle">SKYLINE</text>
+<text x="120" y="436" font-size="11" font-weight="normal" fill="#2d4f7c" text-anchor="middle">(west)</text>
+<rect x="150" y="180" width="600" height="480" fill="#fbf7ef" stroke="#3a2f25" stroke-width="3" />
+<line x1="150" y1="180" x2="750" y2="180" stroke="#2d4f7c" stroke-width="9"/>
+<line x1="150" y1="180" x2="150" y2="660" stroke="#2d4f7c" stroke-width="9"/>
+<text x="450" y="200" font-size="10" font-weight="normal" fill="#2d4f7c" text-anchor="middle">floor-to-ceiling glass (north)</text>
+<line x1="750" y1="180" x2="750" y2="660" stroke="#9aa7b0" stroke-width="6" stroke-dasharray="10,4"/>
+<text x="768" y="430" font-size="10" font-weight="bold" fill="#5a6a75" text-anchor="start">frosted</text>
+<text x="768" y="444" font-size="10" font-weight="normal" fill="#5a6a75" text-anchor="start">glass wall</text>
+<text x="768" y="458" font-size="10" font-weight="normal" fill="#5a6a75" text-anchor="start">to corridor</text>
+<line x1="750" y1="580" x2="750" y2="640" stroke="#f4efe6" stroke-width="8"/>
+<text x="768" y="615" font-size="10" font-weight="normal" fill="#2a241e" text-anchor="start">door</text>
+<line x1="150" y1="660" x2="750" y2="660" stroke="#c9c3b8" stroke-width="10"/>
+<text x="450" y="685" font-size="11" font-weight="bold" fill="#6b6358" text-anchor="middle">honed white marble accent wall (south)</text>
+<rect x="385" y="250" width="130" height="320" fill="#6b4a2e" stroke="#3a2f25" stroke-width="2" />
+<text x="450" y="300" font-size="11" font-weight="bold" fill="white" text-anchor="middle">walnut</text>
+<text x="450" y="315" font-size="11" font-weight="bold" fill="white" text-anchor="middle">table</text>
+<circle cx="450" cy="520" r="30" fill="#f2b233" opacity="0.15"/>
+<text x="450" y="480" font-size="9" font-weight="normal" fill="white" text-anchor="middle">brass pendant</text>
+<circle cx="360" cy="380" r="9" fill="#6b3fa0" stroke="#222" stroke-width="1.5"/>
+<text x="360" y="406" font-size="12" font-weight="bold" fill="#6b3fa0" text-anchor="middle">MARCUS</text>
+<circle cx="360" cy="450" r="9" fill="#8a5a10" stroke="#222" stroke-width="1.5"/>
+<text x="360" y="476" font-size="12" font-weight="bold" fill="#8a5a10" text-anchor="middle">ALVAREZ</text>
+<circle cx="540" cy="380" r="9" fill="#2e7d32" stroke="#222" stroke-width="1.5"/>
+<text x="540" y="406" font-size="12" font-weight="bold" fill="#2e7d32" text-anchor="middle">JAYDEN</text>
+<circle cx="540" cy="450" r="9" fill="#2e7d32" stroke="#222" stroke-width="1.5"/>
+<text x="540" y="476" font-size="12" font-weight="bold" fill="#2e7d32" text-anchor="middle">MANAGER</text>
+<text x="450" y="600" font-size="10" font-weight="normal" fill="#5a4f44" text-anchor="middle" font-style="italic">head of table</text>
+<circle cx="880" cy="215" r="14" fill="#f2b233" stroke="#c7861a" stroke-width="2"/>
+<text x="880" y="255" font-size="12" font-weight="bold" fill="#a86b0c" text-anchor="middle">SUN SE ~138°–155°</text>
+<text x="880" y="272" font-size="12" font-weight="bold" fill="#a86b0c" text-anchor="middle">22°–31° high</text>
+<text x="880" y="292" font-size="11" font-weight="normal" fill="#a86b0c" text-anchor="middle">behind the building:</text>
+<text x="880" y="307" font-size="11" font-weight="normal" fill="#a86b0c" text-anchor="middle">no direct sun comes</text>
+<text x="880" y="322" font-size="11" font-weight="normal" fill="#a86b0c" text-anchor="middle">through the north or</text>
+<text x="880" y="337" font-size="11" font-weight="normal" fill="#a86b0c" text-anchor="middle">west glass</text>
+<path d="M720,630 L616.6,592.4 L682.4,526.6 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="720" cy="630" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="720" y="635" font-size="13" font-weight="bold" fill="white" text-anchor="middle">C1</text>
+<path d="M640,380 L534.8,412.2 L534.8,347.8 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="640" cy="380" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="640" y="385" font-size="13" font-weight="bold" fill="white" text-anchor="middle">C2</text>
+<path d="M250,395 L355.2,362.8 L355.2,427.2 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="250" cy="395" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="250" y="400" font-size="13" font-weight="bold" fill="white" text-anchor="middle">C3</text>
+<path d="M425,425 L380.0,425.0 L390.5,396.1 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="425" cy="425" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="425" y="430" font-size="13" font-weight="bold" fill="white" text-anchor="middle">C4</text>
+<path d="M450,250 L468.8,301.7 L431.2,301.7 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="450" cy="250" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="450" y="255" font-size="13" font-weight="bold" fill="white" text-anchor="middle">C5</text>
+<path d="M450,625 L418.9,509.1 L481.1,509.1 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="450" cy="625" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="450" y="630" font-size="13" font-weight="bold" fill="white" text-anchor="middle">C6</text>
+<circle cx="800" cy="560" r="9" fill="#8a5a10" stroke="#222" stroke-width="1.5"/>
+<text x="800" y="538" font-size="11" font-weight="bold" fill="#8a5a10" text-anchor="middle">PARTNER</text>
+<text x="800" y="586" font-size="10" font-weight="normal" fill="#8a5a10" text-anchor="middle">waits for</text>
+<text x="800" y="599" font-size="10" font-weight="normal" fill="#8a5a10" text-anchor="middle">the nod</text>
+<path d="M318,338 L422.0,373.8 L395.8,415.8 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="318" cy="338" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="318" y="343" font-size="13" font-weight="bold" fill="white" text-anchor="middle">C7</text>
+<text x="40" y="730" font-size="11" font-weight="normal" fill="#1f5fa8" text-anchor="start">C1 wide from the door corner · C2 over Jayden onto Marcus (skyline behind him) · C3 over Marcus onto Jayden + manager (frosted wall behind them)</text>
+<text x="40" y="748" font-size="11" font-weight="normal" fill="#1f5fa8" text-anchor="start">C4 low, under the table (phone on his thigh) · C5 overhead tabletop inserts (contract, water glass, pen) · C6 head of table, looking north · C7 Marcus's view to the door (the nod)</text>
+<text x="40" y="800" font-size="22" font-weight="bold" fill="#2a241e" text-anchor="start">MAP 8 · Executive floor: elevator lobby and corridor</text>
+<text x="40" y="822" font-size="13" font-weight="normal" fill="#5a4f44" text-anchor="start" font-style="italic">~11:10–11:15 AM · new plate e7723b67… · Light LK-ATL-AM</text>
+<polygon points="930,804 921,830 939,830" fill="#2a241e"/>
+<text x="930" y="798" font-size="15" font-weight="bold" fill="#2a241e" text-anchor="middle">N</text>
+<rect x="250" y="870" width="320" height="60" fill="#e7d9c2" stroke="#3a2f25" stroke-width="2" />
+<text x="410" y="905" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="middle">SENIOR PARTNER'S CORNER OFFICE</text>
+<line x1="300" y1="930" x2="360" y2="930" stroke="#6b4a2e" stroke-width="8"/>
+<text x="300" y="948" font-size="9" font-weight="normal" fill="#6b4a2e" text-anchor="start">walnut door</text>
+<rect x="260" y="930" width="140" height="190" fill="#fbf7ef" stroke="#3a2f25" stroke-width="2" />
+<text x="355" y="1062" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="middle">CORRIDOR</text>
+<line x1="260" y1="930" x2="260" y2="1120" stroke="#6b4a2e" stroke-width="6"/>
+<text x="250" y="990" font-size="10" font-weight="normal" fill="#6b4a2e" text-anchor="end">walnut wall +</text>
+<text x="250" y="1004" font-size="10" font-weight="normal" fill="#6b4a2e" text-anchor="end">abstract painting</text>
+<rect x="30" y="1020" width="160" height="80" fill="#eee6d8" stroke="#9a8f80" stroke-width="1" stroke-dasharray="4,4" />
+<text x="110" y="1045" font-size="10" font-weight="bold" fill="#6b3fa0" text-anchor="middle">Marcus's office +</text>
+<text x="110" y="1059" font-size="10" font-weight="bold" fill="#6b3fa0" text-anchor="middle">exec bathroom</text>
+<text x="110" y="1073" font-size="10" font-weight="normal" fill="#6b3fa0" text-anchor="middle">(west side · PART 3)</text>
+<rect x="400" y="935" width="160" height="55" fill="#e6eef6" stroke="#7a8a99" stroke-width="1.5" />
+<rect x="400" y="995" width="160" height="55" fill="#e6eef6" stroke="#7a8a99" stroke-width="1.5" />
+<rect x="400" y="1055" width="160" height="55" fill="#e6eef6" stroke="#7a8a99" stroke-width="1.5" />
+<text x="480" y="970" font-size="9" font-weight="normal" fill="#2d4f7c" text-anchor="middle">glass-front</text>
+<text x="480" y="982" font-size="9" font-weight="normal" fill="#2d4f7c" text-anchor="middle">offices</text>
+<line x1="560" y1="935" x2="560" y2="1110" stroke="#2d4f7c" stroke-width="7"/>
+<text x="575" y="1030" font-size="10" font-weight="normal" fill="#2d4f7c" text-anchor="start">east windows</text>
+<text x="575" y="1044" font-size="10" font-weight="normal" fill="#2d4f7c" text-anchor="start">(morning light</text>
+<text x="575" y="1058" font-size="10" font-weight="normal" fill="#2d4f7c" text-anchor="start">glows through)</text>
+<rect x="150" y="1120" width="400" height="130" fill="#fbf7ef" stroke="#3a2f25" stroke-width="3" />
+<text x="360" y="1240" font-size="11" font-weight="bold" fill="#2a241e" text-anchor="middle">ELEVATOR LOBBY</text>
+<rect x="142" y="1140" width="12" height="40" fill="#b08d57" stroke="#3a2f25" stroke-width="1.5" />
+<rect x="142" y="1190" width="12" height="40" fill="#b08d57" stroke="#3a2f25" stroke-width="1.5" />
+<text x="135" y="1188" font-size="10" font-weight="bold" fill="#8a5a10" text-anchor="end">2 bronze elevators</text>
+<line x1="548" y1="1130" x2="548" y2="1240" stroke="#c9c3b8" stroke-width="8"/>
+<text x="575" y="1190" font-size="10" font-weight="normal" fill="#6b6358" text-anchor="start">blank marble</text>
+<text x="575" y="1204" font-size="10" font-weight="normal" fill="#6b6358" text-anchor="start">reception wall (no logo)</text>
+<circle cx="200" cy="1150" r="9" fill="#2e7d32" stroke="#222" stroke-width="1.5"/>
+<text x="200" y="1136" font-size="10" font-weight="bold" fill="#2e7d32" text-anchor="start">ALVAREZ + MANAGER</text>
+<text x="212" y="1175" font-size="9" font-weight="normal" fill="#2e7d32" text-anchor="start">(talking terms)</text>
+<circle cx="250" cy="1205" r="9" fill="#6b3fa0" stroke="#222" stroke-width="1.5"/>
+<text x="250" y="1231" font-size="12" font-weight="bold" fill="#6b3fa0" text-anchor="middle">MARCUS + JAYDEN</text>
+<circle cx="320" cy="1150" r="9" fill="#8a5a10" stroke="#222" stroke-width="1.5"/>
+<text x="330" y="1146" font-size="10" font-weight="bold" fill="#8a5a10" text-anchor="start">PARTNER leads</text>
+<path d="M470,1225 L388.2,1137.2 L476.3,1105.2 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="470" cy="1225" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="470" y="1230" font-size="13" font-weight="bold" fill="white" text-anchor="middle">H1</text>
+<path d="M430,1200 L321.7,1219.1 L326.6,1162.4 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="430" cy="1200" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="430" y="1205" font-size="13" font-weight="bold" fill="white" text-anchor="middle">H2</text>
+<path d="M300,1030 L318.5,1087.1 L281.5,1087.1 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="300" cy="1030" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="300" y="1035" font-size="13" font-weight="bold" fill="white" text-anchor="middle">H3</text>
+<line x1="300" y1="1112" x2="300" y2="1050" stroke="#1f5fa8" stroke-width="3" stroke-dasharray="6,5"/>
+<text x="315" y="1090" font-size="9" font-weight="bold" fill="#1f5fa8" text-anchor="start">H3 backs up north</text>
+<text x="315" y="1102" font-size="9" font-weight="normal" fill="#1f5fa8" text-anchor="start">ahead of them</text>
+<path d="M370,950 L375.7,1014.8 L342.5,1008.9 Z" fill="#1f5fa8" fill-opacity="0.18" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="370" cy="950" r="17" fill="#1f5fa8" stroke="white" stroke-width="2"/>
+<text x="370" y="955" font-size="13" font-weight="bold" fill="white" text-anchor="middle">H4</text>
+<text x="40" y="1290" font-size="11" font-weight="normal" fill="#1f5fa8" text-anchor="start">H1 = the plate's own camera (lobby corner, looking up the corridor) · H2 the elevator doors · H3 walk-and-talk · H4 at the partner's door, onto Marcus's face</text>
+<text x="40" y="1310" font-size="11" font-weight="normal" fill="#5a4f44" text-anchor="start" font-style="italic">Rooms are placed from the written prompts. If a saved picture differs, flip the map, not the picture.</text>
+</svg>
