@@ -1,9 +1,10 @@
-# Episode 1 · "The News" · PART 3 "The Bathroom": Rewrite and Lock Sheet (v2.1, LOCKED)
+# Episode 1 · "The News" · PART 3 "The Bathroom": Rewrite and Lock Sheet (v2.2, LOCKED)
 
 **Book 1: Convergence · Chapter 1 (Marcus's Perspective)**
 **Status:** LOCKED by Sire on 2026-09-24. All six decisions in Section 9 were approved as proposed.
-**Script of record:** `Episode 1 - The News - Shooting Script v2 (PART 3 LOCKED).md` (Drive `1zP9l2YnFpVp-fA2mjBuu07Y2Je9SNPmp`). It supersedes the v1 draft `1rNIQHvXnwxoNa_b5Ef5TNBAUjL9faenW`.
+**Script of record:** the current Shooting Script listed in `script.md` (this PART first locked in v2, Drive `1zP9l2YnFpVp-fA2mjBuu07Y2Je9SNPmp`).
 **Companion file:** `camera-maps.svg` in this folder (the top-down maps with every camera pin).
+**v2.2 (2026-09-25, continuity audit):** records only, no shot changes. The PART 5 porch reference light (LK-2022-AM) now matches its lock: mid-morning, 9:30–10:00 AM, late March 2022.
 **v2.1 (2026-09-24):** the outside of the house is now matched to **Sire's set house image**. There's no fence or gate (Marcus stands at the foot of the front walk), the entry is north of the turret with brick-walled steps and stone urns, and S09 uses the rebuilt late-afternoon front yard `bc5ee687…`. The current script, chapter and Bible IDs are listed in `script.md`.
 
 ---
@@ -49,7 +50,7 @@ This is the house format for every shot in every episode.
 |---|---|---|---|---|
 | PARTS 1–4, present day | January 2023 | **32** | died the night before (age 77–78) | Chapter text; Elijah born 1945 per Character Histories |
 | PART 3 flashback, arrival at the house | **Fall or winter 2006, 4:00–4:45 PM** (locked) | **15** | **61** | "Seventeen years" before 2023 → 2006; 2006 − 1945 = 61 |
-| PART 5 flashback, the porch | Spring 2022 (after the "Don't Say Gay" bill passed) | **31** | **76–77** | Chapter: "nearly a year ago" |
+| PART 5 flashback, the porch | **Late March 2022, 9:30–10:00 AM** (after the "Don't Say Gay" bill passed; locked in PART 5) | **31** | **76–77** | Chapter: "nearly a year ago" |
 
 ---
 
@@ -116,7 +117,7 @@ The house's front faces **due east**, and the staircase landing window faces **s
 - **Grade:** the "memory" look. Warmer, slightly lifted blacks, soft glow around the highlights, fine film-style grain, and greens slightly muted everywhere except the stained glass.
 
 ### LK-2022-AM: PART 5 porch (reference only)
-- **Time:** late morning, spring 2022. Soft east light, low across the porch, as the chapter describes.
+- **Time:** mid-morning, 9:30–10:00 AM, late March 2022 (locked in PART 5). Soft east light, low across the porch, as the chapter describes.
 - **Grade:** a memory look, but less warm than 2006. It's a "recent" memory, not a childhood one.
 
 ---
