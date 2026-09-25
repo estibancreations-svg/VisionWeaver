@@ -1,11 +1,11 @@
 # Episode 1 — "The News" — Script Index
 
-**Status: PARTS 3, 4 and 5 LOCKED (PART 3 and PART 5 on 2026-09-24, PART 4 on 2026-09-25). PARTS 1 and 2 remain draft pending their own lock sheets.** The Episode 1 continuity audit is closed (2026-09-25): [`continuity-audit-v1.md`](continuity-audit-v1.md).
+**Status: ALL FIVE PARTS LOCKED (PARTS 3 and 5 on 2026-09-24; PARTS 1, 2 and 4 on 2026-09-25).** The Episode 1 continuity audit is closed (2026-09-25): [`continuity-audit-v1.md`](continuity-audit-v1.md).
 
 The full shooting script and manuscript live in Google Drive (source of record for manuscript-type content). **Current versions:**
 
-- **Script (v5):** [`Episode 1 - The News - Shooting Script v5 (PARTS 3+4+5 LOCKED).md`](https://drive.google.com/file/d/1wSsEMOlF0kDTeAaoA90V9ZhVAJyyGnno/view?usp=drivesdk) (Drive fileId `1wSsEMOlF0kDTeAaoA90V9ZhVAJyyGnno`)
-  - Superseded: v4 `1q7QQRLO3hmt1cnOqU18Vhv4EG4HznCmW`, v3 `1f1nOCfDnJllcjoGaSAYRMLVi4P5FDlsu`, v2 `1zP9l2YnFpVp-fA2mjBuu07Y2Je9SNPmp`, v1 `1rNIQHvXnwxoNa_b5Ef5TNBAUjL9faenW` (all renamed "[SUPERSEDED]" in Drive, kept for history)
+- **Script (v6, ALL PARTS LOCKED):** [`Episode 1 - The News - Shooting Script v6 (ALL PARTS LOCKED).md`](https://drive.google.com/file/d/1CqjbcR2fRaGWsRrm1R6VOj_rQTdU9AjG/view?usp=drivesdk) (Drive fileId `1CqjbcR2fRaGWsRrm1R6VOj_rQTdU9AjG`)
+  - Superseded: v5 `1wSsEMOlF0kDTeAaoA90V9ZhVAJyyGnno`, v4 `1q7QQRLO3hmt1cnOqU18Vhv4EG4HznCmW`, v3 `1f1nOCfDnJllcjoGaSAYRMLVi4P5FDlsu`, v2 `1zP9l2YnFpVp-fA2mjBuu07Y2Je9SNPmp`, v1 `1rNIQHvXnwxoNa_b5Ef5TNBAUjL9faenW` (all renamed "[SUPERSEDED]" in Drive, kept for history)
 - **Source chapter (original, unedited):** [`Chapter 1: "The News" (Marcus's Perspective).md`](https://drive.google.com/file/d/1Yq1d3B7e05K0fqAhwEGUBcIKh3Px_FTo/view?usp=drivesdk) (Drive fileId `1Yq1d3B7e05K0fqAhwEGUBcIKh3Px_FTo`)
 - **Expanded chapter (v5, LOCKED):** [`Chapter 1 - The News - EXPANDED v5 (LOCKED).md`](https://drive.google.com/file/d/1_QBqlneanWdPoUWButq81Sp3RghNiAPw/view?usp=drivesdk) (Drive fileId `1_QBqlneanWdPoUWButq81Sp3RghNiAPw`)
   - v5 changes: the magazine is **Citygrain** (our own invented title); the firm's **head office is in Atlanta** with a **Tampa satellite office** (four lines); two small fixes ("notice it noticing it," "his backpack clutching"). v4: no gate. v3: "Mid-morning" porch light and the 2005 Hillsborough County history line. v2: the entrance-hall light sentence.
@@ -14,6 +14,11 @@ The full shooting script and manuscript live in Google Drive (source of record f
   - Superseded: v4 `1vmjZIxORlYy9ay05jmVZHuIRXRFbgt7E`, v3 `1ad8Pf8BWlvbBIdF9YGBXowzdse4ljQ5c`, v2 `1_AcBgNi10p6gmyhUoDHK_oUBF0O3HRZC`, v1 `1M63JlW5OxKk01zUJT1bAi0Sv24ILv5CK`
 - **Character Histories (v2):** [`Character_Histories_Crossroads_of_Identity v2.md`](https://drive.google.com/file/d/1vBfydgcK74GMkfEsI5ToEfq5v-zs_aMN/view?usp=drivesdk) (Drive fileId `1vBfydgcK74GMkfEsI5ToEfq5v-zs_aMN`). Fall 2006 arrival, the Atlanta head office and Tampa satellite, the corrected Pride history, and the floor plan.
   - Superseded: v1 `1q_Tsn1zQVpNCHhv-sb5Xr1FhzBIcu1sD`
+
+## PARTS 1–2 (locked, v1)
+- **Lock sheet:** [`part-01-02/lock-sheet.md`](part-01-02/lock-sheet.md). The cold open: the deal, the three texts, the trembling water, the nod through the glass, the elevator and the partner's door. PART 1 has 12 shots and PART 2 has 14. Face locks FL-MR32, FL-JK, FL-JM, FL-AL and FL-SP. Light lock LK-ATL-AM.
+- **Camera maps:** [`part-01-02/camera-maps.svg`](part-01-02/camera-maps.svg). Map 7 (the conference room, pins C1–C7) and Map 8 (the elevator lobby and corridor, pins H1–H4).
+- **Location records:** [`locations/conference-room-glass-tower.md`](locations/conference-room-glass-tower.md) (with the late-morning relight) and [`locations/executive-floor-lobby-corridor.md`](locations/executive-floor-lobby-corridor.md) (new).
 
 ## PART 3 (locked, v2.2)
 - **Lock sheet:** [`part-03/lock-sheet.md`](part-03/lock-sheet.md). The flashback moves through the entrance hall, the staircase and the third-floor room. It has 28 shots plus one insert (S03a), face locks FL-MR32, FL-MR15 and FL-EJ61, and light locks LK-ATL-DAY and LK-2006-PM.
@@ -47,13 +52,15 @@ The full shooting script and manuscript live in Google Drive (source of record f
 | The photograph (Marcus at 10 with his father) | `10523301-c6cb-457b-81ee-33fef5eaee58` | Pending visual check |
 | The carved figure (prop board) | `6345f830-e173-4501-aa1f-b86879c44147` | Pending visual check |
 | *CITYGRAIN* magazine cover | `47ccde9b-88b0-4916-9e7a-f482bd12ade3` | Pending visual check |
+| Conference room, late-morning relight | `a60f82fb-c704-490e-9d14-bb2d95f69bed` | Pending visual check |
+| Elevator lobby and corridor | `e7723b67-8821-445d-91fb-c7f915a08af6` | Pending visual check |
 
 ## What it is
 Adapts the chapter's prose into five PARTS, each sized to double as a short-form vertical clip (per the chop-into-parts-plus-full-episode plan), built against the locations and full cast locked for this episode. The firm's Atlanta head office (where Marcus works and lives now), its Tampa satellite office, Tampa/Ybor for everything else, and the Desiree Washington name lock are all baked into the script text.
 
 ## Still open
 - Cut points between the five PARTS are suggestions, not final. Revisit them once there's a sense of actual runtime.
-- PARTS 1 and 2 need lock sheets. The approved conference room plate `40faad4e…` is lit at golden hour, but the meeting is in the morning, so it needs a late-morning relight with the room unchanged.
+- The pictures marked "Pending visual check" above need Sire's look before scene building uses them.
 
 ## Next step
-PARTS 1 and 2 (the conference room and hallway): lock sheets, camera maps and the morning relight. After that, full scene building.
+Scene building: putting the locked faces into the locked plates, shot by shot, starting with the key frames for each PART.

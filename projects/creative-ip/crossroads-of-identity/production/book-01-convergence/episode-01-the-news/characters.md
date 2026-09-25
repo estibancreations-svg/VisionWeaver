@@ -14,8 +14,12 @@ Full rules are in [`part-03/lock-sheet.md`](part-03/lock-sheet.md), Section 3. T
 | FL-EJ61 | Elijah Johnson, 61 (fall/winter 2006) | `bfa76923-88c0-46e7-b049-da3a60602b6d` |
 | FL-EJ77 | Elijah Johnson, 76–77 (late March 2022) | `02ba912e-2a28-4cd1-b470-f91213b44b61` |
 | — | Marcus's father, about 43 (summer 2001; photo only) | same photo prop `10523301…`, from board `c3440f98-0715-44ff-ab0a-4bd2d6f29881` |
+| FL-JK | Jayden King (Jan 2023, PARTS 1–2) | `702a017c-087d-421d-96bf-d983a1bd4782` |
+| FL-JM | Jayden's manager (Jan 2023, PARTS 1–2) | `7d7fd9ee-2818-416f-a7fb-6976b9ffc73b` |
+| FL-AL | Mr. Alvarez (Jan 2023, PARTS 1–2) | `6453033b-b665-4d6c-9472-82d73d9a529c` |
+| FL-SP | Marcus's senior partner (Jan 2023, PART 2) | `280493a2-581d-4ea9-98ba-79ac95929d73` |
 
-Full PART 4 face rules: [`part-04/lock-sheet.md`](part-04/lock-sheet.md), Section 2.
+Full PART 4 face rules: [`part-04/lock-sheet.md`](part-04/lock-sheet.md), Section 2. PARTS 1–2 face rules: [`part-01-02/lock-sheet.md`](part-01-02/lock-sheet.md), Section 2.
 
 ## LOCKED — repurposed from an existing character-board set (physical features unchanged, only renamed)
 
@@ -76,6 +80,7 @@ Full PART 4 face rules: [`part-04/lock-sheet.md`](part-04/lock-sheet.md), Sectio
 - Source: the previously-unassigned "Rahul Sharma (Heavyweight Modification)" board — South Asian man, heavyset/heavily muscular build, jade pendant, box chain, medium coiled hair, full beard. Sire assigned this build to Marcus's senior partner (the unnamed colleague who congratulates him after the Jayden King deal closes in Chapter 1).
 - New board dresses the same physical build in a tailored suit appropriate to a senior entertainment-law partner.
 - Runway task ID: 280493a2-581d-4ea9-98ba-79ac95929d73 (nano-banana-pro, 16:9, 2K).
+- **PART 2 lock (Sire, 2026-09-25):** he isn't in the meeting. He waits outside the frosted glass for Marcus's nod (yes or no on the deal), then sees the clients out himself, while Alvarez and Jayden's manager start talking terms. His jade pendant and box chain stay tucked under his shirt at work.
 
 ### The Artist — WORKING LABEL, no proper name yet
 - Source: the previously-unassigned industrial-background reference photo (Black man, full beard, olive-green top, black smartwatch). Sire assigned this to a character referred to as "The Artist."
