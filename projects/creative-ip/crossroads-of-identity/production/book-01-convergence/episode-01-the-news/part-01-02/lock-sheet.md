@@ -26,7 +26,7 @@
 
 | Beat | When | Notes |
 |---|---|---|
-| Elijah dies "last night" | **Monday night, January 16, 2023** | *FYI:* that Monday was Martin Luther King Jr. Day (the third Monday of January). The story doesn't have to mention it; it's just true on the calendar. |
+| Elijah dies "last night" | **Monday night, January 16, 2023** | **Intentional (Sire, 2026-09-25):** that Monday was Martin Luther King Jr. Day (the third Monday of January). Sire chose the date on purpose, to start those kinds of conversations. Keep it as is in every future episode and document. |
 | The meeting starts | **Tuesday, January 17, 2023, about 10:00 AM** | "The hour-long negotiation" |
 | The three texts | **About 10:52 AM** (the phone clock shows 10:52) | The meeting is near its end |
 | Signatures, then the elevator and corridor | **About 11:05–11:15 AM** | |
