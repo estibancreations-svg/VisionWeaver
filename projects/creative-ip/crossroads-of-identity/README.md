@@ -24,3 +24,13 @@ Original manuscript prose > revised book outline > Character Histories/world not
 - Archive / Duplicates: https://drive.google.com/drive/folders/1BpUrX8r-dJpOd5s92pSlA5fkJCTlVR8A
 
 The document previously mislabeled as a This Is Your Life master bible has been removed from that property and placed under Crossroads adaptation R&D.
+
+## Production records (VisionWeaver)
+Episode 1 "The News" lives in `production/book-01-convergence/episode-01-the-news/`: the script index, character face locks, props, location records, and one lock sheet per PART.
+
+### Elijah memorial stills (added 2026-09-26)
+- **Where:** `production/book-01-convergence/episode-01-the-news/memorial/`
+  - `memorial-stills-v1.md`: Sire's decisions, the status board, and every prompt word for word
+  - `memorial-prompts.json`: the same prompts in a form a script or bot can run
+- **Status:** 13 stills in all (12 memorial moments + the "Home Is Where You Make It" candle). **M01 to M06 are made.** **M07 to M13 are written and ready to run.**
+- **Required before production:** **M10 The Bulb Jar, M11 The Carvings, M12 The Pay-It-Forward Wall.**

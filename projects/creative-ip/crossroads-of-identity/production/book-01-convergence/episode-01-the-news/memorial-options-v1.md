@@ -1,6 +1,6 @@
-# Episode 1: Elijah Memorial Options (v1, DRAFT, waiting on Sire's picks)
+# Episode 1: Elijah Memorial Options (v1, DECIDED)
 
-**Date:** 2026-09-26 · **Status:** ideas only. Nothing here is canon until Sire says yes.
+**Date:** 2026-09-26 · **Status:** Sire decided on 2026-09-26: both placements, all 12 moments, plus the "Home Is Where You Make It" candle. The decisions and prompts are in `memorial/memorial-stills-v1.md`.
 
 ## The idea (Sire's words, summed up)
 
