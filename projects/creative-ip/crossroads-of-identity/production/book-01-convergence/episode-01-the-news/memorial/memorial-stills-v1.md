@@ -1,37 +1,38 @@
-# Episode 1: Elijah Memorial Stills (v1)
+# Episode 1: Elijah Memorial Stills (v1.1)
 
 **Date:** 2026-09-26 · **Folder:** `episode-01-the-news/memorial/` · **Settings for every still:** nano-banana-pro, 2K, **9:16 vertical** (made for Instagram and TikTok first).
 
 ## Sire's decisions (2026-09-26)
 
 1. **Placement: both.** A short cross-cut tag at the end of PART 2 under the radio host line, **and** a stills-only memorial reel. Every still can also be posted on its own.
-2. **Moments: all 12** (the 8 from our canon + 4 new ones). **6 are made now; the other 6 are written up here, ready to run.** Of those 6, **the last 3 (M10, M11, M12) must be made before production.**
+2. **Moments: all 12** (the 8 from our canon + 4 new ones). The first 6 were made first and the other 6 were written up to run later. Of those 6, **the last 3 (M10, M11, M12) must be made before production.**
 3. **The candle (M13):** someone lights a kite-shaped paper lantern candle with a tag that reads **"Home Is Where You Make It"**, and silk ribbons on the table say the same words. It's the live moment the group gathers around while they look through the pictures. **Hands only** (no faces yet).
 4. **Dr. King:** the safe version. A radio host we write names the 1955 Holt Street address; we never use his voice or words.
+5. **Approval (later on 2026-09-26):** Sire approved M01 to M06 ("3, 4 and 6. Love them all.") and asked for the rest, so **M07 to M13 are now made too.**
 
 **New canon (approved by Sire):** the Porch Light Book, the Bulb Jar, the carvings, the Pay-It-Forward wall, and the "Home Is Where You Make It" lantern and ribbons.
 
 ## Cost, measured
 
-Runway balance before: **39,005** credits. After the 6 stills: **38,885**. So **120 credits for 6 = 20 credits each**, which matches the plan. The remaining 7 (M07 to M13) will cost about **140 credits** (plus about 20 for each redo).
+Runway balance before: **39,005** credits. After M01 to M06: **38,885** (120 credits for 6). After M07 to M13: **38,745** (140 credits for 7). **Total: 260 credits for 13 stills = 20 credits each**, exactly as planned. Any redo costs 20 more.
 
 ## Status board
 
 | # | Year | Moment | Status | Runway task ID |
 |---|---|---|---|---|
-| M01 | 1972 | The Key | **Made** (waiting on Sire's OK) | `2e78d5d7-2457-4f28-a158-6c3d2abd4e16` |
-| M02 | c. 1977 | After Hours at Heritage Pages | **Made** (waiting on Sire's OK) | `4c74bd71-6137-4160-a413-377f5c214b3a` |
-| M03 | 1982 | The First Picnic | **Made** (waiting on Sire's OK) | `21ee3141-3e63-458a-925b-9c5e6a0afd74` |
-| M04 | c. 1987 | The Care Room | **Made** (waiting on Sire's OK) | `765ff0a7-1a37-4437-8176-3c6fc3e3673d` |
-| M05 | 1988 | Opening Day | **Made** (waiting on Sire's OK) | `b04492d0-240b-4d33-b561-dd5ee6936029` |
-| M06 | 1998 | Not for Sale | **Made** (waiting on Sire's OK) | `2d9b819d-7b0e-4822-9eba-8c8186558e5f` |
-| M07 | 2015 | Pride Comes Back | Written, run later | — |
-| M08 | 2020 | The Scanning Summer | Written, run later | — |
-| M09 | 2006 page | The Porch Light Book | Written, run later | — |
-| M10 | 2023 | The Bulb Jar | Written, **REQUIRED before production** | — |
-| M11 | 2023 | The Carvings | Written, **REQUIRED before production** | — |
-| M12 | 2023 | The Pay-It-Forward Wall | Written, **REQUIRED before production** | — |
-| M13 | Jan 17, 2023, ~11 AM | Home Is Where You Make It (candle, live scene anchor) | Written, run later | — |
+| M01 | 1972 | The Key | **Approved** by Sire | `2e78d5d7-2457-4f28-a158-6c3d2abd4e16` |
+| M02 | c. 1977 | After Hours at Heritage Pages | **Approved** by Sire | `4c74bd71-6137-4160-a413-377f5c214b3a` |
+| M03 | 1982 | The First Picnic | **Approved** by Sire | `21ee3141-3e63-458a-925b-9c5e6a0afd74` |
+| M04 | c. 1987 | The Care Room | **Approved** by Sire | `765ff0a7-1a37-4437-8176-3c6fc3e3673d` |
+| M05 | 1988 | Opening Day | **Approved** by Sire | `b04492d0-240b-4d33-b561-dd5ee6936029` |
+| M06 | 1998 | Not for Sale | **Approved** by Sire | `2d9b819d-7b0e-4822-9eba-8c8186558e5f` |
+| M07 | 2015 | Pride Comes Back | **Made** (waiting on Sire's OK) | `4b7629dd-70f1-437e-b629-d368078ecf0a` |
+| M08 | 2020 | The Scanning Summer | **Made** (waiting on Sire's OK) | `fc229cfe-57f0-4238-9251-cbeeaa6ac355` |
+| M09 | 2006 page | The Porch Light Book | **Made** (waiting on Sire's OK) | `dde9e90f-4172-4191-a92d-c52d518e2f62` |
+| M10 | 2023 | The Bulb Jar | **Made** (required for production; waiting on Sire's OK) | `3b992b1f-b8e6-4ac6-bf04-0bde095f745f` |
+| M11 | 2023 | The Carvings | **Made** (required for production; waiting on Sire's OK) | `b5903bcd-99f9-4a90-9271-d8fe418b92a9` |
+| M12 | 2023 | The Pay-It-Forward Wall | **Made** (required for production; waiting on Sire's OK) | `13975eca-8777-460a-923f-816454dd9956` |
+| M13 | Jan 17, 2023, ~11 AM | Home Is Where You Make It (candle, live scene anchor) | **Made** (waiting on Sire's OK) | `2a3bf94c-704a-40e9-9941-c53e0ffc3be1` |
 
 ## Rules for every picture
 
@@ -98,6 +99,7 @@ A 1998 color photograph taken from the front lawn of @house on a bright morning,
 
 ### M07: Pride Comes Back (2015)
 
+- **Task:** `4b7629dd-70f1-437e-b629-d368078ecf0a`
 - **References:** @house = `2aa055ef-f86c-4aa3-9fd3-c759d86e8956`, @elijah = `02ba912e-2a28-4cd1-b470-f91213b44b61`
 - **Note:** The man at the rail is Victor (50); his face board needs Sire's OK before his face is shown.
 
@@ -107,6 +109,7 @@ A 2015 digital photograph from the front porch of @house on a sunny spring after
 
 ### M08: The Scanning Summer (2020)
 
+- **Task:** `fc229cfe-57f0-4238-9251-cbeeaa6ac355`
 - **References:** @parlor = `893f4a11-d335-4eaa-91a1-e5638462b312`, @elijah = `02ba912e-2a28-4cd1-b470-f91213b44b61`
 - **Note:** Needs Sire's OK on the Amara, Jordan and Desiree boards before faces are shown.
 
@@ -116,6 +119,7 @@ A 2020 digital photograph inside @parlor on a bright afternoon. @elijah at 75 si
 
 ### M09: The Porch Light Book (2006 page)
 
+- **Task:** `dde9e90f-4172-4191-a92d-c52d518e2f62`
 - **References:** none
 
 ```text
@@ -124,6 +128,7 @@ Close-up of an old cloth-bound guest book lying open on a small wooden side tabl
 
 ### M10: The Bulb Jar (2023)
 
+- **Task:** `3b992b1f-b8e6-4ac6-bf04-0bde095f745f`
 - **REQUIRED before production.**
 - **References:** none
 
@@ -133,6 +138,7 @@ A large old glass canning jar on a windowsill in an old Victorian house, filled 
 
 ### M11: The Carvings (2023)
 
+- **Task:** `b5903bcd-99f9-4a90-9271-d8fe418b92a9`
 - **REQUIRED before production.**
 - **References:** none
 
@@ -142,6 +148,7 @@ A long wooden shelf in an old Victorian house lined with dozens of small hand-ca
 
 ### M12: The Pay-It-Forward Wall (2023)
 
+- **Task:** `13975eca-8777-460a-923f-816454dd9956`
 - **REQUIRED before production.**
 - **References:** none
 
@@ -151,15 +158,16 @@ A hallway wall in an old Victorian house covered floor to ceiling with pinned po
 
 ### M13: Home Is Where You Make It (candle, live scene anchor) (Jan 17, 2023, ~11 AM)
 
+- **Task:** `2a3bf94c-704a-40e9-9941-c53e0ffc3be1`
 - **References:** @parlor = `893f4a11-d335-4eaa-91a1-e5638462b312`
 
 ```text
 Close-up at the meeting table inside @parlor on a bright winter late morning, soft south-window light. Old color photographs of the same house and its people across the decades are spread across the table. Hands only: a pair of hands strikes a wooden match and lights a small tea-light candle inside a kite-shaped (diamond-shaped) paper lantern of cream rice paper on a thin bamboo frame, standing on the table. A small brown card tag tied to the lantern with twine reads in neat hand lettering: "Home Is Where You Make It". Long cream silk ribbons lie across the table among the photographs, each printed in deep brown serif letters with the same words: "Home Is Where You Make It". Blurred figures stand around the table in the background, faces soft and out of focus. Authentic candid photograph, natural light, true-to-life photorealism, shallow depth of field. Vertical 9:16 frame. The only readable words are the ones named above; no logos, no watermark, no photo border.
 ```
 
-## How to run the rest (the "code")
+## How to rebuild or redo any still (the "code")
 
-Each written still is one Runway call. Ask Claude to "run memorial M10" (or any number), or paste this into any Runway MCP session:
+Each still is one Runway call. Ask Claude to "redo memorial M10" (or any number), or paste this into any Runway MCP session:
 
 ```json
 {

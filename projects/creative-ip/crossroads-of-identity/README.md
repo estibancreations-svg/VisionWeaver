@@ -32,5 +32,5 @@ Episode 1 "The News" lives in `production/book-01-convergence/episode-01-the-new
 - **Where:** `production/book-01-convergence/episode-01-the-news/memorial/`
   - `memorial-stills-v1.md`: Sire's decisions, the status board, and every prompt word for word
   - `memorial-prompts.json`: the same prompts in a form a script or bot can run
-- **Status:** 13 stills in all (12 memorial moments + the "Home Is Where You Make It" candle). **M01 to M06 are made.** **M07 to M13 are written and ready to run.**
-- **Required before production:** **M10 The Bulb Jar, M11 The Carvings, M12 The Pay-It-Forward Wall.**
+- **Status:** 13 stills in all (12 memorial moments + the "Home Is Where You Make It" candle). **All 13 are made.** M01 to M06 are approved by Sire; M07 to M13 are waiting on his OK.
+- **Required before production:** **M10 The Bulb Jar, M11 The Carvings, M12 The Pay-It-Forward Wall** (made on 2026-09-26).
