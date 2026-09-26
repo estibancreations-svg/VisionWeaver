@@ -1,8 +1,8 @@
-# Episode 1 · "The News" · PARTS 1–2 "The Text" and "The Performance": Lock Sheet (v1, LOCKED)
+# Episode 1 · "The News" · PARTS 1–2 "The Text" and "The Performance": Lock Sheet (v1.1, LOCKED)
 
 **Book 1: Convergence · Chapter 1 (Marcus's Perspective)**
-**Status:** LOCKED by Sire on 2026-09-25. All four decisions in Section 9 are approved (Decision 4 in Sire's own version). Same format as PARTS 3, 4 and 5 (`standards/shot-standard-v1.md`).
-**Script of record:** Shooting Script v6 (ALL PARTS LOCKED). **Chapter of record:** EXPANDED v5. The current Drive IDs are listed in `script.md`.
+**Status:** LOCKED by Sire on 2026-09-25. All four decisions in Section 9 are approved (Decision 4 in Sire's own version). **v1.1 (2026-09-26):** adds the radio host line and Elijah's memorial cross-cut (S13a–S13d), Decisions 5–7. Same format as PARTS 3, 4 and 5 (`standards/shot-standard-v1.md`).
+**Script of record:** Shooting Script v7 (ALL PARTS LOCKED). **Chapter of record:** EXPANDED v5. The current Drive IDs are listed in `script.md`.
 **Companion file:** `camera-maps.svg` in this folder (Map 7: the conference room. Map 8: the elevator lobby and corridor).
 
 ---
@@ -11,7 +11,7 @@
 
 **PART 1 "The Text":** a big-deal meeting in a glass tower. Marcus is in full control, until three buzzes under the table bring the news that Elijah is dead. He can't react. **The short-form clip ends on the water in his glass, trembling as he sets it down.** It's the only crack anyone could see, and nobody does.
 
-**PART 2 "The Performance":** he finishes the deal anyway. The contract is signed, and he gives the senior partner waiting outside the glass the nod: *yes, they took it.* The partner takes over and sees the clients out, while Alvarez and Jayden's manager start talking terms to lock in the rest of the contract. Then Marcus hears he's up for partner. **It ends the moment his boss's door closes, when the smile finally drops.** The click of that door carries straight into PART 3's "the click is too loud."
+**PART 2 "The Performance":** he finishes the deal anyway. The contract is signed, and he gives the senior partner waiting outside the glass the nod: *yes, they took it.* The partner takes over and sees the clients out, while Alvarez and Jayden's manager start talking terms to lock in the rest of the contract. Then Marcus hears he's up for partner. **Just before the door closes, a desk radio names Dr. King's first boycott speech, and we cut to Tampa: the people who knew Elijah light a lantern and look through photographs of his life.** **It ends the moment his boss's door closes, when the smile finally drops.** The click of that door carries straight into PART 3's "the click is too loud."
 
 **The idea behind the shots:** Marcus is always framed against the **bright, gleaming skyline** (his world, the life he built). The guests are framed against the **frosted glass wall** (things you can't see through). The camera stays steady and polished, just like him. The only unsteady things are a phone under a table and the surface of a glass of water.
 
@@ -63,7 +63,7 @@
 
 ---
 
-## 3. Light lock
+## 3. Light locks
 
 ### LK-ATL-AM: Atlanta head office, late morning (NEW)
 **Sun check (NOAA equations, Midtown Atlanta 33.78° N, 84.39° W, Tuesday, January 17, 2023, EST):**
@@ -83,6 +83,9 @@ Solar noon that day is about 12:47 PM (NOAA Global Monitoring Laboratory, n.d.).
 - **Corridor and lobby:** cool daylight glows through the glass-front offices on the corridor's east side, whose windows face the morning sun, with warm downlights overhead and a polished floor.
 - **Grade:** neutral-cool, crisp, clean blacks, no grain. It's the same "Attorney Reynolds" world as LK-ATL-DAY in PART 3.
 - **Plate:** the conference room **morning relight** `a60f82fb-c704-490e-9d14-bb2d95f69bed`. It was made from the approved room `40faad4e…`: same room, only the light changed. The old golden-hour plate stays on file but **is not used** for Episode 1.
+
+### LK-YBOR-AM: Heritage Pages, late morning (NEW in v1.1)
+Tuesday, January 17, 2023, about 11:10 AM in Ybor City (27.96° N, 82.44° W). The sun sits in the south-southeast, **azimuth about 154°, about 37° high** (solar noon is 12:39 PM). That's low winter sun, so it shines straight in through the bookstore's **south windows**. **Lock:** the memorial table sits just outside the direct sun patch, so the hands, lantern and photographs get bright, soft bounce light, with the sunlit floor and window glow behind. The lantern's flame is the only warm point light. (Same NOAA equations as the other light locks.)
 
 ---
 
@@ -224,7 +227,23 @@ MARCUS
 *(practiced smile)*
 I appreciate that, sir.
 
-`[S14]` The partner's door **clicks shut.** Marcus's smile holds for one beat. Then it's gone. He turns toward his own office. *(Decision 3)*
+`[S13a]` The partner's hand is on the door. Across the corridor, from an associate's glass office, a desk radio murmurs. *(Decision 5)*
+
+RADIO HOST (V.O.)
+*(low and thin, from a desk radio in an associate's glass office)*
+…and yesterday, for the holiday, we closed the show with his very first night leading the boycott. Holt Street Baptist Church, Montgomery, December 1955. He was twenty-six years old, and most of the country didn't know his name yet…
+
+**INT. SAFE HOUSE (YBOR CITY) — HERITAGE PAGES — THE SAME MOMENT** *(Decision 6)*
+
+`[S13b]` INSERT: Hands strike a match and light the kite-shaped paper lantern. Its tag turns in the heat: *Home Is Where You Make It.* The same words run along the silk ribbons across the table. The people who knew him stand around it, soft and out of focus.
+
+`[S13c]` Unseen hands hold up the photographs: 1982, the first picnic · the late 1980s, the care room · 2015, the porch the day Pride came back · 2020, the scanning summer.
+
+`[S13d]` The house itself: the shelf of carvings, then the Pay-It-Forward wall.
+
+**INT. EXECUTIVE FLOOR — CORRIDOR — CONTINUOUS (ATLANTA)**
+
+`[S14]` The radio fades under. The partner's door **clicks shut.** Marcus's smile holds for one beat. Then it's gone. He turns toward his own office. *(Decision 3)*
 
 **[CUT POINT — the door click carries into PART 3 S01: "The click is too loud."]**
 
@@ -266,13 +285,20 @@ I appreciate that, sir.
 | S11 | same | H2 | 35mm · 5 ft · eye | Locked | MS on the closing doors | FL-MR32, the perfect smile | Warm downlight on the bronze | Doors closing |
 | S12 | same | H3 | 35mm · 5 ft · eye | Backing up (Steadicam) | 2-shot walk-and-talk | FL-SP genial · FL-MR32 performing | Same | **Partner line 1 · Marcus line 6** |
 | S13 | same | H4 | 50mm · 5 ft · eye | Locked | OTS partner → Marcus | FL-SP · FL-MR32 practiced smile | Same | **Partner line 2 · Marcus line 7** |
-| S14 | same | H4 | 85mm · 5 ft · eye | Locked, hold | CU | FL-MR32, **the smile drops** | Same | **Door click** → pre-lap into PART 3 S01 |
+| S13a | same (extends S13, no new render) | H4 | 50mm · 5 ft · eye | Locked, hold | OTS partner → Marcus, glass office soft behind | FL-SP hand on door · FL-MR32 smile held | Same | **Radio host line** starts: small-speaker EQ, faint room echo, low |
+| S13b | M13 still `2a3bf94c…` (Heritage Pages) | — | Macro look · table height | Animate 5 s (Gen-4.5), trim to about 3 s: match flare, flame catches, tag turns | INSERT hands, lantern, tag, ribbons | Hands only; figures soft behind | **LK-YBOR-AM** | Match strike (sound design) · radio line continues as a sound bridge |
+| S13c | M03 `21ee3141…` · M04 v2 `1b0c9b6d…` · M07 `4b7629dd…` · M08 `fc229cfe…` | — | Full-frame stills | Slow push on each, done in CapCut (0 credits), about 1.2 s each | The photographs | As photographed | Period film / digital looks as rendered | Radio line continues |
+| S13d | M11 `b5903bcd…` · M12 `13975eca…` | — | Full-frame stills | Slow push in CapCut, about 1.2 s each | The carvings, then the wall | — | As rendered | Radio line ends: "…didn't know his name yet…" |
+| S14 | `e7723b67…` | H4 | 85mm · 5 ft · eye | Locked, hold | CU | FL-MR32, **the smile drops** | LK-ATL-AM | Radio fades under, then the **door click** in near-silence → pre-lap into PART 3 S01 |
 
 **Transitions:**
 - **PART 1 S12 → PART 2 S01:** the trembling water becomes Jayden's pointing finger. The thinned room sound carries across the cut.
 - **PART 2 S08 → S09 (the nod):** the only "yes" Marcus gives all day is silent, through glass.
 - **PART 2 S03 (V.O.):** the push into Marcus's eyes here sets up PART 3's eye match cut (S06 → S07). The audience learns that the eyes are where he keeps the truth.
+- **PART 2 S13a → S13b (Atlanta → Tampa):** the radio line is the thread. It starts in the corridor and keeps playing over the memorial, so the audience hears Dr. King named while they see Elijah's life. Nobody in Tampa speaks.
+- **PART 2 S13d → S14 (Tampa → Atlanta):** the radio fades as we return, so the door click lands in near-silence.
 - **PART 2 S14 → PART 3 S01:** the partner's door click and Marcus's own "too loud" door click make a sound bridge.
+- **Runtime:** the memorial adds about 10–12 seconds, so the PART 2 short-form clip runs about 62–72 seconds.
 
 ---
 
@@ -304,12 +330,18 @@ Both use nano-banana-pro, 16:9, 2K. The prompts above are the exact prompts sent
 
 ---
 
-## 9. Decisions (ALL APPROVED by Sire, 2026-09-25)
+## 9. Decisions (ALL APPROVED by Sire, 2026-09-25 and 2026-09-26)
 
 1. **Marcus's inner voice in PART 2:** **both chapter lines as short V.O.** ("Elijah was gone. The man who had opened his door to a terrified fifteen-year-old boy with nowhere else to go." and "This was what Elijah had called his 'compartmentalization superpower.'"). Same narrator voice as the PART 5 ending. **Approved.**
 2. **Victor's texts:** from an **unsaved Tampa number, (813) 555-0147**. **Approved.**
 3. **End of PART 2:** **the smile drops** when the partner's door clicks shut, and the click carries into PART 3. **Approved.**
 4. **The senior partner (Sire's version):** he **waits outside the glass for Marcus's nod, yes or no, on whether they took the deal.** On the yes, he comes in and **sees the clients out himself**, while **the rep (Jayden's manager) and the owner (Alvarez) start talking terms to lock in the rest of the contract.** This is staging only. The chapter's words stay as they are, and Marcus still walks the clients to the elevator.
+
+**Added in v1.1 (approved by Sire, 2026-09-26):**
+
+5. **The Dr. King moment (safe version):** a radio host **we wrote ourselves** names his first boycott address (Holt Street Baptist Church, December 5, 1955, at age 26). **We never use his voice or words.** Sire approved the safe version on 2026-09-26. A license for the real recording is a later decision.
+6. **The memorial cross-cut (Sire's idea):** while the radio plays, the people who knew Elijah look through photographs of his life at Heritage Pages, and hands light a kite-shaped lantern tagged **"Home Is Where You Make It,"** with silk ribbons saying the same. Faces stay soft or unseen. **Approved 2026-09-26.**
+7. **The photographs:** Sire's top picks M03, M04 v2, M07, M08, M11, M12 and M13 (see `../memorial/memorial-stills-v1.md`). M04 was redone so the young man looks a little more ill. **Approved 2026-09-26.**
 
 ---
 
@@ -318,3 +350,5 @@ Both use nano-banana-pro, 16:9, 2K. The prompts above are the exact prompts sent
 NOAA Global Monitoring Laboratory. (n.d.). *General solar position calculations* [Technical note]. National Oceanic and Atmospheric Administration. https://gml.noaa.gov/grad/solcalc/solareqns.PDF
 
 North American Numbering Plan Administrator. (n.d.). *555 line numbers*. https://www.nanpa.com/numbering/555-line-numbers
+
+Martin Luther King, Jr. Research and Education Institute. (n.d.). *MIA mass meeting at Holt Street Baptist Church*. Stanford University. https://kinginstitute.stanford.edu/king-papers/documents/mia-mass-meeting-holt-street-baptist-church

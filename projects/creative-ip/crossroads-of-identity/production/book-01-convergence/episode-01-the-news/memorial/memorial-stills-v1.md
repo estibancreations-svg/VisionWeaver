@@ -1,4 +1,4 @@
-# Episode 1: Elijah Memorial Stills (v1.1)
+# Episode 1: Elijah Memorial Stills (v1.2)
 
 **Date:** 2026-09-26 · **Folder:** `episode-01-the-news/memorial/` · **Settings for every still:** nano-banana-pro, 2K, **9:16 vertical** (made for Instagram and TikTok first).
 
@@ -9,12 +9,13 @@
 3. **The candle (M13):** someone lights a kite-shaped paper lantern candle with a tag that reads **"Home Is Where You Make It"**, and silk ribbons on the table say the same words. It's the live moment the group gathers around while they look through the pictures. **Hands only** (no faces yet).
 4. **Dr. King:** the safe version. A radio host we write names the 1955 Holt Street address; we never use his voice or words.
 5. **Approval (later on 2026-09-26):** Sire approved M01 to M06 ("3, 4 and 6. Love them all.") and asked for the rest, so **M07 to M13 are now made too.**
+6. **Top picks (Sire, 2026-09-26): M03, M04, M07, M08, M11, M12 and M13.** These go into the PART 2 memorial cross-cut and lead the memorial reel. The others stay in the library for the reel and later episodes. **One change:** in M04 the young man in bed should look a little more ill. That's done as **M04 v2** (an edit of the approved M04, nothing else changed).
 
 **New canon (approved by Sire):** the Porch Light Book, the Bulb Jar, the carvings, the Pay-It-Forward wall, and the "Home Is Where You Make It" lantern and ribbons.
 
 ## Cost, measured
 
-Runway balance before: **39,005** credits. After M01 to M06: **38,885** (120 credits for 6). After M07 to M13: **38,745** (140 credits for 7). **Total: 260 credits for 13 stills = 20 credits each**, exactly as planned. Any redo costs 20 more.
+Runway balance before: **39,005** credits. After M01 to M06: **38,885** (120 credits for 6). After M07 to M13: **38,745** (140 credits for 7). **Total: 260 credits for 13 stills = 20 credits each**, exactly as planned. The M04 v2 edit cost 20 more (balance **38,725**).
 
 ## Status board
 
@@ -22,17 +23,18 @@ Runway balance before: **39,005** credits. After M01 to M06: **38,885** (120 cre
 |---|---|---|---|---|
 | M01 | 1972 | The Key | **Approved** by Sire | `2e78d5d7-2457-4f28-a158-6c3d2abd4e16` |
 | M02 | c. 1977 | After Hours at Heritage Pages | **Approved** by Sire | `4c74bd71-6137-4160-a413-377f5c214b3a` |
-| M03 | 1982 | The First Picnic | **Approved** by Sire | `21ee3141-3e63-458a-925b-9c5e6a0afd74` |
-| M04 | c. 1987 | The Care Room | **Approved** by Sire | `765ff0a7-1a37-4437-8176-3c6fc3e3673d` |
+| M03 | 1982 | The First Picnic | **TOP PICK** · approved | `21ee3141-3e63-458a-925b-9c5e6a0afd74` |
+| M04 | c. 1987 | The Care Room | Replaced by M04 v2 | `765ff0a7-1a37-4437-8176-3c6fc3e3673d` |
+| **M04 v2** | c. 1987 | The Care Room (a little more ill) | **TOP PICK** · made, waiting on Sire's look | `1b0c9b6d-1747-413e-bf85-07d996c59b92` |
 | M05 | 1988 | Opening Day | **Approved** by Sire | `b04492d0-240b-4d33-b561-dd5ee6936029` |
 | M06 | 1998 | Not for Sale | **Approved** by Sire | `2d9b819d-7b0e-4822-9eba-8c8186558e5f` |
-| M07 | 2015 | Pride Comes Back | **Made** (waiting on Sire's OK) | `4b7629dd-70f1-437e-b629-d368078ecf0a` |
-| M08 | 2020 | The Scanning Summer | **Made** (waiting on Sire's OK) | `fc229cfe-57f0-4238-9251-cbeeaa6ac355` |
-| M09 | 2006 page | The Porch Light Book | **Made** (waiting on Sire's OK) | `dde9e90f-4172-4191-a92d-c52d518e2f62` |
-| M10 | 2023 | The Bulb Jar | **Made** (required for production; waiting on Sire's OK) | `3b992b1f-b8e6-4ac6-bf04-0bde095f745f` |
-| M11 | 2023 | The Carvings | **Made** (required for production; waiting on Sire's OK) | `b5903bcd-99f9-4a90-9271-d8fe418b92a9` |
-| M12 | 2023 | The Pay-It-Forward Wall | **Made** (required for production; waiting on Sire's OK) | `13975eca-8777-460a-923f-816454dd9956` |
-| M13 | Jan 17, 2023, ~11 AM | Home Is Where You Make It (candle, live scene anchor) | **Made** (waiting on Sire's OK) | `2a3bf94c-704a-40e9-9941-c53e0ffc3be1` |
+| M07 | 2015 | Pride Comes Back | **TOP PICK** · approved | `4b7629dd-70f1-437e-b629-d368078ecf0a` |
+| M08 | 2020 | The Scanning Summer | **TOP PICK** · approved | `fc229cfe-57f0-4238-9251-cbeeaa6ac355` |
+| M09 | 2006 page | The Porch Light Book | Kept (library) | `dde9e90f-4172-4191-a92d-c52d518e2f62` |
+| M10 | 2023 | The Bulb Jar | Kept (library; required for production) | `3b992b1f-b8e6-4ac6-bf04-0bde095f745f` |
+| M11 | 2023 | The Carvings | **TOP PICK** · approved (required for production) | `b5903bcd-99f9-4a90-9271-d8fe418b92a9` |
+| M12 | 2023 | The Pay-It-Forward Wall | **TOP PICK** · approved (required for production) | `13975eca-8777-460a-923f-816454dd9956` |
+| M13 | Jan 17, 2023, ~11 AM | Home Is Where You Make It (candle, live scene anchor) | **TOP PICK** · approved | `2a3bf94c-704a-40e9-9941-c53e0ffc3be1` |
 
 ## Rules for every picture
 
@@ -77,6 +79,15 @@ A 1982 color snapshot on a wide sunny university lawn with big oak trees in Tamp
 
 ```text
 A late-1980s color photograph inside a sunny upstairs bedroom of an old Victorian house: a tall window with a lace curtain and warm afternoon light. A young man in his twenties rests propped up on pillows in a wooden bed under a handmade crocheted blanket, smiling faintly. A small vase of garden flowers and a stack of books sit on the nightstand. A Black man in his early forties sits in a chair beside the bed, seen from behind and in soft focus, holding the young man's hand and reading aloud from an open book. Tender, dignified and peaceful; no medical equipment in view and no signs of suffering. Authentic candid photograph, shot on 35mm color negative film, natural film grain, slightly faded period colors, true-to-life photorealism. Vertical 9:16 frame. No readable text anywhere, no signs, no logos, no watermark, no photo border.
+```
+
+### M04 v2: The Care Room, a little more ill (c. 1987) — TOP PICK
+
+- **Task:** `1b0c9b6d-1747-413e-bf85-07d996c59b92`
+- **References:** @input = `765ff0a7-1a37-4437-8176-3c6fc3e3673d` (the approved M04; this is an edit of it)
+
+```text
+@input with one change only: the young man resting in the bed looks a little more ill. He is thinner, with hollow cheeks, pale ashen skin, tired shadowed eyes and frail wrists, but he still smiles faintly and the moment stays tender, dignified and peaceful. Keep everything else exactly the same: the same room, window, lace curtain, warm afternoon light, crocheted blanket, flowers, books, the man in the chair seen from behind reading aloud and holding his hand, the same framing, the same 1980s 35mm film look and grain. No medical equipment, no text.
 ```
 
 ### M05: Opening Day (1988)
