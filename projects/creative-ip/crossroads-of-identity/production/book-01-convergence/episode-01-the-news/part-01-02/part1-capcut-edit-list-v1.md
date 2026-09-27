@@ -1,6 +1,6 @@
-# Episode 1 · PART 1 "The Text" · CapCut Edit List (v1)
+# Episode 1 · PART 1 "The Text" · CapCut Edit List (v1.1)
 
-**For:** Instagram Reels and TikTok, vertical 9:16 · **Target length:** about 57 seconds · **Date:** 2026-09-26
+**For:** Instagram Reels, TikTok and YouTube Shorts, vertical 9:16 · **Target length:** about 57 seconds (short) · **Date:** 2026-09-26 · **v1.1 (2026-09-27):** adds the full-episode version with Sire's narration cue N01, the new clip S05b, a ready-made captions file, and the cover pick.
 
 Think of this like a recipe card: each row is one ingredient, in order, with how long it cooks. Put the clips on the main track in this order, then lay the sounds under them.
 
@@ -75,6 +75,24 @@ Most people watch with the sound off. Use CapCut's **Auto captions** for Marcus'
 
 **AI label:** turn on the platform's **"AI-generated"** label when you post (both TikTok and Instagram ask for it on realistic AI video).
 
+## Captions file (new in v1.1)
+
+`E01_PART1_captions.srt` has Marcus's three lines already timed to this edit (starting at 0:03.5, 0:14.5 and 0:30.2). In CapCut: **Text → Import captions** (or use Auto captions and check the words against this file). The three texts on the phone stay as text boxes, not captions.
+
+## Cover (thumbnail) for the short
+
+Use **S12, the trembling water** (key frame `26cc9797-5118-4ac9-b6f4-3ab1403d755f`) as the cover. Add the title in CapCut, not in the AI picture, so the spelling is exact: **"He was closing the deal."** on top and *Crossroads of Identity · Ep. 1, Part 1* small at the bottom. On TikTok and Instagram, choose the cover when you post. On YouTube Shorts, pick the frame from the video.
+
+## Full YouTube episode version (new in v1.1)
+
+The short above stays exactly as it is. For the full episode only, one change:
+
+1. After **S05** (when Marcus's line 2 ends, about 0:23.4), insert the new clip **S05b**: Jayden reads the contract while his manager leans in (10 seconds, task `b7e7dada-c342-482e-9899-c2dc6f0220b4`).
+2. Lay your recording **`E01_N01_Recorded_Script`** on it. Your narrator subtitle style goes on top (italic, warm cream).
+3. If your reading runs longer than 10 seconds, slow S05b down (about 0.7×) until it covers your voice plus half a second.
+4. Everything after it (S06 onward) slides later by the same amount. Room tone and music keep running underneath.
+5. **Cost of S05b:** 120 credits (10 s at 12 credits a second).
+
 ## What it cost (Runway, measured)
 
 | Item | Credits |
@@ -83,6 +101,7 @@ Most people watch with the sound off. Use CapCut's **Auto captions** for Marcus'
 | 12 video shots (5 s each, 60 each; measured on the first shot: 12 credits per second) | 720 |
 | S08 redo (key frame + video), because the first version showed a Chicago-style landmark tower through the window | 80 |
 | 3 voice lines, 7 sound effects, 1 music bed | 48 |
-| **PART 1 total** | **1,088** |
+| S05b, the 10-second clip for narration cue N01 (full episode only), 2026-09-27 | 120 |
+| **PART 1 total** | **1,208** |
 
 The plan estimated 1,600–2,200 credits for PART 1, so this came in under.
