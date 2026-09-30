@@ -153,8 +153,12 @@ V.publish=()=>{
 V.setup=()=>{
   const done=SETUP_STEPS.filter(s=>ST.setup[s[0]]).length;
   return `<div class="vhead"><span class="eyebrow">System</span><h1>Setup & connections</h1><p>What's connected today, and the one-time steps that let the Studio and Publisher bots run on their own between your two gates.</p></div>
+  <section class="panel"><h2>Live check <span class="sub">${ST.live&&ST.live.at?`last run ${when(ST.live.at)} by ${who(ST.live.by)}`:"not run yet"}</span></h2>
+   ${CAP.mcp?`<div class="row" style="margin-bottom:10px"><button type="button" class="btn primary" id="liveCheck" ${UI.liveBusy?"disabled":""}>${UI.liveBusy?"Checking…":"Check all connections now"}</button><span class="note">Reads only. Uses your own connector logins; claude.ai may ask you to allow each one the first time.</span></div>`:`<p class="note" style="margin:0 0 10px">Live checks run when this page is opened in Claude with your connectors available.</p>`}
+   ${[["runway","Runway","Credits and plan"],["supabase","Supabase · Master Dashboard","Production log and connector registry"],["zapier","Zapier","Apps the Publisher can use"],["github","GitHub · VisionWeaver","Studio source in the repo"]].map(([k,l,d])=>{const r=ST.live&&ST.live[k];return `<div class="conn"><span class="ic" style="background:var(--${!r?"idle":r.ok?"done":"block"})"></span><div><b>${esc(l)}</b><div class="note">${esc(d)}</div></div><span class="note" style="text-align:right;max-width:52ch">${r?esc(r.text||""):"—"}</span></div>`}).join("")}
+  </section>
   <div class="grid2">
-   <section class="panel"><h2>Connections <span class="sub">checked 2026-09-29</span></h2>
+   <section class="panel"><h2>Connections <span class="sub">recorded 2026-09-29</span></h2>
     ${CONNECTIONS.map(c=>`<div class="conn"><span class="ic" style="background:var(--${c[1]==="done"?"done":c[1]==="wait"?"wait":"idle"})"></span><div><b>${esc(c[0])}</b><div class="note">${esc(c[3])}</div></div><span class="note" style="text-align:right">${esc(c[2])}</span></div>`).join("")}
    </section>
    <section class="panel"><h2>One-time setup <span class="sub">${done} of ${SETUP_STEPS.length} done · about 30–45 min</span></h2>
@@ -195,5 +199,4 @@ function takeFiles(files){
 V.ledger=()=>`<div class="vhead"><span class="eyebrow">System</span><h1>Credit ledger</h1><p>Every spend written in the production records, plus today's live balance. Runway credits are purchased credits on the Pro plan.</p></div>
  <section class="panel"><div class="tablewrap"><table><tr><th>Date</th><th>What</th><th>Credits</th><th>Balance</th></tr>${LEDGER.map(r=>`<tr><td class="mono">${r[0]}</td><td>${esc(r[1])}</td><td class="num">${r[2]}</td><td class="num"><b>${r[3]}</b></td></tr>`).join("")}</table></div>
  <p class="note">The records stop at 37,257. Runway now shows 36,738, so 519 credits were used after that. S05b (120) accounts for part of it; the records don't say what the rest was for.</p></section>
- <section class="panel"><h2>Price list</h2><div class="tablewrap"><table><tr><td>Key frame picture, 2K</td><td class="num">20</td></tr><tr><td>Video, Gen-4.5</td><td class="num">12 per second (60 per 5 s, 120 per 10 s)</td></tr><tr><td>Hero close-ups, Seedance 2</td><td class="num">36 per second</td></tr><tr><td>Speech</td><td class="num">about 1 per 50 letters</td></tr><tr><td>Sound effect</td><td class="num">1 per second</td></tr><tr><td>Music clip</td><td class="num">4</td></tr></table></div></section>`;
-
+ <section class="panel"><h2>Price list</h2><div class="tablewrap"><table><tr><td>Key frame picture, 2K</td><td class="num">20</td></tr><tr><td>Video, Gen-4.5</td><td class="num">12 per second (60 per 5 s, 120 per 10 s)</td></tr><tr><td>Hero close-ups, Seedance 2</td><td class="num">36 per second</td></tr><tr><td>Speech</td><td class="num">about 1 per 50 letters</td></tr><tr><td>Sound effect</td><td class="num">1 per second</td></tr><tr><td>Music clip</td><td class="num">4</td></tr></table></div></section>

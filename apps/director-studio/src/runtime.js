@@ -73,6 +73,34 @@ Reply with only JSON: {"youtube_title": string (under 100 characters, format "<h
   UI.draftBusy=false;render();
 }
 
+/* ================= LIVE CONNECTION CHECK (mcp) ================= */
+const LIVE_SQL="select (select count(*) from production_log) as production_log_rows, (select max(created_at) from production_log) as last_run, (select count(*) from ec_connectors) as connectors, (select count(*) from ec_connectors where connection_state='active') as active_connectors, (select count(*) from social_post_queue) as queued_posts";
+function mcpErrText(e,server){const c=e&&e.code;
+  if(c==="needs_reauth")return `Reconnect ${server} in claude.ai Settings → Connectors`;
+  if(c==="server_not_connected")return `Add ${server} in claude.ai Settings → Connectors`;
+  if(c==="selection_required")return `Choose which ${server} connector to use when claude.ai asks`;
+  if(c==="not_in_manifest")return `Not allowed for this page. Turn ${server} on for this page to check it`;
+  if(c==="blocked_by_policy"||c==="approval_required")return "Blocked by your organization's settings";
+  if(c==="server_unavailable"||c==="upstream_error")return `${server} didn't answer. Try again in a minute`;
+  if(c==="tool_error")return `${server} reported: ${String(e.message||"an error").slice(0,140)}`;
+  if(c==="not_granted"||c==="capability_disabled"||c==="capability_removed")return "Live checks aren't available in this view";
+  return `Couldn't check ${server}`;}
+function sqlRows(payload){if(Array.isArray(payload))return payload;const t=typeof payload==="string"?payload:(payload&&typeof payload.result==="string")?payload.result:JSON.stringify(payload);const a=t.indexOf("[{"),b=t.lastIndexOf("}]");if(a<0||b<a)return null;try{return JSON.parse(t.slice(a,b+2))}catch(e){return null}}
+async function liveCheck(){
+  if(!CAP.mcp||UI.liveBusy)return;UI.liveBusy=true;render();
+  const out={at:nowISO(),by:store.uid||null};
+  const run=async(key,server,tool,input,read)=>{try{const r=await CAP.mcp.callTool(server,tool,input,{cache:false});out[key]=Object.assign({ok:true},read(r.payload))}catch(e){out[key]={ok:false,text:mcpErrText(e,server),code:(e&&e.code)||"error"}}};
+  await Promise.all([
+    run("runway","Runway","show_plans_and_credits",{rationale:"VisionWeaver Studio live connection check: read the current Runway credit balance for the Episode 1 budget."},p=>{const c=p&&p.credits;return {credits:c&&typeof c.total==="number"?c.total:null,plan:(p&&p.planName)||"",text:c?`${p.planName||""} plan · ${fmt(c.total)} credits`:"Connected"}}),
+    run("supabase","Supabase","execute_sql",{project_id:"yqealeekngxooyoemfba",query:LIVE_SQL},p=>{const r=(sqlRows(p)||[])[0];if(!r)return {text:"Connected, but the answer couldn't be read"};return {rows:+r.production_log_rows,active:+r.active_connectors,connectors:+r.connectors,queued:+r.queued_posts,last:r.last_run,text:`production_log ${r.production_log_rows} rows · ${r.active_connectors} of ${r.connectors} connectors active · ${r.queued_posts} posts queued`}}),
+    run("zapier","Zapier","inspect_zapier_actions",{},p=>{const apps=((p&&p.apps)||[]).map(a=>a.app);return {apps,text:apps.length?`${apps.join(", ")} connected`:"No apps enabled"}}),
+    run("github","GitHub","get_file_contents",{owner:"estibancreations-svg",repo:"VisionWeaver",path:"apps/director-studio/src",fields:["name"]},p=>{const n=Array.isArray(p)?p.length:null;return {files:n,text:n!=null?`VisionWeaver repo reachable · ${n} studio source files`:"Repo reachable"}})
+  ]);
+  UI.liveBusy=false;
+  const okN=["runway","supabase","zapier","github"].filter(k=>out[k]&&out[k].ok).length;
+  patch({live:out},`Live connection check: ${okN} of 4 answered${out.runway&&out.runway.ok&&out.runway.credits!=null?` · Runway ${fmt(out.runway.credits)} credits`:""}`);
+}
+
 /* ================= RENDER + EVENTS ================= */
 let pendingRender=false;
 function refresh(force){renderRail();const a=document.activeElement;if(!force&&a&&$("#main").contains(a)&&/INPUT|TEXTAREA|SELECT/.test(a.tagName)&&a.type!=="checkbox"&&a.type!=="range"){pendingRender=true;return}render()}
@@ -149,6 +177,7 @@ document.addEventListener("click",e=>{
   if(t.id==="jcQueue"){qAdd({dept:"Motion",part:"2",title:"PART 2 job card ready to run",detail:UI.jcText.split("\n").slice(2,5).join(" · "),go:"motion"});toast("Sent to the Motion queue");return}
   if(t.id==="pkCopy"){copy(UI.pkJSON,"Packet copied. Paste it to the Publisher.");return}
   if(t.id==="pkQueue"){qAdd({dept:"Marketing",part:UI.pk.part,title:`Packet approved: PART ${UI.pk.part} on ${UI.pk.plat}`,detail:`${UI.pk.title} · ${UI.pk.when} ET · ${UI.pk.vis}`,go:"publish"});return}
+  if(t.id==="liveCheck"){liveCheck();return}
   if(t.id==="draftCaps"){draftCaptions();return}
   if(t.id==="useDraft"&&UI.draft){const d=UI.draft;const plat=UI.pk.plat;UI.pk.title=d.youtube_title||UI.pk.title;UI.pk.desc=(plat==="instagram_reels"?d.instagram_caption:plat==="tiktok"?d.tiktok_caption:d.youtube_description)||UI.pk.desc;if(Array.isArray(d.hashtags))UI.pk.tags=d.hashtags.join(" ");render();toast("Draft placed in the packet");return}
   if(t.id==="playBtn"){UI.playing=!UI.playing;t.textContent=UI.playing?"Pause":"Play";if(UI.playing){last=performance.now();requestAnimationFrame(loop)}return}
