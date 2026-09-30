@@ -1,0 +1,41 @@
+{
+  "_comment": "VisionWeaver MCP servers for Claude Code / Claude Desktop. Each remote server asks you to sign in on first use. Replace <<...>> placeholders in a local copy only; never commit filled-in URLs or tokens. See connections/README.md.",
+  "mcpServers": {
+    "supabase": {
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp?project_ref=yqealeekngxooyoemfba"
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/"
+    },
+    "vercel": {
+      "type": "http",
+      "url": "https://mcp.vercel.com"
+    },
+    "notion": {
+      "type": "http",
+      "url": "https://mcp.notion.com/mcp"
+    },
+    "figma": {
+      "type": "http",
+      "url": "https://mcp.figma.com/mcp"
+    },
+    "canva": {
+      "type": "http",
+      "url": "https://mcp.canva.com/mcp"
+    },
+    "hugging-face": {
+      "type": "http",
+      "url": "https://huggingface.co/mcp"
+    },
+    "zapier": {
+      "type": "http",
+      "url": "<<YOUR_PERSONAL_ZAPIER_MCP_URL — copy from Zapier's MCP settings; it is a secret>>"
+    },
+    "runway": {
+      "type": "http",
+      "url": "<<RUNWAY_MCP_URL — copy from Runway's MCP / developer settings>>"
+    }
+  }
+}
