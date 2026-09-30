@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionWeaver Director Approval - Live</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0e27;
+            color: #e0e0e0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #3e2723 0%, #5d4037 100%);
+            padding: 20px 30px;
+            border-bottom: 2px solid #d4af37;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #d4af37;
+        }
+
+        .production-status {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .status-badge {
+            background: #064e3b;
+            color: #10b981;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .config-panel {
+            background: #111827;
+            border: 1px solid #1f2937;
+            padding: 15px 30px;
+            font-size: 12px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .config-input {
+            background: #0a0e27;
+            border: 1px solid #374151;
+            color: #e0e0e0;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            width: 300px;
+        }
+
+        .config-button {
+            background: #d4af37;
+            color: #111827;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .config-button:hover {
+            background: #f59e0b;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 300px 1fr 400px;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        section {
+            background: #111827;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2 {
+            font-size: 14px;
+            color: #d4af37;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #374151;
+            padding-bottom: 10px;
+        }
+
+        .upload-zone {
+            flex: 1;
+            border: 2px dashed #d4af37;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212, 175, 55, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .upload-zone:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #f59e0b;
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .upload-text {
+            font-size: 12px;
+            color: #9ca3af;
+            line-height: 1.4;
+        }
+
+        .lock-sheets {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .lock-sheet-card {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            border: 1px solid #374151;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+
+        .lock-sheet-card.locked {
+            border-left: 3px solid #d4af37;
+        }
+
+        .part-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #d4af37;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .spec {
+            font-size: 11px;
+            color: #9ca3af;
+            margin: 3px 0;
+            line-height: 1.3;
+        }
+
+        .memorial-stills {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .stills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .still-thumbnail {
+            aspect-ratio: 1;
+            background: #1f2937;
+            border: 2px solid #374151;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        .still-thumbnail:hover {
+            border-color: #d4af37;
+            background: #2d3748;
+        }
+
+        .still-thumbnail.approved {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .still-thumbnail.approved::after {
+            content: '✓';
+            position: absolute;
+            font-size: 20px;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .approval-note {
+            font-size: 11px;
+            color: #6b7280;
+            margin-top: 10px;
+        }
+
+        .trigger-button {
+            background: linear-gradient(135deg, #d4af37 0%, #f59e0b 100%);
+            color: #111827;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .trigger-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .trigger-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .footer-text {
+            font-size: 10px;
+            color: #6b7280;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Director Approval Console</h1>
+        <div class="production-status">
+            <span>Crossroads of Identity</span>
+            <span>Season 1 / Episode 1 / Part 01</span>
+            <span class="status-badge" id="versionBadge">v7 Locked</span>
+        </div>
+    </header>
+
+    <div class="config-panel">
+        <label>Supabase URL:</label>
+        <input type="text" id="supabaseUrl" class="config-input" placeholder="https://xxxxx.supabase.co">
+        <label>Anon Key:</label>
+        <input type="password" id="anonKey" class="config-input" placeholder="eyJhbGciOiJIUzI1NiIs...">
+        <button class="config-button" onclick="connectSupabase()">Connect</button>
+    </div>
+
+    <div class="container">
+        <section>
+            <h2>Manuscript Upload</h2>
+            <div class="upload-zone" onclick="document.getElementById('manuscriptFile').click()">
+                <div class="upload-icon">📄</div>
+                <div class="upload-text">
+                    Drop manuscript file or<br>
+                    <strong>Click to browse</strong>
+                </div>
+                <input type="file" id="manuscriptFile" style="display:none" onchange="handleManuscriptUpload(event)">
+            </div>
+        </section>
+
+        <section>
+            <h2>Lock Sheets (All Parts)</h2>
+            <div class="lock-sheets" id="lockSheetsContainer">
+                <div class="loading">Loading lock sheets...</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Memorial Stills Approval</h2>
+            <div class="memorial-stills">
+                <div class="stills-grid" id="stillsGrid">
+                    <div class="loading">Loading stills...</div>
+                </div>
+                <div class="approval-note" id="approvalNote">
+                    Loading approval status...
+                </div>
+            </div>
+
+            <button class="trigger-button" id="triggerButton" onclick="triggerAutoGenerate()" disabled>
+                ▶ Approve & Auto-Generate
+            </button>
+            <div class="footer-text" id="footerText">
+                Connecting to database...
+            </div>
+        </section>
+    </div>
+
+    <script>
+        let supabaseClient = null;
+        const lockSheetData = [
+            { part: 'Part 01-02', location: 'Atlanta Condo, Dormer Window', time: 'Fall/Winter 2006, 4:00-4:45 PM', light: 'Warm window light, afternoon glow', locked: '2026-09-25' },
+            { part: 'Part 03', location: 'Ybor City, Safe House', time: 'Winter 2006, Evening', light: 'Ambient interior, subtle shadows', locked: '2026-09-24' },
+            { part: 'Part 04', location: 'Corporate Office', time: 'Night, ~10:00-10:30 PM', light: 'Warm closet light only', locked: '2026-09-25' },
+            { part: 'Part 05', location: 'Atlanta (Post-HB 1557)', time: 'Late March 2022, 9:30-10:00 AM', light: 'Morning daylight', locked: '2026-09-24' }
+        ];
+
+        const stillsCount = 13; // M01-M13
+        const approvedStills = [1, 2, 3, 4, 5, 6]; // M01-M06 pre-approved
+
+        // Load saved credentials
+        function loadCredentials() {
+            const saved = localStorage.getItem('vw-director-credentials');
+            if (saved) {
+                const { url, key } = JSON.parse(saved);
+                document.getElementById('supabaseUrl').value = url;
+                document.getElementById('anonKey').value = key;
+                connectSupabase();
+            }
+        }
+
+        async function connectSupabase() {
+            const url = document.getElementById('supabaseUrl').value;
+            const key = document.getElementById('anonKey').value;
+
+            if (!url || !key) {
+                alert('Please enter Supabase URL and Anon Key');
+                return;
+            }
+
+            try {
+                // Load Supabase client from CDN
+                if (!window.supabase) {
+                    await loadSupabaseClient();
+                }
+
+                const { createClient } = window.supabase;
+                supabaseClient = createClient(url, key);
+
+                // Test connection
+                const { data, error } = await supabaseClient.from('production_log').select('run_id').limit(1);
+
+                if (error) throw error;
+
+                // Save credentials
+                localStorage.setItem('vw-director-credentials', JSON.stringify({ url, key }));
+
+                renderLockSheets();
+                renderStills();
+                updateApprovalStatus();
+
+            } catch (error) {
+                console.error('Connection failed:', error);
+                alert('Connection failed: ' + error.message);
+            }
+        }
+
+        function renderLockSheets() {
+            const container = document.getElementById('lockSheetsContainer');
+            container.innerHTML = lockSheetData.map(sheet => `
+                <div class="lock-sheet-card locked">
+                    <div class="part-label">🔒 ${sheet.part}</div>
+                    <div class="spec">📍 Location: ${sheet.location}</div>
+                    <div class="spec">⏰ Time: ${sheet.time}</div>
+                    <div class="spec">💡 Light: ${sheet.light}</div>
+                    <div class="spec">✓ Locked: ${sheet.locked}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderStills() {
+            const grid = document.getElementById('stillsGrid');
+            grid.innerHTML = Array.from({ length: stillsCount }, (_, i) => {
+                const stillNum = i + 1;
+                const isApproved = approvedStills.includes(stillNum);
+                return `
+                    <div class="still-thumbnail ${isApproved ? 'approved' : ''}" onclick="toggleStillApproval(${stillNum})">
+                        M${String(stillNum).padStart(2, '0')}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleStillApproval(stillNum) {
+            const index = approvedStills.indexOf(stillNum);
+            if (index > -1) {
+                approvedStills.splice(index, 1);
+            } else {
+                approvedStills.push(stillNum);
+            }
+            renderStills();
+            updateApprovalStatus();
+        }
+
+        function updateApprovalStatus() {
+            const approvedCount = approvedStills.length;
+            const totalCount = stillsCount;
+            const allApproved = approvedCount === totalCount;
+
+            const noteEl = document.getElementById('approvalNote');
+            const buttonEl = document.getElementById('triggerButton');
+            const footerEl = document.getElementById('footerText');
+
+            noteEl.innerHTML = `
+                ${approvedCount} of ${totalCount} stills approved.<br>
+                ${allApproved ? '✓ Ready to trigger auto-generate' : '⏳ Awaiting remaining approvals'}
+            `;
+
+            buttonEl.disabled = !allApproved;
+            footerEl.textContent = allApproved ? 'All conditions met. Ready to launch.' : `Waiting for approval of ${totalCount - approvedCount} stills.`;
+        }
+
+        async function triggerAutoGenerate() {
+            if (approvedStills.length !== stillsCount) {
+                alert('Please approve all memorial stills before proceeding.');
+                return;
+            }
+
+            if (!confirm('Launch auto-generate pipeline for Crossroads S1E1 Part 01?')) {
+                return;
+            }
+
+            try {
+                if (!supabaseClient) {
+                    alert('Not connected to Supabase. Please connect first.');
+                    return;
+                }
+
+                // Create production log entry with webhook trigger
+                const { data, error } = await supabaseClient.from('production_log').insert([
+                    {
+                        run_id: `RUN-${new Date().getTime()}`,
+                        project: 'Crossroads of Identity',
+                        episode: 'S1E1 Part 01',
+                        phase: 'INTAKE',
+                        status: 'RECEIVED',
+                        manuscript_url: 'auto-generate-trigger',
+                        memorial_stills_approved: approvedStills,
+                        created_at: new Date().toISOString()
+                    }
+                ]);
+
+                if (error) throw error;
+
+                alert('✓ Auto-generate pipeline launched!\n\nMonitor progress in Operator Dashboard.');
+
+            } catch (error) {
+                console.error('Trigger error:', error);
+                alert('Failed to trigger pipeline: ' + error.message);
+            }
+        }
+
+        function handleManuscriptUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            console.log('Manuscript selected:', file.name);
+            alert(`Manuscript uploaded: ${file.name}\n\nApprove all memorial stills and click "Approve & Auto-Generate" to begin pipeline.`);
+        }
+
+        // Load Supabase JS library
+        async function loadSupabaseClient() {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/main.min.js';
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            loadSupabaseClient().then(() => loadCredentials());
+        });
+    </script>
+</body>
+</html>
