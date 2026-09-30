@@ -5,8 +5,8 @@ const NAMES = {};
 function defaults(){
   const p2={};P2FRAMES.forEach(f=>p2[f[0]]=f[3]==="approved"?"approved":"pending");
   return {p2,recorded:{},deliver:{"1":[false,false,true,true,false]},setup:{"zapier-acct":{at:"2026-09-29T21:45:00-04:00",by:null}},shot:{},schedule:{},notes:{},live:{},
-    settings:{thelma:{enabled:true,guide:true,tier:"default",voice:false,autoRead:false},output:{prefix:"E01",driveFolder:"",emailPrefix:"[VisionWeaver]",paper:"letter"},connections:{},uplink:{triggerId:""}},
-    avatars:{},rights:{}};
+    settings:{thelma:{enabled:true,guide:true,tier:"default",voice:false,autoRead:false},output:{prefix:"E01",driveFolder:"",emailPrefix:"[VisionWeaver]",paper:"letter"},connections:{},uplink:{triggerId:"",autoWake:true}},
+    avatars:{},rights:{},jots:[]};
 }
 let ST = defaults(), QUEUE = [], LOG = [], UPLINK = [], FILES = [], MINE = {};
 const UI = {view:"overview",full:false,zoom:14,t:0,playing:false,sel:null,tlPart:1,shotPart:1,shotSel:null,shotQ:"",mapKey:"1-2",mapZoom:60,cue:"N01",wpm:150,prompting:false,promptT:0,
@@ -51,6 +51,11 @@ async function qDecide(id,status,note){
   if(store.mode==="shared"&&!store.readOnly)write(()=>CAP.db.doc("queue/"+id).update(up));else saveLocal();
   addLog(`${status==="approved"?"Approved":status==="changes"?"Sent back":"Reopened"}: ${it.title}${note?` — "${note}"`:""}`);refresh();
 }
+/* v7.2: when Claude answers an uplink thread, say so here and in THELMA's chat */
+let UP_SEEN=null;
+function uplinkNotify(list){const ans=list.filter(u=>u.reply&&u.from!=="claude");const key=u=>u.id+"|"+(u.repliedAt||"");
+  if(UP_SEEN===null){UP_SEEN=new Set(ans.map(key));return}
+  ans.forEach(u=>{if(!UP_SEEN.has(key(u))){UP_SEEN.add(key(u));toast("Claude answered in the uplink");if(typeof thelmaRelay==="function")thelmaRelay(u)}})}
 async function initCaps(){
   const c=window.claude;if(!c||typeof c.use!=="function")return;
   const get=n=>c.use(n).catch(()=>null);
@@ -63,9 +68,9 @@ async function initCaps(){
     db.doc("studio/state").onSnapshot(s=>{if(s.exists){store.exists=true;ST=deepMerge(defaults(),clone(s.data()))}else store.exists=false;refresh()},e=>handleErr(e));
     db.collection("queue").onSnapshot(s=>{QUEUE=s.docs.map(d=>Object.assign({id:d.id},d.data()));refresh()},e=>handleErr(e));
     db.doc("log/main").onSnapshot(s=>{LOG=s.exists?((s.data().entries)||[]):[];refresh()},e=>handleErr(e));
-    db.collection("uplink").onSnapshot(s=>{UPLINK=s.docs.map(d=>Object.assign({id:d.id},d.data())).sort((a,b)=>String(b.created).localeCompare(String(a.created)));refresh()},e=>handleErr(e));
+    db.collection("uplink").onSnapshot(s=>{UPLINK=s.docs.map(d=>Object.assign({id:d.id},d.data())).sort((a,b)=>String(b.created).localeCompare(String(a.created)));uplinkNotify(UPLINK);refresh()},e=>handleErr(e));
     db.collection("files").onSnapshot(s=>{FILES=s.docs.map(d=>Object.assign({id:d.id},d.data())).sort((a,b)=>String(b.at).localeCompare(String(a.at)));refresh()},e=>handleErr(e));
-    if(store.uid){db.doc("data/users/"+store.uid+"/prefs").onSnapshot(s=>{MINE=s.exists?s.data():{};if(MINE.thelmaChat&&!THELMA.chat.length)THELMA.chat=MINE.thelmaChat.slice(-30);refresh()},()=>{})}
+    if(store.uid){db.doc("data/users/"+store.uid+"/prefs").onSnapshot(s=>{MINE=s.exists?s.data():{};thelmaLoad(MINE);refresh()},()=>{})}
   }
   try{CAP.assets=await get("assets")}catch(e){}
   try{CAP.perms=await get("permissions")}catch(e){}
