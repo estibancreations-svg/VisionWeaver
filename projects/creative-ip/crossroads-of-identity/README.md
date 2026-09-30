@@ -34,3 +34,14 @@ Episode 1 "The News" lives in `production/book-01-convergence/episode-01-the-new
   - `memorial-prompts.json`: the same prompts in a form a script or bot can run
 - **Status:** 13 stills in all (12 memorial moments + the "Home Is Where You Make It" candle). **All 13 are made.** M01 to M06 are approved by Sire; M07 to M13 are waiting on his OK.
 - **Required before production:** **M10 The Bulb Jar, M11 The Carvings, M12 The Pay-It-Forward Wall** (made on 2026-09-26).
+
+
+## Character board references
+
+Crossroads production uses the VisionWeaver three-board character identity system:
+
+- **A Cast Board** remains the multi-character scene-fallout board.
+- **Character Detail Specifications Board** is the canonical identity and physical-detail source.
+- **360 View Board** is created as a 32-view master for new or materially changed appearances. A 16-view state board is used for clothing-only or limited non-identity changes.
+
+Every episode scene should reference the active character state by stable ID. For example, Marcus Reynolds may have separate approved states for a brown suit, blue suit, robe, unshaven face, black eye, broken nose, or shadow beard. The active state is called by the Cast Board for the scene and shot records.
