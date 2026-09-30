@@ -10,7 +10,7 @@ function clearConv(){if(THELMA.busy){toast("Wait for THELMA to finish");return}c
 function curConv(){if(!THELMA.convs.length)newConv("New conversation",THELMA.chat);return THELMA.convs[THELMA.cur]||THELMA.convs[0]}
 function switchConv(i){if(THELMA.busy){toast("Wait for THELMA to finish");return}if(!THELMA.convs[i])return;THELMA.cur=i;THELMA.chat=THELMA.convs[i].chat;renderChat();saveChat()}
 function thelmaLoad(m){if(THELMA.loaded||THELMA.chat.length)return;THELMA.loaded=true;
-  if(m&&Array.isArray(m.thelmaConvs)&&m.thelmaConvs.length){THELMA.convs=m.thelmaConvs.filter(c=>c.chat&&c.chat.length).map(c=>({id:c.id,title:c.title,topic:c.topic||"general",at:c.at,earlier:c.earlier||m.thelmaEpoch!==THELMA_EPOCH,chat:(c.chat||[]).map(x=>Object.assign({},x))}));THELMA.cur=Math.min(+m.thelmaCur||0,Math.max(0,THELMA.convs.length-1));if(THELMA.convs.length)THELMA.chat=THELMA.convs[THELMA.cur].chat}
+  if(m&&Array.isArray(m.thelmaConvs)&&m.thelmaConvs.length){THELMA.convs=m.thelmaConvs.filter(c=>c.chat&&c.chat.length).map(c=>({id:c.id,title:c.title,topic:c.topic||"general",at:c.at,earlier:c.earlier||m.thelmaEpoch!==THELMA_EPOCH,closed:(m.thelmaClosed||[]).includes(c.id),chat:(c.chat||[]).map(x=>Object.assign({},x))}));THELMA.cur=Math.min(+m.thelmaCur||0,Math.max(0,THELMA.convs.length-1));if(THELMA.convs.length)THELMA.chat=THELMA.convs[THELMA.cur].chat}
   else if(m&&m.thelmaChat&&m.thelmaChat.length){newConv("Earlier conversation",m.thelmaChat.slice(-30).map(x=>Object.assign({},x,parseOpts(x.content))));curConv().earlier=true}
   if(!m||m.thelmaEpoch!==THELMA_EPOCH){newConv("New conversation",[],"general");THELMA.fresh=true;saveChat()}
   if(typeof renderChat==="function")renderChat()}
@@ -58,12 +58,13 @@ HOW TO ANSWER (important):
 - Talk like a warm, calm first assistant director. Plain sentences at a 6th-grade reading level. Use a short analogy when it helps.
 - Short paragraphs. Bullets or numbered steps are fine. Bold only a few key words. No tables, no code, no JSON, no SQL, and never say tool names or field names unless Sire asks for them.
 - End EVERY answer with 2 to 4 next-step options that fit THIS answer, each on its own line starting with "» " (under 60 letters, worded the way Sire would say it, e.g. "» Show me the pending frames"). New question, new options: never reuse options from earlier answers unless they are still the best next step.
+- When an option is about working on something in the studio, end it with where to go, in parentheses: (go: page) or (go: page detail). Pages: ${Object.keys(V).join(", ")}. Details: a frame or shot id for pictures/shots (e.g. "(go: pictures S05)", "(go: shots P2 S07)"), a cast code for cast ("(go: cast FL-MR32)"), a queue item's title words for guild ("(go: guild PART 2 key frames)"). Clicking it takes Sire straight there while you stay open beside him. Never claim you did the work; he clicks and decides. Later, after he says yes, you may be allowed to do some steps yourself.
 - When you send work to Claude, read the result and say plainly whether Claude was woken. If it wasn't, say why and exactly what to press.`;
 }
 function thelmaTools(){
   const T=[
     {name:"studio_status",description:"Current state of the studio: what is waiting on Sire, PART status, queue, credits, connection check.",execute:()=>({waiting:waiting().map(w=>w.t),parts_finished:partsDone(),p2_pending:Object.entries(ST.p2).filter(([k,v])=>v==="pending").map(([k])=>k),narration_recorded:CUES.filter(c=>ST.recorded[c[0]]).length,queue_pending:QUEUE.filter(x=>x.status==="pending").length,live:ST.live||null,uplink_open:UPLINK.filter(u=>u.status==="open").length})},
-    {name:"open_page",description:"Open a page of the studio for Sire. Use when he asks to go somewhere or when showing him is clearer.",inputSchema:{type:"object",properties:{page:{type:"string",enum:Object.keys(V)}},required:["page"]},execute:i=>{if(!V[i.page])throw new Error("No such page");go(i.page);return {opened:i.page}}},
+    {name:"open_page",description:"Open a page of the studio for Sire. Use when he asks to go somewhere or when showing him is clearer.",inputSchema:{type:"object",properties:{page:{type:"string",enum:Object.keys(V)}},required:["page"]},execute:i=>{if(!V[i.page])throw new Error("No such page");transport({page:i.page,detail:""});return {opened:i.page,note:"Sire is now on that page and you are still open beside him."}}},
     {name:"search_records",description:"Search shots, frames, stills, narration cues, sounds, faces, lights and plates.",inputSchema:{type:"object",properties:{query:{type:"string"}},required:["query"]},execute:i=>{const q=String(i.query||"").toLowerCase();return searchIndex().filter(x=>x.hay.toLowerCase().includes(q)).slice(0,10).map(x=>({key:x.k,title:x.t,detail:x.s}))}},
     {name:"get_shot",description:"Read one shot's full recipe, status and note.",inputSchema:{type:"object",properties:{part:{type:"integer",minimum:1,maximum:5},shot:{type:"string",description:"e.g. S07 or S13a"}},required:["part","shot"]},execute:i=>{const p=+i.part,s=(DATA_SHOTS[p]||[]).find(x=>x.id.toLowerCase()===String(i.shot).toLowerCase());if(!s)throw new Error("Shot not found");return Object.assign({},s,{status:STATUS_LBL[shotStatus(p,s.id)][1],note:ST.notes[`P${p}-${s.id}`]||""})}},
     {name:"get_character",description:"Read a character's lock record, checks and Localized Avatar profile by code (e.g. FL-MR32) or name.",inputSchema:{type:"object",properties:{who:{type:"string"}},required:["who"]},execute:i=>{const w=String(i.who).toLowerCase();const c=CAST.find(x=>x[0].toLowerCase()===w||x[1].toLowerCase().includes(w));if(!c)throw new Error("Character not found");return {code:c[0],name:c[1],board:c[2],status:c[3],note:c[4],record:ST.avatars[c[0]]||{}}}},
@@ -77,6 +78,7 @@ function thelmaTools(){
   T.push({name:"note_to_claude",description:"Send work to Claude through the Claude uplink (building, fixing, pushing to GitHub, research, anything outside this page). It saves the task AND wakes Claude when it can. Read the result: tell Sire plainly whether Claude was woken, and if not, why and what to press.",inputSchema:{type:"object",properties:{text:{type:"string"}},required:["text"]},execute:async i=>await sendToClaude({kind:"task",from:"thelma",text:"(from THELMA) "+String(i.text).slice(0,1500)},{quiet:true})});
   T.push({name:"read_uplink",description:"Read the Claude uplink: recent tasks sent to Claude, their status, and Claude's replies. Use when Sire asks if Claude answered.",execute:()=>({last_wake:(ST.settings.uplink||{}).lastWake||null,items:UPLINK.slice(0,8).map(u=>({from:u.from,kind:u.kind,status:u.status,created:u.created,text:String(u.text).slice(0,200),reply:String(u.reply||"").slice(0,800),replied:u.repliedAt||null}))})});
   T.push({name:"save_note",description:"Save a short note to the shared Notes board (ideas, reminders, things to come back to). Use when Sire says note this, jot this, or remember this for later.",inputSchema:{type:"object",properties:{text:{type:"string"}},required:["text"]},execute:i=>{if(store.readOnly)throw new Error("This viewer can't add notes");addJot(String(i.text).slice(0,1200),"THELMA");return {saved:true}}});
+  T.push({name:"search_log",description:"Search the conversation log and the activity log to trace when something was said, decided or changed (e.g. when did we change the S05 frame?). Read-only.",inputSchema:{type:"object",properties:{query:{type:"string"}},required:["query"]},execute:i=>{ensureConvlog();const q=String(i.query||"").toLowerCase();const conv=[];CONVLOG.forEach(r=>(r.turns||[]).forEach(t=>{if(String(t.text).toLowerCase().includes(q))conv.push({conversation:r.title,topic:r.topic,at:t.at,who:t.role,text:String(t.text).slice(0,300),build:r.build})}));return {conversations:conv.slice(0,12),activity:LOG.filter(l=>l.text.toLowerCase().includes(q)).slice(0,12).map(l=>({at:l.at,text:l.text}))}}});
   return T;
 }
 function safeSelect(sql,max){
@@ -88,8 +90,8 @@ function safeSelect(sql,max){
 }
 
 /* ---------- chat (v7.2: readable answers, live options, branching, notes, better voice) ---------- */
-const TOOL_LBL={studio_status:"Checked the studio",open_page:"Opened a page",search_records:"Searched the records",get_shot:"Read a shot",get_character:"Read a cast record",list_queue:"Read the Guild queue",propose_decision:"Put a proposal in your queue",check_connections:"Checked the connections",read_database:"Read the database",note_to_claude:"Sent work to Claude",read_uplink:"Read the Claude uplink",save_note:"Saved a note"};
-function parseOpts(t){const lines=String(t||"").split("\n"),options=[],body=[];lines.forEach(l=>{const m=l.match(/^\s*(?:»|>>|&raquo;)\s*(.+?)\s*$/);if(m&&options.length<5)options.push(m[1].replace(/^\*\*|\*\*$/g,"").slice(0,90));else body.push(l)});return {body:body.join("\n").replace(/\s*(Options|Next steps|What next)\s*:?\s*$/i,"").trimEnd(),options}}
+const TOOL_LBL={studio_status:"Checked the studio",open_page:"Opened a page",search_records:"Searched the records",get_shot:"Read a shot",get_character:"Read a cast record",list_queue:"Read the Guild queue",propose_decision:"Put a proposal in your queue",check_connections:"Checked the connections",read_database:"Read the database",note_to_claude:"Sent work to Claude",read_uplink:"Read the Claude uplink",save_note:"Saved a note",search_log:"Searched the logs"};
+function parseOpts(t){const lines=String(t||"").split("\n"),options=[],body=[];lines.forEach(l=>{const m=l.match(/^\s*(?:»|>>|&raquo;)\s*(.+?)\s*$/);if(m&&options.length<5)options.push(m[1].replace(/\*\*/g,"").slice(0,140));else body.push(l)});return {body:body.join("\n").replace(/\s*(Options|Next steps|What next)\s*:?\s*$/i,"").trimEnd(),options}}
 function mdInline(s){return s.replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/(^|[\s(])\*(?!\s)([^*]+?)\*(?=[\s).,!?:;]|$)/g,"$1<i>$2</i>").replace(/`([^`]+)`/g,'<span class="kbd">$1</span>')}
 function md(src){const L=esc(src).split("\n");let out="",list=null,code=false;const close=()=>{if(list){out+=`</${list}>`;list=null}};
   for(const raw of L){const l=raw.trimEnd();let m;
@@ -125,33 +127,35 @@ function voicePicker(){const vs=voices().filter(v=>/^en/i.test(v.lang));const cu
 const START_CHIPS={overview:["What should I do first today?","What's the closest deadline?","Walk me through where we are"],pictures:["Which frames still need my pick?","What makes a frame pass Gate 1?","Show me the redo list"],cast:["Who still needs a review?","Explain the three boards simply","What does a lock record hold?"],uplink:["Did Claude answer me?","Send Claude a task for me","Why wasn't my last request answered?"],guild:["What's oldest in my queue?","Which decisions are quick wins?"],publish:["What does Gate 2 need?","Is the PART 1 packet ready?"],settings:["What should I set up first?","Explain the uplink settings"]};
 const DEFAULT_CHIPS=["What should I do next?","Where are we in the process?","Check all connections","Which characters need review?","Explain the two gates simply"];
 function lastAiIdx(){for(let i=THELMA.chat.length-1;i>=0;i--)if(THELMA.chat[i].role==="assistant")return i;return -1}
-function chipsNow(){if(THELMA.busy)return [];const i=lastAiIdx();const m=THELMA.chat[i];if(m&&m.done&&m.options&&m.options.length&&i===THELMA.chat.length-1)return m.options;const tp=curConv().topic;if(tp&&tp!=="general"&&TOPIC_CHIPS[tp])return TOPIC_CHIPS[tp];return START_CHIPS[UI.view]||DEFAULT_CHIPS}
-function chipsHTML(){const c=chipsNow();return c.length?c.map(x=>`<button type="button" class="chip" data-askchip="${esc(x)}" title="Click to ask · right-click or hold for more">${esc(x)}</button>`).join(""):`<span class="note">THELMA is thinking…</span>`}
+function chipsNow(){if(THELMA.busy)return [];const i=lastAiIdx();const m=THELMA.chat[i];const tail=THELMA.chat.slice(i+1).every(x=>x.role==="nav");if(m&&m.done&&m.options&&m.options.length&&tail)return m.options;const tp=curConv().topic;if(tp&&tp!=="general"&&TOPIC_CHIPS[tp])return TOPIC_CHIPS[tp];return START_CHIPS[UI.view]||DEFAULT_CHIPS}
+function chipsHTML(){const c=chipsNow();return c.length?c.map(x=>{const g=optGo(x);return `<button type="button" class="chip${g?" go":""}" data-askchip="${esc(x)}" title="${g?"Click to go there":"Click to ask"} · right-click or hold for more">${esc(g?g.label+" ↗":x)}</button>`}).join(""):`<span class="note">THELMA is thinking…</span>`}
 function convBarHTML(){const cur=curConv();const now=THELMA.convs.map((c,i)=>[c,i]).filter(([c])=>!c.earlier),old=THELMA.convs.map((c,i)=>[c,i]).filter(([c])=>c.earlier);
   const o=([c,i])=>`<option value="${i}" ${i===THELMA.cur?"selected":""}>${esc(topicName(c.topic).split(" · ")[0])} · ${esc(c.title.slice(0,40))}</option>`;
   return `<div class="convbar"><label class="convlbl">Topic<select id="convTopic" aria-label="What this conversation is about">${TOPICS.map(([k,l])=>`<option value="${k}" ${cur.topic===k?"selected":""}>${esc(l)}</option>`).join("")}</select></label>
    <label class="convlbl">Conversation<select id="convSel" aria-label="Conversation"><optgroup label="Now">${now.map(o).join("")}</optgroup>${old.length?`<optgroup label="Earlier (before the fresh start)">${old.map(o).join("")}</optgroup>`:""}</select></label>
-   <div class="convbtns"><button type="button" class="btn small" id="convNew">+ New</button><button type="button" class="btn small${THELMA.clearArm?" danger":""}" id="convClear">${THELMA.clearArm?"Tap again to clear":"Clear"}</button><button type="button" class="btn small" data-view="thelma" id="notesGo">Notes${(ST.jots||[]).length?` (${ST.jots.length})`:""}</button></div></div>`}
+   <div class="convbtns"><button type="button" class="btn small" id="convNew">+ New</button><button type="button" class="btn small" id="convDone" title="Mark this conversation finished and file it in the Conversation log">✓ Done — log it</button><button type="button" class="btn small${THELMA.clearArm?" danger":""}" id="convClear">${THELMA.clearArm?"Tap again to clear":"Clear"}</button><button type="button" class="btn small" data-view="thelma" id="notesGo">Notes${(ST.jots||[]).length?` (${ST.jots.length})`:""}</button></div></div>`}
 function chatHTML(){
   if(!THELMA.chat.length)return `<div class="thintro"><span class="orb big"></span><div><b>Hi Sire, I'm THELMA.</b>${THELMA.fresh?`<p class="note">Fresh start. Earlier conversations are saved under "Earlier" in the Conversation list.</p>`:""}<p><b>Topic: ${esc(topicName(curConv().topic))}.</b> Change it above so I stay on task.</p><p>${CAP.sample?"Ask me what to do next, where something is, what a shot needs, or what it will cost. I'll answer in plain words and give you options to tap. Right-click (or press and hold) any option to branch it into its own conversation or save it to Notes. I propose; you decide.":"I need Claude to think. Open the studio inside claude.ai to talk with me. The guide bar still works everywhere."}</p></div></div>`;
   const last=lastAiIdx();
   return THELMA.chat.map((m,i)=>{
     if(m.role==="tool")return "";
+    if(m.role==="nav")return `<div class="navline">↗ ${esc(m.content)} <span class="note">${m.at?when(m.at):""}</span></div>`;
     if(m.role==="user")return `<div class="bubble me">${m.branchOf?`<div class="branchnote">↳ Branched from: “${esc(m.branchOf.slice(0,120))}…”</div>`:""}${esc(m.show||m.content)}</div>`;
     const po=parseOpts(m.content);const opts=m.done?(m.options||po.options):[];
     const steps=(m.steps||[]).length?`<div class="steps">${[...new Set(m.steps)].map(x=>`<span>✓ ${esc(x)}</span>`).join("")}</div>`:"";
     return `<div class="bubble ai${m.relay?" relay":""}" data-msg="${i}"><div class="who"><span class="orb"></span>${m.relay?"Claude answered · via the uplink":"THELMA"}${!m.done?` <span class="typing"><i></i><i></i><i></i></span>`:""}</div>${steps}<div class="mdx">${po.body?md(po.body):(m.done?"":`<p class="note">Thinking…</p>`)}</div>
-    ${opts.length?`<div class="opts${i===last?"":" old"}">${i===last?"":`<span class="note">Earlier options</span>`}${opts.map((o,j)=>`<button type="button" class="optbtn" data-opt="${i}:${j}" title="Click to ask · right-click or hold to branch or save">${esc(o)}<span aria-hidden="true">→</span></button>`).join("")}</div>`:""}
+    ${opts.length?`<div class="opts${i===last?"":" old"}">${i===last?"":`<span class="note">Earlier options</span>`}${opts.map((o,j)=>{const g=optGo(o);return `<button type="button" class="optbtn${g?" go":""}" data-opt="${i}:${j}" title="${g?"Click to go there":"Click to ask"} · right-click or hold to branch or save">${esc(g?g.label:o)}<span aria-hidden="true">${g?"↗":"→"}</span></button>`}).join("")}</div>`:""}
     ${m.done?`<div class="acts"><button type="button" class="btn small" data-speak="${i}">${SPEAKING?"■ Stop":"🔊 Read to me"}</button><button type="button" class="btn small" data-jot="${i}">📝 Save to notes</button><button type="button" class="btn small" data-more="${i}" aria-label="More">⋯</button></div>`:""}</div>`}).join("");
 }
 function branchBanner(){return THELMA.pendingBranch!=null?`<div class="branchbar">↳ Your next question starts a <b>new branch</b> from that answer. <button type="button" class="btn small" id="branchCancel">Cancel</button></div>`:""}
-function submitAsk(v){return ask(v)}
+function submitAsk(v){const g=optGo(v);if(g)return transport(g);return ask(v)}
 function renderChat(){const html=chatHTML()+branchBanner();[$("#chat"),$("#thChat")].forEach(c=>{if(c){const near=c.scrollHeight-c.scrollTop-c.clientHeight<120;c.innerHTML=html;if(near||THELMA.busy)c.scrollTop=c.scrollHeight}});
   const ch=chipsHTML();[$("#askChips"),$("#thChips")].forEach(c=>{if(c)c.innerHTML=ch});
   const cb=convBarHTML();[$("#convBarD"),$("#convBarP")].forEach(c=>{if(c)c.innerHTML=cb});
   const o=$("#askOpen")&&$("#askOpen").querySelector(".orb");if(o)o.classList.toggle("busy",THELMA.busy)}
 function saveChat(){curConv();if(!(CAP.db&&store.uid&&!store.readOnly))return;
-  MINE.thelmaEpoch=THELMA_EPOCH;MINE.thelmaConvs=THELMA.convs.filter(c=>c.chat.length||THELMA.convs[THELMA.cur]===c).slice(-12).map(c=>({id:c.id,title:c.title,topic:c.topic||"general",earlier:!!c.earlier,at:c.at,chat:c.chat.filter(m=>m.role!=="tool"&&m.done!==false).slice(-30).map(m=>({role:m.role,content:String(m.content).slice(0,4000),show:m.show?String(m.show).slice(0,500):undefined,branchOf:m.branchOf?String(m.branchOf).slice(0,300):undefined,options:m.options||[],relay:!!m.relay,done:!!m.done}))}));
+  MINE.thelmaEpoch=THELMA_EPOCH;MINE.thelmaConvs=THELMA.convs.filter(c=>c.chat.length||THELMA.convs[THELMA.cur]===c).slice(-12).map(c=>({id:c.id,title:c.title,topic:c.topic||"general",earlier:!!c.earlier,at:c.at,chat:c.chat.filter(m=>m.role!=="tool"&&(m.role==="nav"||m.role==="user"||m.done!==false)).slice(-30).map(m=>({role:m.role,at:m.at||null,content:String(m.content).slice(0,4000),show:m.show?String(m.show).slice(0,500):undefined,branchOf:m.branchOf?String(m.branchOf).slice(0,300):undefined,options:m.options||[],relay:!!m.relay,done:!!m.done}))}));
+  MINE.thelmaClosed=THELMA.convs.filter(c=>c.closed).map(c=>c.id).slice(-50);
   MINE.thelmaCur=Math.max(0,MINE.thelmaConvs.findIndex(x=>x.id===curConv().id));delete MINE.thelmaChat;
   const clean=JSON.parse(JSON.stringify(MINE));write(()=>CAP.db.doc("data/users/"+store.uid+"/prefs").set(clean))}
 function thelmaRelay(u){curConv();THELMA.chat.push({role:"assistant",relay:true,done:true,content:`**Claude answered** your request: “${String(u.text).replace(/^\(from THELMA\)\s*/,"").slice(0,140)}…”\n\n${u.reply}\n\n» Open the Claude uplink\n» What should I do with this answer?`,options:["Open the Claude uplink","What should I do with this answer?"]});renderChat();saveChat()}
@@ -166,9 +170,9 @@ async function ask(text,o={}){
   if(THELMA.busy)return;
   const wantsVoice=/\b(tell me|read (it |this )?to me|explain (it |this )?out loud|say it|read it)\b/i.test(text)||TH().autoRead;
   const conv=curConv();if(conv.chat.length===0||/^(New conversation|Conversation \d+)$/.test(conv.title))conv.title=(o.show||text).slice(0,48);
-  const um={role:"user",content:o.prefix?o.prefix+text:text};if(o.prefix){um.show=text;um.branchOf=o.branchOf||""}
-  THELMA.chat.push(um);const ai={role:"assistant",content:"",tier:TH().tier,steps:[]};THELMA.chat.push(ai);THELMA.busy=true;renderChat();
-  const hist=THELMA.chat.filter(m=>m.role!=="tool"&&m!==ai).slice(-12).map(m=>({role:m.role,content:m.relay?"(Claude's answer from the uplink) "+m.content:m.content}));
+  const um={role:"user",content:o.prefix?o.prefix+text:text,at:nowISO()};if(o.prefix){um.show=text;um.branchOf=o.branchOf||""}
+  THELMA.chat.push(um);const ai={role:"assistant",content:"",tier:TH().tier,steps:[],at:nowISO()};THELMA.chat.push(ai);THELMA.busy=true;renderChat();
+  const hist=THELMA.chat.filter(m=>m.role!=="tool"&&m.role!=="nav"&&m!==ai).slice(-12).map(m=>({role:m.role,content:m.relay?"(Claude's answer from the uplink) "+m.content:m.content}));
   const fixed=[];hist.forEach(m=>{if(fixed.length&&fixed[fixed.length-1].role===m.role)fixed[fixed.length-1].content+="\n\n"+m.content;else fixed.push(m)});
   if(fixed.length&&fixed[0].role==="assistant")fixed.unshift({role:"user",content:"(earlier in this conversation)"});
   const turns=[{role:"user",content:thelmaContext()},{role:"assistant",content:"Understood, Sire. I'll work from these records and propose, never approve."},...fixed];
@@ -179,7 +183,7 @@ async function ask(text,o={}){
   try{const r=await CAP.sample(turns,{signal:askCtl.signal,cache:false,modelTier:TH().tier,tools:useTools,onText:({text})=>{ai.content=text;renderChat()}});ai.content=r.text;if(r.truncated)ai.content+="\n\n(Answer was cut short.)"}
   catch(e){ai.content=(e&&e.text)||(e&&e.code==="cancelled"?"Stopped.":e&&e.code==="rate_limited"?"Too many questions at once. Wait a minute and ask again.":e&&e.code==="not_granted"?"Asking Claude isn't allowed from this page for you.":e&&e.code==="tools_unavailable"?"My tools aren't available in this view. Ask again and I'll answer from the records only.":"That didn't go through. Try asking again.")}
   const po=parseOpts(ai.content);ai.options=po.options;ai.done=true;
-  THELMA.busy=false;askCtl=null;if(st)st.hidden=true;if(sd)sd.disabled=false;renderChat();saveChat();
+  THELMA.busy=false;askCtl=null;if(st)st.hidden=true;if(sd)sd.disabled=false;renderChat();saveChat();logConv(conv);
   if(wantsVoice)speak(ai.content);
 }
 function branch(text,fromIdx){if(THELMA.busy){toast("Wait for THELMA to finish");return}
@@ -255,6 +259,56 @@ V.thelma=()=>{
   </div>`;
 };
 
+
+/* ---------- v7.4: transport (click → go there, THELMA stays open) ---------- */
+const GO_ALIAS={queue:"guild",guild:"guild",frames:"pictures",frame:"pictures",pictures:"pictures",keyframes:"pictures",shots:"shots",shot:"shots",cast:"cast",avatars:"cast",packet:"publish",publish:"publish",booth:"booth",narration:"booth",sound:"sound",edit:"edit",deliver:"deliver",motion:"motion",uplink:"uplink",claude:"uplink",settings:"settings",database:"database",rights:"rights",log:"convlog",logs:"convlog",activity:"activity",notes:"thelma",thelma:"thelma",overview:"overview",home:"overview",script:"source",books:"source",locks:"locks",setup:"setup",connections:"setup",uploads:"uploads",ledger:"ledger"};
+function optGo(o){const m=String(o||"").match(/^(.*?)\s*\((?:go|open|go to)\s*:\s*([^)]+)\)\s*$/i);if(!m)return null;const parts=m[2].trim().split(/\s+/);const pg=(V[parts[0]]?parts[0]:GO_ALIAS[parts[0].toLowerCase()]);if(!pg||!V[pg])return null;return {label:m[1].trim()||("Open "+pg),page:pg,detail:parts.slice(1).join(" ")}}
+function transport(g){
+  const d=g.detail||"";
+  if(g.page==="shots"){const pm=d.match(/P(\d)/i),sm=d.match(/\bS\d+[a-d]?\b/i);if(pm)UI.shotPart=+pm[1];if(sm)UI.shotSel=sm[0].toUpperCase()}
+  if(g.page==="cast"){const cm=d.match(/[A-Z]{2}-[A-Z0-9]+/i);if(cm)UI.castSel=cm[0].toUpperCase()}
+  if(g.page==="settings"&&d){const tb=SET_TABS.find(x=>d.toLowerCase().includes(x[0]));if(tb)UI.setTab=tb[0]}
+  const wasThelmaPage=UI.view==="thelma";
+  go(g.page);
+  curConv();THELMA.chat.push({role:"nav",content:`Went to ${(NAV.flatMap(x=>x[1]).find(x=>x[0]===g.page)||[0,g.page])[1]}${d?" · "+d:""}`,at:nowISO(),done:true});saveChat();logConv(curConv());
+  addLog(`THELMA took Sire to ${g.page}${d?" · "+d:""}`);
+  if(TH().enabled){const dr=$("#drawer");dr.hidden=false;if(window.innerWidth<1100)dr.classList.add("peek");else dr.classList.remove("peek")}
+  renderChat();setTimeout(()=>spotlight(d),60);
+  if(wasThelmaPage)toast("THELMA came with you. She's in the side panel.");
+}
+function spotlight(d){d=String(d||"").trim();if(!d)return;const words=d.toLowerCase().replace(/^p\d\s+/,"");
+  const cands=["#main .frame","#main .qitem","#main .thread","#main [data-cast]","#main tr.shotrow","#main [data-cue]","#main .panel"].flatMap(q=>[...document.querySelectorAll(q)]);
+  const hit=cands.find(el=>el.textContent.toLowerCase().includes(words))||cands.find(el=>words.split(/\s+/).filter(w=>w.length>2).every(w=>el.textContent.toLowerCase().includes(w)));
+  if(hit){hit.scrollIntoView({block:"center",behavior:APP.motion==="reduced"?"auto":"smooth"});hit.classList.add("spot");setTimeout(()=>hit.classList.remove("spot"),2600)}}
+/* keep the page usable while THELMA is open: dock beside it on wide screens */
+function syncDock(){const dr=$("#drawer");if(!dr)return;document.documentElement.classList.toggle("thdock",!dr.hidden&&!dr.classList.contains("peek")&&window.innerWidth>=1100)}
+try{const dr=document.getElementById("drawer");if(dr){new MutationObserver(syncDock).observe(dr,{attributes:true,attributeFilter:["hidden","class"]});const h=dr.querySelector("header");if(h&&!document.getElementById("thPeek")){const b=document.createElement("button");b.type="button";b.className="btn small";b.id="thPeek";b.textContent="Minimize";b.title="Shrink THELMA to a bar so you can see the page";h.insertBefore(b,document.getElementById("thFull"))}}window.addEventListener("resize",syncDock)}catch(e){}
+
+/* ---------- v7.4: conversation log (shared, for tracing changes) ---------- */
+let CONVLOG=[],CLOG_SUB=false;
+function ensureConvlog(){if(CLOG_SUB||!CAP.db)return;CLOG_SUB=true;CAP.db.collection("convlog").onSnapshot(s=>{CONVLOG=s.docs.map(d=>Object.assign({id:d.id},d.data())).sort((a,b)=>String(b.updated).localeCompare(String(a.updated)));if(UI.view==="convlog")refresh()},()=>{})}
+function logConv(c){if(!c||!CAP.db||store.readOnly||TH().logConvs===false)return;const turns=c.chat.filter(m=>m.role==="user"||m.role==="nav"||(m.role==="assistant"&&m.done)).slice(-100).map(m=>({role:m.role,at:m.at||null,text:String(m.role==="user"?(m.show||m.content):parseOpts(m.content).body||m.content).slice(0,1500),steps:(m.steps||[]).slice(0,8),relay:!!m.relay}));if(!turns.length)return;
+  const doc={title:String(c.title||"").slice(0,120),topic:c.topic||"general",by:store.uid||null,started:c.at||turns[0].at||nowISO(),updated:nowISO(),build:BUILD,status:c.closed?"closed":"open",closedAt:c.closedAt||null,summary:c.summary||"",turns};
+  write(()=>CAP.db.doc("convlog/"+c.id).set(doc))}
+function logDone(){const c=curConv();if(!c.chat.length){toast("Nothing to log yet");return}c.closed=true;c.closedAt=nowISO();
+  const firstQ=(c.chat.find(m=>m.role==="user")||{}).content||"";const lastA=parseOpts(([...c.chat].reverse().find(m=>m.role==="assistant")||{}).content||"").body;
+  c.summary=`Asked: ${String(firstQ).slice(0,160)}\nLast answer: ${String(lastA).split("\n").find(x=>x.trim())||""}`.slice(0,600);
+  logConv(c);addLog(`Conversation logged: ${c.title} (${topicName(c.topic)})`);c.earlier=true;newConv("New conversation",[],c.topic);renderChat();saveChat();toast("Logged. Find it in System → Conversation log.")}
+function clogFiltered(){const q=(UI.clogQ||"").toLowerCase(),tp=UI.clogTopic||"",st=UI.clogStatus||"";return CONVLOG.filter(r=>(!tp||r.topic===tp)&&(!st||r.status===st)&&(!q||(r.title+" "+(r.turns||[]).map(t=>t.text).join(" ")).toLowerCase().includes(q)))}
+function convlogMD(rows){return `# VisionWeaver · Conversation log\nExported ${nowISO()}\n\n`+rows.map(r=>`## ${r.title}\n- Topic: ${topicName(r.topic)}\n- Status: ${r.status}${r.closedAt?` (logged ${r.closedAt})`:""}\n- Started: ${r.started} · Last: ${r.updated} · Build: ${r.build||""}\n${r.summary?`- Summary: ${r.summary.replace(/\n/g," · ")}\n`:""}\n`+(r.turns||[]).map(t=>`**${t.role==="user"?"Sire":t.role==="nav"?"→ Moved":t.relay?"Claude":"THELMA"}** (${t.at||""})${t.steps&&t.steps.length?` [${t.steps.join(", ")}]`:""}\n${t.text}\n`).join("\n")).join("\n---\n\n")}
+V.convlog=()=>{ensureConvlog();const rows=clogFiltered();
+  return `<div class="vhead"><span class="eyebrow">System</span><h1>Conversation log</h1><p>Every THELMA conversation, saved with who, when, which build of the studio, what she checked and where you went. It's the flight recorder for decisions: when something breaks, trace back to what was said and changed.</p></div>
+  <section class="panel"><div class="row" style="flex-wrap:wrap;gap:8px"><input type="text" id="clogQ" placeholder="Search words in any conversation…" value="${esc(UI.clogQ||"")}" style="flex:1;min-width:200px">
+   <select id="clogTopic"><option value="">All topics</option>${TOPICS.map(([k,l])=>`<option value="${k}" ${UI.clogTopic===k?"selected":""}>${esc(l)}</option>`).join("")}</select>
+   <select id="clogStatus"><option value="">Open and logged</option><option value="open" ${UI.clogStatus==="open"?"selected":""}>Still open</option><option value="closed" ${UI.clogStatus==="closed"?"selected":""}>Done — logged</option></select>
+   <button type="button" class="btn small" id="clogDl">Download (Markdown)</button></div>
+   <p class="note">${CAP.db?`${rows.length} of ${CONVLOG.length} conversations. Shared with everyone who can open the studio. Turn logging off in Settings → THELMA.`:"Open the studio in claude.ai to keep a shared log."}</p>
+   <div class="clog">${rows.map(r=>`<article class="clogrow${UI.clogOpen===r.id?" open":""}"><button type="button" class="cloghead" data-clog="${esc(r.id)}"><span>${pill(r.status==="closed"?"done":"wait",r.status==="closed"?"Logged":"Open")}</span><b>${esc(r.title)}</b><span class="note">${esc(topicName(r.topic))} · ${(r.turns||[]).length} turns · ${when(r.updated)} · ${esc(r.build||"")} · ${who(r.by)}</span></button>
+    ${UI.clogOpen===r.id?`<div class="clogbody">${r.summary?`<p class="note">${esc(r.summary)}</p>`:""}${(r.turns||[]).map(t=>`<div class="clogturn ${t.role}"><div class="note">${t.role==="user"?"Sire":t.role==="nav"?"→ Moved":t.relay?"Claude (uplink)":"THELMA"} · ${when(t.at)}${t.steps&&t.steps.length?" · "+esc(t.steps.join(", ")):""}</div><div class="mdx">${md(t.text)}</div></div>`).join("")}<div class="row"><button type="button" class="btn small" data-clogopen="${esc(r.id)}">Open in THELMA</button></div></div>`:""}</article>`).join("")||`<div class="empty">No conversations logged yet. Talk with THELMA and they'll appear here.</div>`}</div></section>`};
+try{const sys=NAV.find(g=>g[0]==="System");if(sys&&!sys[1].some(x=>x[0]==="convlog"))sys[1].splice(sys[1].findIndex(x=>x[0]==="activity")+1,0,["convlog","Conversation log","☰"]);GUIDE.convlog=["Every THELMA conversation, with who, when and which build.","Search or filter to trace a change back."]}catch(e){}
+document.addEventListener("input",e=>{if(e.target.id==="clogQ"){UI.clogQ=e.target.value;const pos=e.target.selectionStart;render();const n=$("#clogQ");if(n){n.focus();n.setSelectionRange(pos,pos)}}});
+document.addEventListener("change",e=>{if(e.target.id==="clogTopic"){UI.clogTopic=e.target.value;render()}if(e.target.id==="clogStatus"){UI.clogStatus=e.target.value;render()}});
+
 /* ---------- command palette ---------- */
 let PAL={items:[],i:0};
 function palItems(q){
@@ -292,7 +346,13 @@ document.addEventListener("click",e=>{
   if(t.id==="thClear"||t.id==="convNew"){if(THELMA.busy){toast("Wait for THELMA to finish");return}newConv("New conversation",[],curConv().topic);THELMA.fresh=false;renderChat();saveChat();return}
   if(t.id==="convClear"){if(!THELMA.clearArm){THELMA.clearArm=true;renderChat();setTimeout(()=>{if(THELMA.clearArm){THELMA.clearArm=false;renderChat()}},4000);return}clearConv();return}
   if(t.id==="branchCancel"){THELMA.pendingBranch=null;renderChat();return}
-  if((el=c("[data-opt]"))){const [i,j]=el.dataset.opt.split(":").map(Number);const o=(THELMA.chat[i]&&THELMA.chat[i].options||[])[j];if(o)submitAsk(o);return}
+  if((el=c("[data-opt]"))){const [i,j]=el.dataset.opt.split(":").map(Number);const o=(THELMA.chat[i]&&THELMA.chat[i].options||[])[j];if(o){const g=optGo(o);if(g)transport(g);else submitAsk(o)}return}
+  if(t.id==="convDone"){logDone();return}
+  if(t.closest&&t.closest("#drawer header")&&$("#drawer").classList.contains("peek")&&!t.closest("button")){$("#drawer").classList.remove("peek");renderChat();return}
+  if(t.id==="thPeek"){$("#drawer").classList.add("peek");return}
+  if((el=c("[data-clog]"))){UI.clogOpen=UI.clogOpen===el.dataset.clog?null:el.dataset.clog;render();return}
+  if((el=c("[data-clogopen]"))){const r=CONVLOG.find(x=>x.id===el.dataset.clogopen);if(r){let k=THELMA.convs.findIndex(c=>c.id===r.id);if(k<0){THELMA.convs.push({id:r.id,title:r.title,topic:r.topic,at:r.started,earlier:true,closed:r.status==="closed",chat:(r.turns||[]).map(x=>({role:x.role,content:x.text,at:x.at,done:true,options:[]}))});k=THELMA.convs.length-1}switchConv(k);openAsk()}return}
+  if(t.id==="clogDl"){saveFile(`VisionWeaver_conversation_log_${new Date().toISOString().slice(0,10)}.md`,convlogMD(clogFiltered()));return}
   if((el=c("[data-jot]"))){addJot(parseOpts(THELMA.chat[+el.dataset.jot].content).body,"THELMA answer");return}
   if((el=c("[data-more]"))){const r=el.getBoundingClientRect();menuFor("msg",{idx:+el.dataset.more},r.left,r.bottom+4);return}
   if((el=c("[data-jotask]"))){const j=(ST.jots||[]).find(x=>x.id===el.dataset.jotask);if(j)ask(`About this note: "${j.text}". What should we do with it?`);return}
