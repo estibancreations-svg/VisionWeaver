@@ -36,7 +36,7 @@ async function driveSend(kind){
   UI.driveMsg="Sending "+d[0]+"…";render();
   const input={title:d[0],textContent:d[1],contentMimeType:d[2],disableConversionToGoogleType:true};
   const folder=(ST.settings.output.driveFolder||"").trim();if(folder)input.parentId=folder;
-  try{const r=await CAP.mcp.callTool("Google Drive","create_file",input,{cache:false});const p=r.payload||{};const link=p.alternateLink||p.webViewLink||p.url||(p.id?`https://drive.google.com/file/d/${p.id}/view`:"");UI.driveMsg=`Saved to Drive: ${d[0]}`;UI.driveLink=link;addLog(`Sent ${d[0]} to Google Drive`)}
+  try{const r=await CAP.mcp.callTool("Google Drive","create_file",input,{cache:false});const p=r.payload||{};const link=p.viewUrl||p.alternateLink||p.webViewLink||p.url||(p.id?`https://drive.google.com/file/d/${p.id}/view`:"");UI.driveMsg=`Saved to Drive: ${d[0]}`;UI.driveLink=link;addLog(`Sent ${d[0]} to Google Drive`)}
   catch(e){UI.driveMsg=mcpErrText(e,"Google Drive");UI.driveLink=""}
   render();
 }
