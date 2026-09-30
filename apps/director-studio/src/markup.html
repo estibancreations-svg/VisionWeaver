@@ -1,13 +1,17 @@
 <div class="shell">
   <header class="topbar">
     <div class="brand">VisionWeaver Studio<small>Crossroads of Identity · Book 1 Convergence · Episode 1 "The News"</small></div>
-    <div class="search" id="searchWrap"><input id="q" type="text" placeholder="Find a shot, task ID, cue, still…  ( / )" autocomplete="off" aria-label="Search the production"><div class="results" id="results" hidden></div></div>
+    <div class="search" id="searchWrap"><input id="q" type="text" placeholder="Find a shot, task ID, cue, character…  ( / )" autocomplete="off" aria-label="Search the production"><div class="results" id="results" hidden></div></div>
     <div class="topstats">
       <div class="stat credits"><b class="num">36,738</b><span>Runway credits · live 9/29</span></div>
       <div class="stat"><b class="num" id="st-parts">1 of 5</b><span>Parts finished</span></div>
       <div class="stat"><b class="num" id="st-you">0</b><span>Waiting on Sire</span></div>
       <span class="mode" id="mode"><i></i><span>This browser only</span></span>
-      <button class="btn small" id="themeBtn" type="button" aria-label="Switch light or dark">Light / Dark</button>
+      <div class="tools">
+        <button class="btn small" id="paletteBtn" type="button" title="Command palette (Ctrl/⌘ K)">⌘K</button>
+        <button class="btn small" id="themeBtn" type="button" title="Change the look">Look</button>
+        <button class="btn small" data-view="settings" type="button">Settings</button>
+      </div>
     </div>
   </header>
   <div class="body">
@@ -15,15 +19,17 @@
     <main id="main"></main>
   </div>
 </div>
-<button type="button" class="btn primary askbtn" id="askOpen" hidden>Ask the studio</button>
-<aside class="drawer" id="drawer" hidden aria-label="Ask the studio">
-  <header><b>Ask the studio</b><span class="note" style="flex:1">Knows this episode's records</span><button type="button" class="btn small" id="askClose">Close</button></header>
+<button type="button" class="btn primary askbtn" id="askOpen" hidden><span class="orb"></span>THELMA</button>
+<aside class="drawer" id="drawer" hidden aria-label="THELMA AI">
+  <header><span class="orb big"></span><div style="flex:1"><b>THELMA</b><div class="note" id="thSub">Reads this studio · proposes, never approves</div></div><button type="button" class="btn small" id="thFull">Full view</button><button type="button" class="btn small" id="askClose">Close</button></header>
   <div class="chat" id="chat"></div>
   <form id="askForm">
     <div class="chips" id="askChips"></div>
-    <textarea id="askIn" rows="3" placeholder="Ask about a shot, a cost, what's next…"></textarea>
-    <div class="row"><button type="submit" class="btn primary" id="askSend">Ask</button><button type="button" class="btn" id="askStop" hidden>Stop</button><span class="note">Answers use your Claude usage.</span></div>
+    <textarea id="askIn" rows="3" placeholder="Ask THELMA what to do, find, explain or check…  (say &quot;read to me&quot; to hear it)"></textarea>
+    <div class="row"><button type="submit" class="btn primary" id="askSend">Ask</button><button type="button" class="btn" id="askStop" hidden>Stop</button><button type="button" class="btn small" id="thSpeakLast" title="Read the last answer out loud">🔊 Read</button><span class="note" id="thCost">Uses your Claude usage.</span></div>
   </form>
 </aside>
+<div class="palette" id="palette" hidden role="dialog" aria-label="Command palette">
+  <div class="pbox"><input id="pq" type="text" placeholder="Go to a page, run an action, find a shot…" autocomplete="off"><div class="plist" id="plist"></div><div class="note" style="padding:8px 12px">↑ ↓ to move · Enter to run · Esc to close</div></div>
+</div>
 <div class="toast" id="toast" hidden></div>
-
