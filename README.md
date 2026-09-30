@@ -48,3 +48,8 @@ Runway balance: 36,738 credits (live, 2026-09-29).
 1. It's **public**. Production records only: no manuscript text beyond what's already published, no secret values, no personal account details.
 2. Original manuscripts outrank production mappings. Crossroads, This Is Your Life and The Arc are separate canons.
 3. Every generated asset is logged with its Runway task ID so it can be rebuilt.
+
+
+## Character identity board standard
+
+New character work follows [Character Identity Board System v1](standards/character-board-system-v1.md): **A Cast Board** for multi-character scene fallout, a **Character Detail Specifications Board** as the canonical detail source, and a **360 View Board** for individual character anchoring. The default is a 32-view master for new or materially changed appearances. A 16-view state board is used for clothing-only or limited non-identity changes. Scene-specific states are versioned and then referenced by the Cast Board.
