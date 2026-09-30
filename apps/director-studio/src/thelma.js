@@ -139,6 +139,7 @@ function chatHTML(){
   const last=lastAiIdx();
   return THELMA.chat.map((m,i)=>{
     if(m.role==="tool")return "";
+    if(m.role==="action")return typeof actionCardHTML==="function"?actionCardHTML(m,i):"";
     if(m.role==="nav")return `<div class="navline">↗ ${esc(m.content)} <span class="note">${m.at?when(m.at):""}</span></div>`;
     if(m.role==="user")return `<div class="bubble me">${m.branchOf?`<div class="branchnote">↳ Branched from: “${esc(m.branchOf.slice(0,120))}…”</div>`:""}${esc(m.show||m.content)}</div>`;
     const po=parseOpts(m.content);const opts=m.done?(m.options||po.options):[];
@@ -154,7 +155,7 @@ function renderChat(){const html=chatHTML()+branchBanner();[$("#chat"),$("#thCha
   const cb=convBarHTML();[$("#convBarD"),$("#convBarP")].forEach(c=>{if(c)c.innerHTML=cb});
   const o=$("#askOpen")&&$("#askOpen").querySelector(".orb");if(o)o.classList.toggle("busy",THELMA.busy)}
 function saveChat(){curConv();if(!(CAP.db&&store.uid&&!store.readOnly))return;
-  MINE.thelmaEpoch=THELMA_EPOCH;MINE.thelmaConvs=THELMA.convs.filter(c=>c.chat.length||THELMA.convs[THELMA.cur]===c).slice(-12).map(c=>({id:c.id,title:c.title,topic:c.topic||"general",earlier:!!c.earlier,at:c.at,chat:c.chat.filter(m=>m.role!=="tool"&&(m.role==="nav"||m.role==="user"||m.done!==false)).slice(-30).map(m=>({role:m.role,at:m.at||null,content:String(m.content).slice(0,4000),show:m.show?String(m.show).slice(0,500):undefined,branchOf:m.branchOf?String(m.branchOf).slice(0,300):undefined,options:m.options||[],relay:!!m.relay,done:!!m.done}))}));
+  MINE.thelmaEpoch=THELMA_EPOCH;MINE.thelmaConvs=THELMA.convs.filter(c=>c.chat.length||THELMA.convs[THELMA.cur]===c).slice(-12).map(c=>({id:c.id,title:c.title,topic:c.topic||"general",earlier:!!c.earlier,at:c.at,chat:c.chat.filter(m=>m.role!=="tool"&&(m.role==="nav"||m.role==="user"||m.done!==false)).slice(-30).map(m=>({role:m.role,at:m.at||null,content:String(m.content).slice(0,4000),show:m.show?String(m.show).slice(0,500):undefined,branchOf:m.branchOf?String(m.branchOf).slice(0,300):undefined,options:m.options||[],relay:!!m.relay,done:!!m.done,act:m.act||undefined}))}));
   MINE.thelmaClosed=THELMA.convs.filter(c=>c.closed).map(c=>c.id).slice(-50);
   MINE.thelmaCur=Math.max(0,MINE.thelmaConvs.findIndex(x=>x.id===curConv().id));delete MINE.thelmaChat;
   const clean=JSON.parse(JSON.stringify(MINE));write(()=>CAP.db.doc("data/users/"+store.uid+"/prefs").set(clean))}
@@ -172,7 +173,7 @@ async function ask(text,o={}){
   const conv=curConv();if(conv.chat.length===0||/^(New conversation|Conversation \d+)$/.test(conv.title))conv.title=(o.show||text).slice(0,48);
   const um={role:"user",content:o.prefix?o.prefix+text:text,at:nowISO()};if(o.prefix){um.show=text;um.branchOf=o.branchOf||""}
   THELMA.chat.push(um);const ai={role:"assistant",content:"",tier:TH().tier,steps:[],at:nowISO()};THELMA.chat.push(ai);THELMA.busy=true;renderChat();
-  const hist=THELMA.chat.filter(m=>m.role!=="tool"&&m.role!=="nav"&&m!==ai).slice(-12).map(m=>({role:m.role,content:m.relay?"(Claude's answer from the uplink) "+m.content:m.content}));
+  const hist=THELMA.chat.filter(m=>m.role!=="tool"&&m.role!=="nav"&&m!==ai).slice(-12).map(m=>m.role==="action"?{role:"assistant",content:`[Action card "${m.content}": ${(m.act||{}).state||"pending"}${(m.act||{}).result?" — "+m.act.result:""}]`}:{role:m.role,content:m.relay?"(Claude's answer from the uplink) "+m.content:m.content});
   const fixed=[];hist.forEach(m=>{if(fixed.length&&fixed[fixed.length-1].role===m.role)fixed[fixed.length-1].content+="\n\n"+m.content;else fixed.push(m)});
   if(fixed.length&&fixed[0].role==="assistant")fixed.unshift({role:"user",content:"(earlier in this conversation)"});
   const turns=[{role:"user",content:thelmaContext()},{role:"assistant",content:"Understood, Sire. I'll work from these records and propose, never approve."},...fixed];
@@ -287,7 +288,7 @@ try{const dr=document.getElementById("drawer");if(dr){new MutationObserver(syncD
 /* ---------- v7.4: conversation log (shared, for tracing changes) ---------- */
 let CONVLOG=[],CLOG_SUB=false;
 function ensureConvlog(){if(CLOG_SUB||!CAP.db)return;CLOG_SUB=true;CAP.db.collection("convlog").onSnapshot(s=>{CONVLOG=s.docs.map(d=>Object.assign({id:d.id},d.data())).sort((a,b)=>String(b.updated).localeCompare(String(a.updated)));if(UI.view==="convlog")refresh()},()=>{})}
-function logConv(c){if(!c||!CAP.db||store.readOnly||TH().logConvs===false)return;const turns=c.chat.filter(m=>m.role==="user"||m.role==="nav"||(m.role==="assistant"&&m.done)).slice(-100).map(m=>({role:m.role,at:m.at||null,text:String(m.role==="user"?(m.show||m.content):parseOpts(m.content).body||m.content).slice(0,1500),steps:(m.steps||[]).slice(0,8),relay:!!m.relay}));if(!turns.length)return;
+function logConv(c){if(!c||!CAP.db||store.readOnly||TH().logConvs===false)return;const turns=c.chat.filter(m=>m.role==="user"||m.role==="nav"||m.role==="action"||(m.role==="assistant"&&m.done)).slice(-100).map(m=>({role:m.role,at:m.at||null,text:String(m.role==="action"?`${m.content} — ${(m.act||{}).state||"pending"}${(m.act||{}).result?": "+m.act.result:""}`:m.role==="user"?(m.show||m.content):parseOpts(m.content).body||m.content).slice(0,1500),steps:(m.steps||[]).slice(0,8),relay:!!m.relay}));if(!turns.length)return;
   const doc={title:String(c.title||"").slice(0,120),topic:c.topic||"general",by:store.uid||null,started:c.at||turns[0].at||nowISO(),updated:nowISO(),build:BUILD,status:c.closed?"closed":"open",closedAt:c.closedAt||null,summary:c.summary||"",turns};
   write(()=>CAP.db.doc("convlog/"+c.id).set(doc))}
 function logDone(){const c=curConv();if(!c.chat.length){toast("Nothing to log yet");return}c.closed=true;c.closedAt=nowISO();
