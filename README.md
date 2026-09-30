@@ -25,6 +25,41 @@ Books (Drive) → Locks (faces, light, camera pins) → Pictures (key frames)
    → Publish (Publisher bot → Zapier → YouTube, Instagram; TikTok prepared)
 ```
 
+
+## Advanced production system
+
+VisionWeaver is being extended from a generation workspace into a governed, cross-format production system. The foundation remains the **Directors Guild** process: human approval controls creative locks, every generated asset has a reproducible record, and no publication occurs merely because a render finished.
+
+### Stock and reusable asset catalog
+
+The planned **Stock** workspace is a first-class asset catalog, not a loose media folder. It will cover owned and licensed footage, stills, generated media, music, sound effects, voice assets, graphics, character and environment references, production templates, and approved reusable copy.
+
+Every placement in a shot, timeline, print layout, or marketing composition must retain:
+
+- source and supplier identity;
+- immutable asset and version identifiers;
+- license/rights status, permitted uses, attribution and restrictions;
+- project/scene placement and derivative lineage;
+- review, approval, provider, prompt, cost and export provenance.
+
+Search and preview do not equal a publication license. The system must distinguish searchable, previewable, acquired, cleared, restricted and placed assets; final export checks the combined rights requirements for its actual intended destinations.
+
+### Long-form and cross-format delivery
+
+A long episode is represented by a timed shot plan and a versioned edit decision list: approved key frames and locks → discrete clips/stock/live assets → extensions where needed → assembly → sound, captions, QC → mastered outputs and approved distribution handoff. The dashboard must show planned duration and actual encoded duration separately. A successful short generation never constitutes a completed 10- or 20-minute production.
+
+The same persistent Story Core—canon, characters, environments, scenes, style and voice bibles—will support film/episodes, social cutdowns, books, storyboards, audio, magazines and marketing. Format renderers are distinct so print, audio and video have their own quality checks while drawing from the same approved sources.
+
+### Control gates
+
+- Character, environment, camera, light, voice and product locks are versioned and selected per project.
+- Automated checks cover missing media, continuity, technical profile, captions/loudness, rights/attribution, cost and target-duration compliance.
+- Editorial, technical, rights and release approvals are independent decisions.
+- T.H.E.L.M.A. may dispatch authorized jobs, monitor failures and escalate exceptions. VisionWeaver retains the creative source, asset, review and render records; the CEO Dashboard receives governed status, cost and approval evidence.
+
+Read the full [Stock and Production Buildout Review](docs/VISIONWEAVER-STOCK-AND-PRODUCTION-BUILDOUT-REVIEW-2026-09-27.md). It is a design and acceptance specification—not evidence that every capability is deployed. Audio-source requirements remain provisional until the associated recordings receive a genuine transcript.
+
+
 ## Current production
 
 **Crossroads of Identity · Book 1 *Convergence* · Episode 1 "The News"**, 5 PARTS, 88 locked shots.
