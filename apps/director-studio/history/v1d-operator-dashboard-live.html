@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionWeaver Operator Dashboard - Live</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0e27;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1f3a 0%, #16213e 100%);
+            padding: 20px 30px;
+            border-bottom: 1px solid #10b981;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #10b981;
+        }
+
+        .status-indicator {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #10b981;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.disconnected {
+            background: #ef4444;
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .config-panel {
+            background: #111827;
+            border: 1px solid #1f2937;
+            padding: 15px 30px;
+            font-size: 12px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .config-input {
+            background: #0a0e27;
+            border: 1px solid #374151;
+            color: #e0e0e0;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            width: 300px;
+        }
+
+        .config-button {
+            background: #10b981;
+            color: #0a0e27;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .config-button:hover {
+            background: #059669;
+        }
+
+        .phase-tracker {
+            padding: 30px;
+            background: #111827;
+            border: 1px solid #1f2937;
+            margin: 20px 30px;
+            border-radius: 8px;
+        }
+
+        .phases {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .phase {
+            flex: 1;
+            text-align: center;
+        }
+
+        .phase-frame {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            border: 2px solid #374151;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            font-size: 12px;
+            color: #9ca3af;
+            transition: all 0.3s ease;
+        }
+
+        .phase-frame.active {
+            border-color: #10b981;
+            background: linear-gradient(135deg, #064e3b 0%, #047857 100%);
+            color: #10b981;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .phase-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #9ca3af;
+            text-transform: uppercase;
+        }
+
+        .phase-label.active {
+            color: #10b981;
+        }
+
+        .kpi-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 30px;
+            background: #111827;
+            border: 1px solid #1f2937;
+            margin: 0 30px 20px 30px;
+            border-radius: 8px;
+        }
+
+        .kpi-card {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            border: 1px solid #374151;
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .kpi-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #10b981;
+            margin: 10px 0;
+        }
+
+        .kpi-label {
+            font-size: 12px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .runs-table {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        thead {
+            background: #1f2937;
+            border-bottom: 2px solid #374151;
+        }
+
+        th {
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #10b981;
+            text-transform: uppercase;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #1f2937;
+        }
+
+        tr:hover {
+            background: #1f2937;
+        }
+
+        .status-pill {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-ready {
+            background: #064e3b;
+            color: #10b981;
+        }
+
+        .status-progress {
+            background: #78350f;
+            color: #f59e0b;
+            animation: pulse-status 2s infinite;
+        }
+
+        @keyframes pulse-status {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .status-failed {
+            background: #7f1d1d;
+            color: #ef4444;
+        }
+
+        .status-received {
+            background: #1e40af;
+            color: #60a5fa;
+        }
+
+        .status-prompts-ready {
+            background: #6d28d9;
+            color: #a78bfa;
+        }
+
+        .status-submitted {
+            background: #92400e;
+            color: #f59e0b;
+        }
+
+        .drive-link {
+            color: #10b981;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .drive-link:hover {
+            text-decoration: underline;
+        }
+
+        .event-feed {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 8px;
+            padding: 20px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .event-feed h3 {
+            font-size: 12px;
+            color: #10b981;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .event {
+            border-left: 2px solid #10b981;
+            padding: 10px 0 10px 10px;
+            margin-bottom: 10px;
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        .event-time {
+            color: #6b7280;
+            font-size: 10px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>VisionWeaver Operator Dashboard</h1>
+        <div class="status-indicator">
+            <div class="status-dot" id="statusDot"></div>
+            <span id="statusText">Initializing...</span>
+        </div>
+    </header>
+
+    <div class="config-panel">
+        <label>Supabase URL:</label>
+        <input type="text" id="supabaseUrl" class="config-input" placeholder="https://xxxxx.supabase.co">
+        <label>Anon Key:</label>
+        <input type="password" id="anonKey" class="config-input" placeholder="eyJhbGciOiJIUzI1NiIs...">
+        <button class="config-button" onclick="connectSupabase()">Connect</button>
+    </div>
+
+    <div class="phase-tracker">
+        <div class="phases">
+            <div class="phase">
+                <div class="phase-frame" id="phase-intake">
+                    <span>📥 INTAKE</span>
+                </div>
+                <div class="phase-label" id="phase-intake-label">Receive</div>
+            </div>
+            <div class="phase">
+                <div class="phase-frame" id="phase-ai">
+                    <span>🤖 AI_ORCHESTRATION</span>
+                </div>
+                <div class="phase-label" id="phase-ai-label">Parse & Breakdown</div>
+            </div>
+            <div class="phase">
+                <div class="phase-frame" id="phase-runway">
+                    <span>🎬 RUNWAY_GENERATION</span>
+                </div>
+                <div class="phase-label" id="phase-runway-label">Video Generation</div>
+            </div>
+            <div class="phase">
+                <div class="phase-frame" id="phase-archive">
+                    <span>📦 ARCHIVE_PUBLISH</span>
+                </div>
+                <div class="phase-label" id="phase-archive-label">Archive & Publish</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="kpi-container">
+        <div class="kpi-card">
+            <div class="kpi-label">Total Runs</div>
+            <div class="kpi-value" id="kpi-total">0</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">In Progress</div>
+            <div class="kpi-value" id="kpi-progress">0</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Ready for YouTube</div>
+            <div class="kpi-value" id="kpi-ready">0</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Failed</div>
+            <div class="kpi-value" id="kpi-failed">0</div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="runs-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Run ID</th>
+                        <th>Status</th>
+                        <th>Phase</th>
+                        <th>Created</th>
+                        <th>Archive</th>
+                    </tr>
+                </thead>
+                <tbody id="runsTableBody">
+                    <tr>
+                        <td colspan="5" class="loading">Loading data...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="event-feed">
+            <h3>Live Events</h3>
+            <div id="eventFeed" class="loading">Waiting for connection...</div>
+        </div>
+    </div>
+
+    <script>
+        const { createClient } = window.supabase;
+        let supabaseClient = null;
+        let pollInterval = null;
+
+        // Load saved credentials
+        function loadCredentials() {
+            const saved = localStorage.getItem('vw-credentials');
+            if (saved) {
+                const { url, key } = JSON.parse(saved);
+                document.getElementById('supabaseUrl').value = url;
+                document.getElementById('anonKey').value = key;
+                connectSupabase();
+            }
+        }
+
+        async function connectSupabase() {
+            const url = document.getElementById('supabaseUrl').value;
+            const key = document.getElementById('anonKey').value;
+
+            if (!url || !key) {
+                alert('Please enter Supabase URL and Anon Key');
+                return;
+            }
+
+            try {
+                // Load Supabase client from CDN
+                if (!window.supabase) {
+                    await loadSupabaseClient();
+                }
+
+                const { createClient } = window.supabase;
+                supabaseClient = createClient(url, key);
+
+                // Test connection
+                const { data, error } = await supabaseClient.from('production_log').select('run_id').limit(1);
+
+                if (error) throw error;
+
+                // Save credentials
+                localStorage.setItem('vw-credentials', JSON.stringify({ url, key }));
+
+                updateStatus(true);
+                startPolling();
+                await refreshData();
+
+            } catch (error) {
+                console.error('Connection failed:', error);
+                updateStatus(false);
+                alert('Connection failed: ' + error.message);
+            }
+        }
+
+        function updateStatus(connected) {
+            const dot = document.getElementById('statusDot');
+            const text = document.getElementById('statusText');
+
+            if (connected) {
+                dot.classList.remove('disconnected');
+                text.textContent = 'Live Monitoring';
+            } else {
+                dot.classList.add('disconnected');
+                text.textContent = 'Disconnected';
+            }
+        }
+
+        async function refreshData() {
+            if (!supabaseClient) return;
+
+            try {
+                // Fetch production_log data
+                const { data: logs, error } = await supabaseClient
+                    .from('production_log')
+                    .select('*')
+                    .order('created_at', { ascending: false })
+                    .limit(20);
+
+                if (error) throw error;
+
+                // Calculate KPIs
+                const kpis = {
+                    total: logs.length,
+                    ready: logs.filter(l => l.status === 'READY_FOR_YOUTUBE').length,
+                    progress: logs.filter(l => l.status === 'SUBMITTED' || l.status === 'PROMPTS_READY').length,
+                    failed: logs.filter(l => l.status === 'FAILED').length
+                };
+
+                // Update KPI display
+                document.getElementById('kpi-total').textContent = kpis.total;
+                document.getElementById('kpi-progress').textContent = kpis.progress;
+                document.getElementById('kpi-ready').textContent = kpis.ready;
+                document.getElementById('kpi-failed').textContent = kpis.failed;
+
+                // Update phase tracker
+                updatePhaseTracker(logs);
+
+                // Update runs table
+                updateRunsTable(logs);
+
+                // Update event feed
+                updateEventFeed(logs);
+
+            } catch (error) {
+                console.error('Refresh error:', error);
+            }
+        }
+
+        function updatePhaseTracker(logs) {
+            // Find most recent run in each phase
+            const phases = {
+                'INTAKE': document.getElementById('phase-intake'),
+                'AI_ORCHESTRATION': document.getElementById('phase-ai'),
+                'RUNWAY_GENERATION': document.getElementById('phase-runway'),
+                'ARCHIVE_PUBLISH': document.getElementById('phase-archive')
+            };
+
+            Object.keys(phases).forEach(phaseName => {
+                phases[phaseName].classList.remove('active');
+                const label = document.getElementById(`phase-${phaseName.toLowerCase()}-label`);
+                if (label) label.classList.remove('active');
+            });
+
+            // Activate the phase with the most recent run
+            if (logs.length > 0) {
+                const latestPhase = logs[0].phase;
+                if (phases[latestPhase]) {
+                    phases[latestPhase].classList.add('active');
+                    const label = document.getElementById(`phase-${latestPhase.toLowerCase()}-label`);
+                    if (label) label.classList.add('active');
+                }
+            }
+        }
+
+        function updateRunsTable(logs) {
+            const tbody = document.getElementById('runsTableBody');
+
+            if (logs.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="loading">No runs yet</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = logs.map(log => `
+                <tr>
+                    <td>${log.run_id || 'N/A'}</td>
+                    <td><span class="status-pill status-${log.status.toLowerCase().replace(/_/g, '-')}">${log.status}</span></td>
+                    <td>${log.phase || 'N/A'}</td>
+                    <td>${new Date(log.created_at).toLocaleTimeString()}</td>
+                    <td>${log.drive_link ? `<a href="${log.drive_link}" class="drive-link" target="_blank">View ↗</a>` : '—'}</td>
+                </tr>
+            `).join('');
+        }
+
+        function updateEventFeed(logs) {
+            const feed = document.getElementById('eventFeed');
+
+            if (logs.length === 0) {
+                feed.innerHTML = '<div class="loading">No events yet</div>';
+                return;
+            }
+
+            const events = logs.slice(0, 10).map(log => {
+                const time = new Date(log.created_at);
+                const now = new Date();
+                const diffMs = now - time;
+                const diffSecs = Math.floor(diffMs / 1000);
+                const diffMins = Math.floor(diffSecs / 60);
+
+                let timeStr;
+                if (diffSecs < 60) timeStr = `${diffSecs}s ago`;
+                else if (diffMins < 60) timeStr = `${diffMins}m ago`;
+                else timeStr = time.toLocaleTimeString();
+
+                return `
+                    <div class="event">
+                        <div class="event-time">${timeStr}</div>
+                        <div>${log.run_id} → ${log.status}</div>
+                    </div>
+                `;
+            }).join('');
+
+            feed.innerHTML = events;
+        }
+
+        function startPolling() {
+            if (pollInterval) clearInterval(pollInterval);
+
+            // Poll every 10 seconds
+            pollInterval = setInterval(refreshData, 10000);
+
+            // Also refresh immediately
+            refreshData();
+        }
+
+        // Load Supabase JS library
+        async function loadSupabaseClient() {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/main.min.js';
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            loadSupabaseClient().then(() => loadCredentials());
+        });
+    </script>
+</body>
+</html>
