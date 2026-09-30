@@ -1,6 +1,6 @@
 /* ================= v7 SYSTEM VIEWS: settings, cast & avatars, database, uplink, activity, rights ================= */
 const SET_TABS=[["appearance","Appearance"],["system","System & access"],["connections","Connections"],["output","Output & transfer"],["thelma","THELMA AI"],["uplink","Claude uplink"],["data","Data & backup"]];
-const BUILD="v7.3";
+const BUILD="v7.4";
 const connOff=k=>!!(ST.settings.connections[k]&&ST.settings.connections[k].off);
 const opt=(label,desc,control)=>`<div class="opt"><b>${label}</b><span class="d">${desc}</span><div>${control}</div></div>`;
 const segCtl=(key,opts,cur,attr="data-app")=>`<div class="seg">${opts.map(([v,l])=>`<button type="button" ${attr}="${key}" data-v="${v}" aria-pressed="${cur===v}">${l}</button>`).join("")}</div>`;
@@ -126,6 +126,7 @@ SETV.thelma=()=>{const t=TH();return `<section class="panel"><h2>THELMA AI</h2>
   ${opt("Guide bar","A short 'what this page is for / what's next' strip on every page. Free: it doesn't use Claude.",`<label class="switch"><input type="checkbox" data-thset="guide" ${t.guide?"checked":""}> ${t.guide?"On":"Off"}</label>`)}
   ${opt("Read answers aloud","Say 'tell me' or 'read to me' in a question to hear one answer anytime.",`<label class="switch"><input type="checkbox" data-thset="autoRead" ${t.autoRead?"checked":""}> ${t.autoRead?"Always":"Only when asked"}</label>`)}
   ${opt("Thinking depth","Deep is slower and uses more of your Claude usage.",`<select data-thset="tier">${[["quick","Quick"],["default","Standard"],["complex","Deep"]].map(([v,l])=>`<option value="${v}" ${t.tier===v?"selected":""}>${l}</option>`).join("")}</select>`)}
+  ${opt("Conversation log","Save every THELMA conversation to the shared log (System → Conversation log) so changes can be traced.",`<label class="switch"><input type="checkbox" data-thset="logConvs" ${t.logConvs!==false?"checked":""}> ${t.logConvs!==false?"On":"Off"}</label>`)}
   ${opt("Authority","Fixed by the Architect's rules.",`<b>Propose only.</b> <span class="note">She can open pages, search, read data, run checks and queue proposals. She can't approve, spend, publish or delete.</span>`)}
  </section><section class="panel"><h2>Her voice <span class="sub">saved on this device</span></h2><p class="note" style="margin-top:0">THELMA should sound warm, calm and unhurried, like a trusted first AD talking you through the day. She uses the most natural voice your device has unless you pick one.</p>${voicePicker()}</section><section class="panel"><h2>Her rules <span class="sub">from the THELMA canon in MASTER_CEO_DASHBOARD</span></h2><pre class="out">${esc(THELMA_RULES)}</pre></section>`};
 SETV.uplink=()=>`<section class="panel"><h2>Claude uplink</h2><p style="margin-top:0">The uplink is a shared inbox between you and Claude. You (or THELMA) leave tasks; Claude reads them from its side, answers in the thread, and can build, push to GitHub and republish the studio.</p>
