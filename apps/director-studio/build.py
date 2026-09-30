@@ -6,19 +6,20 @@ Reads, for Crossroads of Identity Episode 1:
   - narration/narration-cue-sheet-v1.md        -> the Narration booth (text + subtitle cards)
   - each PART's camera-maps.svg                -> Locks & maps (embedded as data URIs)
   - part-01-02/part1-captions.srt              -> Edit view + captions download
-and stitches them into src/markup.html + src/*.js (records, core, views, runtime) with src/base.css + src/extra.css.
+and stitches them into src/markup.html + src/*.js (records, core, views, THELMA, runtime) with src/*.css.
 
 Run from anywhere:  python3 apps/director-studio/build.py
 The output is one self-contained HTML file. Publish it as a Claude artifact with
-capabilities {db, user(profile), sample, downloads, mcp} for shared saved data and live
-connection checks; opened as a plain file it still works and saves to the browser only.
+capabilities {db, user(profile), sample, downloads, assets, mcp}; see README. Opened as a plain
+file it still works and saves to the browser only.
 """
 import base64, json, pathlib, re
 
 HERE = pathlib.Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 EP = REPO / "projects/creative-ip/crossroads-of-identity/production/book-01-convergence/episode-01-the-news"
-JS_PARTS = ["records.js", "core.js", "views-pipeline.js", "views-production.js", "runtime.js"]
+JS_PARTS = ["records.js", "records-v7.js", "core.js", "views-pipeline.js", "views-production.js",
+            "views-system.js", "thelma.js", "runtime.js"]
 KEYS = ["id", "plate", "pin", "lens", "move", "framing", "face", "light", "sound"]
 
 
@@ -70,7 +71,7 @@ def main():
     head = ('<title>VisionWeaver Studio</title>\n<link rel="preconnect" href="https://fonts.googleapis.com">\n'
             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800'
             '&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">\n')
-    css = (HERE / "src/base.css").read_text(encoding="utf-8") + (HERE / "src/extra.css").read_text(encoding="utf-8")
+    css = "".join((HERE / "src" / f).read_text(encoding="utf-8") for f in ["base.css", "extra.css", "v7.css"])
     css = css.replace("/* v5 additions", "[hidden]{display:none!important}\n/* v5 additions", 1)
     src = HERE / "src"
     js = "".join((src / f).read_text(encoding="utf-8") for f in JS_PARTS)

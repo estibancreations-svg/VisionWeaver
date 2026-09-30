@@ -1,15 +1,23 @@
 /* ================= STATE + STORE ================= */
-const CAP = {db:null,user:null,sample:null,dl:null,mcp:null};
+const CAP = {db:null,user:null,sample:null,dl:null,mcp:null,assets:null,perms:null};
 const store = {mode:"local",uid:null,exists:false,chain:Promise.resolve(),readOnly:false};
 const NAMES = {};
 function defaults(){
   const p2={};P2FRAMES.forEach(f=>p2[f[0]]=f[3]==="approved"?"approved":"pending");
-  return {p2,recorded:{},deliver:{"1":[false,false,true,true,false]},setup:{"zapier-acct":{at:"2026-09-29T21:45:00-04:00",by:null}},shot:{},schedule:{},notes:{},live:{}};
+  return {p2,recorded:{},deliver:{"1":[false,false,true,true,false]},setup:{"zapier-acct":{at:"2026-09-29T21:45:00-04:00",by:null}},shot:{},schedule:{},notes:{},live:{},
+    settings:{thelma:{enabled:true,guide:true,tier:"default",voice:false,autoRead:false},output:{prefix:"E01",driveFolder:"",emailPrefix:"[VisionWeaver]",paper:"letter"},connections:{},uplink:{triggerId:""}},
+    avatars:{},rights:{}};
 }
-let ST = defaults(), QUEUE = [], LOG = [];
+let ST = defaults(), QUEUE = [], LOG = [], UPLINK = [], FILES = [], MINE = {};
 const UI = {view:"overview",full:false,zoom:14,t:0,playing:false,sel:null,tlPart:1,shotPart:1,shotSel:null,shotQ:"",mapKey:"1-2",mapZoom:60,cue:"N01",wpm:150,prompting:false,promptT:0,
   uploads:[],pk:{part:"1",plat:"youtube_shorts",title:"He was closing the deal. | Crossroads of Identity Ep. 1 Pt. 1",desc:"He was in the middle of closing a deal when he found out the man who took him in at fifteen was gone. Nobody in the room noticed. Except the water.\n\nCrossroads of Identity · Episode 1 · Part 1: \"The Text\"\nMade with AI tools.",tags:"#CrossroadsOfIdentity #ShortFilm #BlackStories #LGBTQStories #AtlantaFilm #Drama #Storytelling",video:"",cover:"",when:"2026-10-01T18:00",vis:"private",ok:""},
-  jc:{mode:"animate",budget:1600,notes:"Narrated shots at 10 s per the cue sheet.",off:{}},draftOut:"",draftBusy:false,qFilter:"all"};
+  jc:{mode:"animate",budget:1600,notes:"Narrated shots at 10 s per the cue sheet.",off:{}},draftOut:"",draftBusy:false,qFilter:"all",setTab:"appearance",castSel:"FL-MR32",castQ:"",dbTab:"studio",dbTable:null,dbRows:null,dbBusy:false,dbTables:null,dbQ:"",logQ:"",rightsPart:"1"};
+const APP_KEY="vw-studio-appearance";
+const APP = Object.assign({theme:"auto",accent:"tungsten",scale:100,density:"comfortable",motion:"full",rail:"full"},(()=>{try{return JSON.parse(localStorage.getItem(APP_KEY)||"{}")}catch(e){return {}}})());
+function applyAppearance(){const r=document.documentElement;if(APP.theme==="auto")delete r.dataset.theme;else r.dataset.theme=APP.theme;r.dataset.accent=APP.accent;r.dataset.density=APP.density;r.dataset.motion=APP.motion;r.dataset.rail=APP.rail;r.style.fontSize=(14*APP.scale/100)+"px"}
+function setApp(k,v){APP[k]=v;try{localStorage.setItem(APP_KEY,JSON.stringify(APP))}catch(e){}applyAppearance()}
+applyAppearance();
+const TH=()=>ST.settings.thelma;
 const LKEY="vw-studio-v5";
 function loadLocal(){try{const s=JSON.parse(localStorage.getItem(LKEY)||"null");if(s){deepMerge(ST,s.st||{});LOG=s.log||[];QUEUE=s.queue||[]}}catch(e){}}
 function saveLocal(){try{localStorage.setItem(LKEY,JSON.stringify({st:ST,log:LOG.slice(0,60),queue:QUEUE}))}catch(e){}}
@@ -55,8 +63,13 @@ async function initCaps(){
     db.doc("studio/state").onSnapshot(s=>{if(s.exists){store.exists=true;ST=deepMerge(defaults(),clone(s.data()))}else store.exists=false;refresh()},e=>handleErr(e));
     db.collection("queue").onSnapshot(s=>{QUEUE=s.docs.map(d=>Object.assign({id:d.id},d.data()));refresh()},e=>handleErr(e));
     db.doc("log/main").onSnapshot(s=>{LOG=s.exists?((s.data().entries)||[]):[];refresh()},e=>handleErr(e));
+    db.collection("uplink").onSnapshot(s=>{UPLINK=s.docs.map(d=>Object.assign({id:d.id},d.data())).sort((a,b)=>String(b.created).localeCompare(String(a.created)));refresh()},e=>handleErr(e));
+    db.collection("files").onSnapshot(s=>{FILES=s.docs.map(d=>Object.assign({id:d.id},d.data())).sort((a,b)=>String(b.at).localeCompare(String(a.at)));refresh()},e=>handleErr(e));
+    if(store.uid){db.doc("data/users/"+store.uid+"/prefs").onSnapshot(s=>{MINE=s.exists?s.data():{};if(MINE.thelmaChat&&!THELMA.chat.length)THELMA.chat=MINE.thelmaChat.slice(-30);refresh()},()=>{})}
   }
-  $("#askOpen").hidden=!CAP.sample;
+  try{CAP.assets=await get("assets")}catch(e){}
+  try{CAP.perms=await get("permissions")}catch(e){}
+  thelmaChrome();
   refresh(true);
 }
 async function resolveNames(){
@@ -124,9 +137,10 @@ function matrix(p){
 
 /* ================= NAV ================= */
 const NAV=[
- ["Home",[["overview","Run of show"],["guild","Directors Guild queue"]]],
- ["Pipeline",[["source","Books & script","1"],["locks","Locks & maps","2"],["shots","Shot bible","2"],["pictures","Pictures","3"],["motion","Motion","4"],["booth","Narration booth","5"],["sound","Sound & music","5"],["edit","Edit","6"],["deliver","Deliver","7"],["publish","Publish & social","8"]]],
- ["System",[["setup","Setup & connections"],["uploads","Uploads"],["ledger","Credit ledger"]]]
+ ["Home",[["overview","Run of show","◎"],["guild","Directors Guild queue","Q"]]],
+ ["Pipeline",[["source","Books & script","1"],["locks","Locks & maps","2"],["cast","Cast & avatars","2"],["shots","Shot bible","2"],["pictures","Pictures","3"],["motion","Motion","4"],["booth","Narration booth","5"],["sound","Sound & music","5"],["edit","Edit","6"],["deliver","Deliver","7"],["publish","Publish & social","8"]]],
+ ["Intelligence",[["thelma","THELMA AI","Th"],["uplink","Claude uplink","↯"]]],
+ ["System",[["settings","Settings","⚙"],["setup","Live connections","Li"],["database","Database","DB"],["uploads","Uploads & files","⇪"],["rights","Rights & provenance","©"],["activity","Activity log","≡"],["ledger","Credit ledger","$"]]]
 ];
 function railDot(v){
   if(v==="pictures")return Object.values(ST.p2).some(x=>x==="pending")?"wait":"done";
@@ -134,14 +148,18 @@ function railDot(v){
   if(v==="edit")return ST.deliver["1"][0]?"done":"wait";
   if(v==="guild")return QUEUE.some(q=>q.status==="pending")?"wait":"done";
   if(v==="setup")return SETUP_STEPS.every(s=>ST.setup[s[0]])?"done":"wait";
+  if(v==="cast")return CAST.some(c=>c[3]==="wait"&&!(ST.avatars[c[0]]&&ST.avatars[c[0]].reviewed))?"wait":"done";
+  if(v==="uplink")return UPLINK.some(u=>u.from==="claude"&&u.status==="answered"&&!u.read)?"you":UPLINK.some(u=>u.status==="open")?"wait":"";
+  if(v==="rights"){const r=ST.rights[UI.rightsPart]||{};return RIGHTS.every(x=>r[x[0]])?"done":"wait"}
+  if(v==="thelma")return TH().enabled?"done":"idle";
   if(["source","locks","shots","motion"].includes(v))return "done";
   return "";
 }
 function renderRail(){
-  $("#rail").innerHTML=NAV.map(([h,items])=>`<h4>${h}</h4>`+items.map(([v,l,n])=>`<button type="button" data-view="${v}" aria-current="${UI.view===v}"><span class="n">${n?String(n).padStart(2,"0"):"·"}</span><span class="lbl">${l}</span><span class="dot ${railDot(v)}"></span></button>`).join("")).join("");
+  $("#rail").innerHTML=NAV.map(([h,items])=>`<h4>${h}</h4>`+items.map(([v,l,n])=>`<button type="button" data-view="${v}" aria-current="${UI.view===v}"><span class="n">${n?(/^\d+$/.test(n)?String(n).padStart(2,"0"):n):"·"}</span><span class="lbl">${l}</span><span class="dot ${railDot(v)}"></span></button>`).join("")).join("");
   $("#st-you").textContent=waiting().length;$("#st-parts").textContent=`${partsDone()} of 5`;
   const lr=ST.live&&ST.live.runway;const cb=$(".topstats .stat.credits b"),cs=$(".topstats .stat.credits span");
   if(lr&&lr.ok&&typeof lr.credits==="number"){cb.textContent=fmt(lr.credits);cs.textContent="Runway credits · live "+when(ST.live.at).replace(/, \d.*$/,"")}
   const m=$("#mode");m.className="mode"+(store.mode==="shared"?" shared":"");m.lastElementChild.textContent=store.mode==="shared"?(store.readOnly?"Shared · view only":"Shared · saved for the team"):"This browser only";
 }
-function go(v){UI.view=v;UI.playing=false;UI.prompting=false;renderRail();render();try{history.replaceState(null,"","#"+v)}catch(e){};$("#main").scrollTop=0}
+function go(v){if(v==="thelma"&&!TH().enabled){toast("THELMA is off. Turn her on in Settings → THELMA.");v="settings";UI.setTab="thelma"}UI.view=v;UI.playing=false;UI.prompting=false;renderRail();render();try{history.replaceState(null,"","#"+v)}catch(e){};$("#main").scrollTop=0}
