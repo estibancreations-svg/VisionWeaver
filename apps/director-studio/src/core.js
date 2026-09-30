@@ -1,10 +1,10 @@
 /* ================= STATE + STORE ================= */
-const CAP = {db:null,user:null,sample:null,dl:null};
+const CAP = {db:null,user:null,sample:null,dl:null,mcp:null};
 const store = {mode:"local",uid:null,exists:false,chain:Promise.resolve(),readOnly:false};
 const NAMES = {};
 function defaults(){
   const p2={};P2FRAMES.forEach(f=>p2[f[0]]=f[3]==="approved"?"approved":"pending");
-  return {p2,recorded:{},deliver:{"1":[false,false,true,true,false]},setup:{"zapier-acct":{at:"2026-09-29T21:45:00-04:00",by:null}},shot:{},schedule:{},notes:{}};
+  return {p2,recorded:{},deliver:{"1":[false,false,true,true,false]},setup:{"zapier-acct":{at:"2026-09-29T21:45:00-04:00",by:null}},shot:{},schedule:{},notes:{},live:{}};
 }
 let ST = defaults(), QUEUE = [], LOG = [];
 const UI = {view:"overview",full:false,zoom:14,t:0,playing:false,sel:null,tlPart:1,shotPart:1,shotSel:null,shotQ:"",mapKey:"1-2",mapZoom:60,cue:"N01",wpm:150,prompting:false,promptT:0,
@@ -46,8 +46,8 @@ async function qDecide(id,status,note){
 async function initCaps(){
   const c=window.claude;if(!c||typeof c.use!=="function")return;
   const get=n=>c.use(n).catch(()=>null);
-  const [db,user,sample,dl]=await Promise.all([get("db"),get("user"),get("sample"),get("downloads")]);
-  CAP.user=user;CAP.sample=sample;CAP.dl=dl;
+  const [db,user,sample,dl,mcp]=await Promise.all([get("db"),get("user"),get("sample"),get("downloads"),get("mcp")]);
+  CAP.user=user;CAP.sample=sample;CAP.dl=dl;CAP.mcp=mcp;
   if(user){try{store.uid=await user.id()}catch(e){}}
   if(db){
     CAP.db=db;store.mode="shared";
@@ -140,7 +140,8 @@ function railDot(v){
 function renderRail(){
   $("#rail").innerHTML=NAV.map(([h,items])=>`<h4>${h}</h4>`+items.map(([v,l,n])=>`<button type="button" data-view="${v}" aria-current="${UI.view===v}"><span class="n">${n?String(n).padStart(2,"0"):"·"}</span><span class="lbl">${l}</span><span class="dot ${railDot(v)}"></span></button>`).join("")).join("");
   $("#st-you").textContent=waiting().length;$("#st-parts").textContent=`${partsDone()} of 5`;
+  const lr=ST.live&&ST.live.runway;const cb=$(".topstats .stat.credits b"),cs=$(".topstats .stat.credits span");
+  if(lr&&lr.ok&&typeof lr.credits==="number"){cb.textContent=fmt(lr.credits);cs.textContent="Runway credits · live "+when(ST.live.at).replace(/, \d.*$/,"")}
   const m=$("#mode");m.className="mode"+(store.mode==="shared"?" shared":"");m.lastElementChild.textContent=store.mode==="shared"?(store.readOnly?"Shared · view only":"Shared · saved for the team"):"This browser only";
 }
 function go(v){UI.view=v;UI.playing=false;UI.prompting=false;renderRail();render();try{history.replaceState(null,"","#"+v)}catch(e){};$("#main").scrollTop=0}
-
