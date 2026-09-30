@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionWeaver Director Control Suite</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0e27;
+            color: #e0e0e0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #3e2723 0%, #5d4037 100%);
+            padding: 20px 30px;
+            border-bottom: 2px solid #d4af37;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #d4af37;
+        }
+
+        .production-status {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .config-panel {
+            background: #111827;
+            border: 1px solid #1f2937;
+            padding: 15px 30px;
+            font-size: 12px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            border-bottom: 1px solid #374151;
+        }
+
+        .config-input {
+            background: #0a0e27;
+            border: 1px solid #374151;
+            color: #e0e0e0;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            width: 300px;
+        }
+
+        .config-button {
+            background: #d4af37;
+            color: #111827;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .config-button:hover {
+            background: #f59e0b;
+        }
+
+        .workspace {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            height: calc(100vh - 140px);
+            gap: 0;
+        }
+
+        .sidebar {
+            background: #111827;
+            border-right: 1px solid #1f2937;
+            overflow-y: auto;
+            padding: 0;
+        }
+
+        .nav-section {
+            border-bottom: 1px solid #1f2937;
+            padding: 0;
+        }
+
+        .nav-title {
+            background: #0a0e27;
+            color: #d4af37;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 12px 15px;
+            border-bottom: 1px solid #1f2937;
+        }
+
+        .nav-item {
+            padding: 10px 15px;
+            font-size: 12px;
+            border-left: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .nav-item:hover {
+            background: #1f2937;
+            border-left-color: #d4af37;
+        }
+
+        .nav-item.active {
+            background: #1f2937;
+            border-left-color: #10b981;
+            color: #10b981;
+        }
+
+        .main-content {
+            overflow-y: auto;
+            padding: 30px;
+        }
+
+        section {
+            background: #111827;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 16px;
+            color: #d4af37;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #374151;
+            padding-bottom: 12px;
+        }
+
+        h3 {
+            font-size: 13px;
+            color: #9ca3af;
+            font-weight: 600;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .lock-sheet-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .lock-sheet-card {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            border: 1px solid #374151;
+            border-radius: 6px;
+            padding: 15px;
+            border-left: 3px solid #d4af37;
+        }
+
+        .lock-sheet-card.locked {
+            border-left-color: #10b981;
+            background: linear-gradient(135deg, #0f2818 0%, #111827 100%);
+        }
+
+        .part-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #d4af37;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .spec-item {
+            font-size: 11px;
+            color: #9ca3af;
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+
+        .spec-label {
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .shot-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+            margin-top: 15px;
+        }
+
+        .shot-table th {
+            background: #1f2937;
+            color: #d4af37;
+            padding: 8px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 1px solid #374151;
+        }
+
+        .shot-table td {
+            padding: 8px;
+            border-bottom: 1px solid #1f2937;
+            vertical-align: top;
+        }
+
+        .shot-table tr:hover {
+            background: #1f2937;
+        }
+
+        .shot-number {
+            background: #0a0e27;
+            color: #d4af37;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-weight: 700;
+        }
+
+        .runtime-badge {
+            display: inline-block;
+            background: #064e3b;
+            color: #10b981;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .stills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .still-card {
+            aspect-ratio: 9/16;
+            background: #1f2937;
+            border: 2px solid #374151;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .still-card:hover {
+            border-color: #d4af37;
+            background: #2d3748;
+        }
+
+        .still-card.approved {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .still-number {
+            font-size: 12px;
+            font-weight: 700;
+            color: #d4af37;
+        }
+
+        .still-year {
+            font-size: 9px;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+
+        .still-description {
+            font-size: 8px;
+            color: #9ca3af;
+            margin-top: 2px;
+        }
+
+        .still-card.approved .still-number {
+            color: #10b981;
+        }
+
+        .still-card.approved::after {
+            content: '✓';
+            position: absolute;
+            font-size: 18px;
+            color: #10b981;
+        }
+
+        .approval-status {
+            background: #0a0e27;
+            border: 1px solid #1f2937;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+
+        .approval-bar {
+            background: #1f2937;
+            height: 8px;
+            border-radius: 4px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .approval-fill {
+            background: #10b981;
+            height: 100%;
+            transition: width 0.3s;
+        }
+
+        .trigger-button {
+            background: linear-gradient(135deg, #d4af37 0%, #f59e0b 100%);
+            color: #111827;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .trigger-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .trigger-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .runway-controls {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .control-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #d4af37;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .control-input, .control-select {
+            background: #0a0e27;
+            border: 1px solid #374151;
+            color: #e0e0e0;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+
+        .control-input:focus, .control-select:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+        }
+
+        .face-lock-board {
+            background: #0a0e27;
+            border: 1px solid #1f2937;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .board-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 8px;
+        }
+
+        .board-detail {
+            font-size: 10px;
+            color: #9ca3af;
+            line-height: 1.4;
+        }
+
+        .light-lock-specs {
+            background: #0a0e27;
+            border-left: 3px solid #d4af37;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .time-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+            font-size: 10px;
+        }
+
+        .time-cell {
+            background: #111827;
+            border: 1px solid #374151;
+            padding: 8px;
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        .time-label {
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .time-value {
+            color: #d4af37;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Director Control Suite</h1>
+        <div class="production-status">
+            <span>Crossroads of Identity · S1E1</span>
+            <span id="versionBadge">Part 01-02 · LOCKED</span>
+        </div>
+    </header>
+
+    <div class="config-panel">
+        <label>Supabase URL:</label>
+        <input type="text" id="supabaseUrl" class="config-input" placeholder="https://xxxxx.supabase.co">
+        <label>Anon Key:</label>
+        <input type="password" id="anonKey" class="config-input" placeholder="eyJhbGciOiJIUzI1NiIs...">
+        <button class="config-button" onclick="connectSupabase()">Connect</button>
+    </div>
+
+    <div class="workspace">
+        <div class="sidebar">
+            <div class="nav-section">
+                <div class="nav-title">🎬 Production</div>
+                <div class="nav-item active" onclick="showTab('lock-sheets')">Lock Sheets</div>
+                <div class="nav-item" onclick="showTab('shot-locks')">Shot Locks</div>
+                <div class="nav-item" onclick="showTab('keyframes')">Keyframes</div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">👥 Cast & Crew</div>
+                <div class="nav-item" onclick="showTab('face-locks')">Face Locks</div>
+                <div class="nav-item" onclick="showTab('light-locks')">Light Locks</div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">📸 Memorial Stills</div>
+                <div class="nav-item" onclick="showTab('stills-approval')">Approval Queue</div>
+                <div class="nav-item" onclick="showTab('stills-library')">Still Library</div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">🤖 Runway Iteration</div>
+                <div class="nav-item" onclick="showTab('runway-control')">Video Control</div>
+                <div class="nav-item" onclick="showTab('runway-history')">Run History</div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">✅ Approvals</div>
+                <div class="nav-item" onclick="showTab('department-queue')">Department Queue</div>
+                <div class="nav-item" onclick="showTab('pre-vision-board')">Pre-Approval Vision</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- LOCK SHEETS TAB -->
+            <section id="tab-lock-sheets" class="hidden">
+                <h2>🔒 Lock Sheets - All Parts</h2>
+                <div class="lock-sheet-grid" id="lockSheetContainer"></div>
+            </section>
+
+            <!-- SHOT LOCKS TAB -->
+            <section id="tab-shot-locks" class="hidden">
+                <h2>📐 Shot Lock Sheet (PART 1)</h2>
+                <h3>Part 1: "The Text" — Conference Room</h3>
+                <div class="spec-item"><span class="spec-label">Plate:</span> Conference Room Morning Relight (a60f82fb-c704-490e-9d14-bb2d95f69bed)</div>
+                <div class="spec-item"><span class="spec-label">Timeline:</span> Tuesday, January 17, 2023, ~10:00–11:15 AM</div>
+                <div class="spec-item"><span class="spec-label">Location:</span> Glass Conference Room, Marcus's Law Firm, Atlanta Head Office</div>
+                <table class="shot-table">
+                    <thead>
+                        <tr>
+                            <th>Shot</th>
+                            <th>Framing</th>
+                            <th>Pin</th>
+                            <th>Lens</th>
+                            <th>Expression / Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="shot-number">S01</span></td>
+                            <td>Wide shot, both glass walls</td>
+                            <td>C1</td>
+                            <td>24mm</td>
+                            <td>Marcus straightens his burgundy tie, assured</td>
+                        </tr>
+                        <tr>
+                            <td><span class="shot-number">S02</span></td>
+                            <td>MCU OTS Jayden</td>
+                            <td>C2</td>
+                            <td>50mm</td>
+                            <td>Marcus line 1 (skyline behind)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="shot-number">S07</span></td>
+                            <td>CU eyes</td>
+                            <td>C2</td>
+                            <td>85mm</td>
+                            <td><strong>Face does not move; one flicker behind eyes</strong></td>
+                        </tr>
+                        <tr>
+                            <td><span class="shot-number">S12</span></td>
+                            <td>INSERT: water trembles</td>
+                            <td>C4→C5</td>
+                            <td>100mm macro</td>
+                            <td><strong>CUT POINT: short-form clip ends here</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Part 2: "The Performance" — Corridor & Memorial</h3>
+                <div class="spec-item"><span class="spec-label">Runtime:</span> <span class="runtime-badge">62–72 seconds</span></div>
+                <table class="shot-table">
+                    <thead>
+                        <tr>
+                            <th>Shot</th>
+                            <th>Framing</th>
+                            <th>Content</th>
+                            <th>Sound Bridge</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="shot-number">S13a</span></td>
+                            <td>OTS partner → Marcus</td>
+                            <td>Radio host line begins (Dr. King Dec 5, 1955)</td>
+                            <td>Desk radio, low EQ</td>
+                        </tr>
+                        <tr>
+                            <td><span class="shot-number">S13b</span></td>
+                            <td>Tampa: Hands light lantern</td>
+                            <td>"Home Is Where You Make It" tag, silk ribbons</td>
+                            <td>Radio continues, match strike sound design</td>
+                        </tr>
+                        <tr>
+                            <td><span class="shot-number">S13c</span></td>
+                            <td>Photographs (M03, M04, M07, M08)</td>
+                            <td>Slow push 1.2s each (in CapCut, 0 credits)</td>
+                            <td>Radio line continues</td>
+                        </tr>
+                        <tr>
+                            <td><span class="shot-number">S13d</span></td>
+                            <td>M11, M12: Carvings → Pay-It-Forward wall</td>
+                            <td>Reverent, handmade archive</td>
+                            <td>Radio: "didn't know his name yet"</td>
+                        </tr>
+                        <tr>
+                            <td><span class="shot-number">S14</span></td>
+                            <td>CU Marcus, smile drops</td>
+                            <td><strong>The smile is gone when partner's door clicks</strong></td>
+                            <td>Door click carries into PART 3 S01</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- KEYFRAMES TAB -->
+            <section id="tab-keyframes" class="hidden">
+                <h2>🎥 Keyframes (Part 1 — 12 Total)</h2>
+                <div class="spec-item"><span class="spec-label">Format:</span> Vertical 9:16 (social-first), nano-banana-pro, 2K</div>
+                <div class="spec-item"><span class="spec-label">Cost:</span> 240 credits (20 per shot) — all 12 approved by Sire 2026-09-26</div>
+                <div class="spec-item" style="margin-top: 15px;"><strong>Status: ALL LOCKED</strong></div>
+                <div class="stills-grid" style="margin-top: 15px;">
+                    <div class="still-card"><div class="still-number">S01</div><div class="still-year">Wide</div></div>
+                    <div class="still-card"><div class="still-number">S02</div><div class="still-year">Marcus Line 1</div></div>
+                    <div class="still-card"><div class="still-number">S03</div><div class="still-year">Contract</div></div>
+                    <div class="still-card"><div class="still-number">S04</div><div class="still-year">Jayden OTS</div></div>
+                    <div class="still-card"><div class="still-number">S05</div><div class="still-year">2-Shot Look</div></div>
+                    <div class="still-card"><div class="still-number">S06</div><div class="still-year">Buzz 1</div></div>
+                    <div class="still-card"><div class="still-number">S07</div><div class="still-year">CU Flicker</div></div>
+                    <div class="still-card"><div class="still-number">S08</div><div class="still-year">Profile Line</div></div>
+                    <div class="still-card"><div class="still-number">S09</div><div class="still-year">Split Level</div></div>
+                    <div class="still-card"><div class="still-number">S10</div><div class="still-year">Screen MSG</div></div>
+                    <div class="still-card"><div class="still-number">S11</div><div class="still-year">ECU No Move</div></div>
+                    <div class="still-card"><div class="still-number">S12</div><div class="still-year">Water Trembles</div></div>
+                </div>
+            </section>
+
+            <!-- FACE LOCKS TAB -->
+            <section id="tab-face-locks" class="hidden">
+                <h2>👤 Face Locks (Cast Approved)</h2>
+
+                <div class="face-lock-board">
+                    <div class="board-title">FL-MR32: Marcus Reynolds, 32 — LOCKED</div>
+                    <div class="board-detail">
+                        <strong>Wardrobe:</strong> Charcoal suit (jacket on), crisp white shirt, burgundy power tie, steel box chain tucked under, watch, sleek dark-case phone in right front trouser pocket.<br><br>
+                        <strong>Part 1 Expression:</strong> Assured, precise, warm-but-controlled. At texts: face does not move. Only fingers tighten; water trembles.<br><br>
+                        <strong>Part 2 Expression:</strong> Perfect performance smile. Smile drops only when partner's door closes and no one sees.
+                    </div>
+                </div>
+
+                <div class="face-lock-board">
+                    <div class="board-title">FL-JK: Jayden King, early 20s — PENDING SIRE'S VISUAL</div>
+                    <div class="board-detail">
+                        <strong>Look:</strong> Black man, low taper fade with sharp line-up, faint chinstrap beard, black bomber over white tee, gold Cuban-link chain, diamond-face watch.<br><br>
+                        <strong>Expression:</strong> Skeptical and guarded throughout the negotiation. Barely shifted during the hour-long meeting. Protective of his voice, suspicious of suits.
+                    </div>
+                </div>
+
+                <div class="face-lock-board">
+                    <div class="board-title">FL-JM: Jayden's Manager, late 30s — PENDING SIRE'S VISUAL</div>
+                    <div class="board-detail">
+                        <strong>Look:</strong> Black man, short groomed hair, light beard, wire-frame glasses, navy blazer over open-collar grey shirt.<br><br>
+                        <strong>Expression:</strong> Careful and practical. Furrowed brows. He notices Marcus drift ("Mr. Reynolds?") and starts talking terms with Alvarez on the way out.
+                    </div>
+                </div>
+
+                <div class="face-lock-board">
+                    <div class="board-title">FL-AL: Mr. Alvarez (Music Producer), mid-40s — PENDING SIRE'S VISUAL</div>
+                    <div class="board-detail">
+                        <strong>Look:</strong> Latino man, short black hair grey at temples, trimmed full beard, charcoal blazer over black crewneck, thin gold chain, studio earbuds around neck.<br><br>
+                        <strong>Expression:</strong> Confident, patient, eager to close. Been trying to sign King for months. Starts talking terms with the manager on the way out.
+                    </div>
+                </div>
+
+                <div class="face-lock-board">
+                    <div class="board-title">FL-SP: Senior Partner, South Asian — PENDING SIRE'S VISUAL</div>
+                    <div class="board-detail">
+                        <strong>Blocking (Decision 4):</strong> NOT in the meeting. Waits in the corridor outside the frosted glass for Marcus's nod (yes or no). On yes, he enters and sees clients out himself.<br><br>
+                        <strong>Expression:</strong> Patient silhouette first, then genial and proprietary. Shoulder clap is a gesture of ownership as much as praise.
+                    </div>
+                </div>
+            </section>
+
+            <!-- LIGHT LOCKS TAB -->
+            <section id="tab-light-locks" class="hidden">
+                <h2>💡 Light Locks (Technical Specs)</h2>
+
+                <h3>LK-ATL-AM: Atlanta Head Office, Late Morning (LOCKED)</h3>
+                <div class="light-lock-specs">
+                    <div class="board-title">Sun Calculation (NOAA, Midtown Atlanta 33.78° N, 84.39° W, Tue Jan 17, 2023)</div>
+                    <div class="time-grid">
+                        <div class="time-cell">
+                            <div class="time-label">10:00 AM</div>
+                            <div class="time-value">138° (SE) · 22°</div>
+                        </div>
+                        <div class="time-cell">
+                            <div class="time-label">10:30 AM</div>
+                            <div class="time-value">144° · 26°</div>
+                        </div>
+                        <div class="time-cell">
+                            <div class="time-label">11:00 AM</div>
+                            <div class="time-value">151° (SSE) · 30°</div>
+                        </div>
+                        <div class="time-cell">
+                            <div class="time-label">11:30 AM</div>
+                            <div class="time-value">159° · 32°</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-item"><span class="spec-label">Room Orientation:</span> Floor-to-ceiling glass faces north and west. Distant fin-topped tower in north view.</div>
+                <div class="spec-item"><span class="spec-label">Sun Position:</span> Behind the building (southeast). NO direct sunbeams enter the room.</div>
+                <div class="spec-item"><span class="spec-label">Quality:</span> Bright, soft, cool daylight (5600–6000K). Shadowless, flattering faces.</div>
+                <div class="spec-item"><span class="spec-label">Skyline:</span> Front-lit and gleaming under cloudless deep-blue sky.</div>
+                <div class="spec-item"><span class="spec-label">Practicals:</span> Brass pendant and cove lights on low (3000K, warm accent only).</div>
+                <div class="spec-item"><span class="spec-label">Grade:</span> Neutral-cool, crisp, clean blacks, no grain. Same "Attorney Reynolds" world as PART 3.</div>
+                <div class="spec-item"><span class="spec-label">Runway Plate ID:</span> a60f82fb-c704-490e-9d14-bb2d95f69bed</div>
+
+                <h3 style="margin-top: 20px;">LK-YBOR-AM: Heritage Pages, Late Morning (Tampa Memorial)</h3>
+                <div class="light-lock-specs">
+                    <div class="board-detail">
+                        <strong>Location:</strong> Ybor City (27.96° N, 82.44° W) · <strong>Time:</strong> ~11:10 AM, Jan 17, 2023<br>
+                        <strong>Sun:</strong> 154° azimuth, 37° high (low winter sun)<br>
+                        <strong>Entry:</strong> Straight through south-facing windows<br>
+                        <strong>Lock:</strong> Memorial table just outside direct sun patch. Hands, lantern, photographs get bright, soft bounce light. Lantern flame is only warm point light. Sunlit floor and window glow behind.
+                    </div>
+                </div>
+            </section>
+
+            <!-- STILLS APPROVAL TAB -->
+            <section id="tab-stills-approval" class="hidden">
+                <h2>📸 Memorial Stills Approval Queue</h2>
+                <div class="spec-item"><span class="spec-label">Status:</span> M01–M06 approved by Sire (2026-09-26). M07–M13 ready for approval.</div>
+                <div class="spec-item"><span class="spec-label">Format:</span> Vertical 9:16, nano-banana-pro, 2K. 20 credits each = 260 total for all 13.</div>
+                <div class="approval-status">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span id="approvalCount">6 of 13 approved</span>
+                        <span style="font-weight: 700; color: #d4af37;">46%</span>
+                    </div>
+                    <div class="approval-bar">
+                        <div class="approval-fill" id="approvalFill" style="width: 46%;"></div>
+                    </div>
+                </div>
+                <div class="stills-grid" id="stillsGrid" style="margin-top: 20px;">
+                    <!-- Populated by JS -->
+                </div>
+                <div style="font-size: 11px; color: #6b7280; margin-top: 15px;">
+                    <strong>Sire's Top Picks (PART 2 Cross-Cut):</strong> M03, M04 v2, M07, M08, M11, M12, M13
+                </div>
+            </section>
+
+            <!-- STILLS LIBRARY TAB -->
+            <section id="tab-stills-library" class="hidden">
+                <h2>📚 Memorial Still Library</h2>
+                <table class="shot-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Year</th>
+                            <th>Moment</th>
+                            <th>Status</th>
+                            <th>Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>M01</td><td>1972</td><td>The Key</td><td>✓ Approved</td><td>Memorial reel</td></tr>
+                        <tr><td>M02</td><td>c. 1977</td><td>After Hours at Heritage Pages</td><td>✓ Approved</td><td>Memorial reel</td></tr>
+                        <tr><td>M03</td><td>1982</td><td>The First Picnic</td><td>✓ TOP PICK</td><td>PART 2 cross-cut + reel</td></tr>
+                        <tr><td>M04 v2</td><td>c. 1987</td><td>The Care Room (a little more ill)</td><td>✓ TOP PICK</td><td>PART 2 cross-cut + reel</td></tr>
+                        <tr><td>M05</td><td>1988</td><td>Opening Day</td><td>✓ Approved</td><td>Memorial reel</td></tr>
+                        <tr><td>M06</td><td>1998</td><td>Not for Sale</td><td>✓ Approved</td><td>Memorial reel</td></tr>
+                        <tr><td>M07</td><td>2015</td><td>Pride Comes Back</td><td>✓ TOP PICK</td><td>PART 2 cross-cut + reel</td></tr>
+                        <tr><td>M08</td><td>2020</td><td>The Scanning Summer</td><td>✓ TOP PICK</td><td>PART 2 cross-cut + reel</td></tr>
+                        <tr><td>M09</td><td>2006 page</td><td>The Porch Light Book</td><td>✓ Kept (library)</td><td>Memorial reel only</td></tr>
+                        <tr><td>M10</td><td>2023</td><td>The Bulb Jar</td><td>✓ Kept (required)</td><td>Memorial reel + archive</td></tr>
+                        <tr><td>M11</td><td>2023</td><td>The Carvings</td><td>✓ TOP PICK</td><td>PART 2 cross-cut + reel</td></tr>
+                        <tr><td>M12</td><td>2023</td><td>The Pay-It-Forward Wall</td><td>✓ TOP PICK</td><td>PART 2 cross-cut + reel</td></tr>
+                        <tr><td>M13</td><td>Jan 17 ~11 AM</td><td>Home Is Where You Make It (Candle)</td><td>✓ TOP PICK</td><td>PART 2 cross-cut anchor + reel</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- RUNWAY CONTROL TAB -->
+            <section id="tab-runway-control" class="hidden">
+                <h2>🤖 Runway Video Generation Control</h2>
+                <div class="spec-item"><span class="spec-label">Current Model:</span> gen-4.5</div>
+                <div class="spec-item"><span class="spec-label">Current Plate:</span> Conference Room Morning Relight (a60f82fb-c704-490e-9d14-bb2d95f69bed)</div>
+
+                <h3>Test Iteration Parameters</h3>
+                <div class="runway-controls">
+                    <div class="control-group">
+                        <label class="control-label">Duration (sec)</label>
+                        <input type="number" class="control-input" id="runwayDuration" value="30" min="5" max="120" step="5">
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Seed</label>
+                        <input type="number" class="control-input" id="runwaySeed" placeholder="0 (random)" min="0">
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Camera Motion</label>
+                        <select class="control-select" id="cameraMotion">
+                            <option>Locked (C1)</option>
+                            <option>Slow push-in (C1 → close)</option>
+                            <option>Walk-and-talk backing (H3)</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Iteration Round</label>
+                        <select class="control-select" id="iterationRound">
+                            <option>Round 1 - Initial</option>
+                            <option>Round 2 - Light adjust</option>
+                            <option>Round 3 - Motion refine</option>
+                            <option>Round 4 - Final approval</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: #0a0e27; border: 1px solid #1f2937; padding: 15px; border-radius: 4px; margin-top: 15px; font-size: 11px;">
+                    <div style="color: #d4af37; font-weight: 600; margin-bottom: 8px;">📋 Last 3 Iterations</div>
+                    <div style="color: #9ca3af; line-height: 1.6;">
+                        <div>• Round 1 (2026-09-27 14:22 UTC): Runway task ID pending · Status: submitted · Seed: 4821</div>
+                        <div>• Awaiting generation feedback from Sire</div>
+                    </div>
+                </div>
+
+                <button class="trigger-button" onclick="submitRunwayIteration()">▶ Submit Iteration to Runway</button>
+            </section>
+
+            <!-- RUNWAY HISTORY TAB -->
+            <section id="tab-runway-history" class="hidden">
+                <h2>📊 Runway Run History</h2>
+                <table class="shot-table">
+                    <thead>
+                        <tr>
+                            <th>Run ID</th>
+                            <th>Date / Time (UTC)</th>
+                            <th>Duration</th>
+                            <th>Seed</th>
+                            <th>Status</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: #d4af37; font-weight: 600;">RUN-PART01-001</td>
+                            <td>2026-09-27 14:22</td>
+                            <td>30s</td>
+                            <td>4821</td>
+                            <td><span class="runtime-badge" style="background: #78350f; color: #f59e0b;">Submitted</span></td>
+                            <td>Initial render, awaiting feedback</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- DEPARTMENT QUEUE TAB -->
+            <section id="tab-department-queue" class="hidden">
+                <h2>✅ Department Approval Queue</h2>
+                <div class="spec-item" style="margin-bottom: 15px;"><strong>Directors Guild Structure:</strong> Department heads bring triple-checked work to Sire in timestamped queues. Current phase: awaiting Runway video generation.</div>
+
+                <div style="display: grid; gap: 15px;">
+                    <div class="face-lock-board">
+                        <div class="board-title">🎨 Design Department</div>
+                        <div class="board-detail">
+                            <strong>Status:</strong> Ready for approval · <strong>Timestamp:</strong> 2026-09-26 18:45 UTC<br>
+                            Lock sheets approved. Face locks and light locks passed visual check. Runway plates rendered and approved.
+                        </div>
+                    </div>
+
+                    <div class="face-lock-board" style="opacity: 0.6;">
+                        <div class="board-title">🎬 Motion Department</div>
+                        <div class="board-detail">
+                            <strong>Status:</strong> In progress · <strong>Timestamp:</strong> 2026-09-27 14:22 UTC<br>
+                            Keyframes locked (12/12). Runway initial iteration submitted. Awaiting video generation results before final approval.
+                        </div>
+                    </div>
+
+                    <div class="face-lock-board" style="opacity: 0.5;">
+                        <div class="board-title">📢 Marketing Department</div>
+                        <div class="board-detail">
+                            <strong>Status:</strong> Pending motion approval · <strong>Timestamp:</strong> TBD<br>
+                            Waiting for final video and memorial reel to begin social strategy and platform deliverables.
+                        </div>
+                    </div>
+
+                    <div class="face-lock-board" style="opacity: 0.5;">
+                        <div class="board-title">⚙️ Automation Department</div>
+                        <div class="board-detail">
+                            <strong>Status:</strong> Pending director sign-off · <strong>Timestamp:</strong> TBD<br>
+                            Production log and pipeline orchestration ready. Awaiting final approval to execute distribution and archive workflow.
+                        </div>
+                    </div>
+                </div>
+
+                <button class="trigger-button" onclick="escalateToSire()" style="margin-top: 20px;">📤 Escalate to Sire for Final Approval</button>
+            </section>
+
+            <!-- PRE-APPROVAL VISION BOARD TAB -->
+            <section id="tab-pre-vision-board" class="hidden">
+                <h2>🎬 Pre-Approval Vision Board</h2>
+                <div class="spec-item" style="margin-bottom: 15px;"><strong>Purpose:</strong> Show Runway output and memorial selections to Sire BEFORE the pipeline commits credits and processing time. Avoid wasteful iterations.</div>
+
+                <h3>Part 1–2 Vision Board (Awaiting Runway Output)</h3>
+                <div style="background: #0a0e27; border: 2px dashed #d4af37; border-radius: 6px; padding: 30px; text-align: center; margin-top: 15px;">
+                    <div style="color: #9ca3af; font-size: 12px;">
+                        Runway video generation in progress (RUN-PART01-001).<br>
+                        Vision board will display when iteration completes.
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 20px;">Memory Stills in Part 2 Cross-Cut</h3>
+                <div style="font-size: 11px; color: #9ca3af; line-height: 1.6; background: #0a0e27; padding: 12px; border-radius: 4px; margin-top: 10px;">
+                    ✓ M03 (The First Picnic, 1982)<br>
+                    ✓ M04 v2 (The Care Room, c. 1987)<br>
+                    ✓ M07 (Pride Comes Back, 2015)<br>
+                    ✓ M08 (The Scanning Summer, 2020)<br>
+                    ✓ M11 (The Carvings, 2023)<br>
+                    ✓ M12 (The Pay-It-Forward Wall, 2023)<br>
+                    ✓ M13 (Home Is Where You Make It, Jan 17 ~11 AM)
+                </div>
+
+                <button class="trigger-button" onclick="approvePart01()" style="margin-top: 20px;">✅ Approve Part 1–2 & Launch Auto-Generate</button>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        let supabaseClient = null;
+
+        const stillsData = [
+            { id: 1, year: 1972, title: "The Key", approved: true },
+            { id: 2, year: 1977, title: "After Hours", approved: true },
+            { id: 3, year: 1982, title: "First Picnic", approved: true, topPick: true },
+            { id: 4, year: 1987, title: "Care Room v2", approved: true, topPick: true },
+            { id: 5, year: 1988, title: "Opening Day", approved: true },
+            { id: 6, year: 1998, title: "Not for Sale", approved: true },
+            { id: 7, year: 2015, title: "Pride Comes Back", approved: true, topPick: true },
+            { id: 8, year: 2020, title: "Scanning Summer", approved: true, topPick: true },
+            { id: 9, year: 2006, title: "Porch Light Book", approved: true },
+            { id: 10, year: 2023, title: "Bulb Jar", approved: true },
+            { id: 11, year: 2023, title: "The Carvings", approved: true, topPick: true },
+            { id: 12, year: 2023, title: "Pay-It-Forward", approved: true, topPick: true },
+            { id: 13, year: 2023, title: "Home Is Where", approved: true, topPick: true }
+        ];
+
+        const lockSheetData = [
+            { part: 'Part 01-02', location: 'Atlanta, Glass Conference Room', time: 'Tue Jan 17, 2023 · 10:00–11:15 AM', light: 'LK-ATL-AM: Cool daylight, no direct sun, gleaming skyline', locked: '2026-09-25' },
+            { part: 'Part 03', location: 'Atlanta, Executive Floor', time: 'Tue Jan 17, 2023 · ~11:15–11:30 AM', light: 'Same morning light', locked: '2026-09-24' },
+            { part: 'Part 04', location: 'Atlanta, Executive Bathroom', time: 'Tue Jan 17, 2023 · ~11:30 AM', light: 'Morning daylight from bathroom windows', locked: '2026-09-25' },
+            { part: 'Part 05', location: 'Atlanta (Post-HB 1557)', time: 'Late March 2022 · 9:30–10:00 AM', light: 'Spring morning daylight', locked: '2026-09-24' }
+        ];
+
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.hidden').forEach(el => {
+                if (el.id.startsWith('tab-')) {
+                    el.classList.add('hidden');
+                }
+            });
+            // Show selected tab
+            document.getElementById('tab-' + tabName).classList.remove('hidden');
+            // Update nav
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function renderLockSheets() {
+            const container = document.getElementById('lockSheetContainer');
+            container.innerHTML = lockSheetData.map(sheet => `
+                <div class="lock-sheet-card locked">
+                    <div class="part-label">🔒 ${sheet.part}</div>
+                    <div class="spec-item">📍 ${sheet.location}</div>
+                    <div class="spec-item">⏰ ${sheet.time}</div>
+                    <div class="spec-item">💡 ${sheet.light}</div>
+                    <div class="spec-item" style="color: #10b981; font-weight: 600;">✓ Locked ${sheet.locked}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderStills() {
+            const grid = document.getElementById('stillsGrid');
+            grid.innerHTML = stillsData.map(still => `
+                <div class="still-card ${still.approved ? 'approved' : ''}" onclick="toggleStillApproval(${still.id})">
+                    <div class="still-number">M${String(still.id).padStart(2, '0')}</div>
+                    <div class="still-year">${still.year}</div>
+                    <div class="still-description">${still.title}</div>
+                    ${still.topPick ? '<div style="color: #d4af37; font-size: 9px; margin-top: 4px; font-weight: 600;">TOP PICK</div>' : ''}
+                </div>
+            `).join('');
+        }
+
+        function toggleStillApproval(stillId) {
+            const still = stillsData.find(s => s.id === stillId);
+            if (still) {
+                still.approved = !still.approved;
+                renderStills();
+                updateApprovalStatus();
+            }
+        }
+
+        function updateApprovalStatus() {
+            const approvedCount = stillsData.filter(s => s.approved).length;
+            const totalCount = stillsData.length;
+            const percentage = Math.round((approvedCount / totalCount) * 100);
+
+            document.getElementById('approvalCount').textContent = `${approvedCount} of ${totalCount} approved`;
+            document.getElementById('approvalFill').style.width = percentage + '%';
+        }
+
+        function submitRunwayIteration() {
+            const duration = document.getElementById('runwayDuration').value;
+            const seed = document.getElementById('runwaySeed').value || 'random';
+            const cameraMotion = document.getElementById('cameraMotion').value;
+            alert(`Runway iteration submitted:\n\n• Duration: ${duration}s\n• Seed: ${seed}\n• Camera: ${cameraMotion}\n\nMonitor progress in Operator Dashboard.`);
+        }
+
+        function escalateToSire() {
+            alert('Approval package escalated to Sire for final review.\n\nQueued items:\n✓ Design Department (approved)\n⏳ Motion Department (in progress)\n⏳ Pre-approval vision board (awaiting Runway output)');
+        }
+
+        function approvePart01() {
+            alert('✅ Part 1–2 approved and locked.\n\nAuto-generate pipeline launching...\n\nMonitor execution in Operator Dashboard.');
+        }
+
+        async function connectSupabase() {
+            const url = document.getElementById('supabaseUrl').value;
+            const key = document.getElementById('anonKey').value;
+
+            if (!url || !key) {
+                alert('Please enter Supabase URL and Anon Key');
+                return;
+            }
+
+            try {
+                if (!window.supabase) {
+                    await loadSupabaseClient();
+                }
+
+                const { createClient } = window.supabase;
+                supabaseClient = createClient(url, key);
+
+                // Test connection
+                const { data, error } = await supabaseClient.from('production_log').select('run_id').limit(1);
+
+                if (error) throw error;
+
+                localStorage.setItem('vw-director-credentials', JSON.stringify({ url, key }));
+                alert('Connected to Supabase. Dashboard now syncing live data.');
+
+            } catch (error) {
+                console.error('Connection failed:', error);
+                alert('Connection failed: ' + error.message);
+            }
+        }
+
+        async function loadSupabaseClient() {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/main.min.js';
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+
+        // Load saved credentials
+        function loadCredentials() {
+            const saved = localStorage.getItem('vw-director-credentials');
+            if (saved) {
+                const { url, key } = JSON.parse(saved);
+                document.getElementById('supabaseUrl').value = url;
+                document.getElementById('anonKey').value = key;
+            }
+        }
+
+        // Initialize
+        window.addEventListener('load', () => {
+            loadCredentials();
+            renderLockSheets();
+            renderStills();
+            updateApprovalStatus();
+            showTab('lock-sheets');
+        });
+    </script>
+</body>
+</html>
