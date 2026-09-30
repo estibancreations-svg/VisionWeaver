@@ -1,6 +1,6 @@
 /* ================= v7 SYSTEM VIEWS: settings, cast & avatars, database, uplink, activity, rights ================= */
 const SET_TABS=[["appearance","Appearance"],["system","System & access"],["connections","Connections"],["output","Output & transfer"],["thelma","THELMA AI"],["uplink","Claude uplink"],["data","Data & backup"]];
-const BUILD="v7.2";
+const BUILD="v7.3";
 const connOff=k=>!!(ST.settings.connections[k]&&ST.settings.connections[k].off);
 const opt=(label,desc,control)=>`<div class="opt"><b>${label}</b><span class="d">${desc}</span><div>${control}</div></div>`;
 const segCtl=(key,opts,cur,attr="data-app")=>`<div class="seg">${opts.map(([v,l])=>`<button type="button" ${attr}="${key}" data-v="${v}" aria-pressed="${cur===v}">${l}</button>`).join("")}</div>`;
