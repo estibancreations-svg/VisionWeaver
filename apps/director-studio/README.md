@@ -88,3 +88,14 @@ history/                   earlier UI rounds (v1 mockups → v3), kept for refer
 | v5 | 2026-09-29 | Shared saved data, Guild queue, shot bible for all 5 PARTS, camera maps, narration booth, PART 2 draft timeline, release calendar, caption drafting, setup & connections, search, Ask the studio. |
 | v6 | 2026-09-29 | Live connection check (artifact `mcp` capability): Runway credits, Supabase registry and log, Zapier apps, GitHub repo; top-bar credits update from the live answer. Supabase `ec_connectors` registry applied (46 connectors, 12 active). |
 | v7 | 2026-09-30 | THELMA AI (canon rules from MASTER_CEO_DASHBOARD, page tools, propose-only, on/off, guide bar, read-aloud); Cast & avatars (Five Stations lock record, 360 check, calibration ladder, Localized Avatar + Historical Space profile, photos); Settings hub (themes incl. Think legal pad, accents, text size, density; system & access; connections; output & transfer to Drive/email/print; backup/restore); Database browser; Claude uplink with wake-up task; Rights & provenance; Activity log; command palette; real file storage. |
+
+
+## Character board workflow
+
+The Cast & avatars page must treat the board stack as a production lock chain:
+
+- Character Detail Specifications Board: canonical physical and performance detail source.
+- 360 View Board: 32-view master by default; 16-view state board for clothing-only or limited non-identity changes.
+- A Cast Board: multi-character scene board that calls the active state for each character.
+
+When a state changes—such as Marcus Reynolds in a brown suit, blue suit, robe, unshaven, black eye, broken nose, or shadow beard—the active state must be versioned, linked to its source board, and shown on the Cast Board. Do not silently replace the locked identity reference.
