@@ -10,8 +10,8 @@ and stitches them into src/markup.html + src/*.js (records, core, views, runtime
 
 Run from anywhere:  python3 apps/director-studio/build.py
 The output is one self-contained HTML file. Publish it as a Claude artifact with
-capabilities {db, user(profile), sample, downloads} for shared saved data; opened as a
-plain file it still works and saves to the browser only.
+capabilities {db, user(profile), sample, downloads, mcp} for shared saved data and live
+connection checks; opened as a plain file it still works and saves to the browser only.
 """
 import base64, json, pathlib, re
 

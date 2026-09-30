@@ -8,7 +8,7 @@ VisionWeaver runs Sire's productions under a **Directors Guild** structure: Desi
 
 | Path | What it is |
 |---|---|
-| [`apps/director-studio/`](apps/director-studio/) | **VisionWeaver Studio**, the director control surface. Built from the production records by `build.py`. |
+| [`apps/director-studio/`](apps/director-studio/) | **VisionWeaver Studio**, the director control surface. Built from the production records by `build.py`. Checks Runway, Supabase, Zapier and GitHub live. |
 | [`connections/`](connections/) | API, MCP and OAuth settings: what's connected, how, secret names (no values), the Supabase connector registry SQL, and an MCP config for Claude Code. |
 | [`projects/creative-ip/`](projects/creative-ip/) | Production records for Crossroads of Identity, This Is Your Life and The Arc (pointers; each property's canon lives in its own repo and Drive). |
 | [`standards/`](standards/) | House standards: Shot Standard v1, 360 View Storyboard. |
@@ -39,7 +39,7 @@ Runway balance: 36,738 credits (live, 2026-09-29).
 
 ## Infrastructure
 
-- **Supabase** "Master Dashboard" (`yqealeekngxooyoemfba`): `production_log`, `social_connections`, `social_post_queue`, `vw_*` tables, `ec_connectors` registry; edge functions `visionweaver-orchestrator`, `visionweaver-studio`, `oauth-callback` and others.
+- **Supabase** "Master Dashboard" (`yqealeekngxooyoemfba`): `production_log`, `social_connections`, `social_post_queue`, `vw_*` tables, `ec_connectors` registry (46 connectors, 12 active); edge functions `visionweaver-orchestrator`, `visionweaver-studio`, `oauth-callback` and others.
 - **Vercel**: hosting (team "Estibancreations").
 - **Runway, Zapier, Google Drive, GitHub**: live as Claude connectors. See [`connections/README.md`](connections/README.md).
 

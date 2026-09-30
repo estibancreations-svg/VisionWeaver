@@ -1,6 +1,6 @@
 # VisionWeaver Studio · Build log and findings (2026-09-29)
 
-What was reviewed, what was found, and what was decided while building the director studio (v2 → v5). It's kept so the next build starts from facts, not from memory.
+What was reviewed, what was found, and what was decided while building the director studio (v2 → v6). It's kept so the next build starts from facts, not from memory.
 
 ## 1. Sources reviewed
 
@@ -50,3 +50,10 @@ What was reviewed, what was found, and what was decided while building the direc
 - The page can't load Runway images (links expire and the page can't fetch other sites), so frames show shot numbers.
 - Uploaded files stay on the device; uploading only marks items done.
 - The Publisher hook URL is not stored in the page; packets are copied to the Publisher bot.
+
+## 7. v6 (same day)
+
+- Applied the `ec_connectors` registry SQL: 46 connectors, 12 active.
+- Added a read-only live check to the Studio (artifact `mcp` capability). Tested headless with stand-in answers, including a connector that needs signing in again. No page errors.
+- Made each of the four calls once for real to confirm the answer shapes the page reads: Runway Pro, 36,738 credits; Supabase 2 `production_log` rows (last 2026-08-13), 12 of 46 connectors active, 0 queued posts; Zapier apps Google Drive, Instagram for Business, YouTube; GitHub 8 studio source files. This caught one bug: Supabase wraps its rows in a `result` text field, so the parser now reads that field first.
+- Zapier's Instagram for Business connection uses a different login from its Google Drive connection. Confirm it's the account that owns the show's professional Instagram.

@@ -57,6 +57,21 @@ Scope names are from each platform's current docs as of this writing. Confirm th
 
 `supabase/2026-09-29_ec_connectors_visionweaver_studio.sql` adds or updates rows in `ec_connectors` for everything above: Zapier, YouTube, Instagram, TikTok, the Runway connector, the Drive and GitHub connectors, the other Claude connectors, and the Studio itself. It stores no secrets and is safe to re-run.
 
+**Applied 2026-09-29.** The registry now holds **46 connectors, 12 active** (18 rows added or updated by this file).
+
+## 5b. Live check from the Studio
+
+The Studio's **Setup & connections** page has a **Check all connections now** button. It uses the artifact `mcp` capability to make four read-only calls with the viewer's own connector logins:
+
+| Connector | Tool | What it reads |
+|---|---|---|
+| Runway | `show_plans_and_credits` | Plan and credit balance (also updates the top-bar credits) |
+| Supabase | `execute_sql` (a single `select`) | `production_log` rows and last run, active vs. total `ec_connectors`, queued posts |
+| Zapier | `inspect_zapier_actions` | Which apps the Publisher can use |
+| GitHub | `get_file_contents` | That this repo and the Studio source are reachable |
+
+The result is saved to `studio/state.live` with who ran it and when. The first time, claude.ai asks the viewer to allow each connector. If one needs signing in again, the row says so instead of failing. Nothing is written to any service. Declaring `mcp` means the page can't be shared publicly, which is fine: it's a private director tool.
+
 ## 6. Things to fix (found while wiring)
 
 - `runway` API-key row is **degraded**. The Runway connector works, so production isn't blocked, but refresh `RUNWAY_API_ACCESS` before the orchestrator calls Runway directly.

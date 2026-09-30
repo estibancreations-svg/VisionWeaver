@@ -1,6 +1,6 @@
 # VisionWeaver Studio (director control surface)
 
-**Version:** v5 · 2026-09-29 · **Production:** Crossroads of Identity, Book 1 *Convergence*, Episode 1 "The News"
+**Version:** v6 · 2026-09-29 · **Production:** Crossroads of Identity, Book 1 *Convergence*, Episode 1 "The News"
 
 Where Sire, the director, makes every decision in the pipeline: from the books and locks through pictures, motion, sound, the edit, delivery and publishing. Departments bring finished work to the **Directors Guild queue**; nothing moves until Sire decides. Two gates never move: **key frames are approved before any video is made**, and **the word APPROVED is required before anything goes public**.
 
@@ -27,6 +27,7 @@ The build reads the episode's production records straight from this repo, so the
 | `user` (profile) | Shows who approved what. Stores ids only, never names. |
 | `sample` | "Ask the studio" side panel and one-click caption drafts. Uses the viewer's Claude usage. |
 | `downloads` | Saves the edit list, captions, job card, publish packet, reading script and shot list as files. |
+| `mcp` | **Live check** on Setup & connections: read-only calls to Runway (`show_plans_and_credits`), Supabase (`execute_sql`), Zapier (`inspect_zapier_actions`) and GitHub (`get_file_contents`) with the viewer's own logins. See `connections/README.md` §5b. Makes the page private-only. |
 
 Opened as a plain file, the page still works and saves to that browser only.
 
@@ -60,7 +61,7 @@ history/                   earlier UI rounds (v1 mockups → v3), kept for refer
 | 6 | Edit | Playable multi-track timelines; click any block for CapCut steps |
 | 7 | Deliver | Files ready per PART |
 | 8 | Publish & social | Release calendar, packet builder, Gate 2, platform rules |
-| — | Setup & connections | Live connection status, one-time bot setup steps |
+| — | Setup & connections | One-click live check of Runway, Supabase, Zapier and GitHub; recorded status; one-time bot setup steps |
 | — | Uploads | Filename matching checks off cues and deliverables |
 | — | Credit ledger | Every recorded spend and the live balance |
 
@@ -73,3 +74,4 @@ history/                   earlier UI rounds (v1 mockups → v3), kept for refer
 | v3 | 2026-09-29 | Fixed the nav click bug; right sidebar panels (`history/v3`). Had made-up credit and location figures, corrected in v4. |
 | v4 | 2026-09-29 | Rebuilt from the repo records: the full pipeline, edit timeline, sound, delivery, publishing, uploads. Real credits (36,738). |
 | v5 | 2026-09-29 | Shared saved data, Guild queue, shot bible for all 5 PARTS, camera maps, narration booth, PART 2 draft timeline, release calendar, caption drafting, setup & connections, search, Ask the studio. |
+| v6 | 2026-09-29 | Live connection check (artifact `mcp` capability): Runway credits, Supabase registry and log, Zapier apps, GitHub repo; top-bar credits update from the live answer. Supabase `ec_connectors` registry applied (46 connectors, 12 active). |
