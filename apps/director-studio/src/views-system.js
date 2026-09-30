@@ -1,5 +1,6 @@
 /* ================= v7 SYSTEM VIEWS: settings, cast & avatars, database, uplink, activity, rights ================= */
 const SET_TABS=[["appearance","Appearance"],["system","System & access"],["connections","Connections"],["output","Output & transfer"],["thelma","THELMA AI"],["uplink","Claude uplink"],["data","Data & backup"]];
+const BUILD="v7.2";
 const connOff=k=>!!(ST.settings.connections[k]&&ST.settings.connections[k].off);
 const opt=(label,desc,control)=>`<div class="opt"><b>${label}</b><span class="d">${desc}</span><div>${control}</div></div>`;
 const segCtl=(key,opts,cur,attr="data-app")=>`<div class="seg">${opts.map(([v,l])=>`<button type="button" ${attr}="${key}" data-v="${v}" aria-pressed="${cur===v}">${l}</button>`).join("")}</div>`;
@@ -15,7 +16,7 @@ function statusReport(){
   s+=`\nGuild queue pending: ${QUEUE.filter(q=>q.status==="pending").length}\nUplink open: ${UPLINK.filter(u=>u.status==="open").length}\n\nRECENT ACTIVITY\n`+LOG.slice(0,10).map(l=>`- ${when(l.at)}: ${l.text}`).join("\n");
   return s;
 }
-function backupJSON(){return JSON.stringify({system:SYSTEM.id,version:VERSION,exported:nowISO(),state:ST,queue:QUEUE,log:LOG,uplink:UPLINK,files:FILES},null,2)}
+function backupJSON(){return JSON.stringify({system:SYSTEM.id,version:BUILD,exported:nowISO(),state:ST,queue:QUEUE,log:LOG,uplink:UPLINK,files:FILES},null,2)}
 function docFor(kind){
   const pre=ST.settings.output.prefix||"E01";
   if(kind==="status")return [`${pre}_Status_${new Date().toISOString().slice(0,10)}.md`,statusReport(),"text/markdown"];
@@ -71,7 +72,7 @@ SETV.appearance=()=>{
 SETV.system=()=>{
   const ps=UI.perms;const s=SYSTEM;
   return `<section class="panel"><h2>Where the studio lives</h2><dl class="kv">
-    <dt>System</dt><dd><b>${esc(s.name)}</b> · ${esc(s.id)} · ${VERSION}</dd>
+    <dt>System</dt><dd><b>${esc(s.name)}</b> · ${esc(s.id)} · ${BUILD}</dd>
     <dt>Hosted as</dt><dd>${esc(s.runtime)} · runtime ${esc(s.contract)}. Only you and people you share it with can open it.</dd>
     <dt>Saved data</dt><dd>${store.mode==="shared"?"Shared studio database (Claude artifact storage), live for everyone with access":"This browser only (open in claude.ai to share)"}</dd>
     <dt>Source code</dt><dd class="mono">${esc(s.repo)} → ${esc(s.src)} · build: ${esc(s.build)}</dd>
@@ -126,10 +127,13 @@ SETV.thelma=()=>{const t=TH();return `<section class="panel"><h2>THELMA AI</h2>
   ${opt("Read answers aloud","Say 'tell me' or 'read to me' in a question to hear one answer anytime.",`<label class="switch"><input type="checkbox" data-thset="autoRead" ${t.autoRead?"checked":""}> ${t.autoRead?"Always":"Only when asked"}</label>`)}
   ${opt("Thinking depth","Deep is slower and uses more of your Claude usage.",`<select data-thset="tier">${[["quick","Quick"],["default","Standard"],["complex","Deep"]].map(([v,l])=>`<option value="${v}" ${t.tier===v?"selected":""}>${l}</option>`).join("")}</select>`)}
   ${opt("Authority","Fixed by the Architect's rules.",`<b>Propose only.</b> <span class="note">She can open pages, search, read data, run checks and queue proposals. She can't approve, spend, publish or delete.</span>`)}
- </section><section class="panel"><h2>Her rules <span class="sub">from the THELMA canon in MASTER_CEO_DASHBOARD</span></h2><pre class="out">${esc(THELMA_RULES)}</pre></section>`};
+ </section><section class="panel"><h2>Her voice <span class="sub">saved on this device</span></h2><p class="note" style="margin-top:0">THELMA should sound warm, calm and unhurried, like a trusted first AD talking you through the day. She uses the most natural voice your device has unless you pick one.</p>${voicePicker()}</section><section class="panel"><h2>Her rules <span class="sub">from the THELMA canon in MASTER_CEO_DASHBOARD</span></h2><pre class="out">${esc(THELMA_RULES)}</pre></section>`};
 SETV.uplink=()=>`<section class="panel"><h2>Claude uplink</h2><p style="margin-top:0">The uplink is a shared inbox between you and Claude. You (or THELMA) leave tasks; Claude reads them from its side, answers in the thread, and can build, push to GitHub and republish the studio.</p>
   ${opt("Wake-up task ID","A scheduled task that starts a Claude session to work the inbox. Set by Claude.",`<input type="text" data-upset="triggerId" value="${esc(ST.settings.uplink.triggerId||"")}" placeholder="trig_…" ${store.readOnly?"disabled":""}>`)}
-  <p class="note">Without a wake-up task, just tell Claude in chat: "check the uplink."</p><button type="button" class="btn small" data-view="uplink">Open the uplink</button></section>`;
+  ${opt("Wake Claude automatically","When you or THELMA send work, start Claude right away instead of waiting for the Wake button.",`<label class="switch"><input type="checkbox" data-upbool="autoWake" ${(ST.settings.uplink||{}).autoWake!==false?"checked":""} ${store.readOnly?"disabled":""}> ${(ST.settings.uplink||{}).autoWake!==false?"On":"Off"}</label>`)}
+  ${opt("Last wake-up","When Claude was last started from this page.",esc((ST.settings.uplink||{}).lastWake?when(ST.settings.uplink.lastWake):"Never"))}
+  <p class="note">Without a wake-up task, just tell Claude in chat: "check the uplink."</p><button type="button" class="btn small" data-view="uplink">Open the uplink</button></section>
+  <section class="panel"><h2>If work sent to Claude isn't answered</h2>${UPLINK_FIX}</section>`;
 SETV.data=()=>`<section class="panel"><h2>Backup and restore</h2>
   <div class="row"><button type="button" class="btn primary" data-out="backupdl">Download full backup (JSON)</button>${CAP.mcp&&!connOff("drive")?`<button type="button" class="btn" data-out="backupdrive">Back up to Google Drive</button>`:""}</div>
   <p class="note">A backup holds decisions, settings, cast records, queue, activity and uplink threads. It does not hold your private THELMA chat.</p>
@@ -211,23 +215,53 @@ async function dbLoadTables(){
 }
 
 /* ---------- UPLINK ---------- */
+/* v7.2 repair (2026-09-30): saving to the uplink used to be the only step, so THELMA's
+   "sent" work sat unanswered until someone pressed Wake. Now sendToClaude() saves AND wakes
+   Claude (Settings → Claude uplink → "Wake Claude automatically"), and reports honestly when
+   it can't. See research/2026-09-30-uplink-repair.md. */
+let LAST_WAKE=0;
 function uplinkAdd(item){
-  const body={from:"sire",kind:item.kind||"task",text:String(item.text||"").slice(0,4000),page:UI.view,status:"open",created:nowISO(),by:store.uid||null,reply:"",repliedAt:null};
+  const body={from:item.from||"sire",kind:item.kind||"task",text:String(item.text||"").slice(0,4000),page:UI.view,status:"open",created:nowISO(),by:store.uid||null,reply:"",repliedAt:null};
   if(CAP.db&&!store.readOnly)write(()=>CAP.db.collection("uplink").add(body));else{UPLINK.unshift(Object.assign({id:"l"+Date.now()},body));saveLocal()}
   addLog(`Uplink ${body.kind} for Claude: ${body.text.slice(0,80)}`);refresh();
 }
 function uplinkSet(id,up){const u=UPLINK.find(x=>x.id===id);if(!u)return;Object.assign(u,up);if(CAP.db&&!store.readOnly)write(()=>CAP.db.doc("uplink/"+id).update(up));refresh()}
-async function wakeClaude(){
-  const id=(ST.settings.uplink.triggerId||"").trim();
-  if(!id||!CAP.mcp){toast("No wake-up task is set yet");return}
-  if(connOff("uplink")){toast("The uplink connector is off in Settings → Connections");return}
-  const open=UPLINK.filter(u=>u.status==="open");
-  try{await CAP.mcp.callTool("Claude Code Remote","fire_trigger",{trigger_id:id,text:`Sire pressed "Wake Claude" in VisionWeaver Studio. ${open.length} open uplink item(s): `+open.slice(0,8).map(u=>`[${u.kind}] ${u.text.slice(0,160)}`).join(" | ")},{cache:false});toast("Claude is waking up to work the uplink");addLog("Woke Claude to work the uplink")}
-  catch(e){toast(mcpErrText(e,"Claude Code Remote"))}
+async function wakeClaude(o={}){
+  const id=((ST.settings.uplink||{}).triggerId||"").trim();
+  const fail=why=>{if(!o.quiet)toast(why);return {woke:false,why}};
+  if(!id)return fail("No wake-up task is set yet (Settings → Claude uplink).");
+  if(!CAP.mcp)return fail("This view can't reach Claude's connectors. Open the studio inside claude.ai.");
+  if(connOff("uplink"))return fail("The Claude Code Remote connection is turned off in Settings → Connections.");
+  if(Date.now()-LAST_WAKE<15000)return {woke:true,why:"",note:"Claude was woken seconds ago and will pick this up too."};
+  const open=UPLINK.filter(u=>u.status==="open").map(u=>`[${u.kind}] ${String(u.text).slice(0,160)}`);
+  if(o.item)open.unshift(`[${o.item.kind||"task"}] ${String(o.item.text).slice(0,160)}`);
+  try{
+    await CAP.mcp.callTool("Claude Code Remote","fire_trigger",{trigger_id:id,text:`${o.reason||"Sire pressed \"Wake Claude\""} in VisionWeaver Studio. Open uplink item(s): `+open.slice(0,8).join(" | ")},{cache:false});
+    LAST_WAKE=Date.now();patch({settings:{uplink:{lastWake:nowISO()}}},`Woke Claude to work the uplink (${o.reason||"Wake pressed"})`);
+    if(!o.quiet)toast("Claude is waking up to work the uplink");return {woke:true,why:""}
+  }catch(e){return fail(mcpErrText(e,"Claude Code Remote"))}
 }
+async function sendToClaude(item,o={}){
+  if(store.readOnly)return {saved:false,claude_woken:false,why:"This viewer can't send to Claude."};
+  uplinkAdd(item);
+  const next="Press \"Wake Claude now\" on the Claude uplink page, or tell Claude in the claude.ai chat: \"check the uplink\".";
+  if((ST.settings.uplink||{}).autoWake===false){const why="Automatic wake-up is off (Settings → Claude uplink).";if(!o.quiet)toast("Saved for Claude. "+why);return {saved:true,claude_woken:false,why,next}}
+  const r=await wakeClaude({quiet:true,item,reason:item.from==="thelma"?"THELMA sent work":"Sire sent a message"});
+  if(!o.quiet)toast(r.woke?"Sent, and Claude is waking up to work on it":"Saved for Claude, but not woken: "+r.why);
+  return {saved:true,claude_woken:r.woke,why:r.why||"",next:r.woke?"Claude usually answers in the uplink within a few minutes. The answer also appears in THELMA's chat.":next};
+}
+const UPLINK_FIX=`<ol class="fixlist">
+  <li><b>Is it saved?</b> It should be listed under Threads below with the word <i>open</i>. If it isn't, the save failed: send it again.</li>
+  <li><b>Was Claude woken?</b> Each open thread says "Claude was woken" or "Not woken yet". Saving alone only leaves a note; someone has to start Claude. Press <b>Wake Claude now</b>.</li>
+  <li><b>Wake button missing?</b> Settings → Claude uplink needs the wake-up task ID (starts with trig_), and Settings → Connections must have Claude Code Remote on. Open the studio inside claude.ai (the button can't work anywhere else).</li>
+  <li><b>Woken but no answer after 10 minutes?</b> Tell Claude in the claude.ai chat: "check the uplink". Claude will read the inbox and the wake-up task's last run.</li>
+  <li><b>Where do answers show up?</b> In the thread below, in THELMA's chat, and in Claude's desk. They do <i>not</i> appear in your claude.ai chat by themselves; that chat only sees the uplink when you ask.</li></ol>`;
 V.uplink=()=>{
   const desk=ST.claudeDesk;const open=UPLINK.filter(u=>u.status!=="done");const done=UPLINK.filter(u=>u.status==="done");
-  const th=u=>`<div class="thread ${u.status==="open"?"open":""}"><div class="row"><span class="from">${u.from==="claude"?"Claude":"Sire"} · ${esc(u.kind)} · ${when(u.created)} · from ${esc(u.page||"")}</span><span style="margin-left:auto">${pill(u.status==="open"?"you":u.status==="working"?"wait":u.status==="answered"?"done":"idle",u.status)}</span></div><div style="white-space:pre-wrap">${esc(u.text)}</div>${u.reply?`<div class="reply"><b>Claude:</b> ${esc(u.reply)}${u.repliedAt?`<div class="note">${when(u.repliedAt)}</div>`:""}</div>`:""}${store.readOnly?"":`<div class="row">${u.status!=="done"?`<button type="button" class="btn small" data-upst="${u.id}" data-s="done">Mark done</button>`:`<button type="button" class="btn small" data-upst="${u.id}" data-s="open">Reopen</button>`}</div>`}</div>`;
+  const lw=(ST.settings.uplink||{}).lastWake||"";
+  const wakeNote=u=>u.status!=="open"?"":(lw&&lw>=String(u.created)?`<span class="note">Claude was woken ${when(lw)} and should answer soon.</span>`:`<span class="note warnnote">Not woken yet. Claude won't see this until it's woken.</span>${ST.settings.uplink.triggerId&&CAP.mcp&&!store.readOnly?` <button type="button" class="btn small" id="wakeClaude">Wake Claude now</button>`:""}`);
+  const fromLbl=u=>u.from==="claude"?"Claude":u.from==="thelma"||/^\(from THELMA\)/.test(u.text||"")?"THELMA":"Sire";
+  const th=u=>`<div class="thread ${u.status==="open"?"open":""}"><div class="row"><span class="from">${fromLbl(u)} · ${esc(u.kind)} · ${when(u.created)} · from ${esc(u.page||"")}</span><span style="margin-left:auto">${pill(u.status==="open"?"you":u.status==="working"?"wait":u.status==="answered"?"done":"idle",u.status)}</span></div><div style="white-space:pre-wrap">${esc(u.text)}</div>${u.reply?`<div class="reply"><b>Claude:</b> ${esc(u.reply)}${u.repliedAt?`<div class="note">${when(u.repliedAt)}</div>`:""}</div>`:""}<div class="row">${wakeNote(u)}</div>${store.readOnly?"":`<div class="row">${u.status!=="done"?`<button type="button" class="btn small" data-upst="${u.id}" data-s="done">Mark done</button>`:`<button type="button" class="btn small" data-upst="${u.id}" data-s="open">Reopen</button>`}</div>`}</div>`;
   return `<div class="vhead"><span class="eyebrow">Intelligence</span><h1>Claude uplink</h1><p>Your direct line to Claude inside the studio. Leave a task, question, idea or bug report. Claude reads this inbox from its side, answers here, and does the outside work: building features, pushing to GitHub, research, and republishing this studio. Like a walkie-talkie to the editing bay.</p></div>
   <div class="grid2">
    <form class="panel" id="upForm"><h2>New message to Claude</h2>
@@ -238,7 +272,8 @@ V.uplink=()=>{
     <dl class="kv" style="margin-top:10px"><dt>Open</dt><dd>${UPLINK.filter(u=>u.status==="open").length}</dd><dt>Working</dt><dd>${UPLINK.filter(u=>u.status==="working").length}</dd><dt>Answered</dt><dd>${UPLINK.filter(u=>u.status==="answered").length}</dd><dt>Done</dt><dd>${done.length}</dd></dl></section>
   </div>
   <section class="panel"><h2>Threads</h2><div style="display:grid;gap:10px">${open.length?open.map(th).join(""):`<div class="empty">No open messages.</div>`}</div>
-   ${done.length?`<details style="margin-top:12px"><summary>${done.length} done</summary><div style="display:grid;gap:10px;margin-top:10px">${done.map(th).join("")}</div></details>`:""}</section>`;
+   ${done.length?`<details style="margin-top:12px"><summary>${done.length} done</summary><div style="display:grid;gap:10px;margin-top:10px">${done.map(th).join("")}</div></details>`:""}</section>
+  <section class="panel"><details><summary><b>Sent something and got no answer? Check these in order</b></summary>${UPLINK_FIX}</details></section>`;
 };
 
 /* ---------- ACTIVITY ---------- */
@@ -307,6 +342,7 @@ document.addEventListener("change",e=>{
   if(t.dataset.apprange){setApp(t.dataset.apprange,+t.value);render();return}
   if(t.dataset.outset){patch({settings:{output:{[t.dataset.outset]:t.value.trim()}}},"Output setting changed");return}
   if(t.id==="recips"){savePrivate({recipients:t.value.trim()});toast("Recipients saved (private to you)");return}
+  if(t.dataset.upbool){patch({settings:{uplink:{[t.dataset.upbool]:t.checked}}},`Uplink: ${t.dataset.upbool} ${t.checked?"on":"off"}`);return}
   if(t.dataset.upset){patch({settings:{uplink:{[t.dataset.upset]:t.value.trim()}}},"Uplink wake-up task set");return}
   if(t.dataset.connoff){const k=t.dataset.connoff;patch({settings:{connections:{[k]:{off:!t.checked}}}},`${(CONNECTORS.find(x=>x[0]===k)||[k,k])[1]} ${t.checked?"allowed":"turned off"} for this page`);return}
   if(t.dataset.avboard!=null&&t.dataset.avboard!==undefined&&t.hasAttribute("data-avboard")){const code=UI.castSel;patch({avatars:{[code]:{board:{[t.dataset.avboard]:t.checked}}}});return}
@@ -324,5 +360,5 @@ document.addEventListener("submit",e=>{
   const f=e.target;
   if(f.id==="avForm"){e.preventDefault();const code=UI.castSel;const lock={},lahs={};f.querySelectorAll("[data-av]").forEach(x=>lock[x.dataset.av]=x.value.trim());f.querySelectorAll("[data-lahs]").forEach(x=>lahs[x.dataset.lahs]=x.value.trim());patch({avatars:{[code]:{lock,lahs,savedAt:nowISO(),savedBy:store.uid||null}}},`Saved the lock record for ${code}`);toast("Saved");return}
   if(f.id==="dbForm"){e.preventDefault();UI.dbTable=null;dbRun($("#dbSql").value);return}
-  if(f.id==="upForm"){e.preventDefault();const v=$("#upText").value.trim();if(!v){toast("Write the message first");return}uplinkAdd({kind:UI.upKind||"task",text:v});toast("Sent to Claude");return}
+  if(f.id==="upForm"){e.preventDefault();const v=$("#upText").value.trim();if(!v){toast("Write the message first");return}sendToClaude({kind:UI.upKind||"task",text:v});return}
 });
