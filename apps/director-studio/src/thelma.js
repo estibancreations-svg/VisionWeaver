@@ -1,11 +1,18 @@
 /* ================= THELMA AI: assistant, tools, guide bar, voice, palette ================= */
 const THELMA = {chat:[], convs:[], cur:0, loaded:false, busy:false, ops:null, opsBusy:false};
-function newConv(title,chat){const c={id:"c"+Date.now().toString(36)+Math.random().toString(36).slice(2,5),title:title||"New conversation",chat:chat||[],at:nowISO()};THELMA.convs.push(c);THELMA.cur=THELMA.convs.length-1;THELMA.chat=c.chat;return c}
-function curConv(){if(!THELMA.convs.length)newConv("Conversation 1",THELMA.chat);return THELMA.convs[THELMA.cur]||THELMA.convs[0]}
+/* v7.3: each conversation has a topic so THELMA stays on task; a new launch starts fresh */
+const THELMA_EPOCH="2026-09-30b";
+const TOPICS=[["general","General · what's next"],["frames","PART 2 frames · Gate 1"],["publish","Publish & deliver · Gate 2"],["cast","Cast & avatars"],["sound","Narration & sound"],["claude","Tasks for Claude · uplink"],["system","Settings & system"],["ideas","Ideas & notes"]];
+const TOPIC_CHIPS={general:["What should I do next?","Where are we in the process?","What's the closest deadline?"],frames:["Which frames still need my pick?","What makes a frame pass Gate 1?","Show me the redo list"],publish:["What does Gate 2 need?","Is the PART 1 packet ready?","What's left before publishing?"],cast:["Who still needs a review?","Explain the three boards simply","What does a lock record hold?"],sound:["Which narration cues are left?","What sounds does PART 2 need?"],claude:["Did Claude answer me?","Send Claude a task for me","What's open in the uplink?"],system:["Check all connections","What should I set up first?","Explain the uplink settings"],ideas:["Read my notes back to me","Turn my notes into a plan"]};
+const topicName=k=>(TOPICS.find(t=>t[0]===k)||TOPICS[0])[1];
+function newConv(title,chat,topic){const c={id:"c"+Date.now().toString(36)+Math.random().toString(36).slice(2,5),title:title||"New conversation",topic:topic||"general",chat:chat||[],at:nowISO()};THELMA.convs.push(c);THELMA.cur=THELMA.convs.length-1;THELMA.chat=c.chat;return c}
+function clearConv(){if(THELMA.busy){toast("Wait for THELMA to finish");return}const c=curConv();THELMA.convs.splice(THELMA.cur,1);newConv("New conversation",[],c.topic);THELMA.clearArm=false;renderChat();saveChat();toast("Conversation cleared")}
+function curConv(){if(!THELMA.convs.length)newConv("New conversation",THELMA.chat);return THELMA.convs[THELMA.cur]||THELMA.convs[0]}
 function switchConv(i){if(THELMA.busy){toast("Wait for THELMA to finish");return}if(!THELMA.convs[i])return;THELMA.cur=i;THELMA.chat=THELMA.convs[i].chat;renderChat();saveChat()}
 function thelmaLoad(m){if(THELMA.loaded||THELMA.chat.length)return;THELMA.loaded=true;
-  if(m&&Array.isArray(m.thelmaConvs)&&m.thelmaConvs.length){THELMA.convs=m.thelmaConvs.map(c=>({id:c.id,title:c.title,at:c.at,chat:(c.chat||[]).map(x=>Object.assign({},x))}));THELMA.cur=Math.min(+m.thelmaCur||0,THELMA.convs.length-1);THELMA.chat=THELMA.convs[THELMA.cur].chat}
-  else if(m&&m.thelmaChat&&m.thelmaChat.length){newConv("Conversation 1",m.thelmaChat.slice(-30).map(x=>Object.assign({},x,parseOpts(x.content))))}
+  if(m&&Array.isArray(m.thelmaConvs)&&m.thelmaConvs.length){THELMA.convs=m.thelmaConvs.filter(c=>c.chat&&c.chat.length).map(c=>({id:c.id,title:c.title,topic:c.topic||"general",at:c.at,earlier:c.earlier||m.thelmaEpoch!==THELMA_EPOCH,chat:(c.chat||[]).map(x=>Object.assign({},x))}));THELMA.cur=Math.min(+m.thelmaCur||0,Math.max(0,THELMA.convs.length-1));if(THELMA.convs.length)THELMA.chat=THELMA.convs[THELMA.cur].chat}
+  else if(m&&m.thelmaChat&&m.thelmaChat.length){newConv("Earlier conversation",m.thelmaChat.slice(-30).map(x=>Object.assign({},x,parseOpts(x.content))));curConv().earlier=true}
+  if(!m||m.thelmaEpoch!==THELMA_EPOCH){newConv("New conversation",[],"general");THELMA.fresh=true;saveChat()}
   if(typeof renderChat==="function")renderChat()}
 let askCtl=null;
 function thelmaChrome(){
@@ -44,6 +51,8 @@ STUDIO RECORDS (${new Date().toISOString().slice(0,10)}):
 - Current page: ${UI.view}${UI.view==="shots"&&UI.shotSel?` (shot E01-P${UI.shotPart}-${UI.shotSel})`:""}${UI.view==="cast"?` (character ${UI.castSel})`:""}.
 Pages you can open: ${Object.keys(V).join(", ")}.
 - Claude uplink: wake-up ${ST.settings.uplink.triggerId?"set":"NOT set"}; automatic wake ${(ST.settings.uplink||{}).autoWake!==false?"on":"off"}; last wake ${(ST.settings.uplink||{}).lastWake||"never"}; open items ${UPLINK.filter(u=>u.status==="open").length}.
+
+THIS CONVERSATION'S TOPIC: ${topicName(curConv().topic)}. Stay on this topic so nothing gets missed. If Sire asks about something clearly outside it, answer in one or two lines and offer an option like "» Start a new conversation about <that>".
 
 HOW TO ANSWER (important):
 - Talk like a warm, calm first assistant director. Plain sentences at a 6th-grade reading level. Use a short analogy when it helps.
@@ -116,11 +125,15 @@ function voicePicker(){const vs=voices().filter(v=>/^en/i.test(v.lang));const cu
 const START_CHIPS={overview:["What should I do first today?","What's the closest deadline?","Walk me through where we are"],pictures:["Which frames still need my pick?","What makes a frame pass Gate 1?","Show me the redo list"],cast:["Who still needs a review?","Explain the three boards simply","What does a lock record hold?"],uplink:["Did Claude answer me?","Send Claude a task for me","Why wasn't my last request answered?"],guild:["What's oldest in my queue?","Which decisions are quick wins?"],publish:["What does Gate 2 need?","Is the PART 1 packet ready?"],settings:["What should I set up first?","Explain the uplink settings"]};
 const DEFAULT_CHIPS=["What should I do next?","Where are we in the process?","Check all connections","Which characters need review?","Explain the two gates simply"];
 function lastAiIdx(){for(let i=THELMA.chat.length-1;i>=0;i--)if(THELMA.chat[i].role==="assistant")return i;return -1}
-function chipsNow(){if(THELMA.busy)return [];const i=lastAiIdx();const m=THELMA.chat[i];if(m&&m.done&&m.options&&m.options.length&&i===THELMA.chat.length-1)return m.options;return START_CHIPS[UI.view]||DEFAULT_CHIPS}
+function chipsNow(){if(THELMA.busy)return [];const i=lastAiIdx();const m=THELMA.chat[i];if(m&&m.done&&m.options&&m.options.length&&i===THELMA.chat.length-1)return m.options;const tp=curConv().topic;if(tp&&tp!=="general"&&TOPIC_CHIPS[tp])return TOPIC_CHIPS[tp];return START_CHIPS[UI.view]||DEFAULT_CHIPS}
 function chipsHTML(){const c=chipsNow();return c.length?c.map(x=>`<button type="button" class="chip" data-askchip="${esc(x)}" title="Click to ask · right-click or hold for more">${esc(x)}</button>`).join(""):`<span class="note">THELMA is thinking…</span>`}
-function convBarHTML(){curConv();return `<div class="convbar"><select id="convSel" aria-label="Conversation">${THELMA.convs.map((c,i)=>`<option value="${i}" ${i===THELMA.cur?"selected":""}>${esc(c.title.slice(0,48))}</option>`).join("")}</select><button type="button" class="btn small" id="convNew">+ New</button><button type="button" class="btn small" data-view="thelma" id="notesGo">Notes${(ST.jots||[]).length?` (${ST.jots.length})`:""}</button></div>`}
+function convBarHTML(){const cur=curConv();const now=THELMA.convs.map((c,i)=>[c,i]).filter(([c])=>!c.earlier),old=THELMA.convs.map((c,i)=>[c,i]).filter(([c])=>c.earlier);
+  const o=([c,i])=>`<option value="${i}" ${i===THELMA.cur?"selected":""}>${esc(topicName(c.topic).split(" · ")[0])} · ${esc(c.title.slice(0,40))}</option>`;
+  return `<div class="convbar"><label class="convlbl">Topic<select id="convTopic" aria-label="What this conversation is about">${TOPICS.map(([k,l])=>`<option value="${k}" ${cur.topic===k?"selected":""}>${esc(l)}</option>`).join("")}</select></label>
+   <label class="convlbl">Conversation<select id="convSel" aria-label="Conversation"><optgroup label="Now">${now.map(o).join("")}</optgroup>${old.length?`<optgroup label="Earlier (before the fresh start)">${old.map(o).join("")}</optgroup>`:""}</select></label>
+   <div class="convbtns"><button type="button" class="btn small" id="convNew">+ New</button><button type="button" class="btn small${THELMA.clearArm?" danger":""}" id="convClear">${THELMA.clearArm?"Tap again to clear":"Clear"}</button><button type="button" class="btn small" data-view="thelma" id="notesGo">Notes${(ST.jots||[]).length?` (${ST.jots.length})`:""}</button></div></div>`}
 function chatHTML(){
-  if(!THELMA.chat.length)return `<div class="thintro"><span class="orb big"></span><div><b>Hi Sire, I'm THELMA.</b><p>${CAP.sample?"Ask me what to do next, where something is, what a shot needs, or what it will cost. I'll answer in plain words and give you options to tap. Right-click (or press and hold) any option to branch it into its own conversation or save it to Notes. I propose; you decide.":"I need Claude to think. Open the studio inside claude.ai to talk with me. The guide bar still works everywhere."}</p></div></div>`;
+  if(!THELMA.chat.length)return `<div class="thintro"><span class="orb big"></span><div><b>Hi Sire, I'm THELMA.</b>${THELMA.fresh?`<p class="note">Fresh start. Earlier conversations are saved under "Earlier" in the Conversation list.</p>`:""}<p><b>Topic: ${esc(topicName(curConv().topic))}.</b> Change it above so I stay on task.</p><p>${CAP.sample?"Ask me what to do next, where something is, what a shot needs, or what it will cost. I'll answer in plain words and give you options to tap. Right-click (or press and hold) any option to branch it into its own conversation or save it to Notes. I propose; you decide.":"I need Claude to think. Open the studio inside claude.ai to talk with me. The guide bar still works everywhere."}</p></div></div>`;
   const last=lastAiIdx();
   return THELMA.chat.map((m,i)=>{
     if(m.role==="tool")return "";
@@ -138,8 +151,8 @@ function renderChat(){const html=chatHTML()+branchBanner();[$("#chat"),$("#thCha
   const cb=convBarHTML();[$("#convBarD"),$("#convBarP")].forEach(c=>{if(c)c.innerHTML=cb});
   const o=$("#askOpen")&&$("#askOpen").querySelector(".orb");if(o)o.classList.toggle("busy",THELMA.busy)}
 function saveChat(){curConv();if(!(CAP.db&&store.uid&&!store.readOnly))return;
-  MINE.thelmaConvs=THELMA.convs.slice(-10).map(c=>({id:c.id,title:c.title,at:c.at,chat:c.chat.filter(m=>m.role!=="tool"&&m.done!==false).slice(-30).map(m=>({role:m.role,content:String(m.content).slice(0,4000),show:m.show?String(m.show).slice(0,500):undefined,branchOf:m.branchOf?String(m.branchOf).slice(0,300):undefined,options:m.options||[],relay:!!m.relay,done:!!m.done}))}));
-  MINE.thelmaCur=Math.max(0,THELMA.cur-(THELMA.convs.length-MINE.thelmaConvs.length));delete MINE.thelmaChat;
+  MINE.thelmaEpoch=THELMA_EPOCH;MINE.thelmaConvs=THELMA.convs.filter(c=>c.chat.length||THELMA.convs[THELMA.cur]===c).slice(-12).map(c=>({id:c.id,title:c.title,topic:c.topic||"general",earlier:!!c.earlier,at:c.at,chat:c.chat.filter(m=>m.role!=="tool"&&m.done!==false).slice(-30).map(m=>({role:m.role,content:String(m.content).slice(0,4000),show:m.show?String(m.show).slice(0,500):undefined,branchOf:m.branchOf?String(m.branchOf).slice(0,300):undefined,options:m.options||[],relay:!!m.relay,done:!!m.done}))}));
+  MINE.thelmaCur=Math.max(0,MINE.thelmaConvs.findIndex(x=>x.id===curConv().id));delete MINE.thelmaChat;
   const clean=JSON.parse(JSON.stringify(MINE));write(()=>CAP.db.doc("data/users/"+store.uid+"/prefs").set(clean))}
 function thelmaRelay(u){curConv();THELMA.chat.push({role:"assistant",relay:true,done:true,content:`**Claude answered** your request: “${String(u.text).replace(/^\(from THELMA\)\s*/,"").slice(0,140)}…”\n\n${u.reply}\n\n» Open the Claude uplink\n» What should I do with this answer?`,options:["Open the Claude uplink","What should I do with this answer?"]});renderChat();saveChat()}
 async function ask(text,o={}){
@@ -147,6 +160,7 @@ async function ask(text,o={}){
   if(THELMA.pendingBranch!=null&&!o.prefix&&!o.plain){const i=THELMA.pendingBranch;THELMA.pendingBranch=null;return branch(text,i)}
   if(!TH().enabled){toast("THELMA is off");return}
   if(/^open the claude uplink$/i.test(text)){go("uplink");return}
+  {const mm=text.match(/^start a new conversation about (.+)$/i);if(mm&&!o.prefix){const t=mm[1].toLowerCase();const hit=TOPICS.find(([k,l])=>t.includes(k)||l.toLowerCase().split(/[ ·&]+/).some(w=>w.length>3&&t.includes(w)));newConv(mm[1].slice(0,48),[],hit?hit[0]:"general");renderChat();saveChat();return ask(`Let's talk about ${mm[1]}.`,{plain:true})}}
   curConv();
   if(!CAP.sample){THELMA.chat.push({role:"user",content:text},{role:"assistant",content:"I can't think on this page right now: Claude isn't available here. Open the studio inside claude.ai.",done:true});renderChat();return}
   if(THELMA.busy)return;
@@ -170,7 +184,7 @@ async function ask(text,o={}){
 }
 function branch(text,fromIdx){if(THELMA.busy){toast("Wait for THELMA to finish");return}
   const src=fromIdx!=null&&THELMA.chat[fromIdx]?parseOpts(THELMA.chat[fromIdx].content).body:"";
-  newConv(("↳ "+text).slice(0,48));saveChat();renderChat();
+  newConv(("↳ "+text).slice(0,48),[],curConv().topic);saveChat();renderChat();
   if(!$("#drawer").hidden||UI.view==="thelma"){}else openAsk();
   ask(text,src?{prefix:`(New branch. Context from your earlier answer: "${src.slice(0,1200)}")\n\n`,branchOf:src}:{plain:true});toast("Branched into a new conversation")}
 function addJot(text,src){const j={id:"j"+Date.now().toString(36),text:String(text).slice(0,1200),at:nowISO(),by:store.uid||null,src:src||"Sire"};patch({jots:[j,...(ST.jots||[])].slice(0,200)},`Note saved: ${j.text.slice(0,60)}`);toast("Saved to Notes")}
@@ -275,7 +289,8 @@ document.addEventListener("click",e=>{
   if(t.id==="guideOff"){patch({settings:{thelma:{guide:false}}},"Guide bar hidden");toast("Guide hidden. Settings → THELMA brings it back.");return}
   if((el=c("[data-askpage]"))){openAsk(`I'm on the ${UI.view} page. What is it for, and what should I do here right now?`);return}
   if(t.id==="thFull"){$("#drawer").hidden=true;go("thelma");return}
-  if(t.id==="thClear"||t.id==="convNew"){if(THELMA.busy){toast("Wait for THELMA to finish");return}newConv("New conversation");renderChat();saveChat();return}
+  if(t.id==="thClear"||t.id==="convNew"){if(THELMA.busy){toast("Wait for THELMA to finish");return}newConv("New conversation",[],curConv().topic);THELMA.fresh=false;renderChat();saveChat();return}
+  if(t.id==="convClear"){if(!THELMA.clearArm){THELMA.clearArm=true;renderChat();setTimeout(()=>{if(THELMA.clearArm){THELMA.clearArm=false;renderChat()}},4000);return}clearConv();return}
   if(t.id==="branchCancel"){THELMA.pendingBranch=null;renderChat();return}
   if((el=c("[data-opt]"))){const [i,j]=el.dataset.opt.split(":").map(Number);const o=(THELMA.chat[i]&&THELMA.chat[i].options||[])[j];if(o)submitAsk(o);return}
   if((el=c("[data-jot]"))){addJot(parseOpts(THELMA.chat[+el.dataset.jot].content).body,"THELMA answer");return}
@@ -292,6 +307,7 @@ document.addEventListener("click",e=>{
 document.addEventListener("change",e=>{
   const t=e.target;
   if(t.id==="convSel"){switchConv(+t.value);return}
+  if(t.id==="convTopic"){const c=curConv();if(c.chat.length&&c.topic!==t.value){newConv("New conversation",[],t.value);toast("New conversation: "+topicName(t.value))}else{c.topic=t.value}THELMA.fresh=false;renderChat();saveChat();return}
   if(t.id==="thVoice"){setApp("voice",t.value);toast(t.value?"Voice set on this device":"Using the best natural voice");return}
   if(t.id==="thRate"){setApp("vrate",+t.value);return}
   if(t.dataset.thset){const k=t.dataset.thset;const v=t.type==="checkbox"?t.checked:t.value;patch({settings:{thelma:{[k]:v}}},k==="enabled"?`THELMA turned ${v?"on":"off"}`:null);thelmaChrome();return}
