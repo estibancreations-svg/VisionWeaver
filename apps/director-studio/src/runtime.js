@@ -18,6 +18,7 @@ function searchIndex(){
   STILLS.forEach(s=>out.push({k:s[0],t:s[2]+" · "+s[1],s:s[3],hay:s.join(" "),go:()=>go("pictures")}));
   CUES.forEach(c=>out.push({k:c[0],t:`Narration · PART ${c[1]} · ${c[2]}`,s:(DATA.narr[c[0]]||{}).text?.slice(0,90)+"…",hay:c.join(" ")+" "+((DATA.narr[c[0]]||{}).text||""),go:()=>{UI.cue=c[0];go("booth")}}));
   AUDIO.forEach(a=>out.push({k:"Sound",t:a[0],s:a[3],hay:a.join(" "),go:()=>go("sound")}));
+  CAST.forEach(c=>out.push({k:c[0],t:c[1],s:"Cast · "+c[4].slice(0,80),hay:c.join(" ")+" "+JSON.stringify(ST.avatars[c[0]]||{}),go:()=>{UI.castSel=c[0];go("cast")}}));
   FACES.forEach(f=>out.push({k:f[0],t:f[1],s:f[2],hay:f.join(" "),go:()=>go("locks")}));
   LIGHTS.forEach(l=>out.push({k:l[0],t:l[1],s:l[2].slice(0,90),hay:l.join(" "),go:()=>go("locks")}));
   PLATES.forEach(p=>out.push({k:"Plate",t:p[0],s:p[1],hay:p.join(" "),go:()=>go("locks")}));
@@ -31,37 +32,7 @@ function doSearch(q){
   box._hits=hits;box.hidden=false;
 }
 
-/* ================= ASK THE STUDIO ================= */
-const CHAT=[];let askCtl=null;
-function context(){
-  const p2=Object.entries(ST.p2).map(([k,v])=>`${k}:${v}`).join(", ");
-  const rec=CUES.filter(c=>ST.recorded[c[0]]).map(c=>c[0]).join(", ")||"none";
-  const q=QUEUE.filter(x=>x.status==="pending").map(x=>`[${x.dept}] ${x.title}`).join("; ")||"none";
-  let focus="";if(UI.view==="shots"){const s=DATA_SHOTS[UI.shotPart].find(x=>x.id===UI.shotSel);if(s)focus=`Director is looking at E01-P${UI.shotPart}-${s.id}: ${JSON.stringify(s)}. Note: ${ST.notes[`P${UI.shotPart}-${s.id}`]||"none"}.`}
-  if(UI.view==="booth")focus=`Director is in the narration booth on cue ${UI.cue}.`;
-  return `You are the VisionWeaver studio assistant for Sire, the director of "Crossroads of Identity" Episode 1 "The News" (Book 1 Convergence). Answer in plain, warm language a 6th grader can follow; short analogies are welcome. Be brief. Use only the records below; if something isn't in them, say you don't know rather than guessing. Never invent script lines. Never suggest using Dr. King's voice or words, real brands, logos or landmarks.
-RECORDS:
-- Runway balance 36,738 credits (Pro, checked 2026-09-29). Rates: key frame 20; Gen-4.5 video 12/sec; speech ~1 per 50 letters; effects 1/sec; music clip 4. PART 1 cost 1,208. Planned: P2 1,900–2,500, P3 4,000–5,000, P4 2,500–3,000, P5 2,000–2,700.
-- PARTS: ${PARTS.map(p=>`${p.n} "${p.name}" (${DATA_SHOTS[p.n].length} shots; ${p.where}): ${p.log}`).join(" | ")}
-- PART 1 is finished (13 clips, 11 sounds); Sire assembles it in CapCut. Short 57 s; full-episode version adds S05b + narration N01.
-- PART 2 key frame picks: ${p2}. Planned 10 s shots: S01, S03, S03b, S06, S07.
-- Narration: 25 cues (N01–N24 + RADIO), Sire's own voice, 981 words. Recorded: ${rec}.
-- Gates: Gate 1 key frames approved before any video; Gate 2 the word APPROVED before publishing. Studio bot (Runway) makes media; Publisher bot (Zapier) posts. TikTok isn't connected; Sire taps Post. YouTube, Instagram for Business and Google Drive are connected in Zapier.
-- Waiting in the Guild queue: ${q}.
-${focus}`;
-}
-function renderChat(){$("#chat").innerHTML=CHAT.length?CHAT.map(m=>`<div class="bubble ${m.role==="user"?"me":"ai"}">${esc(m.content)}</div>`).join(""):`<div class="note">Ask anything about this episode: what a shot needs, what something will cost, what to do next. It reads the same records as this page.</div>`;const c=$("#chat");c.scrollTop=c.scrollHeight}
-async function ask(text){
-  if(!CAP.sample||!text.trim())return;
-  CHAT.push({role:"user",content:text.trim()});CHAT.push({role:"assistant",content:"Thinking…"});renderChat();
-  const turns=[{role:"user",content:context()},{role:"assistant",content:"Understood. I'll answer from those records."},...CHAT.slice(0,-1).slice(-8)];
-  askCtl=new AbortController();$("#askStop").hidden=false;$("#askSend").disabled=true;
-  const bubble=()=>$("#chat").lastElementChild;
-  try{const {text:ans}=await CAP.sample(turns,{signal:askCtl.signal,cache:false,onText:({text})=>{CHAT[CHAT.length-1].content=text;const b=bubble();if(b)b.textContent=text;$("#chat").scrollTop=1e9}});CHAT[CHAT.length-1].content=ans}
-  catch(e){const keep=e&&e.text;CHAT[CHAT.length-1].content=keep||(e&&e.code==="cancelled"?"Stopped.":e&&e.code==="rate_limited"?"Too many questions at once. Wait a minute and ask again.":e&&e.code==="not_granted"?"Asking Claude isn't allowed from this page for you.":"That didn't go through. Try asking again.")}
-  askCtl=null;$("#askStop").hidden=true;$("#askSend").disabled=false;renderChat();
-}
-function openAsk(prefill){$("#drawer").hidden=false;const chips=["What should I do next?","What will PART 2 cost to animate?","Which narration cues matter most for PART 2?","Explain the two gates simply"];$("#askChips").innerHTML=chips.map(c=>`<button type="button" class="chip" data-askchip="${esc(c)}">${esc(c)}</button>`).join("");renderChat();if(prefill){$("#askIn").value=prefill}$("#askIn").focus()}
+/* ================= CAPTION DRAFTS ================= */
 async function draftCaptions(){
   if(!CAP.sample||UI.draftBusy)return;const p=PARTS[+UI.pk.part-1];UI.draftBusy=true;UI.draftOut="";render();
   try{
@@ -106,9 +77,10 @@ let pendingRender=false;
 function refresh(force){renderRail();const a=document.activeElement;if(!force&&a&&$("#main").contains(a)&&/INPUT|TEXTAREA|SELECT/.test(a.tagName)&&a.type!=="checkbox"&&a.type!=="range"){pendingRender=true;return}render()}
 function render(){
   pendingRender=false;SIDX=null;
-  $("#main").innerHTML=`<div class="view">${(V[UI.view]||V.overview)()}</div>`;
+  $("#main").innerHTML=guideBar()+`<div class="view">${(V[UI.view]||V.overview)()}</div>`;
   if(UI.view==="edit"){$("#ruler").onclick=e=>{const r=e.currentTarget.getBoundingClientRect();UI.t=Math.max(0,(e.clientX-r.left)/UI.zoom);tick()};tick()}
   if(UI.view==="uploads"){const d=$("#drop");$("#fileIn").onchange=e=>takeFiles(e.target.files);d.addEventListener("dragover",e=>{e.preventDefault();d.classList.add("over")});d.addEventListener("dragleave",()=>d.classList.remove("over"));d.addEventListener("drop",e=>{e.preventDefault();d.classList.remove("over");takeFiles(e.dataTransfer.files)})}
+  afterRender();
   resolveNames();
 }
 document.addEventListener("focusout",()=>{setTimeout(()=>{if(pendingRender){const a=document.activeElement;if(!(a&&$("#main").contains(a)&&/INPUT|TEXTAREA|SELECT/.test(a.tagName)))render()}},0)});
@@ -144,7 +116,8 @@ document.addEventListener("submit",e=>{
 });
 document.addEventListener("keydown",e=>{
   if(e.key==="/"&&!/INPUT|TEXTAREA|SELECT/.test((document.activeElement||{}).tagName||"")){e.preventDefault();$("#q").focus()}
-  if(e.key==="Escape"){$("#results").hidden=true;if(!$("#drawer").hidden)$("#drawer").hidden=true}
+  if(e.key==="Escape"){$("#results").hidden=true;if(!$("#drawer").hidden)$("#drawer").hidden=true;closePalette()}
+  if((e.metaKey||e.ctrlKey)&&(e.key==="k"||e.key==="K")){e.preventDefault();openPalette()}
   if(e.key==="Enter"&&e.target.id==="askIn"&&!e.shiftKey){e.preventDefault();const v=e.target.value;e.target.value="";ask(v)}
 });
 document.addEventListener("click",e=>{
@@ -185,7 +158,7 @@ document.addEventListener("click",e=>{
   if(t.id==="askOpen"){openAsk();return}
   if(t.id==="askClose"){$("#drawer").hidden=true;return}
   if(t.id==="askStop"){askCtl&&askCtl.abort();return}
-  if(t.id==="themeBtn"){const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;r.dataset.theme=dark?"light":"dark";try{localStorage.setItem(LKEY+"-theme",r.dataset.theme)}catch(e){}return}
+  if(t.id==="themeBtn"){const order=THEMES.map(x=>x[0]);setApp("theme",order[(order.indexOf(APP.theme)+1)%order.length]);toast("Look: "+THEMES.find(x=>x[0]===APP.theme)[1]);if(UI.view==="settings")render();return}
 });
 let last=0,plast=0;
 function loop(now){if(!UI.playing||UI.view!=="edit")return;const {total}=curTL();UI.t+=(now-last)/1000;last=now;if(UI.t>=total){UI.t=total;UI.playing=false;const b=$("#playBtn");if(b)b.textContent="Play"}tick();if(UI.playing)requestAnimationFrame(loop)}
@@ -206,7 +179,6 @@ function ploop(now){
   requestAnimationFrame(ploop);
 }
 
-try{const th=localStorage.getItem(LKEY+"-theme");if(th)document.documentElement.dataset.theme=th}catch(e){}
 loadLocal();
 const h0=(location.hash||"").slice(1);if(V[h0])UI.view=h0;
 renderRail();render();initCaps();
