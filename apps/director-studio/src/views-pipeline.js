@@ -161,7 +161,7 @@ V.motion=()=>{
     </div>
     <div style="display:grid;gap:10px;align-content:start">
      <div class="stat credits"><b class="num">${fmt(cost)}</b><span>Estimated credits</span></div>
-     <div class="note">${cost>j.budget?`<span style="color:var(--block)">Over budget by ${fmt(cost-j.budget)}. The Studio will stop and ask.</span>`:`Within budget. Balance after: about ${fmt(BALANCE-cost)}.`}</div>
+     <div class="note">${cost>j.budget?`<span style="color:var(--block)">Over budget by ${fmt(cost-j.budget)}. The Studio will stop and ask.</span>`:`Within budget. Balance after: about ${fmt(((ST.live&&ST.live.runway&&ST.live.runway.credits)||BALANCE)-cost)}.`}</div>
      <pre class="out">${esc(card)}</pre>
      <div class="row"><button type="button" class="btn primary" id="jcCopy">Copy job card</button>${dlBtn("jobcard","Download .txt")}${store.readOnly?"":`<button type="button" class="btn" id="jcQueue">Send to Motion queue</button>`}</div>
     </div></div>
