@@ -8,7 +8,7 @@ VisionWeaver runs Sire's productions under a **Directors Guild** structure: Desi
 
 | Path | What it is |
 |---|---|
-| [`apps/director-studio/`](apps/director-studio/) | **VisionWeaver Studio**, the director control surface. Built from the production records by `build.py`. Checks Runway, Supabase, Zapier and GitHub live. |
+| [`apps/director-studio/`](apps/director-studio/) | **VisionWeaver Studio**, the director control surface. Built from the production records by `build.py`. v7: THELMA AI assistant, Cast & avatars, Settings, Database, Claude uplink, live connector checks. |
 | [`connections/`](connections/) | API, MCP and OAuth settings: what's connected, how, secret names (no values), the Supabase connector registry SQL, and an MCP config for Claude Code. |
 | [`projects/creative-ip/`](projects/creative-ip/) | Production records for Crossroads of Identity, This Is Your Life and The Arc (pointers; each property's canon lives in its own repo and Drive). |
 | [`standards/`](standards/) | House standards: Shot Standard v1, 360 View Storyboard. |

@@ -61,7 +61,7 @@ Scope names are from each platform's current docs as of this writing. Confirm th
 
 ## 5b. Live check from the Studio
 
-The Studio's **Setup & connections** page has a **Check all connections now** button. It uses the artifact `mcp` capability to make four read-only calls with the viewer's own connector logins:
+The Studio's **Live connections** page (and Settings → Connections) has a **Check all connections now** button. It uses the artifact `mcp` capability to make four read-only calls with the viewer's own connector logins:
 
 | Connector | Tool | What it reads |
 |---|---|---|
@@ -71,6 +71,16 @@ The Studio's **Setup & connections** page has a **Check all connections now** bu
 | GitHub | `get_file_contents` | That this repo and the Studio source are reachable |
 
 The result is saved to `studio/state.live` with who ran it and when. The first time, claude.ai asks the viewer to allow each connector. If one needs signing in again, the row says so instead of failing. Nothing is written to any service. Declaring `mcp` means the page can't be shared publicly, which is fine: it's a private director tool.
+
+v7 adds, all with the viewer's own logins:
+
+| Connector | Tool | Used for |
+|---|---|---|
+| Supabase | `list_tables`, `execute_sql` | Database page and THELMA's `read_database` tool. The page only runs one SELECT at a time (other SQL words are refused) |
+| Google Drive | `create_file` | Output & transfer → Send to Drive (a new file each time, optional folder ID) |
+| Claude Code Remote | `fire_trigger` | Claude uplink → Wake Claude now. Fires one wake-up task whose ID is kept in the studio's settings. That run answers uplink threads and never publishes, pushes, spends credits or writes to Supabase |
+
+Each connector can be switched off for the page in Settings → Connections.
 
 ## 6. Things to fix (found while wiring)
 

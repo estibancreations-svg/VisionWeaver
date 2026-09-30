@@ -1,6 +1,6 @@
 # VisionWeaver Studio (director control surface)
 
-**Version:** v6 · 2026-09-29 · **Production:** Crossroads of Identity, Book 1 *Convergence*, Episode 1 "The News"
+**Version:** v7 · 2026-09-30 · **Production:** Crossroads of Identity, Book 1 *Convergence*, Episode 1 "The News"
 
 Where Sire, the director, makes every decision in the pipeline: from the books and locks through pictures, motion, sound, the edit, delivery and publishing. Departments bring finished work to the **Directors Guild queue**; nothing moves until Sire decides. Two gates never move: **key frames are approved before any video is made**, and **the word APPROVED is required before anything goes public**.
 
@@ -23,24 +23,29 @@ The build reads the episode's production records straight from this repo, so the
 
 | Capability | What it does on the page |
 |---|---|
-| `db` | Shared saved data: `studio/state` (PART 2 picks, narration recorded, deliverables, setup steps, shot status and notes, release calendar), `queue/*` (Guild queue items), `log/main` (activity feed). Claude reads and writes it directly. |
+| `db` | Shared saved data: `studio/state` (PART 2 picks, narration, deliverables, setup, shot status and notes, release calendar, `settings`, `avatars`, `rights`, `live`, `claudeDesk`), `queue/*` (Guild queue), `log/main` (activity), `uplink/*` (Claude uplink threads), `files/*` (stored uploads). Private per person: `data/users/<id>/prefs` (THELMA chat, email recipients). Claude reads and writes it directly. |
 | `user` (profile) | Shows who approved what. Stores ids only, never names. |
-| `sample` | "Ask the studio" side panel and one-click caption drafts. Uses the viewer's Claude usage. |
+| `sample` | **THELMA AI** (chat with page tools) and one-click caption drafts. Uses the viewer's Claude usage. |
 | `downloads` | Saves the edit list, captions, job card, publish packet, reading script and shot list as files. |
-| `mcp` | **Live check** on Setup & connections: read-only calls to Runway (`show_plans_and_credits`), Supabase (`execute_sql`), Zapier (`inspect_zapier_actions`) and GitHub (`get_file_contents`) with the viewer's own logins. See `connections/README.md` §5b. Makes the page private-only. |
+| `assets` | Stores uploaded pictures, video, PDFs and text (20 MB each) and character reference photos. Audio stays on the device. |
+| `mcp` | Viewer's own connector logins: Runway `show_plans_and_credits`; Supabase `execute_sql` + `list_tables` (read-only, SELECT-guarded); Zapier `inspect_zapier_actions`; GitHub `get_file_contents`; Google Drive `create_file` (Output → Send to Drive, new file each time); Claude Code Remote `fire_trigger` (Uplink → Wake Claude). See `connections/README.md` §5b. Makes the page private-only. |
 
 Opened as a plain file, the page still works and saves to that browser only.
 
 ## Source layout
 
 ```
-src/markup.html            page shell: top bar, search, stage menu, Ask panel
+src/markup.html            page shell: top bar, search, stage menu, THELMA drawer, command palette
 src/base.css, extra.css    design tokens (tungsten 3000K accent, daylight 5600K info), light + dark
 src/records.js             production records: PARTS, faces, lights, plates, frames, stills, audio, cues, ledger, connections
-src/core.js                saved-data layer (db / browser fallback), helpers, derived status, stage menu
+src/records-v7.js          system facts, connector catalog, cast registry, voice locks, avatar framework, QC ladder, rights, THELMA rules, page guides
+src/core.js                saved-data layer (db / browser fallback), appearance, helpers, derived status, stage menu
+src/views-system.js        Settings (7 tabs), Cast & avatars, Database, Claude uplink, Activity log, Rights & provenance, output/transfer
+src/thelma.js              THELMA AI (chat + page tools + read-aloud), guide bar, command palette (Ctrl/⌘ K)
+src/v7.css                 themes (Think legal pad, high contrast), accents, density, guide, THELMA, palette, print
 src/views-pipeline.js      Run of show, Guild queue, Books & script, Locks & maps, Shot bible, Pictures, Motion
 src/views-production.js    Narration booth, Sound, Edit timelines (PART 1 edit list, PART 2 draft), Deliver, Publish, Setup, Uploads, Ledger
-src/runtime.js             downloads, search, Ask the studio, rendering and events
+src/runtime.js             downloads, search, caption drafts, live check, rendering and events
 build.py                   stitches the above with the records into index.html
 history/                   earlier UI rounds (v1 mockups → v3), kept for reference
 ```
@@ -61,8 +66,15 @@ history/                   earlier UI rounds (v1 mockups → v3), kept for refer
 | 6 | Edit | Playable multi-track timelines; click any block for CapCut steps |
 | 7 | Deliver | Files ready per PART |
 | 8 | Publish & social | Release calendar, packet builder, Gate 2, platform rules |
-| — | Setup & connections | One-click live check of Runway, Supabase, Zapier and GitHub; recorded status; one-time bot setup steps |
-| — | Uploads | Filename matching checks off cues and deliverables |
+| 2 | Cast & avatars | 18 cast records: lock record, Localized Avatar + Historical Space profile, 360 board check, calibration ladder, reference photos, voice locks, pause gates |
+| — | THELMA AI | Assistant with page tools (open pages, search, read shots/characters, read Supabase, run checks, propose to the Guild queue, note Claude). Propose-only. On/off, guide bar, read-aloud, thinking depth |
+| — | Claude uplink | Inbox between Sire and Claude; Claude's desk; "Wake Claude now" starts a Claude session that answers (never publishes) |
+| — | Settings | Appearance (5 themes, 5 accents, text size, spacing, menu, motion) · System & access · Connections (per-connector on/off) · Output & transfer (download, Drive, email, print) · THELMA · Uplink · Data & backup/restore |
+| — | Live connections | One-click live check of Runway, Supabase, Zapier and GitHub; one-time bot setup steps |
+| — | Database | Studio data inspector + Supabase table browser and read-only SELECT console |
+| — | Rights & provenance | 8 safety checks per PART before Gate 2 |
+| — | Activity log | Filter and download every change |
+| — | Uploads & files | Filename matching checks off cues and deliverables; files stored in the studio |
 | — | Credit ledger | Every recorded spend and the live balance |
 
 ## Versions
@@ -75,3 +87,4 @@ history/                   earlier UI rounds (v1 mockups → v3), kept for refer
 | v4 | 2026-09-29 | Rebuilt from the repo records: the full pipeline, edit timeline, sound, delivery, publishing, uploads. Real credits (36,738). |
 | v5 | 2026-09-29 | Shared saved data, Guild queue, shot bible for all 5 PARTS, camera maps, narration booth, PART 2 draft timeline, release calendar, caption drafting, setup & connections, search, Ask the studio. |
 | v6 | 2026-09-29 | Live connection check (artifact `mcp` capability): Runway credits, Supabase registry and log, Zapier apps, GitHub repo; top-bar credits update from the live answer. Supabase `ec_connectors` registry applied (46 connectors, 12 active). |
+| v7 | 2026-09-30 | THELMA AI (canon rules from MASTER_CEO_DASHBOARD, page tools, propose-only, on/off, guide bar, read-aloud); Cast & avatars (Five Stations lock record, 360 check, calibration ladder, Localized Avatar + Historical Space profile, photos); Settings hub (themes incl. Think legal pad, accents, text size, density; system & access; connections; output & transfer to Drive/email/print; backup/restore); Database browser; Claude uplink with wake-up task; Rights & provenance; Activity log; command palette; real file storage. |
