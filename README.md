@@ -57,3 +57,7 @@ New character work follows [Character Identity Board System v1](standards/charac
 ## Representation and historical locations
 
 The authorized [Representation and Place-Time Standard v1](standards/representation-and-place-time-v1.md) governs new character defaults: intentional inclusive casting, normal representation of Black and fat people, preservation of approved appearance, and evidence-backed scene location/date accuracy. The current balloon-film boy is Black and fat. Runtime enforcement and end-to-end verification remain open release gates.
+
+## Founding pitch and next production design
+
+[Preserved founding pitch](strategy/2026-10-02-VISIONWEAVER-FOUNDING-PITCH.md) and [Production Design v2](strategy/VISIONWEAVER-PRODUCTION-DESIGN-v2.md) connect canon,avatars,voices,editable worlds,continuity,physics,autonomy,books and publishing. The revised design contains30 concrete improvements and evidence gates. **Proposal only: awaiting the Architect's approval to build.**
