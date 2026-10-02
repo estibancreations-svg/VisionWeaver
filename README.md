@@ -53,3 +53,7 @@ Runway balance: 36,738 credits (live, 2026-09-29).
 ## Character identity board standard
 
 New character work follows [Character Identity Board System v1](standards/character-board-system-v1.md): **A Cast Board** for multi-character scene fallout, a **Character Detail Specifications Board** as the canonical detail source, and a **360 View Board** for individual character anchoring. The default is a 32-view master for new or materially changed appearances. A 16-view state board is used for clothing-only or limited non-identity changes. Scene-specific states are versioned and then referenced by the Cast Board.
+
+## Representation and historical locations
+
+The authorized [Representation and Place-Time Standard v1](standards/representation-and-place-time-v1.md) governs new character defaults: intentional inclusive casting, normal representation of Black and fat people, preservation of approved appearance, and evidence-backed scene location/date accuracy. The current balloon-film boy is Black and fat. Runtime enforcement and end-to-end verification remain open release gates.
