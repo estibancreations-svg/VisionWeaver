@@ -45,6 +45,10 @@ src/thelma.js              THELMA AI (chat + page tools + read-aloud), guide bar
 src/v7.css                 themes (Think legal pad, high contrast), accents, density, guide, THELMA, palette, print
 src/views-pipeline.js      Run of show, Guild queue, Books & script, Locks & maps, Shot bible, Pictures, Motion
 src/views-production.js    Narration booth, Sound, Edit timelines (PART 1 edit list, PART 2 draft), Deliver, Publish, Setup, Uploads, Ledger
+src/projects.js            v8: projects, stage boards, Decide (swipe), onboarding and tour
+src/execute.js             v8: THELMA's Yes/No action cards (ask first, then do it)
+src/frames.js              v8.1: PART 2 frames and their batch card stay in step; Approve can't un-approve
+src/v8.css                 styles for projects, Decide, onboarding, action cards, frames progress line
 src/runtime.js             downloads, search, caption drafts, live check, rendering and events
 build.py                   stitches the above with the records into index.html
 history/                   earlier UI rounds (v1 mockups → v3), kept for reference
@@ -88,6 +92,8 @@ history/                   earlier UI rounds (v1 mockups → v3), kept for refer
 | v5 | 2026-09-29 | Shared saved data, Guild queue, shot bible for all 5 PARTS, camera maps, narration booth, PART 2 draft timeline, release calendar, caption drafting, setup & connections, search, Ask the studio. |
 | v6 | 2026-09-29 | Live connection check (artifact `mcp` capability): Runway credits, Supabase registry and log, Zapier apps, GitHub repo; top-bar credits update from the live answer. Supabase `ec_connectors` registry applied (46 connectors, 12 active). |
 | v7 | 2026-09-30 | THELMA AI (canon rules from MASTER_CEO_DASHBOARD, page tools, propose-only, on/off, guide bar, read-aloud); Cast & avatars (Five Stations lock record, 360 check, calibration ladder, Localized Avatar + Historical Space profile, photos); Settings hub (themes incl. Think legal pad, accents, text size, density; system & access; connections; output & transfer to Drive/email/print; backup/restore); Database browser; Claude uplink with wake-up task; Rights & provenance; Activity log; command palette; real file storage. |
+| v7.2–v8 | 2026-09-30 | Uplink send-and-wake repair, THELMA chat redesign, transport, conversation log, projects, onboarding, Decide, execute. See `research/2026-09-30-*.md`. |
+| v8.1 | 2026-10-03 | The "PART 2 key frames" queue card can no longer be approved by itself; it follows the 15 frames. Decide shows frames first with a progress line. Approve on an approved frame no longer un-approves it. See `research/2026-10-03-production-log-gap-and-frames-fix.md`. |
 
 
 ## Character board workflow
