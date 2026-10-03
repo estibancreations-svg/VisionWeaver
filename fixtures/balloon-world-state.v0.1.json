@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.1.0",
+  "world_id": "VW-BALLOON-WORLD-001",
+  "project_id": "boy-and-red-balloon",
+  "scene_id": "rain-sidewalk-001",
+  "shot_id": "source-run-001",
+  "source_asset_id": null,
+  "coordinate_system": {
+    "origin": {"x": 0, "y": 0, "z": 0},
+    "units": "meters",
+    "axes": {"x": "right", "y": "up", "z": "forward"}
+  },
+  "visible_entities": [
+    {
+      "id": "AVATAR-BOY-001",
+      "type": "avatar",
+      "position": {"x": 0, "y": 0, "z": 3},
+      "identity_lock": "approved balloon-scene child identity; mustard-yellow hooded raincoat; navy trousers; black rubber boots"
+    },
+    {
+      "id": "BALLOON-RED-001",
+      "type": "prop",
+      "position": {"x": 0.55, "y": 2.1, "z": 3},
+      "constraints": ["single balloon only", "thin white string", "string terminates at right hand"]
+    },
+    {
+      "id": "SIDEWALK-001",
+      "type": "environment",
+      "material": "brick",
+      "fixed": true
+    }
+  ],
+  "offscreen_entities": [
+    {
+      "id": "HORN-SOURCE-001",
+      "class": "vehicle_unknown",
+      "evidence": ["audible horn"],
+      "direction": "background/uncertain",
+      "estimated_distance_m": null,
+      "moving": true,
+      "confidence": 0.35,
+      "resolved": false
+    }
+  ],
+  "acoustic_sources": [
+    {
+      "id": "RAIN-AUDIO-001",
+      "type": "rain",
+      "spatial": "diffuse",
+      "continuous": true,
+      "confidence": 0.95
+    },
+    {
+      "id": "HORN-AUDIO-001",
+      "type": "vehicle_horn",
+      "entity_ref": "HORN-SOURCE-001",
+      "continuous": false,
+      "confidence": 0.75
+    }
+  ],
+  "avatars": [
+    {
+      "id": "AVATAR-BOY-001",
+      "perception": {"hearing_enabled": true, "visual_field_deg": 200},
+      "reaction_state": {"attention_target": null, "startle": 0, "gaze": "forward"}
+    }
+  ],
+  "environment": {
+    "light": {"condition": "cool overcast daylight", "direction": "diffuse", "confidence": 0.9},
+    "weather": {"precipitation": "steady rain", "intensity": "steady", "confidence": 0.95},
+    "wind": {"direction": null, "speed_mps": null, "gust_mps": null, "confidence": 0.25},
+    "water": {"surface_wetness": "wet", "puddles": "unresolved"},
+    "atmosphere": {"visibility": "normal-rain"},
+    "local_disturbances": []
+  },
+  "camera": {
+    "position": {"x": 0, "y": 1.5, "z": 0},
+    "rotation": {"yaw": 0, "pitch": 0, "roll": 0},
+    "focal_target_id": "AVATAR-BOY-001",
+    "movement": "source-clip-unresolved"
+  },
+  "continuity": {
+    "prior_world_state_id": null,
+    "carryover": {"balloon_count": 1, "avatar_identity_locked": true},
+    "audio_tail": [],
+    "unresolved_events": [
+      "resolve horn direction/distance from source clip",
+      "estimate wind from balloon/string/rain motion"
+    ]
+  },
+  "causality": [
+    {
+      "id": "CAUSE-RAIN-001",
+      "cause": "steady rain",
+      "effects": ["wet surfaces", "rain ambience", "clothing wetness progression"],
+      "confidence": 0.9,
+      "timestamp_s": 0
+    }
+  ],
+  "confidence": {
+    "overall": 0.62,
+    "geometry": 0.55,
+    "acoustics": 0.7,
+    "weather": 0.85,
+    "avatar_state": 0.8,
+    "camera": 0.45
+  },
+  "approvals": {
+    "director_state": "PENDING_DISSECTION",
+    "guild_checks": {}
+  }
+}
