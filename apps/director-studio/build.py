@@ -19,7 +19,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 EP = REPO / "projects/creative-ip/crossroads-of-identity/production/book-01-convergence/episode-01-the-news"
 JS_PARTS = ["records.js", "records-v7.js", "core.js", "views-pipeline.js", "views-production.js",
-            "views-system.js", "thelma.js", "projects.js", "execute.js", "runtime.js"]
+            "views-system.js", "thelma.js", "projects.js", "execute.js", "frames.js", "runtime.js"]
 KEYS = ["id", "plate", "pin", "lens", "move", "framing", "face", "light", "sound"]
 
 

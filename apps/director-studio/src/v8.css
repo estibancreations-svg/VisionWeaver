@@ -47,4 +47,9 @@
 .actcard{border:1.5px solid var(--tungsten);border-radius:12px;padding:12px 14px;background:var(--tungsten-soft);display:grid;gap:6px}
 .actcard.done{border-color:var(--done);background:var(--done-soft)}.actcard.blocked,.actcard.failed{border-color:var(--block);background:var(--block-soft)}.actcard.declined,.actcard.undone{border-color:var(--line);background:var(--raise)}
 .acthead{display:flex;gap:6px;align-items:center}.actwhat{font-weight:600}.actres{font-size:13px}
+/* v8.1: PART 2 key frames progress line on Decide */
+.fbar{max-width:460px;width:100%;margin:0 auto 10px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--panel);display:grid;gap:6px}
+.fbar-t{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;font-size:13px}.fbar-t span{color:var(--mute)}
+.fbar-m{height:8px;border-radius:99px;background:var(--raise);border:1px solid var(--line);overflow:hidden}.fbar-m i{display:block;height:100%;background:var(--done)}
+.fbar .note{margin:0;overflow-wrap:anywhere}
 </style>
