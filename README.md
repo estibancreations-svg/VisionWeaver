@@ -68,3 +68,7 @@ The authorized [Representation and Place-Time Standard v1](standards/representat
 - [Children's animation and teaching v1.0](standards/children-animation-production-standard-v1.md): YouTube assessment, original style/performance/lesson contracts, exact text/audio, animation/world continuity, workflow and acceptance.
 
 These are documented implementation contracts. Runtime deployment, completed animation and calibrated full coverage are not certified here. Existing accepted production and paused balloon continuation work are preserved.
+
+## Avatar Catalog
+
+[Avatar Catalog v1](standards/avatar-catalog-v1.md) is the dedicated VisionWeaver section and implementation contract for reusable character identity, appearance, coverage, voice, scenes, and product-linked wardrobe. It defines a provisional African American Chicago-origin man (47, 5 ft 11 in, 302 lb, trimmed haircut and beard, glasses, sweat suit, white active shoes) with a user-supplied Poramea shopping link. Visual likeness, shoe variant, camera calibration, and commercial affiliation remain explicit verification gates. The Catalog and purchase path are specifications; their runtime behavior has not been deployed or certified.
