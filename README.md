@@ -13,6 +13,7 @@ VisionWeaver runs Sire's productions under a **Directors Guild** structure: Desi
 | [`projects/creative-ip/`](projects/creative-ip/) | Production records for Crossroads of Identity, This Is Your Life and The Arc (pointers; each property's canon lives in its own repo and Drive). |
 | [`standards/`](standards/) | House standards: Shot Standard v1, 360 View Storyboard. |
 | [`research/`](research/) | Research and build logs. |
+| [`docs/CURRENT-WORKSTATE-2026-10-04.md`](docs/CURRENT-WORKSTATE-2026-10-04.md) | Latest Avatar State → World State → continuity/stitching workstate and Global Catalog decisions. |
 
 ## The pipeline
 
@@ -87,3 +88,8 @@ A **Design Studio** page is now part of the Director Studio source navigation. S
 Each Location Pack pins geography, architecture, transport, population/casting ranges, wardrobe, seasonal/weather state, lighting, ambience, animals/insects, signage/language, activities, camera references and provenance. Source content is classified before reuse; public availability and attribution alone do not grant training or redistribution rights.
 
 This is an implementation contract. Provider credentials, automated ingestion, runtime rights enforcement and generated Location Packs remain open build/verification gates.
+
+
+## Current CI truth — October 4, 2026
+
+The repository currently has no GitHub Actions workflow runs. Do **not** describe VisionWeaver as GitHub Actions Quality-Gate certified until a workflow is configured and passes on the exact tested SHA. See [current workstate](docs/CURRENT-WORKSTATE-2026-10-04.md).
