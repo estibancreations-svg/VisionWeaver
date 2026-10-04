@@ -78,3 +78,12 @@ These are documented implementation contracts. Runtime deployment, completed ani
 [VisionWeaver | Design Studio](https://visionweaver-design-studio.vercel.app/) now provides eleven connected authoring pages, including reusable character states and wardrobe variants, reference coverage/calibration, multi-cast scenes, performance cues, environment/time direction, a review queue, rights/package preparation, history, and proposed Creator / Studio / Enterprise tiers. The [canonical source](https://github.com/estibancreations-svg/DESIGN_STUDIO) owns the shared module.
 
 A **Design Studio** page is now part of the Director Studio source navigation. See the [integration record](docs/DESIGN_STUDIO_INTEGRATION.md) for generation, verified behavior, source revision, and deployment boundaries. Cloud login, generated media, checkout, and public asset publication are not certified by this authoring release. The existing approved production and paused balloon continuation are preserved.
+
+
+## Global Place + People Reference Catalog — October 4, 2026
+
+[Global Place + People Reference Catalog v1](standards/GLOBAL_PLACE_PEOPLE_REFERENCE_CATALOG-v1.md) defines the worldwide reference architecture for believable scenes and original avatar/crowd creation. It covers travel/maps, lodging, cruise/transport, event/community, tourism, open geographic data, licensed photography and social discovery sources through a rights-aware source router.
+
+Each Location Pack pins geography, architecture, transport, population/casting ranges, wardrobe, seasonal/weather state, lighting, ambience, animals/insects, signage/language, activities, camera references and provenance. Source content is classified before reuse; public availability and attribution alone do not grant training or redistribution rights.
+
+This is an implementation contract. Provider credentials, automated ingestion, runtime rights enforcement and generated Location Packs remain open build/verification gates.
