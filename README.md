@@ -72,3 +72,9 @@ These are documented implementation contracts. Runtime deployment, completed ani
 ## Avatar Catalog
 
 [Avatar Catalog v1](standards/avatar-catalog-v1.md) is the dedicated VisionWeaver section and implementation contract for reusable character identity, appearance, coverage, voice, scenes, and product-linked wardrobe. It defines a provisional African American Chicago-origin man (47, 5 ft 11 in, 302 lb, trimmed haircut and beard, glasses, sweat suit, white active shoes) with a user-supplied Poramea shopping link. Visual likeness, shoe variant, camera calibration, and commercial affiliation remain explicit verification gates. The Catalog and purchase path are specifications; their runtime behavior has not been deployed or certified.
+
+## Design Studio — connected authoring 0.2.02
+
+[VisionWeaver | Design Studio](https://visionweaver-design-studio.vercel.app/) now provides eleven connected authoring pages, including reusable character states and wardrobe variants, reference coverage/calibration, multi-cast scenes, performance cues, environment/time direction, a review queue, rights/package preparation, history, and proposed Creator / Studio / Enterprise tiers. The [canonical source](https://github.com/estibancreations-svg/DESIGN_STUDIO) owns the shared module.
+
+A **Design Studio** page is now part of the Director Studio source navigation. See the [integration record](docs/DESIGN_STUDIO_INTEGRATION.md) for generation, verified behavior, source revision, and deployment boundaries. Cloud login, generated media, checkout, and public asset publication are not certified by this authoring release. The existing approved production and paused balloon continuation are preserved.
