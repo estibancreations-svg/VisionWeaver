@@ -5,6 +5,10 @@
 **Primary system:** VisionWeaver  
 **Purpose:** Convert generated media from a flat prompt/output artifact into a persistent, spatially coherent, causally consistent production world.
 
+## Avatar State and animation extension
+
+[Avatar State v1.1](../../standards/avatar-state-board-specification-v1.1.md) and [children's animation/teaching v1.0](../../standards/children-animation-production-standard-v1.md) extend this baseline: separate contact/propagation/perception/reaction/camera/aftermath timings, actual enclosure/medium boundaries, persistent vehicle exterior/interior state and teaching/performance contracts. Camera calibration and frame-exact timing remain unresolved. The test-bed description below is reconciled with the approved corrected Black/fat appearance; accepted material is retained.
+
 ## Core principle
 
 VisionWeaver scenes are not independent generated backgrounds. A scene is a persistent world volume with geometry, entities, environmental conditions, sound sources, off-screen state, camera state, avatar state, and temporal continuity.
@@ -174,8 +178,9 @@ Use the existing **Boy and the Red Balloon** material as the first validation ta
 
 Baseline continuity requirements:
 - one seven-year-old Black boy
-- medium-brown skin
-- short dark curls
+- dark brown skin
+- tightly coiled black hair
+- full cheeks and a fat body (preserve the approved corrected reference)
 - brown eyes
 - mustard-yellow hooded raincoat
 - navy trousers

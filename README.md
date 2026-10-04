@@ -61,3 +61,10 @@ The authorized [Representation and Place-Time Standard v1](standards/representat
 ## Founding pitch and next production design
 
 [Preserved founding pitch](strategy/2026-10-02-VISIONWEAVER-FOUNDING-PITCH.md) and [Production Design v2](strategy/VISIONWEAVER-PRODUCTION-DESIGN-v2.md) connect canon,avatars,voices,editable worlds,continuity,physics,autonomy,books and publishing. The revised design contains30 concrete improvements and evidence gates. **Proposal only: awaiting the Architect's approval to build.**
+
+## Avatar State and animated production — October 3, 2026
+
+- [Avatar State v1.1](standards/avatar-state-board-specification-v1.1.md): the three boards, 16/24/32/full coverage, avatar reference lineage, changes, camera/world anchors, stimulus/contact/reaction, spacecraft/enclosure continuity and acceptance/source gaps.
+- [Children's animation and teaching v1.0](standards/children-animation-production-standard-v1.md): YouTube assessment, original style/performance/lesson contracts, exact text/audio, animation/world continuity, workflow and acceptance.
+
+These are documented implementation contracts. Runtime deployment, completed animation and calibrated full coverage are not certified here. Existing accepted production and paused balloon continuation work are preserved.

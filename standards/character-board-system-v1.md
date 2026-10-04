@@ -1,5 +1,7 @@
 # Character Identity Board System v1
 
+**Expanded contract — October 3, 2026:** [Avatar State v1.1](avatar-state-board-specification-v1.1.md) governs the latest full height-and-angle request and adds 64 indexed slots (eight directions × eight configured heights), scene/performance/world/camera/event fields, reference lineage, scoped change tracking and AS-01–AS-28. Exact eight-height calibration is unresolved. Existing approved 32 masters remain usable; 16 is the wardrobe-only default; 24 is an archived study. The historical 32/16 rules below must not label incomplete coverage as full. The [children's animation standard](children-animation-production-standard-v1.md) adds performance/teaching contracts and CA-01–CA-15.
+
 **Approved by Sire on 2026-09-30. Applies to VisionWeaver, connected production records, Runway reference generation, and the CEO Dashboard character workspace.**
 
 This system separates canonical character identity from scene-specific cast usage and production-state changes.
