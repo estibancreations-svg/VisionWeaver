@@ -92,4 +92,4 @@ This is an implementation contract. Provider credentials, automated ingestion, r
 
 ## Current CI truth — October 4, 2026
 
-The repository currently has no GitHub Actions workflow runs. Do **not** describe VisionWeaver as GitHub Actions Quality-Gate certified until a workflow is configured and passes on the exact tested SHA. See [current workstate](docs/CURRENT-WORKSTATE-2026-10-04.md).
+The [Quality Gate](docs/QUALITY_GATE.md) is now configured for pushes, pull requests and manual runs. The first GitHub run [passed on `bc71815`](https://github.com/estibancreations-svg/VisionWeaver/actions/runs/37334505859) on October 5, 2026: repository integrity, six world-state/balloon regression tests and Director Studio build. This is offline verification; live Avatar State certification and branch-rule enforcement remain pending. The October 4 [workstate](docs/CURRENT-WORKSTATE-2026-10-04.md) is historical on CI.
