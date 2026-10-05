@@ -118,14 +118,25 @@ export function validateWorldState(world) {
   if (!world.continuity) errors.push('continuity is required');
   if (!Array.isArray(world.causality)) errors.push('causality must be an array');
 
-  const ids = [
-    ...world.visible_entities.map(x => x?.id),
-    ...world.offscreen_entities.map(x => x?.id),
-    ...world.acoustic_sources.map(x => x?.id),
-    ...world.avatars.map(x => x?.id)
-  ].filter(Boolean);
-  const duplicateIds = ids.filter((id, i) => ids.indexOf(id) !== i);
-  if (duplicateIds.length) errors.push(`duplicate entity IDs: ${[...new Set(duplicateIds)].join(', ')}`);
+  // A visible avatar and its behavior record share one identity. Duplicates
+  // within a collection remain invalid; cross-collection reuse is only valid
+  // for a visible entity explicitly typed as an avatar.
+  const collections = ['visible_entities', 'offscreen_entities', 'acoustic_sources', 'avatars'];
+  const seen = new Map();
+  for (const collection of collections) {
+    const items = Array.isArray(world[collection]) ? world[collection] : [];
+    const local = new Set();
+    for (const item of items) {
+      if (!item?.id) { errors.push(`${collection}: entity id is required`); continue; }
+      if (local.has(item.id)) errors.push(`duplicate entity ID in ${collection}: ${item.id}`);
+      local.add(item.id);
+      const prior = seen.get(item.id);
+      const avatarReference = collection === 'avatars' && prior?.collection === 'visible_entities' && prior.item.type === 'avatar';
+      if (prior && !avatarReference) errors.push(`duplicate entity ID: ${item.id}`);
+      if (!prior) seen.set(item.id, { collection, item });
+    }
+  }
 
   return { valid: errors.length === 0, errors };
 }
+

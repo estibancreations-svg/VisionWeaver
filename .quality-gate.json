@@ -1,0 +1,19 @@
+{
+  "repository": "estibancreations-svg/VisionWeaver",
+  "scope": "repository integrity plus applicable build or offline production tests",
+  "required_files": [
+    "README.md",
+    "apps/director-studio/src/world-model.js",
+    "apps/director-studio/build.py",
+    "fixtures/balloon-world-state.v0.1.json",
+    "standards/avatar-state-board-specification-v1.1.md",
+    "standards/GLOBAL_PLACE_PEOPLE_REFERENCE_CATALOG-v1.md",
+    "docs/DESIGN_STUDIO_INTEGRATION.md"
+  ],
+  "jsonc_files": [
+    "tsconfig.json",
+    "tsconfig.app.json",
+    "tsconfig.node.json",
+    "deno.json"
+  ]
+}
