@@ -143,7 +143,7 @@ function matrix(p){
 /* ================= NAV ================= */
 const NAV=[
  ["Home",[["overview","Run of show","◎"],["guild","Directors Guild queue","Q"]]],
- ["Pipeline",[["source","Books & script","1"],["locks","Locks & maps","2"],["cast","Cast & avatars","2"],["design","Design Studio","DS"],["shots","Shot bible","2"],["pictures","Pictures","3"],["motion","Motion","4"],["booth","Narration booth","5"],["sound","Sound & music","5"],["edit","Edit","6"],["deliver","Deliver","7"],["publish","Publish & social","8"]]],
+ ["Pipeline",[["source","Books & script","1"],["locks","Locks & maps","2"],["cast","Cast & avatars","2"],["design","Design Studio","DS"],["commercial","Commercial Creativity","AD"],["shots","Shot bible","2"],["pictures","Pictures","3"],["motion","Motion","4"],["booth","Narration booth","5"],["sound","Sound & music","5"],["edit","Edit","6"],["deliver","Deliver","7"],["publish","Publish & social","8"]]],
  ["Intelligence",[["thelma","THELMA AI","Th"],["uplink","Claude uplink","↯"]]],
  ["System",[["settings","Settings","⚙"],["setup","Live connections","Li"],["database","Database","DB"],["uploads","Uploads & files","⇪"],["rights","Rights & provenance","©"],["activity","Activity log","≡"],["ledger","Credit ledger","$"]]]
 ];
