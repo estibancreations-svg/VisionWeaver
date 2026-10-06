@@ -48,6 +48,7 @@ STUDIO RECORDS (${new Date().toISOString().slice(0,10)}):
 - Cast: ${CAST.map(c=>`${c[0]} ${c[1]} (${c[3]==="wait"?"needs check":"ok"})`).join("; ")}.
 - ${live}
 - Connections: Runway, Zapier (YouTube, Instagram, Drive), Supabase, GitHub, Google Drive. TikTok not connected.
+- VisionWeaver operating map: ${typeof VW_OPERATING_CONTEXT!=="undefined"?VW_OPERATING_CONTEXT.trim():"Use the current production pipeline and authority rules. Never guess live connection state."}
 - Current page: ${UI.view}${UI.view==="shots"&&UI.shotSel?` (shot E01-P${UI.shotPart}-${UI.shotSel})`:""}${UI.view==="cast"?` (character ${UI.castSel})`:""}.
 Pages you can open: ${Object.keys(V).join(", ")}.
 - Claude uplink: wake-up ${ST.settings.uplink.triggerId?"set":"NOT set"}; automatic wake ${(ST.settings.uplink||{}).autoWake!==false?"on":"off"}; last wake ${(ST.settings.uplink||{}).lastWake||"never"}; open items ${UPLINK.filter(u=>u.status==="open").length}.

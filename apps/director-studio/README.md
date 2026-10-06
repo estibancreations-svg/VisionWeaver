@@ -96,6 +96,19 @@ history/                   earlier UI rounds (v1 mockups → v3), kept for refer
 | v8.1 | 2026-10-03 | The "PART 2 key frames" queue card can no longer be approved by itself; it follows the 15 frames. Decide shows frames first with a progress line. Approve on an approved frame no longer un-approves it. See `research/2026-10-03-production-log-gap-and-frames-fix.md`. |
 
 
+## VisionWeaver operating-system boards — October 6, 2026
+
+The Director Studio now includes an operating layer around the existing production pipeline rather than replacing it.
+
+- **VisionWeaver OS** — command board spanning Avatar Engineering, Worlds & Locations, production, Design & Commercial, Teams & C-Suite, Finance, Memory/Data, IT/Security and Quality/Audit.
+- **Design & Commercial** — preserves the 2,000-template Commercial Creativity Station and adds explicit Product Design, Product Placement and Placement Mapping control surfaces. Dedicated product-design/placement runtime automation remains a later implementation layer; the board does not claim otherwise.
+- **History, Memory & Data** — routes to the existing activity log, Supabase read-only database browser, files, backup/restore and provenance surfaces.
+- **IT & Security** — distinguishes runtime-checked connections from recorded, available, degraded, not-connected and export-only integrations. API secret values are never rendered; only canonical secret names and approved secret-store locations are shown.
+- **Architect menu** — links VisionWeaver upward to the main CEO Dashboard and to the real GitHub/Supabase administration surfaces.
+- **THELMA context** — the operating map is injected into the Studio assistant context so she can reason across Avatar State, World/Location State, commercial/product work, finance, memory, infrastructure and independent quality without pretending unverified integrations are live.
+
+Existing production gates, project records, Cast/Avatar workflows, Design Studio, Commercial Creativity Station, database, Claude uplink, rights/provenance and activity history remain in place.
+
 ## Character board workflow
 
 The Cast & avatars page must treat the board stack as a production lock chain:
