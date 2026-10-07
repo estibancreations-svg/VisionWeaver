@@ -76,3 +76,10 @@ Do not replace an approved primary with an older shell or mockup. New boards inh
 - Version 2 — retained selectable Timeline & Continuity workspace and may be opened contextually when timeline, stitching, long-form assembly, continuity, sound-layer, or version/take work is active.
 - Version 3 — retained selectable alternate.
 - Version 2 is a workflow-specific view, not a replacement for the Version 1 primary.
+
+
+## Post Production board lock
+- Version 1 — PRIMARY / active.
+- Version 2 — retained selectable alternate.
+- Version 3 — retained selectable alternate.
+- All versions inherit the persistent sidebar, sidebar account placement, Search / Create / notification command bar, system color-scheme settings, and no-notebook-theme rules.
