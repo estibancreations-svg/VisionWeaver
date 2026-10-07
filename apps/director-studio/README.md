@@ -42,7 +42,7 @@ src/records-v7.js          system facts, connector catalog, cast registry, voice
 src/core.js                saved-data layer (db / browser fallback), appearance, helpers, derived status, stage menu
 src/views-system.js        Settings (7 tabs), Cast & avatars, Database, Claude uplink, Activity log, Rights & provenance, output/transfer
 src/thelma.js              THELMA AI (chat + page tools + read-aloud), guide bar, command palette (Ctrl/⌘ K)
-src/v7.css                 themes (Think legal pad, high contrast), accents, density, guide, THELMA, palette, print
+src/v7.css                 high-contrast theme, accents, density, guide, THELMA, palette, print
 src/views-pipeline.js      Run of show, Guild queue, Books & script, Locks & maps, Shot bible, Pictures, Motion
 src/views-production.js    Narration booth, Sound, Edit timelines (PART 1 edit list, PART 2 draft), Deliver, Publish, Setup, Uploads, Ledger
 src/projects.js            v8: projects, stage boards, Decide (swipe), onboarding and tour
@@ -118,3 +118,15 @@ The Cast & avatars page must treat the board stack as a production lock chain:
 - A Cast Board: multi-character scene board that calls the active state for each character.
 
 When a state changes—such as Marcus Reynolds in a brown suit, blue suit, robe, unshaven, black eye, broken nose, or shadow beard—the active state must be versioned, linked to its source board, and shown on the Cast Board. Do not silently replace the locked identity reference.
+
+
+## Navigation UI completion — October 7, 2026
+The Architect's page-review cycle is locked. Remaining navigation workspaces are implemented in `src/navigation-buildouts.js`, with primary defaults and approved alternate views selectable under Settings → Visual Views.
+
+Canonical defaults and design history live in:
+- `src/ui-board-registry.ts`
+- `docs/design-decisions/VISIONWEAVER-UI-REVIEW-CHECKPOINT-2026-10-07.md`
+- `docs/design-decisions/CHAT-DECISIONS-2026-10-07.md`
+- `docs/design-decisions/VISIONWEAVER-UI-FINAL-CATALOG.svg`
+
+The notebook/legal-pad theme is retired and no longer appears as a selectable runtime theme.
