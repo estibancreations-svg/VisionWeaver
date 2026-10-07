@@ -57,10 +57,10 @@ V.settings=()=>`<div class="vhead"><span class="eyebrow">System</span><h1>Settin
  <div class="set-layout"><nav class="set-tabs">${SET_TABS.map(([k,l])=>`<button type="button" data-settab="${k}" aria-current="${UI.setTab===k}">${l}</button>`).join("")}</nav><div style="display:grid;gap:18px;min-width:0">${(SETV[UI.setTab]||SETV.appearance)()}</div></div>`;
 const SETV={};
 SETV.appearance=()=>{
-  const prev={auto:["#101217","#171A21","#E89F52"],dark:["#101217","#171A21","#E89F52"],light:["#F1F2F5","#FFFFFF","#B5631B"],think:["#FDF1AA","#FFF8CF","#B8412F"],contrast:["#000","#0A0A0A","#FFD400"]};
+  const prev={auto:["#101217","#171A21","#E89F52"],dark:["#101217","#171A21","#E89F52"],light:["#F1F2F5","#FFFFFF","#B5631B"],contrast:["#000","#0A0A0A","#FFD400"]};
   const acc={tungsten:"#D0802F",daylight:"#2E68A6",emerald:"#1E8A5A",violet:"#6D4BC4",rose:"#C0386B"};
   return `<section class="panel"><h2>Look <span class="sub">yours only, this device</span></h2>
-   ${opt("Theme","Tungsten is the screening-room look. Think turns the studio into a legal pad, like your Systems Desktop.",`<div class="swatches">${THEMES.map(([v,l])=>`<button type="button" class="sw" data-app="theme" data-v="${v}" aria-pressed="${APP.theme===v}"><span class="prev">${prev[v].map(c=>`<i style="background:${c}"></i>`).join("")}</span>${l}</button>`).join("")}</div>`)}
+   ${opt("Theme","Choose the system appearance for this device. The retired notebook/legal-pad theme is not available.",`<div class="swatches">${THEMES.map(([v,l])=>`<button type="button" class="sw" data-app="theme" data-v="${v}" aria-pressed="${APP.theme===v}"><span class="prev">${prev[v].map(c=>`<i style="background:${c}"></i>`).join("")}</span>${l}</button>`).join("")}</div>`)}
    ${opt("Accent color","Buttons, highlights and the live playhead.",`<div class="swatches">${ACCENTS.map(([v,l])=>`<button type="button" class="sw" data-app="accent" data-v="${v}" aria-pressed="${APP.accent===v}"><span class="prev"><i style="background:${acc[v]}"></i></span>${l}</button>`).join("")}</div>`)}
    ${opt("Text size",`${APP.scale}% · bigger text for reading scripts across the room.`,`<input type="range" min="85" max="135" step="5" value="${APP.scale}" data-apprange="scale" style="width:100%">`)}
    ${opt("Spacing","Compact fits more on screen; Roomy is easier on a tablet.",segCtl("density",[["compact","Compact"],["comfortable","Standard"],["roomy","Roomy"]],APP.density))}
