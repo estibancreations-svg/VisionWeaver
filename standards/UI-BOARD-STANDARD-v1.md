@@ -88,11 +88,10 @@ Do not replace an approved primary with an older shell or mockup. New boards inh
 
 
 ## Distribution & Growth board lock
-- Version 1 — PRIMARY / active.
-- Version 2 — retained selectable alternate in Settings > Visual Views.
+- Version 2 — PRIMARY / active.
+- Version 1 — retained selectable alternate in Settings > Visual Views.
 - Version 3 — retained selectable alternate in Settings > Visual Views.
 - All versions inherit the persistent sidebar, sidebar account placement, Search / Create / notification command bar, system color-scheme settings, and no-notebook-theme rules.
-
 
 ## Quality & Audit board lock
 - Version 1 — PRIMARY / active.
@@ -106,4 +105,25 @@ Do not replace an approved primary with an older shell or mockup. New boards inh
 - Version 2 — retained selectable alternate in Settings > Visual Views.
 - Version 3 — retained selectable alternate in Settings > Visual Views.
 - VisionWeaver Finance remains the operating finance layer; enterprise financial authority remains with the CEO/CFO layer.
+- All versions inherit the persistent sidebar, sidebar account placement, Search / Create / notification command bar, system color-scheme settings, and no-notebook-theme rules.
+
+
+## IT & Security board lock
+- Version 2 — PRIMARY / active.
+- Version 1 — retained selectable alternate in Settings > Visual Views.
+- Version 3 — retained selectable alternate in Settings > Visual Views.
+- All versions inherit the persistent sidebar, sidebar account placement, Search / Create / notification command bar, system color-scheme settings, and no-notebook-theme rules.
+
+
+## Resources board lock
+- Version 2 — PRIMARY / active.
+- Version 1 — retained selectable alternate in Settings > Visual Views.
+- Version 3 — retained selectable alternate in Settings > Visual Views.
+- All versions inherit the persistent sidebar, sidebar account placement, Search / Create / notification command bar, system color-scheme settings, and no-notebook-theme rules.
+
+
+## Assets & Knowledge board lock
+- Version 2 — PRIMARY / active.
+- Version 1 — retained selectable alternate in Settings > Visual Views.
+- Version 3 — retained selectable alternate in Settings > Visual Views.
 - All versions inherit the persistent sidebar, sidebar account placement, Search / Create / notification command bar, system color-scheme settings, and no-notebook-theme rules.
