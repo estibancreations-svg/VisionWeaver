@@ -1,15 +1,5 @@
 <style>
-/* v7: themes (Think legal pad, high contrast), accents, density, guide bar, THELMA, palette, settings, cast, print */
-:root[data-theme="think"]{
-  --ground:#FDF1AA; --panel:#FFF8CF; --raise:#F7E794; --line:#D9C878;
-  --ink:#17253A; --mute:#4F5B6E; --tungsten:#B8412F; --tungsten-soft:#F6D9A8;
-  --daylight:#1F4E8C; --daylight-soft:#F3E7A6;
-  --done:#1F6B40; --wait:#7A5A00; --block:#B03A2E; --idle:#7D7A66;
-  --done-soft:#E6EFB8; --wait-soft:#F7E2A0; --block-soft:#F7D2B8; color-scheme:light}
-:root[data-theme="think"] main{background:
-  linear-gradient(90deg,transparent 10px,#d95555 10px,#d95555 12px,transparent 12px),
-  repeating-linear-gradient(180deg,transparent 0 31px,rgba(31,78,140,.18) 31px 32px)}
-:root[data-theme="think"] .vhead h1,:root[data-theme="think"] .brand{font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive;text-transform:none;letter-spacing:0}
+/* v7: high-contrast theme, accents, density, guide bar, THELMA, palette, settings, cast, print */
 :root[data-theme="contrast"]{
   --ground:#000; --panel:#0A0A0A; --raise:#1A1A1A; --line:#FFFFFF;
   --ink:#FFFFFF; --mute:#E0E0E0; --tungsten:#FFD400; --tungsten-soft:#332B00;
@@ -21,9 +11,9 @@
 :root[data-accent="emerald"]{--tungsten:#1E8A5A;--tungsten-soft:#D6F0E3}
 :root[data-accent="violet"]{--tungsten:#6D4BC4;--tungsten-soft:#E7E0FA}
 :root[data-accent="rose"]{--tungsten:#C0386B;--tungsten-soft:#F8DCE7}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-theme="think"]):not([data-theme="contrast"])[data-accent="emerald"]{--tungsten:#5ED39B;--tungsten-soft:#123123}
- :root:not([data-theme="light"]):not([data-theme="think"]):not([data-theme="contrast"])[data-accent="violet"]{--tungsten:#B39DFF;--tungsten-soft:#241B3D}
- :root:not([data-theme="light"]):not([data-theme="think"]):not([data-theme="contrast"])[data-accent="rose"]{--tungsten:#FF8DB5;--tungsten-soft:#3A1726}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-theme="contrast"])[data-accent="emerald"]{--tungsten:#5ED39B;--tungsten-soft:#123123}
+ :root:not([data-theme="light"]):not([data-theme="contrast"])[data-accent="violet"]{--tungsten:#B39DFF;--tungsten-soft:#241B3D}
+ :root:not([data-theme="light"]):not([data-theme="contrast"])[data-accent="rose"]{--tungsten:#FF8DB5;--tungsten-soft:#3A1726}}
 :root[data-theme="dark"][data-accent="emerald"]{--tungsten:#5ED39B;--tungsten-soft:#123123}
 :root[data-theme="dark"][data-accent="violet"]{--tungsten:#B39DFF;--tungsten-soft:#241B3D}
 :root[data-theme="dark"][data-accent="rose"]{--tungsten:#FF8DB5;--tungsten-soft:#3A1726}
@@ -34,7 +24,6 @@
 :root[data-rail="icons"] .rail button{grid-template-columns:1fr;justify-items:center;padding:9px 4px} :root[data-rail="icons"] .rail .dot{display:none}
 body{font-size:1rem} html{font-size:14px}
 input[type=range],input[type=checkbox]{accent-color:var(--tungsten)}
-:root[data-theme="think"] main{padding-left:30px}
 .tools{display:flex;gap:6px}
 .dot.you{background:var(--tungsten)}
 /* guide bar */
