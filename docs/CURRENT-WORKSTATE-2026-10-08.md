@@ -36,3 +36,7 @@ First executable circuit:
 `approved avatar → exact Avatar State → Cast/scene assignment → provider job → output record → automated QC → human decision → Continuity Capsule → next shot`.
 
 This file supersedes the 2026-10-04 current-workstate pointer but preserves that file as historical evidence.
+
+
+## Activation evidence
+Phase 2 Avatar State runtime foundation has been applied to the live Supabase project. The existing `BOY-001 RAIN v02` record is active and bound to the existing completed Red Balloon Shot 01 generation. The non-spending activation check returned `ready_for_world_dissection=true`. The 32-view coverage set remains `QC_PENDING` until exact approved cells are mapped. Evidence: [evidence/PHASE-2-AVATAR-ACTIVATION-2026-10-08.md](evidence/PHASE-2-AVATAR-ACTIVATION-2026-10-08.md).
