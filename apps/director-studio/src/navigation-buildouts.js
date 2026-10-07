@@ -3,6 +3,7 @@
    View changes affect presentation only; authority/workflow gates are unchanged.
 */
 const VW_BOARDS={
+ avatarops:{title:"Avatar Engineering",primary:"V2",views:{V1:"Approved Option 1",V2:"Approved Option 2",V3:"Approved Option 3"}},
  worldops:{title:"Worlds & Locations",primary:"V2",views:{V1:"Cinematic Grid",V2:"Interactive Map",V3:"World Builder Studio"}},
  design:{title:"Design Studio",primary:"V2",views:{V1:"Create Grid",V2:"Design Workspace",V3:"Catalogue Builder"}},
  designops:{title:"Design & Commercial",primary:"V1",views:{V1:"Campaign Command Grid",V2:"Interactive Commercial Studio",V3:"Placement & Performance"}},
