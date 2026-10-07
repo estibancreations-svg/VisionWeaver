@@ -93,3 +93,7 @@ This is an implementation contract. Provider credentials, automated ingestion, r
 ## Current CI truth — October 4, 2026
 
 The [Quality Gate](docs/QUALITY_GATE.md) is now configured for pushes, pull requests and manual runs. The first GitHub run [passed on `bc71815`](https://github.com/estibancreations-svg/VisionWeaver/actions/runs/37334505859) on October 5, 2026: repository integrity, six world-state/balloon regression tests and Director Studio build. This is offline verification; live Avatar State certification and branch-rule enforcement remain pending. The October 4 [workstate](docs/CURRENT-WORKSTATE-2026-10-04.md) is historical on CI.
+
+
+## Current activation checkpoint — October 8, 2026
+VisionWeaver has closed the navigation/UI buildout review and moved into Avatar State runtime activation and automation proof. Canonical recovery/handoff: [docs/CANONICAL-RECOVERY-AND-PHASE-2-ACTIVATION-2026-10-08.md](docs/CANONICAL-RECOVERY-AND-PHASE-2-ACTIVATION-2026-10-08.md). Current pointer: [docs/CURRENT-WORKSTATE-2026-10-08.md](docs/CURRENT-WORKSTATE-2026-10-08.md).
