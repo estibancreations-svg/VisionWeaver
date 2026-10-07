@@ -26,7 +26,7 @@ export const VISIONWEAVER_UI_BOARDS:BoardDefinition[]=[
  locked("Teams & C-Suite","V1",["Organization Command","Authority & Handoff Map","Workforce & Agent Capacity"]),
  locked("Settings","V2",["Quick Settings","Visual & System Control","Advanced Administration"]),
  locked("Vision Builder","V1",["Creative Command Canvas","Blueprint & Dependencies","Concept-to-Production Map"]),
- {page:"Avatar Engineering",status:"approved-no-primary",views:[v("V1","Approved Option 1"),v("V2","Approved Option 2"),v("V3","Approved Option 3")],notes:["Three approved versions retained; no primary invented without an explicit Architect selection."]},
+ locked("Avatar Engineering","V2",["Approved Option 1","Approved Option 2","Approved Option 3"]),
  {page:"Book Creation",status:"existing",views:[]},
  {page:"VisionWeaver Home",status:"existing",views:[]}
 ];
