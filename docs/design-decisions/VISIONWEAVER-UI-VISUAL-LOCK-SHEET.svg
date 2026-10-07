@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1080" viewBox="0 0 1600 1080">
+<rect width="1600" height="1080" fill="#080d14"/>
+<style>
+.title{font:700 38px Arial;fill:#fff}.sub{font:18px Arial;fill:#9fb3c8}
+.h{font:700 21px Arial;fill:#fff}.p{font:16px Arial;fill:#b8c7d9}
+.v{font:700 17px Arial;fill:#5ee7ff}.alt{font:15px Arial;fill:#a99cff}
+.box{fill:#0d1723;stroke:#26394c;stroke-width:2}.primary{fill:#101d2c;stroke:#28d7ff;stroke-width:3}
+.badge{fill:#6c43ff}.next{fill:#13291f;stroke:#55e88b;stroke-width:3}
+</style>
+<text x="60" y="70" class="title">VisionWeaver — UI Design Lock Sheet</text>
+<text x="60" y="105" class="sub">Canonical checkpoint • 2026-10-07 • Consult before generating the next board</text>
+
+<g transform="translate(60,145)">
+<rect class="primary" x="0" y="0" width="460" height="120" rx="14"/><text x="24" y="36" class="h">Worlds &amp; Locations</text><text x="24" y="70" class="v">PRIMARY: V2 — Interactive Map</text><text x="24" y="98" class="alt">Settings: V1 / V3</text>
+<rect class="primary" x="500" y="0" width="460" height="120" rx="14"/><text x="524" y="36" class="h">Design Studio</text><text x="524" y="70" class="v">PRIMARY: V2</text><text x="524" y="98" class="alt">Settings: V1 / V3</text>
+<rect class="primary" x="1000" y="0" width="460" height="120" rx="14"/><text x="1024" y="36" class="h">Design &amp; Commercial</text><text x="1024" y="70" class="v">PRIMARY: V1</text><text x="1024" y="98" class="alt">Settings: V2 / V3</text>
+
+<rect class="primary" x="0" y="150" width="460" height="120" rx="14"/><text x="24" y="186" class="h">Scene &amp; Production</text><text x="24" y="220" class="v">PRIMARY: V1</text><text x="24" y="248" class="alt">V2 Timeline contextual • V3 Settings</text>
+<rect class="primary" x="500" y="150" width="460" height="120" rx="14"/><text x="524" y="186" class="h">Post Production</text><text x="524" y="220" class="v">PRIMARY: V1</text><text x="524" y="248" class="alt">Settings: V2 / V3</text>
+<rect class="primary" x="1000" y="150" width="460" height="120" rx="14"/><text x="1024" y="186" class="h">Distribution &amp; Growth</text><text x="1024" y="220" class="v">PRIMARY: V2 — Content Pipeline</text><text x="1024" y="248" class="alt">Settings: V1 / V3</text>
+
+<rect class="primary" x="0" y="300" width="460" height="120" rx="14"/><text x="24" y="336" class="h">Quality &amp; Audit</text><text x="24" y="370" class="v">PRIMARY: V1</text><text x="24" y="398" class="alt">Settings: V2 / V3</text>
+<rect class="primary" x="500" y="300" width="460" height="120" rx="14"/><text x="524" y="336" class="h">Finance &amp; Accounting</text><text x="524" y="370" class="v">PRIMARY: V1</text><text x="524" y="398" class="alt">Settings: V2 / V3</text>
+<rect class="primary" x="1000" y="300" width="460" height="120" rx="14"/><text x="1024" y="336" class="h">IT &amp; Security</text><text x="1024" y="370" class="v">PRIMARY: V2 — Infrastructure</text><text x="1024" y="398" class="alt">Settings: V1 / V3</text>
+
+<rect class="primary" x="0" y="450" width="460" height="120" rx="14"/><text x="24" y="486" class="h">Resources</text><text x="24" y="520" class="v">PRIMARY: V2 — Search &amp; Filter</text><text x="24" y="548" class="alt">Settings: V1 / V3</text>
+<rect class="primary" x="500" y="450" width="460" height="120" rx="14"/><text x="524" y="486" class="h">Assets &amp; Knowledge</text><text x="524" y="520" class="v">PRIMARY: V2 — Search &amp; Filter</text><text x="524" y="548" class="alt">Settings: V1 / V3</text>
+<rect class="box" x="1000" y="450" width="460" height="120" rx="14"/><text x="1024" y="486" class="h">Avatar Engineering</text><text x="1024" y="520" class="p">V1 / V2 / V3 approved</text><text x="1024" y="548" class="alt">No primary invented</text>
+
+<rect class="next" x="0" y="620" width="1460" height="150" rx="18"/>
+<text x="34" y="668" class="h">NEXT PAGE — REPORTS &amp; INSIGHTS</text>
+<text x="34" y="708" class="p">Generate V1 / V2 / V3 once. Architect selects primary. Save remaining views in Settings.</text>
+<text x="34" y="744" class="p">Do not regenerate completed pages. Rejected duplicates are not design options.</text>
+
+<text x="0" y="825" class="sub">Global shell: persistent sidebar • Search / Create / bell • account above THELMA • no notebook theme • color schemes in Settings • no Canva for this review workflow</text>
+</g>
+</svg>
