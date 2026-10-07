@@ -98,5 +98,5 @@ const GUIDE = {
   uploads:["Drop files; names are matched to cues and deliverables.","Drop your next recording."],
   ledger:["Every credit spent, and the live balance.","Compare the live balance with the records."]
 };
-const THEMES = [["auto","Auto (follow device)"],["dark","Tungsten (dark)"],["light","Daylight (light)"],["think","Think (legal pad)"],["contrast","High contrast"]];
+const THEMES = [["auto","Auto (follow device)"],["dark","Tungsten (dark)"],["light","Daylight (light)"],["contrast","High contrast"]];
 const ACCENTS = [["tungsten","Tungsten orange"],["daylight","Daylight blue"],["emerald","Emerald"],["violet","Violet"],["rose","Rose"]];
