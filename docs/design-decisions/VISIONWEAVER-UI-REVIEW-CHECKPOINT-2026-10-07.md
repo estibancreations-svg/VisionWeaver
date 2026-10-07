@@ -32,7 +32,7 @@ Purpose: Prevent page-generation drift, duplicate reviews, and loss of selected 
 | Assets & Knowledge | V2 Advanced Search & Filter | V1, V3 | LOCKED |
 
 ## Existing special cases
-- Avatar Engineering: three approved versions retained; no new primary should be invented without an explicit Architect selection.
+- Avatar Engineering: V2 PRIMARY; V1 and V3 retained in Settings > Visual Views.
 - Book Creation: existing approved page; do not regenerate unless requested.
 - VisionWeaver Home: existing approved baseline; do not regenerate unless requested.
 
@@ -87,6 +87,7 @@ This file is the checkpoint to consult before any future VisionWeaver page gener
 The Architect authorized completion of the remaining navigation buildouts using the established style/flow rather than requiring another page-by-page approval cycle.
 
 Locked remaining defaults:
+- Avatar Engineering — V2.
 - Reports & Insights — V2 Interactive Intelligence.
 - Programs & Projects — V2 Program & Project Workspace.
 - Strategic Planner — V1 Strategic Command Center.
