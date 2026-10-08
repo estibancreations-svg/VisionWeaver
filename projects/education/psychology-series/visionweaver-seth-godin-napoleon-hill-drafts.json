@@ -1,0 +1,529 @@
+{
+  "schema": "estibancreations.sayings-to-psychology.draft.v1",
+  "version": "1.0.03",
+  "created_date": "2026-10-08",
+  "purpose": "Companion inspiration track to the 152-topic catalog, not a replacement or an increase to its 150 additional terms.",
+  "style_lock": "Original 2D animation with clear adult avatars, expressive restrained gestures, accessible labeled diagrams, deep navy, teal and warm amber palette. Everyday environments. No celebrity likeness, clinical brain claims, logos, or generated text. Add exact typography in the editor. Lock each approved avatar identity and wardrobe across all shots; use the Character Detail Specifications Board, 32-view master, and A Cast Board references before final rendering.",
+  "episodes": [
+    {
+      "episode_id": "SG01",
+      "author_inspiration": "Seth Godin",
+      "title": "What can I still influence?",
+      "related_psychology_term": "Perceived control",
+      "existing_episode_id": "PSY-006",
+      "source_url": "https://podcasts.happyscribe.com/the-diary-of-a-ceo-with-steven-bartlett/the-quitting-expert-michael-jordan-is-wrong-about-quitting-do-this-before-ai-comes-seth-godin",
+      "source_status": "Interview transcript; third-party transcription, not verified against audio. Publisher chapter: 01:22:42; transcript response around 01:23:09.",
+      "source_idea_paraphrase": "Godin emphasizes the narrative surrounding available choices. His broad claim about helplessness being a story is a perspective, not an established universal psychological fact.",
+      "mapping_status": "EDITORIAL INTERPRETATION; related concepts are not equivalent",
+      "webster": {
+        "url": "https://www.merriam-webster.com/dictionary/control",
+        "headword": "control",
+        "coverage": "Component word or related headword",
+        "note": "Link to a dictionary definition; explanatory copy is original editorial paraphrase, not a Webster quotation. A component entry is not a definition of the full psychological construct."
+      },
+      "psychology_source": {
+        "title": "A Reward-Based Framework of Perceived Control - PubMed",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30809112/",
+        "citation": "turn17search6"
+      },
+      "runtime_s": 60,
+      "aspect_ratio": "9:16",
+      "narration_kind": "Original educational adaptation; not a quotation or imitation of the author",
+      "status": "SCRIPT_DRAFT",
+      "render_status": "NOT_SUBMITTED",
+      "scenes": [
+        {
+          "start_s": 0,
+          "end_s": 10,
+          "narration": "You send another application. No answer. Soon, every opportunity looks closed.",
+          "visual": "An original avatar watches unanswered messages stack into a wall."
+        },
+        {
+          "start_s": 10,
+          "end_s": 20,
+          "narration": "Seth Godin asks us to examine the story around our choices.",
+          "visual": "The wall opens into a board of options; no depiction of Godin."
+        },
+        {
+          "start_s": 20,
+          "end_s": 30,
+          "narration": "Perceived control means how much influence we believe we have over what happens.",
+          "visual": "Overlay the term after rendering; distinguish expectation from outcome."
+        },
+        {
+          "start_s": 30,
+          "end_s": 40,
+          "narration": "You cannot make an employer reply. You might improve one application or ask for feedback.",
+          "visual": "Employer response stays outside a small circle; preparation and support appear inside."
+        },
+        {
+          "start_s": 40,
+          "end_s": 50,
+          "narration": "A new action may reveal an option. It does not erase unfair systems or guarantee a job.",
+          "visual": "One route becomes visible; barriers remain in frame."
+        },
+        {
+          "start_s": 50,
+          "end_s": 60,
+          "narration": "Ask: what can I influence today, and what help would make that action possible?",
+          "visual": "Avatar connects with a mentor; hold reflection and source end card."
+        }
+      ]
+    },
+    {
+      "episode_id": "SG02",
+      "author_inspiration": "Seth Godin",
+      "title": "The cost of staying because you stayed",
+      "related_psychology_term": "Sunk-cost effect",
+      "existing_episode_id": "PSY-038",
+      "source_url": "https://seths.blog/2026/09/the-reality-of-sunk-costs/",
+      "source_status": "Primary author blog, September 7, 2026.",
+      "source_idea_paraphrase": "Godin recommends assessing the best use of future resources instead of letting past commitments decide.",
+      "mapping_status": "EDITORIAL INTERPRETATION; related concepts are not equivalent",
+      "webster": {
+        "url": "https://www.merriam-webster.com/dictionary/sunk%20cost",
+        "headword": "sunk cost",
+        "coverage": "Component word or related headword",
+        "note": "Link to a dictionary definition; explanatory copy is original editorial paraphrase, not a Webster quotation. A component entry is not a definition of the full psychological construct."
+      },
+      "psychology_source": {
+        "title": "Throwing good effort after bad: Evidence for a sunk-cost effect in cognitive effort-based decision-making - PubMed",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42364418/",
+        "citation": "turn22search2"
+      },
+      "runtime_s": 60,
+      "aspect_ratio": "9:16",
+      "narration_kind": "Original educational adaptation; not a quotation or imitation of the author",
+      "status": "SCRIPT_DRAFT",
+      "render_status": "NOT_SUBMITTED",
+      "scenes": [
+        {
+          "start_s": 0,
+          "end_s": 10,
+          "narration": "You spent months on a project. Leaving now feels like throwing those months away.",
+          "visual": "Avatar carries a backpack of calendar pages toward a fork."
+        },
+        {
+          "start_s": 10,
+          "end_s": 20,
+          "narration": "Seth Godin suggests judging the next investment from where you are now.",
+          "visual": "Future path lights up; previous calendar pages remain behind."
+        },
+        {
+          "start_s": 20,
+          "end_s": 30,
+          "narration": "The sunk-cost effect is letting unrecoverable past costs weigh too heavily on a new decision.",
+          "visual": "Label past cost and future value separately."
+        },
+        {
+          "start_s": 30,
+          "end_s": 40,
+          "narration": "Ask what the next month could accomplish here, compared with another realistic option.",
+          "visual": "Two future plans appear side by side; camera follows the comparison."
+        },
+        {
+          "start_s": 40,
+          "end_s": 50,
+          "narration": "Past effort can teach you. It cannot, by itself, make the next step worthwhile.",
+          "visual": "Avatar keeps a notebook of lessons and sets down the heavy backpack."
+        },
+        {
+          "start_s": 50,
+          "end_s": 60,
+          "narration": "What would you choose today if your past investment were already accounted for?",
+          "visual": "Hold the fork, reflection, and source card; neither route is automatically declared correct."
+        }
+      ]
+    },
+    {
+      "episode_id": "SG03",
+      "author_inspiration": "Seth Godin",
+      "title": "Optimism that does something",
+      "related_psychology_term": "Optimism",
+      "existing_episode_id": "PSY-145",
+      "source_url": "https://seths.blog/2020/09/optimism-as-a-choice/",
+      "source_status": "Primary author blog, September 6, 2020.",
+      "source_idea_paraphrase": "Godin frames optimism as a stance toward useful contribution rather than reassurance that everything will work out.",
+      "mapping_status": "EDITORIAL INTERPRETATION; related concepts are not equivalent",
+      "webster": {
+        "url": "https://www.merriam-webster.com/dictionary/optimism",
+        "headword": "optimism",
+        "coverage": "Full term",
+        "note": "Link to a dictionary definition; explanatory copy is original editorial paraphrase, not a Webster quotation. A component entry is not a definition of the full psychological construct."
+      },
+      "psychology_source": {
+        "title": "APA Dictionary of Psychology",
+        "url": "https://dictionary.apa.org/optimism",
+        "citation": "turn48search2"
+      },
+      "runtime_s": 60,
+      "aspect_ratio": "9:16",
+      "narration_kind": "Original educational adaptation; not a quotation or imitation of the author",
+      "status": "SCRIPT_DRAFT",
+      "render_status": "NOT_SUBMITTED",
+      "scenes": [
+        {
+          "start_s": 0,
+          "end_s": 10,
+          "narration": "The plan failed. One person says everything is ruined. Another says everything is fine.",
+          "visual": "Two speech bubbles compete over a broken bridge."
+        },
+        {
+          "start_s": 10,
+          "end_s": 20,
+          "narration": "Seth Godin offers a more useful question: where can we contribute and improve?",
+          "visual": "Avatar examines the bridge rather than repeating either bubble."
+        },
+        {
+          "start_s": 20,
+          "end_s": 30,
+          "narration": "Optimism involves favorable expectations. It is different from pretending obstacles have disappeared.",
+          "visual": "Show the technical term beside the visibly damaged bridge."
+        },
+        {
+          "start_s": 30,
+          "end_s": 40,
+          "narration": "A team checks the damage, gathers tools, and tests one possible repair.",
+          "visual": "Three original avatars work together; progress is tentative."
+        },
+        {
+          "start_s": 40,
+          "end_s": 50,
+          "narration": "Confidence alone cannot rebuild a bridge. Plans, resources, and feedback still matter.",
+          "visual": "Camera reveals materials, inspection checklist and remaining gap."
+        },
+        {
+          "start_s": 50,
+          "end_s": 60,
+          "narration": "What useful action fits the facts you have, while leaving room for a better outcome?",
+          "visual": "One repaired section supports a test; hold reflection and source credits."
+        }
+      ]
+    },
+    {
+      "episode_id": "SG04",
+      "author_inspiration": "Seth Godin",
+      "title": "Fear at the starting line",
+      "related_psychology_term": "Fear",
+      "existing_episode_id": "PSY-064",
+      "source_url": "https://seths.blog/2014/01/the-four-horsemen-of-mediocrity/",
+      "source_status": "Primary author blog, January 30, 2014.",
+      "source_idea_paraphrase": "Godin names deniability, helplessness, contempt and fear as obstacles in work; this is his rhetorical framework, not a diagnostic taxonomy.",
+      "mapping_status": "EDITORIAL INTERPRETATION; related concepts are not equivalent",
+      "webster": {
+        "url": "https://www.merriam-webster.com/dictionary/fear",
+        "headword": "fear",
+        "coverage": "Full term",
+        "note": "Link to a dictionary definition; explanatory copy is original editorial paraphrase, not a Webster quotation. A component entry is not a definition of the full psychological construct."
+      },
+      "psychology_source": {
+        "title": "APA Dictionary of Psychology",
+        "url": "https://dictionary.apa.org/fear-response",
+        "citation": "turn26search6"
+      },
+      "runtime_s": 60,
+      "aspect_ratio": "9:16",
+      "narration_kind": "Original educational adaptation; not a quotation or imitation of the author",
+      "status": "SCRIPT_DRAFT",
+      "render_status": "NOT_SUBMITTED",
+      "scenes": [
+        {
+          "start_s": 0,
+          "end_s": 10,
+          "narration": "You have an idea, but imagining the criticism stops you before you begin.",
+          "visual": "Avatar holds a draft; imagined comment bubbles crowd the doorway."
+        },
+        {
+          "start_s": 10,
+          "end_s": 20,
+          "narration": "Seth Godin names fear as one obstacle that can keep useful work from happening.",
+          "visual": "Bubbles shrink enough to reveal a possible first step."
+        },
+        {
+          "start_s": 20,
+          "end_s": 30,
+          "narration": "Fear responds to perceived danger. Sometimes that danger is judgment rather than physical harm.",
+          "visual": "Label fear; imagined audience stays distinct from the actual room."
+        },
+        {
+          "start_s": 30,
+          "end_s": 40,
+          "narration": "A small rehearsal with someone you trust can make the next step more concrete.",
+          "visual": "Avatar practices with a supportive friend; no guarantee of confidence."
+        },
+        {
+          "start_s": 40,
+          "end_s": 50,
+          "narration": "Some risks need protection or a different plan. Courage includes assessing the situation.",
+          "visual": "Show a risk checklist and an alternate route."
+        },
+        {
+          "start_s": 50,
+          "end_s": 60,
+          "narration": "What are you afraid will happen, and what would make a first attempt reasonable?",
+          "visual": "Avatar chooses whether to rehearse; reflection and sources finish the scene."
+        }
+      ]
+    },
+    {
+      "episode_id": "NH01",
+      "author_inspiration": "Napoleon Hill",
+      "title": "Give the goal a shape",
+      "related_psychology_term": "Purpose",
+      "existing_episode_id": "PSY-148",
+      "source_url": "https://us.macmillan.com/books/9781250318701/successhabits/",
+      "source_status": "Publisher excerpt of Hill’s radio talks, Success Habits, chapter Definiteness of Purpose.",
+      "source_idea_paraphrase": "Hill stresses choosing a definite aim. His success claims are self-help philosophy; this episode makes no promise that wording creates wealth.",
+      "mapping_status": "EDITORIAL INTERPRETATION; related concepts are not equivalent",
+      "webster": {
+        "url": "https://www.merriam-webster.com/dictionary/purpose",
+        "headword": "purpose",
+        "coverage": "Full term",
+        "note": "Link to a dictionary definition; explanatory copy is original editorial paraphrase, not a Webster quotation. A component entry is not a definition of the full psychological construct."
+      },
+      "psychology_source": {
+        "title": "APA Dictionary of Psychology",
+        "url": "https://dictionary.apa.org/purpose",
+        "citation": "turn48search1"
+      },
+      "runtime_s": 60,
+      "aspect_ratio": "9:16",
+      "narration_kind": "Original educational adaptation; not a quotation or imitation of the author",
+      "status": "SCRIPT_DRAFT",
+      "render_status": "NOT_SUBMITTED",
+      "scenes": [
+        {
+          "start_s": 0,
+          "end_s": 10,
+          "narration": "You want life to feel different, but different has no shape yet.",
+          "visual": "Avatar faces a foggy signpost with many unnamed paths."
+        },
+        {
+          "start_s": 10,
+          "end_s": 20,
+          "narration": "Napoleon Hill placed a definite purpose at the center of his approach.",
+          "visual": "A single chosen destination appears; no reenactment of Hill."
+        },
+        {
+          "start_s": 20,
+          "end_s": 30,
+          "narration": "Purpose is a sense of direction toward something meaningful. A goal makes one part concrete.",
+          "visual": "Overlay purpose and a specific goal as distinct labels."
+        },
+        {
+          "start_s": 30,
+          "end_s": 40,
+          "narration": "Instead of get better at everything, choose: complete one course module this week.",
+          "visual": "Calendar shows one feasible study block and a module checkpoint."
+        },
+        {
+          "start_s": 40,
+          "end_s": 50,
+          "narration": "Writing the aim does not guarantee the result. Time, skill and support shape what is possible.",
+          "visual": "Show the calendar beside resources and available help."
+        },
+        {
+          "start_s": 50,
+          "end_s": 60,
+          "narration": "What matters to you, and what would count as one realistic step toward it?",
+          "visual": "Fog clears around the next step only; hold reflection and source card."
+        }
+      ]
+    },
+    {
+      "episode_id": "NH02",
+      "author_inspiration": "Napoleon Hill",
+      "title": "Persistence with a learning loop",
+      "related_psychology_term": "Psychological flexibility",
+      "existing_episode_id": "PSY-140",
+      "source_url": "https://www.naphill.org/uncategorized/ezine-758-7-23-21/",
+      "source_status": "Foundation search-indexed reproduction of the Persistence chapter from Think and Grow Rich. Direct page blocked; excerpt retrieved in search.",
+      "source_idea_paraphrase": "Hill emphasizes persistent effort and planning. The flexible-method distinction is our editorial addition, mapped separately to psychology.",
+      "mapping_status": "EDITORIAL INTERPRETATION; related concepts are not equivalent",
+      "webster": {
+        "url": "https://www.merriam-webster.com/dictionary/flexibility",
+        "headword": "flexibility",
+        "coverage": "Component word or related headword",
+        "note": "Link to a dictionary definition; explanatory copy is original editorial paraphrase, not a Webster quotation. A component entry is not a definition of the full psychological construct."
+      },
+      "psychology_source": {
+        "title": "Defining and measuring \"psychological flexibility\": A narrative scoping review of diverse flexibility and rigidity constructs and perspectives - PubMed",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33550157/",
+        "citation": "turn47search4"
+      },
+      "runtime_s": 60,
+      "aspect_ratio": "9:16",
+      "narration_kind": "Original educational adaptation; not a quotation or imitation of the author",
+      "status": "SCRIPT_DRAFT",
+      "render_status": "NOT_SUBMITTED",
+      "scenes": [
+        {
+          "start_s": 0,
+          "end_s": 10,
+          "narration": "Your first attempt fails. Should you try again, or change what you are trying?",
+          "visual": "A paper glider falls; avatar inspects the fold."
+        },
+        {
+          "start_s": 10,
+          "end_s": 20,
+          "narration": "Napoleon Hill emphasized persistence. We can apply that idea while learning from feedback.",
+          "visual": "Avatar keeps the destination but opens a notebook of observations."
+        },
+        {
+          "start_s": 20,
+          "end_s": 30,
+          "narration": "Psychological flexibility includes adjusting your response to the situation while acting on what matters.",
+          "visual": "Show a route that bends around an obstacle."
+        },
+        {
+          "start_s": 30,
+          "end_s": 40,
+          "narration": "A student keeps the learning goal, but changes an ineffective study method.",
+          "visual": "Passive rereading transitions to practice and checking mistakes."
+        },
+        {
+          "start_s": 40,
+          "end_s": 50,
+          "narration": "Repeating a harmful approach is not the only way to stay committed. Rest and support can belong in the plan.",
+          "visual": "Avatar schedules a break and asks for guidance."
+        },
+        {
+          "start_s": 50,
+          "end_s": 60,
+          "narration": "What will you continue, what will you change, and when will you review the result?",
+          "visual": "Three editable planning boxes animate in; reflection and source card."
+        }
+      ]
+    },
+    {
+      "episode_id": "NH03",
+      "author_inspiration": "Napoleon Hill",
+      "title": "A setback is not your identity",
+      "related_psychology_term": "Cognitive reappraisal",
+      "existing_episode_id": "PSY-075",
+      "source_url": "https://www.naphill.org/focus-instructors/adversity-and-defeat/",
+      "source_status": "Foundation article attributes the short quotation below to Hill; search-indexed text available, full page blocked.",
+      "source_idea_paraphrase": "Hill’s seed-of-benefit metaphor invites looking for possibilities. Our adaptation treats learning as possible rather than inevitable.",
+      "mapping_status": "EDITORIAL INTERPRETATION; related concepts are not equivalent",
+      "webster": {
+        "url": "https://www.merriam-webster.com/dictionary/reappraisal",
+        "headword": "reappraisal",
+        "coverage": "Component word or related headword",
+        "note": "Link to a dictionary definition; explanatory copy is original editorial paraphrase, not a Webster quotation. A component entry is not a definition of the full psychological construct."
+      },
+      "psychology_source": {
+        "title": "A meta-analysis of cognitive reappraisal and personal resilience - PubMed",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38657292/",
+        "citation": "turn27search16"
+      },
+      "runtime_s": 60,
+      "aspect_ratio": "9:16",
+      "narration_kind": "Original educational adaptation; not a quotation or imitation of the author",
+      "status": "SCRIPT_DRAFT",
+      "render_status": "NOT_SUBMITTED",
+      "scenes": [
+        {
+          "start_s": 0,
+          "end_s": 10,
+          "narration": "A rejection arrives, and your mind turns one event into a verdict about you.",
+          "visual": "A rejection letter casts a shadow labeled failure over the avatar."
+        },
+        {
+          "start_s": 10,
+          "end_s": 20,
+          "narration": "Hill used the image of a seed of benefit within adversity. We will treat that as a possibility.",
+          "visual": "A small seed sits beside the letter; it does not automatically grow."
+        },
+        {
+          "start_s": 20,
+          "end_s": 30,
+          "narration": "Cognitive reappraisal means changing how you interpret a situation to change its emotional meaning.",
+          "visual": "The event stays fixed while two interpretation cards appear."
+        },
+        {
+          "start_s": 30,
+          "end_s": 40,
+          "narration": "This rejection might contain feedback about fit, preparation, or what to try next.",
+          "visual": "Avatar reads feedback and sorts useful information from unfair criticism."
+        },
+        {
+          "start_s": 40,
+          "end_s": 50,
+          "narration": "You do not have to find a benefit in every loss. Pain deserves room, too.",
+          "visual": "Avatar pauses with a supportive friend; the seed remains optional."
+        },
+        {
+          "start_s": 50,
+          "end_s": 60,
+          "narration": "What does this event tell you, and what does it fail to prove about your worth?",
+          "visual": "Shadow lifts enough to show the avatar; hold reflection and source card."
+        }
+      ]
+    },
+    {
+      "episode_id": "NH04",
+      "author_inspiration": "Napoleon Hill",
+      "title": "Thinking with other people",
+      "related_psychology_term": "Social support",
+      "existing_episode_id": "PSY-102",
+      "source_url": "https://www.naphill.org/focus-instructors/mastermind/",
+      "source_status": "Foundation instructor article discussing Hill’s mastermind principle; search-indexed text available, full page blocked.",
+      "source_idea_paraphrase": "Hill promotes cooperative thinking. Social support is a related psychological concept; it is not identical to his mastermind framework.",
+      "mapping_status": "EDITORIAL INTERPRETATION; related concepts are not equivalent",
+      "webster": {
+        "url": "https://www.merriam-webster.com/dictionary/support",
+        "headword": "support",
+        "coverage": "Component word or related headword",
+        "note": "Link to a dictionary definition; explanatory copy is original editorial paraphrase, not a Webster quotation. A component entry is not a definition of the full psychological construct."
+      },
+      "psychology_source": {
+        "title": "APA Dictionary of Psychology",
+        "url": "https://dictionary.apa.org/psychosocial-support",
+        "citation": "turn42search21"
+      },
+      "runtime_s": 60,
+      "aspect_ratio": "9:16",
+      "narration_kind": "Original educational adaptation; not a quotation or imitation of the author",
+      "status": "SCRIPT_DRAFT",
+      "render_status": "NOT_SUBMITTED",
+      "scenes": [
+        {
+          "start_s": 0,
+          "end_s": 10,
+          "narration": "You keep circling the same problem alone. Every idea seems to lead back to the start.",
+          "visual": "Avatar walks a loop of tangled paths."
+        },
+        {
+          "start_s": 10,
+          "end_s": 20,
+          "narration": "Napoleon Hill’s mastermind principle emphasizes working with others toward a shared aim.",
+          "visual": "Two original collaborators join; the loop opens into a planning table."
+        },
+        {
+          "start_s": 20,
+          "end_s": 30,
+          "narration": "Social support includes practical help, useful information, and emotional encouragement from other people.",
+          "visual": "Show three distinct forms of support without magical imagery."
+        },
+        {
+          "start_s": 30,
+          "end_s": 40,
+          "narration": "A trusted peer spots a missing step. A mentor helps you test the next option.",
+          "visual": "Peers compare plans; avatar retains the final decision."
+        },
+        {
+          "start_s": 40,
+          "end_s": 50,
+          "narration": "Agreement is not always good advice. Useful support can include a respectful challenge.",
+          "visual": "One collaborator flags a weak assumption; group checks the evidence."
+        },
+        {
+          "start_s": 50,
+          "end_s": 60,
+          "narration": "Who could help you see this problem more clearly, and what specific help could you ask for?",
+          "visual": "Avatar sends a specific request; reflection and readable source credits."
+        }
+      ]
+    }
+  ]
+}
