@@ -71,7 +71,7 @@ def main():
     head = ('<title>VisionWeaver Studio</title>\n<link rel="preconnect" href="https://fonts.googleapis.com">\n'
             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800'
             '&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">\n')
-    css = "".join((HERE / "src" / f).read_text(encoding="utf-8") for f in ["base.css", "extra.css", "v7.css", "v8.css", "operating-boards.css", "navigation-buildouts.css", "hosted-shell.css"])
+    css = "".join((lambda text: text if "<style" in text else "<style>" + text + "</style>")((HERE / "src" / f).read_text(encoding="utf-8")) for f in ["base.css", "extra.css", "v7.css", "v8.css", "operating-boards.css", "navigation-buildouts.css", "hosted-shell.css"])
     css = css.replace("/* v5 additions", "[hidden]{display:none!important}\n/* v5 additions", 1)
     src = HERE / "src"
     js = "".join((src / f).read_text(encoding="utf-8") for f in JS_PARTS)
