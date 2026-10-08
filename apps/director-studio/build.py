@@ -19,7 +19,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 EP = REPO / "projects/creative-ip/crossroads-of-identity/production/book-01-convergence/episode-01-the-news"
 JS_PARTS = ["records.js", "records-v7.js", "core.js", "views-pipeline.js", "views-production.js",
-            "views-system.js", "operating-boards.js", "navigation-buildouts.js", "commercial-station.js", "design-studio.js", "thelma.js", "projects.js", "execute.js", "frames.js", "runtime.js"]
+            "views-system.js", "operating-boards.js", "navigation-buildouts.js", "commercial-station.js", "design-studio.js", "thelma.js", "projects.js", "execute.js", "frames.js", "runtime.js", "hosted-shell.js"]
 KEYS = ["id", "plate", "pin", "lens", "move", "framing", "face", "light", "sound"]
 
 
@@ -71,7 +71,7 @@ def main():
     head = ('<title>VisionWeaver Studio</title>\n<link rel="preconnect" href="https://fonts.googleapis.com">\n'
             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800'
             '&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">\n')
-    css = "".join((HERE / "src" / f).read_text(encoding="utf-8") for f in ["base.css", "extra.css", "v7.css", "v8.css", "operating-boards.css", "navigation-buildouts.css"])
+    css = "".join((HERE / "src" / f).read_text(encoding="utf-8") for f in ["base.css", "extra.css", "v7.css", "v8.css", "operating-boards.css", "navigation-buildouts.css", "hosted-shell.css"])
     css = css.replace("/* v5 additions", "[hidden]{display:none!important}\n/* v5 additions", 1)
     src = HERE / "src"
     js = "".join((src / f).read_text(encoding="utf-8") for f in JS_PARTS)
