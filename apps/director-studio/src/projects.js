@@ -164,7 +164,7 @@ function drawOnb(){let o=$("#onb");if(!o){o=document.createElement("div");o.id="
   const s=UI.onb,name=(NAMES[store.uid]||"").split(" ")[0];
   const roles=[["director","Director / owner","You make the final calls."],["producer","Producer","You keep projects moving."],["editor","Editor","You cut clips into movies and posts."],["writer","Writer","You shape scripts and captions."],["viewer","Viewer","You watch and comment."]];
   const body={
-   1:`<h2>Welcome${name?`, ${esc(name)}`:""} 👋</h2><p>This is a film studio on one screen. <b>Projects</b> are the movies and posts. <b>THELMA</b> is your assistant director. <b>Nothing big happens without your yes.</b></p><p class="note">You're signed in through claude.ai${name?` as ${esc(name)}`:""}. No extra password.</p>
+   1:`<h2>Welcome${name?`, ${esc(name)}`:""} 👋</h2><p>This is a film studio on one screen. <b>Projects</b> are the movies and posts. <b>THELMA</b> is your assistant director. <b>Nothing big happens without your yes.</b></p><p class="note">${store.mode==="shared"?`You're connected through your artifact workspace${name?` as ${esc(name)}`:""}.`:"This hosted workspace saves on this browser. Cloud sign-in is not active here."}</p>
       <h3>What's your role?</h3><div class="onbroles">${roles.map(([k,l,d])=>`<button type="button" class="onbrole" data-role="${k}" aria-pressed="${MINE.role===k}"><b>${l}</b><span class="note">${d}</span></button>`).join("")}</div>
       <label class="f" style="margin-top:10px">What should THELMA call you?<input type="text" id="onbCall" value="${esc(MINE.callMe||(MINE.role==="director"||!name?"Sire":name))}"></label>`,
    2:`<h2>Where do you want to start?</h2><div class="onbpaths">
