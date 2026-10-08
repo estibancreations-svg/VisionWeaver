@@ -1,10 +1,10 @@
 # Name the Pattern — Psychology in Everyday Life
-Version 1.0.02 · October 7, 2026
+Version 1.0.03 · October 8, 2026
 ## Findings and attribution
 The exact Will Perez video is not yet verified. Its title appears in YouTube recommendation search results, but no exact source URL, playable segment, timestamp, or transcript was obtained. This package therefore makes no claim to quote that segment.
-Nir Eyal’s own published post describes building hope through small, controllable actions and records of effective effort. It is the directly checked attribution source. Maier and Seligman’s 2016 reassessment discusses learned control inhibiting passive stress responses; much of its mechanistic evidence concerns animals. Avoid presenting “everyone is born wanting to give up” as an established universal fact about human development.
+Attribution corrected: the relevant author appears to be Seth Godin, not Nir Eyal. The user supplied Seth Golden; the located author and Bartlett interview use Godin. The exact Perez quote is still unverified. Godin’s published writing and a separately located Bartlett interview discuss agency, fear, perceived helplessness and getting unstuck. Napoleon Hill is now a separate inspiration track. See Seth-Godin-Napoleon-Hill-Research-and-Drafts.md for verified source links, short quotations and eight original animated episode drafts.
 Snyder’s hope model combines agency and pathways toward goals. Helplessness concerns control; hopelessness concerns future expectation; hope is not a guaranteed favorable outcome.
-Primary sources: https://www.linkedin.com/posts/nireyal_you-were-born-wanting-to-give-up-you-have-activity-7500168199364153344-FFjP ; https://pubmed.ncbi.nlm.nih.gov/27337390/ ; https://pubmed.ncbi.nlm.nih.gov/2037968/
+Primary sources: https://seths.blog/2014/01/the-four-horsemen-of-mediocrity/ ; https://pubmed.ncbi.nlm.nih.gov/27337390/ ; https://pubmed.ncbi.nlm.nih.gov/2037968/
 ## Format
 Working title: Name the Pattern. Audience: general adult and older-teen educational audience. Eight scenes, 60 seconds, 9:16 master with 16:9 adaptation. Recognizable situation → term → explanation → visual mechanism → important distinction → reflection. Original, inclusive avatars; source credits; editable sound layers. No diagnostic quiz or treatment promise.
 ## Categories
